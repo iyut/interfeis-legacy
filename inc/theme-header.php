@@ -11,6 +11,42 @@
  * @package Legacy
  */
 
+ /**
+  * Hooks for top head ( a container before master head - masthead )
+  * @uses ifs_legacy_before_tophead()
+  * @uses ifs_legacy_tophead()
+  * @uses ifs_legacy_after_tophead()
+  */
+function ifs_legacy_hook_before_tophead(){
+	do_action('ifs_legacy_hook_before_tophead');
+}
+function ifs_legacy_hook_tophead(){
+	do_action('ifs_legacy_hook_tophead');
+}
+function ifs_legacy_hook_after_tophead(){
+	do_action('ifs_legacy_hook_after_tophead');
+}
+
+/**
+ * hook for theme header
+ *
+ * @uses ifs_legacyt_theme_header()
+ */
+function ifs_legacy_theme_header(){
+	do_action('ifs_legacy_theme_header');
+}
+
+/**
+ * Get theme header file
+ *
+ * @uses ifs_legacy_get_theme_header()
+ */
+function ifs_legacy_get_theme_header(){
+	$ifs_legacy_header = 'header-1';
+	get_template_part( 'headers/'.$ifs_legacy_header.'/header');
+}
+add_action('ifs_legacy_theme_header', 'ifs_legacy_get_theme_header', 20);
+
 /**
  * Set up the WordPress core custom header feature.
  *
