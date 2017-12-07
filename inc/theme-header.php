@@ -37,6 +37,72 @@ function ifs_legacy_theme_header(){
 }
 
 /**
+ * Check theme header files
+ *
+ * @uses ifs_legacy_check_theme_headers()
+ */
+function ifs_legacy_check_theme_header( $header_directory ){
+
+	$header_files = array();
+
+	$dirs = @ scandir( $header_directory );
+	if ( ! $dirs ) {
+		return $header_files;
+	}else{
+		foreach ( $dirs as $dir ) {
+
+			if($dir=='.' || $dir=='..') continue;
+
+			$root_to_dir = $header_directory . '/' . $dir;
+
+			if(is_dir( $root_to_dir )){
+
+				$header_tmpl= $root_to_dir . '/header';
+				$header_php = $root_to_dir . '/header.php';
+				$header_css = $root_to_dir . '/header.css';
+				$header_png = $root_to_dir . '/header.png';
+
+				if( file_exists( $header_php ) && file_exists( $header_css ) && file_exists( $header_png ) ){
+					$header_files[$dir] = array(
+						'tmpl'	=> $header_tmpl,
+						'php' 	=> $header_php,
+						'css' 	=> $header_css,
+						'png' 	=> $header_png
+					);
+				}
+
+			}
+
+		}
+	}
+	return apply_filters('ifs_legacy_check_theme_header_files', $header_files);
+}
+
+/**
+ * Get theme header files
+ *
+ * @uses ifs_legacy_get_theme_headers()
+ */
+function ifs_legacy_get_theme_headers(){
+	$parent_header_root = get_template_directory().'/headers';
+
+	$header_files = ifs_legacy_check_theme_header( $parent_header_root );
+
+	if(is_child_theme()){
+		$child_header_root = get_stylesheet_directory().'/headers';
+
+		$child_header_files = ifs_legacy_check_theme_header( $child_header_root );
+
+		foreach($child_header_files as $child_header_name => $child_header_val ){
+
+			$header_files[$child_header_name] = $child_header_val;
+
+		}
+	}
+	return apply_filters('ifs_legacy_get_theme_header_files', $header_files);
+}
+
+/**
  * Get theme header file
  *
  * @uses ifs_legacy_get_theme_header()
