@@ -41,7 +41,7 @@ function ifs_legacy_theme_header(){
  *
  * @uses ifs_legacy_check_theme_headers()
  */
-function ifs_legacy_check_theme_header( $header_directory ){
+function ifs_legacy_check_theme_header( $header_directory, $header_url ){
 
 	$header_files = array();
 
@@ -53,7 +53,8 @@ function ifs_legacy_check_theme_header( $header_directory ){
 
 			if($dir=='.' || $dir=='..') continue;
 
-			$root_to_dir = $header_directory . '/' . $dir;
+			$root_to_dir 	= $header_directory . '/' . $dir;
+			$url_dir		= $header_url . '/' . $dir;
 
 			if(is_dir( $root_to_dir )){
 
@@ -62,12 +63,17 @@ function ifs_legacy_check_theme_header( $header_directory ){
 				$header_css = $root_to_dir . '/header.css';
 				$header_png = $root_to_dir . '/header.png';
 
+				$header_tmpl_url	= $url_dir . '/header';
+				$header_css_url		= $url_dir . '/header.css';
+				$header_png_url		= $url_dir . '/header.png';
+
 				if( file_exists( $header_php ) && file_exists( $header_css ) && file_exists( $header_png ) ){
 					$header_files[$dir] = array(
+						'name'	=> $dir,
 						'tmpl'	=> $header_tmpl,
 						'php' 	=> $header_php,
-						'css' 	=> $header_css,
-						'png' 	=> $header_png
+						'css' 	=> $header_css_url,
+						'png' 	=> $header_png_url
 					);
 				}
 
@@ -85,13 +91,15 @@ function ifs_legacy_check_theme_header( $header_directory ){
  */
 function ifs_legacy_get_theme_headers(){
 	$parent_header_root = get_template_directory().'/headers';
+	$parent_header_url 	= get_template_directory_uri().'/headers';
 
-	$header_files = ifs_legacy_check_theme_header( $parent_header_root );
+	$header_files = ifs_legacy_check_theme_header( $parent_header_root, $parent_header_url );
 
 	if(is_child_theme()){
-		$child_header_root = get_stylesheet_directory().'/headers';
+		$child_header_root 	= get_stylesheet_directory().'/headers';
+		$child_header_url	= get_stylesheet_directory_uri().'/headers';
 
-		$child_header_files = ifs_legacy_check_theme_header( $child_header_root );
+		$child_header_files = ifs_legacy_check_theme_header( $child_header_root, $child_header_url );
 
 		foreach($child_header_files as $child_header_name => $child_header_val ){
 
@@ -103,13 +111,46 @@ function ifs_legacy_get_theme_headers(){
 }
 
 /**
+ * Get theme header value from theme option
+ *
+ * @uses ifs_legacy_get_theme_header_mod()
+ */
+function ifs_legacy_get_theme_header_mod(){
+	$ifs_legacy_header_mod = get_theme_mod( 'ifs_legacy_header_layout_style' );
+	$ifs_legacy_headers = ifs_legacy_get_theme_headers();
+	if(array_key_exists($ifs_legacy_header_mod, $ifs_legacy_headers)){
+		$css_header_mod = $ifs_legacy_headers[$ifs_legacy_header_mod]['css'];
+		$ifs_legacy_header = $ifs_legacy_headers[$ifs_legacy_header_mod];
+		return $ifs_legacy_header;
+	}else{
+		foreach($ifs_legacy_headers as $ifs_legacy_header){
+			$return = $ifs_legacy_header;
+			return $return;
+			break;
+		}
+	}
+}
+
+/**
+ * Get theme header value from theme option
+ *
+ * @uses ifs_legacy_get_theme_header_mod()
+ */
+function ifs_legacy_get_theme_header_css(){
+	$ifs_legacy_header_mod = ifs_legacy_get_theme_header_mod();
+	wp_enqueue_style('ifs_legacy_header_mod', $ifs_legacy_header_mod['css'] );
+
+}
+add_action( 'wp_enqueue_scripts', 'ifs_legacy_get_theme_header_css', 20);
+
+/**
  * Get theme header file
  *
  * @uses ifs_legacy_get_theme_header()
  */
 function ifs_legacy_get_theme_header(){
-	$ifs_legacy_header = 'header-1';
-	get_template_part( 'headers/'.$ifs_legacy_header.'/header');
+	$ifs_legacy_header = ifs_legacy_get_theme_header_mod();
+	get_template_part( 'headers/'.$ifs_legacy_header['name'].'/header');
 }
 add_action('ifs_legacy_theme_header', 'ifs_legacy_get_theme_header', 20);
 

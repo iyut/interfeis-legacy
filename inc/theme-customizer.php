@@ -83,8 +83,9 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
 
 	$wp_customize->add_setting( 'ifs_legacy_header_layout_style', array(
-		'default'           => 'default',
-		'sanitize_callback' => 'sanitize_key'
+		'default'           => 'header-1',
+		'sanitize_callback' => 'sanitize_key',
+        'transport'         => 'refresh'
 	) );
 
 
@@ -98,11 +99,11 @@ function ifs_legacy_customize_register( $wp_customize ) {
         );
     }
 
-	$wp_customize->add_control( new IFS_Image_Select_Control( 'ifs_legacy_header_layout_style', array(
-		'label'       => esc_html__( 'Layout', 'ifs-legacy' ),
-		'description' => __( 'Choose a layout for the blog posts.', 'ifs-legacy' ),
-		'section'     => 'blog_layout',
-		'settings'    => 'layout_style',
+	$wp_customize->add_control( new IFS_Image_Select_Control($wp_customize, 'ifs_legacy_header_layout_style', array(
+		'label'       => esc_html__( 'Header Layout', 'ifs-legacy' ),
+		'description' => __( 'Choose a layout for the header.', 'ifs-legacy' ),
+		'section'     => 'ifs_legacy_section_header_options',
+		'setting'    => 'ifs_legacy_header_layout_style',
 		'choices'     => $header_layout_opt,
 		'priority'    => 10
 	) ) );
