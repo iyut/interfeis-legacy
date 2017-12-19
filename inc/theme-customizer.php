@@ -5,6 +5,27 @@
  * @package Legacy
  */
 
+
+ /**
+  * Include Custom Controls
+  *
+  * Includes all our custom control classes.
+  *
+  * @param WP_Customize_Manager $wp_customize
+  *
+  * @access public
+  * @since  1.1
+  * @return void
+  */
+ function ifs_legacy_include_controls( $wp_customize ) {
+
+ 	require_once get_template_directory() . '/inc/customizer/controls/class-ifs-image-select-control.php';
+
+ 	$wp_customize->register_control_type( 'IFS_Image_Select_Control' );
+
+ }
+ add_action( 'customize_register', 'ifs_legacy_include_controls' );
+
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
@@ -60,8 +81,35 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'setting'	=> 'background_color'
 	)));
 
+
+	$wp_customize->add_setting( 'ifs_legacy_header_layout_style', array(
+		'default'           => 'default',
+		'sanitize_callback' => 'sanitize_key'
+	) );
+
+
+
+    $headers = ifs_legacy_get_theme_headers();
+    $header_layout_opt = array();
+    foreach( $headers as $header_idx => $header_val ){
+        $header_layout_opt[$header_idx] = array(
+            'label' => $header_idx,
+            'url'   => $header_val['png']
+        );
+    }
+
+	$wp_customize->add_control( new IFS_Image_Select_Control( 'ifs_legacy_header_layout_style', array(
+		'label'       => esc_html__( 'Layout', 'ifs-legacy' ),
+		'description' => __( 'Choose a layout for the blog posts.', 'ifs-legacy' ),
+		'section'     => 'blog_layout',
+		'settings'    => 'layout_style',
+		'choices'     => $header_layout_opt,
+		'priority'    => 10
+	) ) );
+
 }
 add_action( 'customize_register', 'ifs_legacy_customize_register' );
+
 
 /**
  * Render the site title for the selective refresh partial.
