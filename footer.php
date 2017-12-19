@@ -14,6 +14,9 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+
+		<?php ifs_legacy_theme_footer(); ?>
+		
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ifs-legacy' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
