@@ -100,7 +100,7 @@
   * @uses ifs_legacy_get_theme_footer_mod()
   */
  function ifs_legacy_get_theme_footer_mod(){
- 	$ifs_legacy_footer_mod = get_theme_mod( 'ifs_legacy_footer_layout_style' );
+ 	$ifs_legacy_footer_mod = get_theme_mod( 'ifs_legacy_footer_layout_style', 'footer-1' );
  	$ifs_legacy_footers = ifs_legacy_get_theme_footers();
  	if(array_key_exists($ifs_legacy_footer_mod, $ifs_legacy_footers)){
  		$css_footer_mod = $ifs_legacy_footers[$ifs_legacy_footer_mod]['css'];
@@ -121,8 +121,19 @@
   * @uses ifs_legacy_get_theme_footer_mod()
   */
  function ifs_legacy_get_theme_footer_css(){
+     
  	$ifs_legacy_footer_mod = ifs_legacy_get_theme_footer_mod();
  	wp_enqueue_style('ifs_legacy_footer_mod', $ifs_legacy_footer_mod['css'] );
+
+    add_filter('body_class', function (array $classes) {
+
+        $ifs_legacy_footer_mod = ifs_legacy_get_theme_footer_mod();
+
+	    $classes[]  = $ifs_legacy_footer_mod['name'];
+	    $classes[]  = $ifs_legacy_footer_mod['name'].'-css';
+
+		return $classes;
+	});
 
  }
  add_action( 'wp_enqueue_scripts', 'ifs_legacy_get_theme_footer_css', 20);

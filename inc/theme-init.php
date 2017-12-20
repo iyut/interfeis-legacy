@@ -83,6 +83,17 @@
  add_action( 'after_setup_theme', 'ifs_legacy_setup' );
 
  /**
+  * Set the custom body class
+  *
+  */
+function ifs_legacy_body_class( $classes ){
+    $classes[]  = 'ifs';
+
+    return $classes;
+}
+add_filter('body_class', 'ifs_legacy_body_class');
+
+ /**
   * Set the content width in pixels, based on the theme's design and stylesheet.
   *
   * Priority 0 to make it available to lower priority callbacks.

@@ -134,11 +134,21 @@ function ifs_legacy_get_theme_header_mod(){
 /**
  * Get theme header value from theme option
  *
- * @uses ifs_legacy_get_theme_header_mod()
+ * @uses ifs_legacy_get_theme_header_css()
  */
 function ifs_legacy_get_theme_header_css(){
+
 	$ifs_legacy_header_mod = ifs_legacy_get_theme_header_mod();
 	wp_enqueue_style('ifs_legacy_header_mod', $ifs_legacy_header_mod['css'] );
+
+	add_filter('body_class', function (array $classes) {
+		$ifs_legacy_header_mod = ifs_legacy_get_theme_header_mod();
+
+	    $classes[]  = $ifs_legacy_header_mod['name'];
+	    $classes[]  = $ifs_legacy_header_mod['name'].'-css';
+
+		return $classes;
+	});
 
 }
 add_action( 'wp_enqueue_scripts', 'ifs_legacy_get_theme_header_css', 20);
