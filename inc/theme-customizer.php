@@ -47,12 +47,56 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		) );
 	}
 
+    $wp_customize->add_panel( 'ifs_legacy_panel_general_setting', array(
+		    'priority' => 5,
+		    'capability' => 'edit_theme_options',
+		    'theme_supports' => '',
+		    'title' => esc_html__( 'General Settings', 'ifs-legacy' ),
+		    'description' => esc_html__( 'General settings.', 'ifs-legacy' ),
+		)
+	);
+
+    $wp_customize->add_section( 'ifs_legacy_section_body_options', array(
+	        'title' => esc_html__( 'Body Background Color', 'ifs-legacy' ),
+	        'description' => esc_html__( 'This is a section for the body options.', 'ifs-legacy' ),
+	        'priority' => 5,
+            'panel' => 'ifs_legacy_panel_general_setting'
+	    )
+	);
+
+    $wp_customize->add_setting( 'body_background_color', array(
+        'default' 	=> '#ffffff',
+        'transport'	=> 'refresh'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'body_background_color', array(
+        'label'		=> esc_html__('Body Background Color', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_body_options',
+        'setting'	=> 'body_background_color'
+    )));
+
+    $wp_customize->add_section( 'background_image', array(
+	        'title' => esc_html__( 'Body Background Image', 'ifs-legacy' ),
+	        'description' => esc_html__( 'This is a section for the body background image.', 'ifs-legacy' ),
+	        'priority' => 10,
+	        'panel' => 'ifs_legacy_panel_general_setting',
+	    )
+	);
+
+    $wp_customize->add_section( 'header_image', array(
+	        'title' => esc_html__( 'Header Background Image', 'ifs-legacy' ),
+	        'description' => esc_html__( 'This is a section for the header background image.', 'ifs-legacy' ),
+	        'priority' => 10,
+	        'panel' => 'ifs_legacy_panel_header_setting',
+	    )
+	);
+
 	$wp_customize->add_panel( 'ifs_legacy_panel_header_setting', array(
 		    'priority' => 10,
 		    'capability' => 'edit_theme_options',
 		    'theme_supports' => '',
 		    'title' => esc_html__( 'Header Settings', 'ifs-legacy' ),
-		    'description' => esc_html__( 'Description of what this panel does.', 'ifs-legacy' ),
+		    'description' => esc_html__( 'Header settings.', 'ifs-legacy' ),
 		)
 	);
 
@@ -116,6 +160,45 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'section'	=> 'ifs_legacy_section_header_options',
 		'setting'	=> 'header_textcolor'
 	)));
+
+    $wp_customize->add_panel( 'ifs_legacy_panel_footer_setting', array(
+		    'priority' => 10,
+		    'capability' => 'edit_theme_options',
+		    'theme_supports' => '',
+		    'title' => esc_html__( 'Footer Settings', 'ifs-legacy' ),
+		    'description' => esc_html__( 'Description of what this panel does.', 'ifs-legacy' ),
+		)
+	);
+
+    $wp_customize->add_section('ifs_legacy_section_footer_options', array(
+		'title'		=> esc_html__('Footer Options','ifs-legacy'),
+		'priority'	=> 30,
+		'panel' => 'ifs_legacy_panel_footer_setting'
+	));
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_layout_style', array(
+		'default'           => 'footer-1',
+		'sanitize_callback' => 'sanitize_key',
+        'transport'         => 'refresh'
+	) );
+
+    $footers = ifs_legacy_get_theme_footers();
+    $footer_layout_opt = array();
+    foreach( $footers as $footer_idx => $footer_val ){
+        $footer_layout_opt[$footer_idx] = array(
+            'label' => $footer_idx,
+            'url'   => $footer_val['png']
+        );
+    }
+
+	$wp_customize->add_control( new IFS_Image_Select_Control($wp_customize, 'ifs_legacy_footer_layout_style', array(
+		'label'       => esc_html__( 'Footer Layout', 'ifs-legacy' ),
+		'description' => __( 'Choose a layout for the footer.', 'ifs-legacy' ),
+		'section'     => 'ifs_legacy_section_footer_options',
+		'setting'    => 'ifs_legacy_footer_layout_style',
+		'choices'     => $footer_layout_opt,
+		'priority'    => 10
+	) ) );
 
 }
 add_action( 'customize_register', 'ifs_legacy_customize_register' );

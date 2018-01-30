@@ -181,13 +181,9 @@ function ifs_legacy_custom_header_setup() {
 }
 add_action( 'after_setup_theme', 'ifs_legacy_custom_header_setup' );
 
-if ( ! function_exists( 'ifs_legacy_header_style' ) ) :
-	/**
-	 * Styles the header image and text displayed on the blog.
-	 *
-	 * @see ifs_legacy_custom_header_setup().
-	 */
-	function ifs_legacy_header_style() {
+if( !function_exists('ifs_legacy_header_css_output') ){
+	function ifs_legacy_header_css_output(){
+
 		$header_text_color = get_header_textcolor();
 
 		/*
@@ -195,30 +191,46 @@ if ( ! function_exists( 'ifs_legacy_header_style' ) ) :
 		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
 		 */
 		if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
-			return;
+			return '';
 		}
 
 		// If we get this far, we have custom styles. Let's do this.
+		$output_css = '';
+
+		// Has the text been hidden?
+		if ( ! display_header_text() ){
+			$output_css .= '
+				.site-title,
+				.site-description {
+					position: absolute;
+					clip: rect(1px, 1px, 1px, 1px);
+				}
+			';
+
+		// If the user has set a custom color for the text use that.
+		}else{
+			$output_css .= '
+				.site-title a,
+				.site-description {
+					color: #'. esc_attr( $header_text_color ) .' !important;
+				}
+			';
+		}
+		return apply_filters('ifs_legacy_header_css_output', $output_css );
+
+	}
+}
+
+if ( ! function_exists( 'ifs_legacy_header_style' ) ) :
+	/**
+	 * Styles the header image and text displayed on the blog.
+	 *
+	 * @see ifs_legacy_custom_header_setup().
+	 */
+	function ifs_legacy_header_style() {
 		?>
 		<style type="text/css">
-		<?php
-		// Has the text been hidden?
-		if ( ! display_header_text() ) :
-		?>
-			.site-title,
-			.site-description {
-				position: absolute;
-				clip: rect(1px, 1px, 1px, 1px);
-			}
-		<?php
-			// If the user has set a custom color for the text use that.
-			else :
-		?>
-			.site-title a,
-			.site-description {
-				color: #<?php echo esc_attr( $header_text_color ); ?>;
-			}
-		<?php endif; ?>
+		<?php echo ifs_legacy_header_css_output(); ?>
 		</style>
 		<?php
 	}

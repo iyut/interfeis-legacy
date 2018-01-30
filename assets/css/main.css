@@ -12,7 +12,10 @@
 # Alignments
 # Clearings
 # Widgets
+	## General
+	## Search
 # Content
+	## Container
 	## Posts and pages
 	## Comments
 # Infinite scroll
@@ -317,7 +320,7 @@ html {
 }
 
 body {
-	background: #fff;
+	background: #f5f5f5;
 	/* Fallback for when there is no custom background color defined. */
 }
 
@@ -671,9 +674,29 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## General
+--------------------------------------------------------------*/
+.site-sidebar{
+	margin:4em 0;
+}
+
 .widget {
 	margin: 0 0 1.5em;
 	/* Make sure select elements fit in widgets. */
+}
+
+.widget-title {
+	font-size:1.4em;
+    font-weight: 400;
+    margin-bottom: 1em;
+    line-height: 1.5;
+}
+
+.widget ul {
+    margin: 0;
+	padding:0;
+    list-style-type: none;
 }
 
 .widget select {
@@ -681,8 +704,72 @@ a:hover, a:active {
 }
 
 /*--------------------------------------------------------------
+## Search
+--------------------------------------------------------------*/
+.widget_search .search-form{
+	position: relative;
+}
+.widget_search .search-form>label {
+    position: relative;
+	display:block;
+}
+
+.widget_search .search-field,
+.widget_search .search-field:focus {
+    width: 100%;
+    padding: 16px 45px 16px 15px;
+}
+
+.widget_search .search-form .search-field {
+    background: #fafafa;
+    border-width: 1px;
+    border-color: #eaeaea;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.widget_search .search-form input[type=submit],
+.widget_search .search-form input[type=submit]:focus,
+.widget_search .search-form input[type=submit]:hover {
+    padding: 13px 20px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    border: none;
+    top: 0;
+    right: 0;
+    position: absolute;
+    color: transparent;
+    background: 0 0;
+    max-width: 45px;
+    z-index: 2;
+}
+
+.widget_search .search-form:after {
+    font-family: "FontAwesome";
+    font-size: 1.2em;
+    font-weight: 400;
+    content: "\f002";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+}
+
+/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Container
+--------------------------------------------------------------*/
+.outercontainer{
+	background-color:transparent;
+}
+.site-content{
+	margin:4em 0;
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -707,6 +794,26 @@ a:hover, a:active {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.index-file article.post{
+	background-color:#fff;
+	padding:5.34em 6.67em
+}
+
+article.post a,
+article.post a:visited{
+	color:#df5751;
+}
+
+article.post .entry-title a,
+article.post .entry-title a:visited{
+	color:#333;
+}
+
+.entry-footer span{
+	display:inline-block;
+	margin-right:1em;
 }
 
 /*--------------------------------------------------------------

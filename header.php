@@ -34,4 +34,7 @@
 
 	<?php ifs_legacy_theme_header(); ?>
 
-	<div id="content" class="site-content">
+	<div class="outercontainer">
+		<div id="content-container" class="container">
+			<div class="row">
+				<div id="content" class="site-content <?php ifs_legacy_content_class(); ?>">
