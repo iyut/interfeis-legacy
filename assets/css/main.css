@@ -17,11 +17,13 @@
 # Content
 	## Container
 	## Posts and pages
+	## Singles
 	## Comments
 # Infinite scroll
 # Media
 	## Captions
 	## Galleries
+# Footer
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
@@ -384,13 +386,12 @@ input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
 	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
 	background: #e6e6e6;
 	color: rgba(0, 0, 0, 0.8);
-	font-size: 12px;
+	font-size: 14px;
 	font-size: 0.75rem;
 	line-height: 1;
-	padding: .6em 1em .4em;
+	padding: 1em 1.5em 1.1em;
 }
 
 button:hover,
@@ -819,10 +820,51 @@ article.post .entry-title a:visited{
 }
 
 /*--------------------------------------------------------------
+## Singles
+--------------------------------------------------------------*/
+.single-main > .hentry{
+	background-color:#fff;
+	padding:5.34em 6.67em;
+	margin-bottom:2em;
+}
+
+.single-main > .hentry .entry-title{
+	margin-top:0px;
+}
+
+.single-main > .comments-area{
+	background-color:#fff;
+	padding:5.34em 6.67em;
+	margin-bottom:2em;
+}
+
+/*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+.comment-list{
+	margin:0px;
+	padding:0px;
+	list-style-type: none;
+}
+
 .comment-content a {
 	word-wrap: break-word;
+}
+
+.comment-list .comment-body{
+	border-width:0px 0px 1px 0px;
+	border-style: solid;
+	border-color:#dedede;
+	padding:0 0 1.5em 0;
+	margin:0 0 1.5em 0;
+}
+
+.comment-list .comment-meta{
+	margin-bottom:1em;
+}
+
+.comment-list .comment-metadata{
+	margin:0.8em 0 0;
 }
 
 .bypostauthor {
@@ -938,4 +980,25 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+
+.site-footer{
+	background-color:#f0f0f0;
+}
+
+.footer-widgets-container{
+	padding:50px 0px;
+}
+
+.outer-site-info{
+	background-color:#fff;
+	padding:8px 0px;
+}
+
+.site-info{
+	font-size:0.8em;
 }
