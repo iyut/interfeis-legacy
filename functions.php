@@ -53,6 +53,11 @@ require get_template_directory() . '/inc/theme-scripts.php';
 require get_template_directory() . '/inc/theme-customizer.php';
 
 /**
+ * Metabox additions.
+ */
+require get_template_directory() . '/inc/theme-metaboxes.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
