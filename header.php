@@ -24,15 +24,9 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ifs-legacy' ); ?></a>
 
-	<div id="before-masthead" class="site-before-header clear">
-		<?php ifs_legacy_hook_before_tophead(); ?>
-		<div class="container">
-			<?php ifs_legacy_hook_tophead(); ?>
-		</div>
-		<?php ifs_legacy_hook_after_tophead(); ?>
-	</div>
-
 	<?php ifs_legacy_theme_header(); ?>
+
+	<?php ifs_legacy_header_title(); ?>
 
 	<div class="outercontainer">
 		<div id="content-container" class="container">

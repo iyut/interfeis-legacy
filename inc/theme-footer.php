@@ -15,6 +15,15 @@
  }
 
  /**
+  * Get theme footer files
+  *
+  * @uses ifs_legacy_get_theme_footer_locations()
+  */
+ function ifs_legacy_theme_footer_locations(){
+ 	return apply_filters('ifs_legacy_theme_footer_locations', 'template-parts/footers');
+ }
+
+ /**
   * Check theme footer files
   *
   * @uses ifs_legacy_check_theme_footer()
@@ -74,14 +83,17 @@
   * @uses ifs_legacy_get_theme_footers()
   */
  function ifs_legacy_get_theme_footers(){
- 	$parent_root      = get_template_directory().'/footers';
- 	$parent_url       = get_template_directory_uri().'/footers';
+
+    $footer_location = ifs_legacy_theme_footer_locations();
+
+ 	$parent_root      = get_template_directory().'/'.$footer_location;
+ 	$parent_url       = get_template_directory_uri().'/'.$footer_location;
 
  	$footer_files = ifs_legacy_check_theme_footer( $parent_root, $parent_url );
 
  	if(is_child_theme()){
- 		$child_root      = get_stylesheet_directory().'/footers';
- 		$child_url       = get_stylesheet_directory_uri().'/footers';
+ 		$child_root      = get_stylesheet_directory().'/'.$footer_location;
+ 		$child_url       = get_stylesheet_directory_uri().'/'.$footer_location;
 
  		$child_files = ifs_legacy_check_theme_footer( $child_root, $child_url );
 
@@ -121,7 +133,7 @@
   * @uses ifs_legacy_get_theme_footer_mod()
   */
  function ifs_legacy_get_theme_footer_css(){
-     
+
  	$ifs_legacy_footer_mod = ifs_legacy_get_theme_footer_mod();
  	wp_enqueue_style('ifs_legacy_footer_mod', $ifs_legacy_footer_mod['css'] );
 
@@ -145,6 +157,8 @@
   */
  function ifs_legacy_get_theme_footer(){
  	$ifs_legacy_footer = ifs_legacy_get_theme_footer_mod();
- 	get_template_part( 'footers/'.$ifs_legacy_footer['name'].'/footer');
+    $footer_location = ifs_legacy_theme_footer_locations();
+
+ 	get_template_part( $footer_location.'/'.$ifs_legacy_footer['name'].'/footer');
  }
  add_action('ifs_legacy_theme_footer', 'ifs_legacy_get_theme_footer', 20);

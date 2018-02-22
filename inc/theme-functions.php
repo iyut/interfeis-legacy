@@ -5,6 +5,83 @@
  * @package Legacy
  */
 
+ /**
+  * check if the page is of any post type ( including post or page )
+  *
+  * @param void
+  * @return bool
+  */
+ if( !function_exists('ifs_legacy_check_pagepost')){
+ 	function ifs_legacy_check_pagepost(){
+ 		global $post;
+
+ 		if( is_404() || is_archive() || is_attachment() || is_search() ){
+ 			$nvr_custom = false;
+ 		}else{
+ 			$nvr_custom = true;
+ 		}
+
+ 		return $nvr_custom;
+ 	}
+ }
+
+ /**
+  * get postid on any page
+  *
+  * @param void
+  * @return int
+  */
+ if( !function_exists('ifs_legacy_get_postid')){
+ 	function ifs_legacy_get_postid(){
+ 		global $post;
+
+ 		if( is_home() ){
+ 			$nvr_pid = get_option('page_for_posts');
+ 		}elseif( function_exists( 'is_woocommerce' ) && is_shop() ){
+ 			$nvr_pid = (function_exists('wc_get_page_id'))? wc_get_page_id('shop') : woocommerce_get_page_id( 'shop' );
+ 		}elseif( function_exists( 'is_woocommerce' ) && is_product_category() ){
+ 			$nvr_pid = (function_exists('wc_get_page_id'))? wc_get_page_id('shop') : woocommerce_get_page_id( 'shop' );
+ 		}elseif( function_exists( 'is_woocommerce' ) && is_product_tag() ){
+ 			$nvr_pid = (function_exists('wc_get_page_id'))? wc_get_page_id('shop') : woocommerce_get_page_id( 'shop' );
+ 		}elseif(!ifs_legacy_check_pagepost()){
+ 			$nvr_pid = 0;
+ 		}else{
+ 			$nvr_pid = get_the_ID();
+ 		}
+
+ 		return $nvr_pid;
+ 	}
+ }
+
+ /**
+  * get metabox value from any post or page
+  *
+  * @param int Post or Page id
+  * @return array
+  */
+ if( !function_exists('ifs_legacy_get_customdata')){
+ 	function ifs_legacy_get_customdata($nvr_pid=""){
+ 		global $post;
+
+ 		if($nvr_pid!=""){
+ 			$nvr_custom = get_post_custom($nvr_pid);
+ 			return $nvr_custom;
+ 		}
+
+ 		if($nvr_pid==""){
+ 			$nvr_pid = ifs_legacy_get_postid();
+ 		}
+
+ 		if( ifs_legacy_check_pagepost() ){
+ 			$nvr_custom = get_post_custom($nvr_pid);
+ 		}else{
+ 			$nvr_custom = array();
+ 		}
+
+ 		return $nvr_custom;
+ 	}
+ }
+
 /**
  * Adds custom classes to the array of body classes.
  *

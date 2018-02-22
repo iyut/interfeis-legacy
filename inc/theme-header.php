@@ -87,17 +87,28 @@ function ifs_legacy_check_theme_header( $header_directory, $header_url ){
 /**
  * Get theme header files
  *
+ * @uses ifs_legacy_get_theme_header_locations()
+ */
+function ifs_legacy_theme_header_locations(){
+	return apply_filters('ifs_legacy_theme_header_locations', 'template-parts/headers');
+}
+
+/**
+ * Get theme header files
+ *
  * @uses ifs_legacy_get_theme_headers()
  */
 function ifs_legacy_get_theme_headers(){
-	$parent_header_root = get_template_directory().'/headers';
-	$parent_header_url 	= get_template_directory_uri().'/headers';
+	$header_location = ifs_legacy_theme_header_locations();
+
+	$parent_header_root = get_template_directory() . '/' . $header_location;
+	$parent_header_url 	= get_template_directory_uri() . '/' . $header_location;
 
 	$header_files = ifs_legacy_check_theme_header( $parent_header_root, $parent_header_url );
 
 	if(is_child_theme()){
-		$child_header_root 	= get_stylesheet_directory().'/headers';
-		$child_header_url	= get_stylesheet_directory_uri().'/headers';
+		$child_header_root 	= get_stylesheet_directory(). '/' . $header_location;
+		$child_header_url	= get_stylesheet_directory_uri(). '/' . $header_location;
 
 		$child_header_files = ifs_legacy_check_theme_header( $child_header_root, $child_header_url );
 
@@ -160,9 +171,108 @@ add_action( 'wp_enqueue_scripts', 'ifs_legacy_get_theme_header_css', 20);
  */
 function ifs_legacy_get_theme_header(){
 	$ifs_legacy_header = ifs_legacy_get_theme_header_mod();
-	get_template_part( 'headers/'.$ifs_legacy_header['name'].'/header');
+	$header_location = ifs_legacy_theme_header_locations();
+
+	get_template_part( $header_location.'/'.$ifs_legacy_header['name'].'/header');
 }
 add_action('ifs_legacy_theme_header', 'ifs_legacy_get_theme_header', 20);
+
+
+/**
+ * check the condition whether show the title or not
+ *
+ * @uses ifs_legacy_show_header_title()
+ */
+function ifs_legacy_show_header_title(){
+	return apply_filters('ifs_legacy_show_header_title', true);
+}
+
+/**
+ * call the title file
+ *
+ * @uses ifs_legacy_header_title()
+ */
+function ifs_legacy_header_title(){
+
+	do_action('ifs_legacy_header_title');
+
+}
+
+/**
+ * call the header title file
+ *
+ * @uses ifs_legacy_get_template_header_title()
+ */
+function ifs_legacy_get_template_header_title(){
+
+	if( ifs_legacy_show_header_title() ){
+		get_template_part('template-parts/header-title');
+	}
+
+}
+add_action('ifs_legacy_header_title', 'ifs_legacy_get_template_header_title', 15);
+
+/**
+ * Get page title
+ *
+ * @uses ifs_legacy_get_the_header_title()
+ */
+function ifs_legacy_get_the_header_title(){
+
+	//custom meta field
+	$ifs_pid = ifs_legacy_get_postid();
+	$ifs_custom = ifs_legacy_get_customdata($ifs_pid);
+	$ifs_cf_pagetitle = (isset($ifs_custom["nvr_page-title"][0]))? $ifs_custom["nvr_page-title"][0] : "";
+
+	if(is_attachment()){
+
+		$ifs_the_title = get_the_title();
+
+	}elseif( function_exists('is_woocommerce') && is_woocommerce() ){
+
+		$ifs_the_title = woocommerce_page_title( false );
+
+	}elseif(is_archive()){
+
+		$ifs_the_title = get_the_archive_title();
+
+	}elseif(is_search()){
+
+		$ifs_the_title = sprintf( esc_html__( 'Search Results for', "ifs-legacy" ).' %s', '<span>' . get_search_query() . '</span>' );
+
+	}elseif(is_404()){
+
+		$ifs_the_title = esc_html__( '404 Page', "ifs-legacy" );
+
+	}elseif( is_home() ){
+		$ifs_postspage = get_option('page_for_posts');
+		$ifs_posttitle = get_the_title($ifs_postspage);
+
+		$ifs_the_title = ($ifs_postspage)? $ifs_posttitle : esc_html__('Blog', "ifs-legacy" );
+
+	}else{
+
+		if($ifs_cf_pagetitle == ""){
+			$ifs_the_title = get_the_title();
+		}else{
+			$ifs_the_title = $ifs_cf_pagetitle;
+		}
+
+	}
+
+	return apply_filters('ifs_legacy_get_the_header_title', $ifs_the_title);
+
+}
+
+/**
+ * Get page title
+ *
+ * @uses ifs_legacy_get_the_header_title()
+ */
+function ifs_legacy_the_header_title(){
+	echo '<h1 class="page-title"><span>' . ifs_legacy_get_the_header_title() . '</span></h1>';
+}
+add_action('ifs_legacy_the_title','ifs_legacy_the_header_title',15);
 
 /**
  * Set up the WordPress core custom header feature.
