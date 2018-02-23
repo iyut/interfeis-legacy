@@ -31,4 +31,5 @@
 	<div class="outercontainer">
 		<div id="content-container" class="container <?php ifs_legacy_content_container_class(); ?>">
 			<div class="row">
+				
 				<div id="content" class="site-content <?php ifs_legacy_content_class(); ?>">

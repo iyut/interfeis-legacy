@@ -10,18 +10,17 @@
  */
 
 ?>
-						<div class="clear"></div>
-					</div><!-- #content -->
-
-					<?php
-
-					get_sidebar();
-
-					get_sidebar('two');
-
-					?>
 					<div class="clear"></div>
-				</div>
+				</div><!-- #content -->
+
+				<?php
+
+				get_sidebar();
+
+				get_sidebar('two');
+
+				?>
+				<div class="clear"></div>
 			</div>
 		</div>
 	</div><!-- .outercontainer -->
