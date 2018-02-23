@@ -83,13 +83,26 @@ function ifs_legacy_customize_register( $wp_customize ) {
 	    )
 	);
 
-    $wp_customize->add_section( 'header_image', array(
-	        'title' => esc_html__( 'Header Background Image', 'ifs-legacy' ),
-	        'description' => esc_html__( 'This is a section for the header background image.', 'ifs-legacy' ),
-	        'priority' => 10,
-	        'panel' => 'ifs_legacy_panel_header_setting',
+    $wp_customize->add_section( 'ifs_legacy_section_content_options', array(
+	        'title' => esc_html__( 'Content Options', 'ifs-legacy' ),
+	        'description' => esc_html__( 'This is a section for the content option.', 'ifs-legacy' ),
+	        'priority' => 15,
+	        'panel' => 'ifs_legacy_panel_general_setting',
 	    )
 	);
+
+    $wp_customize->add_setting( 'ifs_legacy_content_layout', array(
+        'default' 	=> 'two-col-left',
+        'transport'	=> 'refresh'
+    ));
+
+    $wp_customize->add_control( 'ifs_legacy_content_layout', array(
+        'label'		=> esc_html__('Body Background Color', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_content_options',
+        'setting'	=> 'ifs_legacy_content_layout',
+        'type'      => 'select',
+        'choices'   => ifs_legacy_content_layout_choices()
+    ));
 
 	$wp_customize->add_panel( 'ifs_legacy_panel_header_setting', array(
 		    'priority' => 10,
@@ -98,6 +111,14 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		    'title' => esc_html__( 'Header Settings', 'ifs-legacy' ),
 		    'description' => esc_html__( 'Header settings.', 'ifs-legacy' ),
 		)
+	);
+
+    $wp_customize->add_section( 'header_image', array(
+	        'title' => esc_html__( 'Header Background Image', 'ifs-legacy' ),
+	        'description' => esc_html__( 'This is a section for the header background image.', 'ifs-legacy' ),
+	        'priority' => 10,
+	        'panel' => 'ifs_legacy_panel_header_setting',
+	    )
 	);
 
 	$wp_customize->add_section( 'header_image', array(

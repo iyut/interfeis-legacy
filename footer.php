@@ -10,10 +10,17 @@
  */
 
 ?>
+						<div class="clear"></div>
+					</div><!-- #content -->
 
-				</div><!-- #content -->
-				<div id="sidebar-container" class="site-sidebar <?php ifs_legacy_sidebar_class();?>">
-					<?php get_sidebar(); ?>
+					<?php
+
+					get_sidebar();
+
+					get_sidebar('two');
+
+					?>
+					<div class="clear"></div>
 				</div>
 			</div>
 		</div>

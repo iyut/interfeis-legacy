@@ -21,7 +21,15 @@ function ifs_legacy_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar 2', 'ifs-legacy' ),
+		'id'            => 'sidebar-2',
+		'description'   => esc_html__( 'Add widgets here.', 'ifs-legacy' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="widget-layer-1"><div class="widget-layer-2">',
+		'after_widget'  => '</div></div></section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer 1', 'ifs-legacy' ),
 		'id'            => 'footer-1',

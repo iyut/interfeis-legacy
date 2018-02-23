@@ -11,6 +11,7 @@
 # Accessibility
 # Alignments
 # Clearings
+# Display
 # Widgets
 	## General
 	## Search
@@ -675,6 +676,13 @@ a:hover, a:active {
 }
 
 /*--------------------------------------------------------------
+# Display
+--------------------------------------------------------------*/
+.d-none{
+	display: none !important;
+}
+
+/*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -771,6 +779,49 @@ a:hover, a:active {
 }
 .site-content{
 	margin:4em 0;
+}
+#content-container.two-col-left .site-content{
+	order: 1;
+}
+#content-container.two-col-left .site-sidebar{
+	order: 2;
+}
+
+#content-container.two-col-right .site-content{
+	order: 2;
+}
+#content-container.two-col-right .site-sidebar{
+	order: 1;
+}
+
+#content-container.three-col-left .site-content{
+	order: 1;
+}
+#content-container.three-col-left .site-sidebar-1{
+	order:2;
+}
+#content-container.three-col-left .site-sidebar-2{
+	order:3;
+}
+
+#content-container.three-col-mid .site-content{
+	order: 2;
+}
+#content-container.three-col-mid .site-sidebar-1{
+	order:1;
+}
+#content-container.three-col-mid .site-sidebar-2{
+	order:3;
+}
+
+#content-container.three-col-right .site-content{
+	order: 3;
+}
+#content-container.three-col-right .site-sidebar-1{
+	order:1;
+}
+#content-container.three-col-right .site-sidebar-2{
+	order:2;
 }
 
 /*--------------------------------------------------------------

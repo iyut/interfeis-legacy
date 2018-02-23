@@ -117,14 +117,14 @@
  	if(array_key_exists($ifs_legacy_footer_mod, $ifs_legacy_footers)){
  		$css_footer_mod = $ifs_legacy_footers[$ifs_legacy_footer_mod]['css'];
  		$ifs_legacy_footer = $ifs_legacy_footers[$ifs_legacy_footer_mod];
- 		return $ifs_legacy_footer;
+        $return = $ifs_legacy_footer;
  	}else{
  		foreach($ifs_legacy_footers as $ifs_legacy_footer){
  			$return = $ifs_legacy_footer;
- 			return $return;
  			break;
  		}
  	}
+    return apply_filters('ifs_legacy_get_theme_footer_mod_val',$return);
  }
 
  /**
@@ -144,7 +144,7 @@
 	    $classes[]  = $ifs_legacy_footer_mod['name'];
 	    $classes[]  = $ifs_legacy_footer_mod['name'].'-css';
 
-		return $classes;
+		return apply_filters('ifs_legacy_get_theme_footer_css_filter', $classes);
 	});
 
  }

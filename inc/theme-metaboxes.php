@@ -75,11 +75,9 @@ function ifs_legacy_set_metaboxes(){
 		'two-col-right' => $ifs_imagepath.'mb-2cr.png'
 	);
 	$ifs_optlayout = array(
-		'default' => esc_html__('Default',"ifs-legacy"),
-		'one-col' => esc_html__('One column',"ifs-legacy"),
-		'two-col-left' => esc_html__('Two column - right sidebar',"ifs-legacy"),
-		'two-col-right' => esc_html__('Two column - left sidebar',"ifs-legacy")
+		'default' => esc_html__('Default',"ifs-legacy")
 	);
+	$ifs_optlayout = array_merge( $ifs_optlayout, ifs_legacy_content_layout_choices() );
 	// Create meta box slider
 	$ifs_legacy_meta_boxes = array();
 
@@ -95,7 +93,7 @@ function ifs_legacy_set_metaboxes(){
 				'name' => esc_html__('Content Layout',"ifs-legacy"),
 				'desc' => '<em>'.esc_html__('Select the layout you want on this specific post/page. Overrides default site layout.',"ifs-legacy").'</em>',
 				'options' => $ifs_optlayout,
-				'id' => 'ifs_layout',
+				'id' => 'ifs_content_layout',
 				'type' => 'select',
 				'std' => 'default'
 			),
