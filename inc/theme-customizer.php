@@ -34,7 +34,6 @@
 function ifs_legacy_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -64,15 +63,15 @@ function ifs_legacy_customize_register( $wp_customize ) {
 	    )
 	);
 
-    $wp_customize->add_setting( 'body_background_color', array(
+    $wp_customize->add_setting( 'background_color', array(
         'default' 	=> '#ffffff',
         'transport'	=> 'refresh'
     ));
 
-    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'body_background_color', array(
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'background_color', array(
         'label'		=> esc_html__('Body Background Color', 'ifs-legacy'),
         'section'	=> 'ifs_legacy_section_body_options',
-        'setting'	=> 'body_background_color'
+        'setting'	=> 'background_color'
     )));
 
     $wp_customize->add_section( 'background_image', array(
@@ -97,7 +96,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
     ));
 
     $wp_customize->add_control( 'ifs_legacy_content_layout', array(
-        'label'		=> esc_html__('Body Background Color', 'ifs-legacy'),
+        'label'		=> esc_html__('Content Layout', 'ifs-legacy'),
         'section'	=> 'ifs_legacy_section_content_options',
         'setting'	=> 'ifs_legacy_content_layout',
         'type'      => 'select',
@@ -111,14 +110,6 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		    'title' => esc_html__( 'Header Settings', 'ifs-legacy' ),
 		    'description' => esc_html__( 'Header settings.', 'ifs-legacy' ),
 		)
-	);
-
-    $wp_customize->add_section( 'header_image', array(
-	        'title' => esc_html__( 'Header Background Image', 'ifs-legacy' ),
-	        'description' => esc_html__( 'This is a section for the header background image.', 'ifs-legacy' ),
-	        'priority' => 10,
-	        'panel' => 'ifs_legacy_panel_header_setting',
-	    )
 	);
 
 	$wp_customize->add_section( 'header_image', array(
@@ -160,19 +151,19 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'priority'    => 10
 	) ) );
 
-    $wp_customize->add_setting( 'background_color', array(
-        'default' 	=> '#ffffff',
+    $wp_customize->add_setting( 'ifs_legacy_header_background_color', array(
+        'default' 	=> '',
         'transport'	=> 'refresh'
     ));
 
-    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'background_color', array(
-        'label'		=> esc_html__('Background Color', 'ifs-legacy'),
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_header_background_color', array(
+        'label'		=> esc_html__('Header Background Color', 'ifs-legacy'),
         'section'	=> 'ifs_legacy_section_header_options',
-        'setting'	=> 'background_color'
+        'setting'	=> 'ifs_legacy_header_background_color'
     )));
 
     $wp_customize->add_setting( 'header_textcolor', array(
-		'default' 	=> '#ffffff',
+		'default' 	=> '',
 		'transport'	=> 'refresh'
 	));
 

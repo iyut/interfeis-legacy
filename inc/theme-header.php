@@ -277,24 +277,18 @@ add_action('ifs_legacy_the_title','ifs_legacy_the_header_title',15);
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses ifs_legacy_header_style()
  */
 function ifs_legacy_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'ifs_legacy_custom_header_args', array(
-		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1000,
-		'height'                 => 250,
-		'flex-height'            => true,
-		'wp-head-callback'       => 'ifs_legacy_header_style',
-	) ) );
+	add_theme_support( 'custom-header' );
 }
 add_action( 'after_setup_theme', 'ifs_legacy_custom_header_setup' );
 
 if( !function_exists('ifs_legacy_header_css_output') ){
 	function ifs_legacy_header_css_output(){
 
-		$header_text_color = get_header_textcolor();
+		$header_text_color	= get_header_textcolor();
+		$header_bg_color	= get_theme_mod('ifs_legacy_header_background_color');
+		$header_bg_image	= get_theme_mod('header_image');
 
 		/*
 		 * If no custom options for text are set, let's bail.
@@ -326,22 +320,20 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 				}
 			';
 		}
+
+		if( $header_bg_color!=''){
+			$output_css .= 'body.ifs .site-header{
+				background-color: '. esc_attr( $header_bg_color ).';
+			}';
+		}
+
+		if($header_bg_image!='' && $header_bg_mage!='remove-image'){
+			$output_css .= '#outerafterheader{
+				background-image: url('. esc_attr( $header_bg_image ).');
+			}';
+		}
+
 		return apply_filters('ifs_legacy_header_css_output', $output_css );
 
 	}
 }
-
-if ( ! function_exists( 'ifs_legacy_header_style' ) ) :
-	/**
-	 * Styles the header image and text displayed on the blog.
-	 *
-	 * @see ifs_legacy_custom_header_setup().
-	 */
-	function ifs_legacy_header_style() {
-		?>
-		<style type="text/css">
-		<?php echo ifs_legacy_header_css_output(); ?>
-		</style>
-		<?php
-	}
-endif;

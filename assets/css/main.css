@@ -12,6 +12,7 @@
 # Alignments
 # Clearings
 # Display
+# Site title
 # Widgets
 	## General
 	## Search
@@ -680,6 +681,15 @@ a:hover, a:active {
 --------------------------------------------------------------*/
 .d-none{
 	display: none !important;
+}
+
+/*--------------------------------------------------------------
+# Site title
+--------------------------------------------------------------*/
+#outerafterheader{
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
 }
 
 /*--------------------------------------------------------------

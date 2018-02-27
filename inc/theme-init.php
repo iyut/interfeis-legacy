@@ -41,22 +41,24 @@
  		add_theme_support( 'post-thumbnails' );
 
  		// This theme uses wp_nav_menu() in one location.
- 		register_nav_menus( array(
- 			'menu-1' => esc_html__( 'Primary', 'ifs-legacy' ),
-            'menu-2' => esc_html__( 'Secondary', 'ifs-legacy')
- 		) );
+ 		register_nav_menus( apply_filters('ifs_legacy_register_nav_menus', array(
+ 			'menu-1'        => esc_html__( 'Primary', 'ifs-legacy' ),
+            'menu-2'        => esc_html__( 'Secondary', 'ifs-legacy'),
+            'top-menu'      => esc_html__( 'Top Menu', 'ifs-legacy'),
+            'footer-menu'   => esc_html__( 'Footer Menu', 'ifs-legacy')
+ 		)) );
 
  		/*
  		 * Switch default core markup for search form, comment form, and comments
  		 * to output valid HTML5.
  		 */
- 		add_theme_support( 'html5', array(
+ 		add_theme_support( 'html5', apply_filters('ifs_legacy_html5_support', array(
  			'search-form',
  			'comment-form',
  			'comment-list',
  			'gallery',
  			'caption',
- 		) );
+ 		)) );
 
  		// Set up the WordPress core custom background feature.
  		add_theme_support( 'custom-background', apply_filters( 'ifs_legacy_custom_background_args', array(
@@ -72,12 +74,12 @@
  		 *
  		 * @link https://codex.wordpress.org/Theme_Logo
  		 */
- 		add_theme_support( 'custom-logo', array(
+ 		add_theme_support( 'custom-logo', apply_filters( 'ifs_legacy_custom_logo_args', array(
  			'height'      => 250,
  			'width'       => 250,
  			'flex-width'  => true,
  			'flex-height' => true,
- 		) );
+ 		)) );
  	}
  endif;
  add_action( 'after_setup_theme', 'ifs_legacy_setup' );
