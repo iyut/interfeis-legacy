@@ -3,9 +3,6 @@
     <div class="container">
         <div id="afterheader" class="row">
             <?php
-            /***** file : engine/header-functions.php
-            - lavista_output_breadcrumb - 30
-            *****/
             do_action("ifs_legacy_upper_titlecontainer");
             ?>
             <section id="pagetitlecontainer" class="col-md-12">
