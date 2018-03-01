@@ -1046,7 +1046,6 @@ object {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-
 .site-footer{
 	background-color:#f0f0f0;
 }
@@ -1055,11 +1054,28 @@ object {
 	padding:50px 0px;
 }
 
-.outer-site-info{
+.outer-footer-bottom{
 	background-color:#fff;
 	padding:8px 0px;
 }
 
 .site-info{
 	font-size:0.8em;
+}
+
+.footer-menu #footer-menu{
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+	display:block;
+	font-size:0.8em;
+	text-align:right;
+}
+.footer-menu #footer-menu li{
+	list-style-type:none;
+	display:inline-block;
+	padding:0px 10px;
+}
+.footer-menu #footer-menu li:last-child{
+	padding-right:0px;
 }

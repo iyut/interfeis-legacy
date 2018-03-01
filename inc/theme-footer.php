@@ -147,9 +147,7 @@
 		return apply_filters('ifs_legacy_get_theme_footer_css_filter', $classes);
 	});
 
- }
- add_action( 'wp_enqueue_scripts', 'ifs_legacy_get_theme_footer_css', 20);
-
+}
  /**
   * Get theme footer file
   *
@@ -164,32 +162,94 @@
  add_action('ifs_legacy_theme_footer', 'ifs_legacy_get_theme_footer', 20);
 
  /**
-  * Print copyright text
-  *
-  * @uses ifs_legacy_print_copyright()
-  */
- function ifs_legacy_print_copyright(){
-   ?>
-   <div class="site-info">
-   <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ifs-legacy' ) ); ?>"><?php
-       /* translators: %s: CMS name, i.e. WordPress. */
-       printf( esc_html__( 'Proudly powered by %s', 'ifs-legacy' ), 'WordPress' );
-   ?></a>
-   <span class="sep"> | </span>
-   <?php
-       /* translators: 1: Theme name, 2: Theme author. */
-       printf( esc_html__( 'Theme: %1$s by %2$s.', 'ifs-legacy' ), 'Legacy', '<a href="http://www.interfeis.com">Interfeis Team</a>' );
-    ?>
-    </div>
-    <?php
- }
- add_action('ifs_legacy_bottom_foot', 'ifs_legacy_print_copyright', 10);
-
- /**
   * Get theme footer file
   *
-  * @uses ifs_legacy_get_theme_footer()
+  * @uses ifs_legacy_bottom_foot()
   */
 function ifs_legacy_bottom_foot(){
     do_action('ifs_legacy_bottom_foot');
 }
+
+/**
+ * Get theme footer file
+ *
+ * @uses ifs_legacy_bottom_foot_col_1()
+ */
+function ifs_legacy_bottom_foot_col_1(){
+    echo '<div class="foot_col_1 foot_col col-6">';
+        do_action('ifs_legacy_bottom_foot_col_1');
+    echo '</div>';
+}
+ add_action('ifs_legacy_bottom_foot', 'ifs_legacy_bottom_foot_col_1', 10);
+
+ /**
+  * Get theme footer file
+  *
+  * @uses ifs_legacy_bottom_foot_col_1()
+  */
+ function ifs_legacy_bottom_foot_col_2(){
+     echo '<div class="foot_col_2 foot_col col-6">';
+         do_action('ifs_legacy_bottom_foot_col_2');
+     echo '</div>';
+ }
+  add_action('ifs_legacy_bottom_foot', 'ifs_legacy_bottom_foot_col_2', 20);
+
+  /**
+   * Print content for footer bar coolumn 1
+   *
+   * @uses ifs_legacy_bottom_foot_col_1()
+   */
+  function ifs_legacy_content_foot_col_1(){
+      ifs_legacy_print_copyright();
+  }
+  add_action('ifs_legacy_bottom_foot_col_1', 'ifs_legacy_content_foot_col_1', 10);
+
+  /**
+   * Print content for footer bar coolumn 1
+   *
+   * @uses ifs_legacy_bottom_foot_col_2()
+   */
+  function ifs_legacy_content_foot_col_2(){
+      ifs_legacy_footer_menu();
+  }
+  add_action('ifs_legacy_bottom_foot_col_2', 'ifs_legacy_content_foot_col_2', 10);
+
+  /**
+   * Print copyright text
+   *
+   * @uses ifs_legacy_print_copyright()
+   */
+  function ifs_legacy_print_copyright(){
+    ?>
+    <div class="site-info">
+    <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ifs-legacy' ) ); ?>"><?php
+        /* translators: %s: CMS name, i.e. WordPress. */
+        printf( esc_html__( 'Proudly powered by %s', 'ifs-legacy' ), 'WordPress' );
+    ?></a>
+    <span class="sep"> | </span>
+    <?php
+        /* translators: 1: Theme name, 2: Theme author. */
+        printf( esc_html__( 'Theme: %1$s by %2$s.', 'ifs-legacy' ), 'Legacy', '<a href="http://www.interfeis.com">Interfeis Team</a>' );
+     ?>
+     </div>
+     <?php
+  }
+
+  /**
+   * Print copyright text
+   *
+   * @uses ifs_legacy_print_copyright()
+   */
+  function ifs_legacy_footer_menu(){
+    ?>
+    <div class="footer-menu">
+    <?php
+        wp_nav_menu( array(
+            'theme_location' => 'footer-menu',
+            'menu_id'        => 'footer-menu',
+            'depth'          => 1
+        ) );
+    ?>
+     </div>
+     <?php
+  }

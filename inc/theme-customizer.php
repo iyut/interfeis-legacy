@@ -183,7 +183,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 	);
 
     $wp_customize->add_section('ifs_legacy_section_footer_options', array(
-		'title'		=> esc_html__('Footer Options','ifs-legacy'),
+		'title'		=> esc_html__('Footer Widgets Options','ifs-legacy'),
 		'priority'	=> 30,
 		'panel' => 'ifs_legacy_panel_footer_setting'
 	));
@@ -211,6 +211,54 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'choices'     => $footer_layout_opt,
 		'priority'    => 10
 	) ) );
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_background_color', array(
+        'default' 	=> '',
+        'transport'	=> 'refresh'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_background_color', array(
+        'label'		=> esc_html__('Footer Background Color', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_footer_options',
+        'setting'	=> 'ifs_legacy_footer_background_color'
+    )));
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_background_image', array(
+		'default'		=> '',
+		'sanitize_callback'	=> 'esc_url_raw',
+        'transport'	=> 'refresh'
+	));
+
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ifs_legacy_footer_background_image', array(
+		'settings'		=> 'ifs_legacy_footer_background_image',
+		'section'		=> 'ifs_legacy_section_footer_options',
+		'label'			=> __( 'Footer Background Image', 'ifs-legacy' ),
+		'description'	=> __( 'Select the image to be used for Footer Background.', 'ifs-legacy' )
+	)));
+
+    $wp_customize->add_section('ifs_legacy_section_footer_bar_options', array(
+		'title'		=> esc_html__('Footer Bar Options','ifs-legacy'),
+		'priority'	=> 30,
+		'panel' => 'ifs_legacy_panel_footer_setting'
+	));
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_bar_1_content', array(
+		'default'		=> '',
+		'transport'	=> 'refresh'
+	));
+
+    $wp_customize->add_control( 'ifs_legacy_footer_bar_1_content', array(
+		'settings'		=> 'ifs_legacy_footer_bar_1_content',
+		'section'		=> 'ifs_legacy_section_footer_bar_options',
+		'label'			=> __( 'Footer Bar 1 Content', 'ifs-legacy' ),
+		'description'	=> __( 'Select the type of the content.', 'ifs-legacy' ),
+        'type'          => 'select',
+        'choices'       => array(
+            ''      => __( 'None', 'ifs-legacy' ),
+            'text'  => __( 'Text', 'ifs-legacy' ),
+			'menu'   => __( 'Footer Menu', 'ifs-legacy' )
+        )
+	));
 
 }
 add_action( 'customize_register', 'ifs_legacy_customize_register' );

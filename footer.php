@@ -29,9 +29,11 @@
 
 		<?php ifs_legacy_theme_footer(); ?>
 
-		<div class="outer-site-info">
-			<div class="container site-info-cont">
-				<?php ifs_legacy_bottom_foot(); ?>
+		<div class="outer-footer-bottom">
+			<div class="container footer-bottom-cont">
+				<div class="row">
+					<?php ifs_legacy_bottom_foot(); ?>
+				</div>
 			</div>
 		</div>
 	</footer><!-- #colophon -->
