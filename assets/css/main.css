@@ -1069,6 +1069,8 @@ object {
 	padding:0px;
 	display:block;
 	font-size:0.8em;
+}
+.foot_col_2 .footer-menu #footer-menu{
 	text-align:right;
 }
 .footer-menu #footer-menu li{
@@ -1076,6 +1078,9 @@ object {
 	display:inline-block;
 	padding:0px 10px;
 }
+.footer-menu #footer-menu li:first-child{
+	padding-left:0;
+}
 .footer-menu #footer-menu li:last-child{
-	padding-right:0px;
+	padding-right:0;
 }

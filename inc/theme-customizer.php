@@ -243,7 +243,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 	));
 
     $wp_customize->add_setting( 'ifs_legacy_footer_bar_1_content', array(
-		'default'		=> '',
+		'default'		=> 'text',
 		'transport'	=> 'refresh'
 	));
 
@@ -254,10 +254,56 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'description'	=> __( 'Select the type of the content.', 'ifs-legacy' ),
         'type'          => 'select',
         'choices'       => array(
-            ''      => __( 'None', 'ifs-legacy' ),
-            'text'  => __( 'Text', 'ifs-legacy' ),
-			'menu'   => __( 'Footer Menu', 'ifs-legacy' )
+            ''              => __( 'None', 'ifs-legacy' ),
+            'text'          => __( 'Text', 'ifs-legacy' ),
+			'menu'          => __( 'Menu', 'ifs-legacy' ),
+            'widget'        => __( 'Widget', 'ifs-legacy' )
         )
+	));
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_bar_1_text', array(
+		'default'		=> '',
+		'transport'	=> 'postMessage'
+	));
+
+    $wp_customize->add_control( 'ifs_legacy_footer_bar_1_text', array(
+		'settings'		=> 'ifs_legacy_footer_bar_1_text',
+		'section'		=> 'ifs_legacy_section_footer_bar_options',
+		'label'			=> __( 'Footer Bar 1 Text', 'ifs-legacy' ),
+		'description'	=> __( 'Input the content if you select "Text" as the content.', 'ifs-legacy' ),
+        'type'          => 'textarea'
+	));
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_bar_2_content', array(
+		'default'		=> '',
+		'transport'	=> 'refresh'
+	));
+
+    $wp_customize->add_control( 'ifs_legacy_footer_bar_2_content', array(
+		'settings'		=> 'ifs_legacy_footer_bar_2_content',
+		'section'		=> 'ifs_legacy_section_footer_bar_options',
+		'label'			=> __( 'Footer Bar 2 Content', 'ifs-legacy' ),
+		'description'	=> __( 'Select the type of the content.', 'ifs-legacy' ),
+        'type'          => 'select',
+        'choices'       => array(
+            ''              => __( 'None', 'ifs-legacy' ),
+            'text'          => __( 'Text', 'ifs-legacy' ),
+			'menu'          => __( 'Menu', 'ifs-legacy' ),
+            'widget'        => __( 'Widget', 'ifs-legacy' )
+        )
+	));
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_bar_2_text', array(
+		'default'		=> '',
+		'transport'	=> 'postMessage'
+	));
+
+    $wp_customize->add_control( 'ifs_legacy_footer_bar_2_text', array(
+		'settings'		=> 'ifs_legacy_footer_bar_2_text',
+		'section'		=> 'ifs_legacy_section_footer_bar_options',
+		'label'			=> __( 'Footer Bar 2 Text', 'ifs-legacy' ),
+		'description'	=> __( 'Input the content if you select "Text" as the content.', 'ifs-legacy' ),
+        'type'          => 'textarea'
 	));
 
 }

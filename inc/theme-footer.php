@@ -162,12 +162,50 @@
  add_action('ifs_legacy_theme_footer', 'ifs_legacy_get_theme_footer', 20);
 
  /**
-  * Get theme footer file
+  * Print footer bar
   *
-  * @uses ifs_legacy_bottom_foot()
+  * @uses ifs_legacy_footer_bar()
   */
-function ifs_legacy_bottom_foot(){
-    do_action('ifs_legacy_bottom_foot');
+function ifs_legacy_footer_bar(){
+    do_action('ifs_legacy_footer_bar');
+}
+
+/**
+* Get theme footer file
+*
+* @uses ifs_legacy_show_footer_bar()
+*/
+function ifs_legacy_footer_bar_columns(){
+
+    if( !ifs_legacy_show_footer_bar() ){
+        return;
+    }
+    ?>
+    <div class="outer-footer-bottom">
+        <div class="container footer-bottom-cont">
+            <div class="row">
+                <?php do_action('ifs_legacy_footer_bar_columns'); ?>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+add_action('ifs_legacy_footer_bar', 'ifs_legacy_footer_bar_columns', 10);
+
+/**
+* show footer bar
+*
+* @return bool
+*/
+function ifs_legacy_show_footer_bar(){
+    $content_1 = get_theme_mod('ifs_legacy_footer_bar_1_content', 'text');
+    $content_2 = get_theme_mod('ifs_legacy_footer_bar_2_content', '');
+
+    if(empty($content_1) && empty($content_2)){
+        return false;
+    }
+
+    return true;
 }
 
 /**
@@ -180,7 +218,7 @@ function ifs_legacy_bottom_foot_col_1(){
         do_action('ifs_legacy_bottom_foot_col_1');
     echo '</div>';
 }
- add_action('ifs_legacy_bottom_foot', 'ifs_legacy_bottom_foot_col_1', 10);
+ add_action('ifs_legacy_footer_bar_columns', 'ifs_legacy_bottom_foot_col_1', 10);
 
  /**
   * Get theme footer file
@@ -192,7 +230,7 @@ function ifs_legacy_bottom_foot_col_1(){
          do_action('ifs_legacy_bottom_foot_col_2');
      echo '</div>';
  }
-  add_action('ifs_legacy_bottom_foot', 'ifs_legacy_bottom_foot_col_2', 20);
+  add_action('ifs_legacy_footer_bar_columns', 'ifs_legacy_bottom_foot_col_2', 20);
 
   /**
    * Print content for footer bar coolumn 1
@@ -200,47 +238,93 @@ function ifs_legacy_bottom_foot_col_1(){
    * @uses ifs_legacy_bottom_foot_col_1()
    */
   function ifs_legacy_content_foot_col_1(){
-      ifs_legacy_print_copyright();
+      $ifs_legacy_foot_bar_content = get_theme_mod('ifs_legacy_footer_bar_1_content','text');
+      switch ($ifs_legacy_foot_bar_content) {
+          case "menu":
+              ifs_legacy_footer_menu();
+              break;
+          case "widget":
+              ifs_legacy_print_footer_widget_1();
+              break;
+          case "text":
+              ifs_legacy_print_copyright();
+              break;
+          default:
+             return;
+      }
   }
   add_action('ifs_legacy_bottom_foot_col_1', 'ifs_legacy_content_foot_col_1', 10);
 
-  /**
-   * Print content for footer bar coolumn 1
-   *
-   * @uses ifs_legacy_bottom_foot_col_2()
-   */
-  function ifs_legacy_content_foot_col_2(){
-      ifs_legacy_footer_menu();
-  }
-  add_action('ifs_legacy_bottom_foot_col_2', 'ifs_legacy_content_foot_col_2', 10);
+/**
+* Print content for footer bar coolumn 1
+*
+* @uses ifs_legacy_bottom_foot_col_2()
+*/
+function ifs_legacy_content_foot_col_2(){
+    $ifs_legacy_foot_bar_content = get_theme_mod('ifs_legacy_footer_bar_2_content');
+    switch ($ifs_legacy_foot_bar_content) {
+        case "menu":
+            ifs_legacy_footer_menu();
+            break;
+        case "widget":
+            ifs_legacy_print_footer_widget_2();
+            break;
+        case "text":
+            ifs_legacy_print_footer_text_2();
+            break;
+        default:
+           return;
+    }
+
+}
+add_action('ifs_legacy_bottom_foot_col_2', 'ifs_legacy_content_foot_col_2', 10);
 
   /**
    * Print copyright text
    *
    * @uses ifs_legacy_print_copyright()
    */
-  function ifs_legacy_print_copyright(){
+function ifs_legacy_print_copyright(){
+    $ifs_legacy_footer_text = get_theme_mod( 'ifs_legacy_footer_bar_1_text', '' );
     ?>
     <div class="site-info">
-    <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ifs-legacy' ) ); ?>"><?php
-        /* translators: %s: CMS name, i.e. WordPress. */
-        printf( esc_html__( 'Proudly powered by %s', 'ifs-legacy' ), 'WordPress' );
-    ?></a>
-    <span class="sep"> | </span>
     <?php
-        /* translators: 1: Theme name, 2: Theme author. */
-        printf( esc_html__( 'Theme: %1$s by %2$s.', 'ifs-legacy' ), 'Legacy', '<a href="http://www.interfeis.com">Interfeis Team</a>' );
-     ?>
-     </div>
-     <?php
-  }
+    if( trim($ifs_legacy_footer_text)==''){
+    ?>
+        <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ifs-legacy' ) ); ?>"><?php
+            /* translators: %s: CMS name, i.e. WordPress. */
+            printf( esc_html__( 'Proudly powered by %s', 'ifs-legacy' ), 'WordPress' );
+        ?></a>
+        <span class="sep"> | </span>
+        <?php
+            /* translators: 1: Theme name, 2: Theme author. */
+            printf( esc_html__( 'Theme: %1$s by %2$s.', 'ifs-legacy' ), 'Legacy', '<a href="http://www.interfeis.com">Interfeis Team</a>' );
+         ?>
 
-  /**
-   * Print copyright text
-   *
-   * @uses ifs_legacy_print_copyright()
-   */
-  function ifs_legacy_footer_menu(){
+    <?php
+    }else{
+        echo esc_html( $ifs_legacy_footer_text );
+    }
+    ?>
+    </div>
+    <?php
+}
+
+/**
+* Print footer bar widget 1
+*
+* @uses ifs_legacy_print_footer_widget_1()
+*/
+function ifs_legacy_print_footer_widget_1(){
+    dynamic_sidebar( 'footer-bar-1' );
+}
+
+/**
+* Print footer menu
+*
+* @uses ifs_legacy_footer_menu()
+*/
+function ifs_legacy_footer_menu(){
     ?>
     <div class="footer-menu">
     <?php
@@ -252,4 +336,25 @@ function ifs_legacy_bottom_foot_col_1(){
     ?>
      </div>
      <?php
-  }
+}
+
+/**
+* Print footer bar text 2
+*
+* @uses ifs_legacy_print_footer_text_2()
+*/
+function ifs_legacy_print_footer_text_2(){
+    $ifs_legacy_footer_text = get_theme_mod( 'ifs_legacy_footer_bar_2_text', '' );
+    ?>
+    <div class="site-info"><?php echo esc_html( $ifs_legacy_footer_text ); ?></div>
+    <?php
+}
+
+/**
+* Print footer bar widget 2
+*
+* @uses ifs_legacy_print_footer_widget_2()
+*/
+function ifs_legacy_print_footer_widget_2(){
+    dynamic_sidebar( 'footer-bar-2' );
+}
