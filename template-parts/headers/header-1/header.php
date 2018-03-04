@@ -12,12 +12,14 @@
 <div id="before-masthead" class="site-before-header clear">
     <?php ifs_legacy_hook_before_tophead(); ?>
     <div class="container">
-        <?php ifs_legacy_hook_tophead(); ?>
+        <div class="row">
+            <?php ifs_legacy_hook_tophead(); ?>
+        </div>
     </div>
     <?php ifs_legacy_hook_after_tophead(); ?>
 </div>
 
-<header id="masthead" class="site-header clear">
+<div id="masthead" class="site-header clear">
     <div class="container">
         <div class="site-branding">
             <?php
@@ -52,4 +54,4 @@
         </nav><!-- #site-navigation -->
 
     </div>
-</header><!-- #masthead -->
+</div><!-- #masthead -->

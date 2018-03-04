@@ -22,6 +22,86 @@ function ifs_legacy_hook_after_tophead(){
 }
 
 /**
+ * Print copyright text
+ *
+ * @uses ifs_legacy_print_copyright()
+ */
+function ifs_legacy_print_copyright(){
+  $ifs_legacy_top_text = get_theme_mod( 'ifs_legacy_top_bar_1_text', '' );
+  ?>
+  <div class="site-info">
+  <?php
+  if( trim($ifs_legacy_top_text)==''){
+  ?>
+	  <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ifs-legacy' ) ); ?>"><?php
+		  /* translators: %s: CMS name, i.e. WordPress. */
+		  printf( esc_html__( 'Proudly powered by %s', 'ifs-legacy' ), 'WordPress' );
+	  ?></a>
+	  <span class="sep"> | </span>
+	  <?php
+		  /* translators: 1: Theme name, 2: Theme author. */
+		  printf( esc_html__( 'Theme: %1$s by %2$s.', 'ifs-legacy' ), 'Legacy', '<a href="http://www.interfeis.com">Interfeis Team</a>' );
+	   ?>
+
+  <?php
+  }else{
+	  echo esc_html( $ifs_legacy_top_text );
+  }
+  ?>
+  </div>
+  <?php
+}
+
+/**
+* Print top bar widget 1
+*
+* @uses ifs_legacy_print_top_widget_1()
+*/
+function ifs_legacy_print_top_widget_1(){
+  dynamic_sidebar( 'top-bar-1' );
+}
+
+/**
+* Print top menu
+*
+* @uses ifs_legacy_top_menu()
+*/
+function ifs_legacy_top_menu(){
+    ?>
+    <div class="top-menu">
+    <?php
+        wp_nav_menu( array(
+            'theme_location' => 'top-menu',
+            'menu_id'        => 'top-menu',
+            'depth'          => 1
+        ) );
+    ?>
+     </div>
+     <?php
+}
+
+/**
+* Print top bar text 2
+*
+* @uses ifs_legacy_print_top_text_2()
+*/
+function ifs_legacy_print_top_text_2(){
+    $ifs_legacy_top_text = get_theme_mod( 'ifs_legacy_top_bar_2_text', '' );
+    ?>
+    <div class="top-info"><?php echo esc_html( $ifs_legacy_top_text ); ?></div>
+    <?php
+}
+
+/**
+* Print top bar widget 2
+*
+* @uses ifs_legacy_print_top_widget_2()
+*/
+function ifs_legacy_print_top_widget_2(){
+    dynamic_sidebar( 'top-bar-2' );
+}
+
+/**
  * hook for theme header
  *
  * @uses ifs_legacyt_theme_header()
@@ -281,6 +361,8 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 		$header_bg_color	= get_theme_mod('ifs_legacy_header_background_color');
 		$header_border_color= get_theme_mod('ifs_legacy_header_border_color');
 		$header_bg_image	= get_theme_mod('header_image');
+
+		$title_bg_image		= get_theme_mod('ifs_legacy_page_title_background_image');
 		/*
 		 * If no custom options for text are set, let's bail.
 		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
@@ -322,8 +404,14 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 		}
 
 		if($header_bg_image!='' && $header_bg_mage!='remove-image'){
-			$output_css .= '#outerafterheader{
+			$output_css .= '#header-container{
 				background-image: url('. esc_attr( $header_bg_image ).');
+			}';
+		}
+
+		if($title_bg_image!='' && $title_bg_mage!='remove-image'){
+			$output_css .= '#outerafterheader{
+				background-image: url('. esc_attr( $title_bg_image ).');
 			}';
 		}
 
