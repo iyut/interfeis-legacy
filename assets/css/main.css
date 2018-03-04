@@ -1067,6 +1067,9 @@ object {
 
 .outer-footer-bottom{
 	background-color:#fff;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
 	padding:8px 0px;
 }
 

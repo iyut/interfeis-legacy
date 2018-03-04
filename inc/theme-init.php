@@ -80,6 +80,18 @@
  			'flex-width'  => true,
  			'flex-height' => true,
  		)) );
+
+        /**
+         * Set up the WordPress core custom header feature.
+         *
+         */
+    	add_theme_support( 'custom-header', apply_filters( 'ifs_legacy_custom_header_args', array(
+    		'default-image'          => '',
+    		'default-text-color'     => '000000',
+    		'width'                  => 2100,
+    		'height'                 => 500,
+    		'flex-height'            => true
+    	) ) );
  	}
  endif;
  add_action( 'after_setup_theme', 'ifs_legacy_setup' );

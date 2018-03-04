@@ -6,8 +6,3 @@
  *
  * @package Legacy
  */
-
-?>
-<div id="site-footer-widgets" class="footer-widgets-container">
-
-</div>

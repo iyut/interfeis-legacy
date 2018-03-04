@@ -162,6 +162,17 @@ function ifs_legacy_customize_register( $wp_customize ) {
         'setting'	=> 'ifs_legacy_header_background_color'
     )));
 
+    $wp_customize->add_setting( 'ifs_legacy_header_border_color', array(
+        'default' 	=> '',
+        'transport'	=> 'refresh'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_header_border_color', array(
+        'label'		=> esc_html__('Header Border Color', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_header_options',
+        'setting'	=> 'ifs_legacy_header_border_color'
+    )));
+
     $wp_customize->add_setting( 'header_textcolor', array(
 		'default' 	=> '',
 		'transport'	=> 'refresh'
@@ -212,6 +223,28 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'priority'    => 10
 	) ) );
 
+    $wp_customize->add_setting( 'ifs_legacy_footer_text_color', array(
+        'default' 	=> '',
+        'transport'	=> 'refresh'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_text_color', array(
+        'label'		=> esc_html__('Footer Text Color', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_footer_options',
+        'setting'	=> 'ifs_legacy_footer_text_color'
+    )));
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_link_color', array(
+        'default' 	=> '',
+        'transport'	=> 'refresh'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_link_color', array(
+        'label'		=> esc_html__('Footer Link Color', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_footer_options',
+        'setting'	=> 'ifs_legacy_footer_link_color'
+    )));
+
     $wp_customize->add_setting( 'ifs_legacy_footer_background_color', array(
         'default' 	=> '',
         'transport'	=> 'refresh'
@@ -233,7 +266,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'settings'		=> 'ifs_legacy_footer_background_image',
 		'section'		=> 'ifs_legacy_section_footer_options',
 		'label'			=> __( 'Footer Background Image', 'ifs-legacy' ),
-		'description'	=> __( 'Select the image to be used for Footer Background.', 'ifs-legacy' )
+		'description'	=> __( 'Select the image to be used for Footer Background. The background will cover the whole section.', 'ifs-legacy' )
 	)));
 
     $wp_customize->add_section('ifs_legacy_section_footer_bar_options', array(
@@ -305,6 +338,52 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'description'	=> __( 'Input the content if you select "Text" as the content.', 'ifs-legacy' ),
         'type'          => 'textarea'
 	));
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_bar_text_color', array(
+        'default' 	=> '',
+        'transport'	=> 'refresh'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_bar_text_color', array(
+        'label'		=> esc_html__('Footer Bar Text Color', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_footer_bar_options',
+        'setting'	=> 'ifs_legacy_footer_bar_text_color'
+    )));
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_bar_link_color', array(
+        'default' 	=> '',
+        'transport'	=> 'refresh'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_bar_link_color', array(
+        'label'		=> esc_html__('Footer Bar Link Color', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_footer_bar_options',
+        'setting'	=> 'ifs_legacy_footer_bar_link_color'
+    )));
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_bar_background_color', array(
+        'default' 	=> '',
+        'transport'	=> 'refresh'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_bar_background_color', array(
+        'label'		=> esc_html__('Footer Bar Background Color', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_footer_bar_options',
+        'setting'	=> 'ifs_legacy_footer_bar_background_color'
+    )));
+
+    $wp_customize->add_setting( 'ifs_legacy_footer_bar_background_image', array(
+		'default'		=> '',
+		'sanitize_callback'	=> 'esc_url_raw',
+        'transport'	=> 'refresh'
+	));
+
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ifs_legacy_footer_bar_background_image', array(
+		'settings'		=> 'ifs_legacy_footer_bar_background_image',
+		'section'		=> 'ifs_legacy_section_footer_bar_options',
+		'label'			=> __( 'Footer Bar Background Image', 'ifs-legacy' ),
+		'description'	=> __( 'Select the image to be used for Footer Background. The background will cover the whole section.', 'ifs-legacy' )
+	)));
 
 }
 add_action( 'customize_register', 'ifs_legacy_customize_register' );

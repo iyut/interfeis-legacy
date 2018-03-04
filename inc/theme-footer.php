@@ -358,3 +358,83 @@ function ifs_legacy_print_footer_text_2(){
 function ifs_legacy_print_footer_widget_2(){
     dynamic_sidebar( 'footer-bar-2' );
 }
+
+if( !function_exists('ifs_legacy_footer_css_output') ){
+	function ifs_legacy_footer_css_output(){
+
+		$footer_text_color	= get_theme_mod('ifs_legacy_footer_text_color');
+        $footer_link_color	= get_theme_mod('ifs_legacy_footer_link_color');
+		$footer_bg_color	= get_theme_mod('ifs_legacy_footer_background_color');
+		$footer_bg_image	= get_theme_mod('ifs_legacy_footer_background_image');
+
+		// If we get this far, we have custom styles. Let's do this.
+		$output_css = '';
+
+        if( $footer_text_color!=''){
+			$output_css .= '#colophon{
+				color: '. esc_attr( $footer_text_color ).';
+			}';
+		}
+
+        if( $footer_link_color!=''){
+			$output_css .= '#colophon a, #colophon a:visited{
+				color: '. esc_attr( $footer_link_color ).';
+			}';
+		}
+
+		if( $footer_bg_color!=''){
+			$output_css .= '#colophon{
+				background-color: '. esc_attr( $footer_bg_color ).';
+			}';
+		}
+
+		if($footer_bg_image!='' && $footer_bg_mage!='remove-image'){
+			$output_css .= '#colophon{
+				background-image: url('. esc_attr( $footer_bg_image ).');
+			}';
+		}
+
+		return apply_filters('ifs_legacy_footer_css_output', $output_css );
+
+	}
+}
+
+if( !function_exists('ifs_legacy_footer_bar_css_output') ){
+	function ifs_legacy_footer_bar_css_output(){
+
+		$footer_text_color	= get_theme_mod('ifs_legacy_footer_bar_text_color');
+        $footer_link_color	= get_theme_mod('ifs_legacy_footer_bar_link_color');
+		$footer_bg_color	= get_theme_mod('ifs_legacy_footer_bar_background_color');
+		$footer_bg_image	= get_theme_mod('ifs_legacy_footer_bar_background_image');
+
+		// If we get this far, we have custom styles. Let's do this.
+		$output_css = '';
+
+        if( $footer_text_color!=''){
+			$output_css .= '#colophon .outer-footer-bottom{
+				color: '. esc_attr( $footer_text_color ).';
+			}';
+		}
+
+        if( $footer_link_color!=''){
+			$output_css .= '#colophon .outer-footer-bottom a, #colophon .outer-footer-bottom a:visited{
+				color: '. esc_attr( $footer_link_color ).';
+			}';
+		}
+
+		if( $footer_bg_color!=''){
+			$output_css .= '#colophon .outer-footer-bottom{
+				background-color: '. esc_attr( $footer_bg_color ).';
+			}';
+		}
+
+		if($footer_bg_image!='' && $footer_bg_mage!='remove-image'){
+			$output_css .= '#colophon .outer-footer-bottom{
+				background-image: url('. esc_attr( $footer_bg_image ).');
+			}';
+		}
+
+		return apply_filters('ifs_legacy_footer_bar_css_output', $output_css );
+
+	}
+}

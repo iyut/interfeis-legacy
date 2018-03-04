@@ -274,29 +274,17 @@ function ifs_legacy_the_header_title(){
 }
 add_action('ifs_legacy_the_title','ifs_legacy_the_header_title',15);
 
-/**
- * Set up the WordPress core custom header feature.
- *
- */
-function ifs_legacy_custom_header_setup() {
-	add_theme_support( 'custom-header' );
-}
-add_action( 'after_setup_theme', 'ifs_legacy_custom_header_setup' );
-
 if( !function_exists('ifs_legacy_header_css_output') ){
 	function ifs_legacy_header_css_output(){
 
 		$header_text_color	= get_header_textcolor();
 		$header_bg_color	= get_theme_mod('ifs_legacy_header_background_color');
+		$header_border_color= get_theme_mod('ifs_legacy_header_border_color');
 		$header_bg_image	= get_theme_mod('header_image');
-
 		/*
 		 * If no custom options for text are set, let's bail.
 		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
 		 */
-		if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
-			return '';
-		}
 
 		// If we get this far, we have custom styles. Let's do this.
 		$output_css = '';
@@ -324,6 +312,12 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 		if( $header_bg_color!=''){
 			$output_css .= 'body.ifs .site-header{
 				background-color: '. esc_attr( $header_bg_color ).';
+			}';
+		}
+
+		if( $header_border_color!=''){
+			$output_css .= 'body.ifs .site-header{
+				border-color: '. esc_attr( $header_border_color ).';
 			}';
 		}
 
