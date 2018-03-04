@@ -2,6 +2,44 @@
 Header Name: Header 1
 */
 
+.site-before-header{
+	background-color:#fff;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+.top_col{
+	padding-top:4px;
+	padding-bottom:4px;
+}
+
+.top-info{
+	font-size:0.8em;
+}
+
+.top-menu #top-menu{
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+	display:block;
+	font-size:0.8em;
+}
+.top_col_2 .top-menu #top-menu{
+	text-align:right;
+}
+.top-menu #top-menu li{
+	list-style-type:none;
+	display:inline-block;
+	padding:0px 10px;
+}
+.top-menu #top-menu li:first-child{
+	padding-left:0;
+}
+.top-menu #top-menu li:last-child{
+	padding-right:0;
+}
+
 .header-1 .site-header{
 	background-color:#fff;
 	border-bottom:1px solid #f0f0f0;

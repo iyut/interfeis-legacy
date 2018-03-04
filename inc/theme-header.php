@@ -22,34 +22,117 @@ function ifs_legacy_hook_after_tophead(){
 }
 
 /**
- * Print copyright text
- *
- * @uses ifs_legacy_print_copyright()
- */
-function ifs_legacy_print_copyright(){
-  $ifs_legacy_top_text = get_theme_mod( 'ifs_legacy_top_bar_1_text', '' );
-  ?>
-  <div class="site-info">
-  <?php
-  if( trim($ifs_legacy_top_text)==''){
-  ?>
-	  <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ifs-legacy' ) ); ?>"><?php
-		  /* translators: %s: CMS name, i.e. WordPress. */
-		  printf( esc_html__( 'Proudly powered by %s', 'ifs-legacy' ), 'WordPress' );
-	  ?></a>
-	  <span class="sep"> | </span>
-	  <?php
-		  /* translators: 1: Theme name, 2: Theme author. */
-		  printf( esc_html__( 'Theme: %1$s by %2$s.', 'ifs-legacy' ), 'Legacy', '<a href="http://www.interfeis.com">Interfeis Team</a>' );
-	   ?>
+* Get theme top file
+*
+* @uses ifs_legacy_show_top_bar()
+*/
+function ifs_legacy_top_bar_columns(){
 
-  <?php
-  }else{
-	  echo esc_html( $ifs_legacy_top_text );
+    if( !ifs_legacy_show_top_bar() ){
+        return;
+    }
+
+    do_action('ifs_legacy_top_bar_columns');
+}
+add_action('ifs_legacy_hook_tophead', 'ifs_legacy_top_bar_columns', 10);
+
+/**
+* show top bar
+*
+* @return bool
+*/
+function ifs_legacy_show_top_bar(){
+    $content_1 = get_theme_mod('ifs_legacy_top_bar_1_content', 'text');
+    $content_2 = get_theme_mod('ifs_legacy_top_bar_2_content', '');
+
+    if(empty($content_1) && empty($content_2)){
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * Get theme top bar file
+ *
+ * @uses ifs_legacy_top_bar_col_1()
+ */
+function ifs_legacy_top_bar_col_1(){
+    echo '<div class="top_col_1 top_col col-6">';
+        do_action('ifs_legacy_top_bar_col_1');
+    echo '</div>';
+}
+ add_action('ifs_legacy_top_bar_columns', 'ifs_legacy_top_bar_col_1', 10);
+
+ /**
+  * Get theme top bar file
+  *
+  * @uses ifs_legacy_top_bar_col_1()
+  */
+ function ifs_legacy_top_bar_col_2(){
+     echo '<div class="top_col_2 top_col col-6">';
+         do_action('ifs_legacy_top_bar_col_2');
+     echo '</div>';
+ }
+  add_action('ifs_legacy_top_bar_columns', 'ifs_legacy_top_bar_col_2', 20);
+
+/**
+ * Print content for top bar coolumn 1
+ *
+ * @uses ifs_legacy_top_bar_col_1()
+ */
+function ifs_legacy_content_top_col_1(){
+	$ifs_legacy_top_bar_content = get_theme_mod('ifs_legacy_top_bar_1_content','text');
+	switch ($ifs_legacy_top_bar_content) {
+		case "menu":
+			ifs_legacy_top_menu();
+			break;
+		case "widget":
+			ifs_legacy_print_top_widget_1();
+			break;
+		case "text":
+			ifs_legacy_print_top_text_1();
+			break;
+		default:
+		   return;
+	}
+}
+add_action('ifs_legacy_top_bar_col_1', 'ifs_legacy_content_top_col_1', 10);
+
+/**
+* Print content for top bar column 2
+*
+* @uses ifs_legacy_top_bar_col_2()
+*/
+function ifs_legacy_content_top_col_2(){
+  $ifs_legacy_top_bar_content = get_theme_mod('ifs_legacy_top_bar_2_content');
+  switch ($ifs_legacy_top_bar_content) {
+	  case "menu":
+		  ifs_legacy_top_menu();
+		  break;
+	  case "widget":
+		  ifs_legacy_print_top_widget_2();
+		  break;
+	  case "text":
+		  ifs_legacy_print_top_text_2();
+		  break;
+	  default:
+		 return;
   }
-  ?>
-  </div>
-  <?php
+
+}
+add_action('ifs_legacy_top_bar_col_2', 'ifs_legacy_content_top_col_2', 10);
+
+/**
+* Print top bar text 1
+*
+* @uses ifs_legacy_print_top_text_1()
+*/
+function ifs_legacy_print_top_text_1(){
+    $ifs_legacy_top_text = get_theme_mod( 'ifs_legacy_top_bar_1_text', '' );
+    ?>
+    <div class="top-info"><?php echo esc_html( $ifs_legacy_top_text ); ?></div>
+    <?php
 }
 
 /**
