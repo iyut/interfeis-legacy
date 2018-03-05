@@ -534,11 +534,6 @@ a:hover, a:active {
 	left: auto;
 }
 
-.main-navigation ul li.ifs-right-orientation:hover > ul,
-.main-navigation ul li.ifs-right-orientation.focus > ul {
-	right:0;
-}
-
 .main-navigation ul li.ifs-right-orientation > ul li:hover ul,
 .main-navigation ul li.ifs-right-orientation > ul li.focus ul {
 	right:100%;

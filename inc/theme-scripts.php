@@ -11,6 +11,8 @@
 */
 function ifs_legacy_scripts() {
 
+    wp_enqueue_script('jquery');
+
     wp_enqueue_script( 'ifs-legacy-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
     wp_enqueue_script( 'ifs-legacy-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 

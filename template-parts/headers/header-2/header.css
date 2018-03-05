@@ -1,21 +1,133 @@
-/*!
-Theme Name: Legacy
-Theme URI: http://underscores.me/
-Author: Novaro Studio
-Author URI: http://www.novarostudio.com
-Description: The latest free theme from Novaro Studio
-Version: 0.1.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
-Text Domain: ifs-legacy
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-Legacy is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+/*
+Header Name: Header 1
 */
+
+.site-before-header{
+	background-color:#fff;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+.top_col{
+	padding-top:4px;
+	padding-bottom:4px;
+}
+
+.top-info{
+	font-size:0.8em;
+}
+
+.top-menu #top-menu{
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+	display:block;
+	font-size:0.8em;
+}
+.top_col_2 .top-menu #top-menu{
+	text-align:right;
+}
+.top-menu #top-menu li{
+	list-style-type:none;
+	display:inline-block;
+	padding:0px 10px;
+}
+.top-menu #top-menu li:first-child{
+	padding-left:0;
+}
+.top-menu #top-menu li:last-child{
+	padding-right:0;
+}
+
+.header-2 .site-header{
+	background-color:#fff;
+	border-bottom:1px solid #f0f0f0;
+}
+
+.header-2 .site-header .site-branding{
+	padding:0px 15px;
+	order:1;
+	text-align:center;
+	width:100%;
+}
+
+.header-2 .site-header .site-title{
+	font-size:2em;
+	font-weight:700;
+	margin-top:0.67em;
+	margin-bottom:0em;
+}
+
+.header-2 .site-header .site-title a{
+	color:#3a3a3a;
+	text-decoration:none;
+}
+
+.header-2 .site-header .main-navigation{
+	padding:0px 15px;
+	order:2;
+	clear:none;
+	width:auto;
+	margin:0.67em 0;
+	text-align:center;
+
+	-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.header-2 .site-header .main-navigation li{
+	float:none;
+	display:inline-block;
+	margin-left:1em;
+}
+
+.header-2 .site-header .main-navigation li a{
+	color:#3a3a3a;
+	font-weight:700;
+}
+
+.header-2 .site-header .main-navigation ul.nav-menu > li.menu-item-has-children,
+.header-2 .site-header .main-navigation ul.nav-menu > li.page_item_has_children{
+	text-align:left;
+	padding-right:20px;
+}
+
+.header-2 .site-header .main-navigation ul.nav-menu > li.menu-item-has-children:after,
+.header-2 .site-header .main-navigation ul.nav-menu > li.page_item_has_children:after{
+	content:"\f107";
+	font-family:"FontAwesome";
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+
+.header-2 .site-header .main-navigation ul li.menu-item-has-children ul,
+.header-2 .site-header .main-navigation ul li.page_item_has_children ul{
+	box-shadow:none;
+	background-color:transparent;
+	border-bottom:1px solid #f0f0f0;
+}
+
+.header-2 .site-header .main-navigation ul li.menu-item-has-children li,
+.header-2 .site-header .main-navigation ul li.page_item_has_children li{
+	margin-left:0px;
+}
+
+.header-2 .site-header .main-navigation ul li.menu-item-has-children li a,
+.header-2 .site-header .main-navigation ul li.page_item_has_children li a{
+	background-color:#fff;
+	border:1px solid #f0f0f0;
+	border-bottom:0px;
+	padding:10px;
+	display:block;
+}
+.header-2 .site-header .main-navigation ul li.menu-item-has-children li:hover > a,
+.header-2 .site-header .main-navigation ul li.menu-item-has-children li a.current-menu-item,
+.header-2 .site-header .main-navigation ul li.page_item_has_children li:hover > a,
+.header-2 .site-header .main-navigation ul li.page_item_has_children li a.current_page_item{
+	background-color:#fafafa;
+}

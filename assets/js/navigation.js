@@ -115,7 +115,7 @@
 			var change_orientation = false;
 			if(offset_diff < 500){
 				change_orientation = true;
-			} 
+			}
 
 			if(change_orientation){
 				jQuery(this).addClass('ifs-right-orientation');
