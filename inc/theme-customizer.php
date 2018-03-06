@@ -319,6 +319,25 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'description'	=> __( 'Select the image to be used for Page Title Background. The background will cover the whole page title section.', 'ifs-legacy' )
 	)));
 
+    $wp_customize->add_setting( 'ifs_legacy_page_title_position', array(
+		'default'		=> '',
+        'transport'	=> 'refresh'
+	));
+
+    $wp_customize->add_control( 'ifs_legacy_page_title_position', array(
+		'settings'		=> 'ifs_legacy_page_title_position',
+		'section'		=> 'ifs_legacy_section_page_title_options',
+		'label'			=> __( 'Position', 'ifs-legacy' ),
+		'description'	=> __( 'Select the position of the title.', 'ifs-legacy' ),
+        'type'          => 'select',
+        'choices'       => array(
+            ''              => __( 'Default', 'ifs-legacy' ),
+            'left'          => __( 'Left', 'ifs-legacy' ),
+			'center'        => __( 'Center', 'ifs-legacy' ),
+            'right'         => __( 'Right', 'ifs-legacy' )
+        )
+	));
+
     $wp_customize->add_panel( 'ifs_legacy_panel_footer_setting', array(
 		    'priority' => 10,
 		    'capability' => 'edit_theme_options',
