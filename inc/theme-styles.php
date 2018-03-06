@@ -29,6 +29,8 @@ if( !function_exists('ifs_legacy_print_stylesheet') ){
 
         $output_css .= ifs_legacy_header_css_output();
 
+        $output_css .= ifs_legacy_content_css_output();
+
         $output_css .= ifs_legacy_footer_css_output();
 
         $output_css .= ifs_legacy_footer_bar_css_output();

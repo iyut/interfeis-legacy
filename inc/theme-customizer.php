@@ -137,12 +137,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'label'			=> __( 'Top Bar 1 Content', 'ifs-legacy' ),
 		'description'	=> __( 'Select the type of the content.', 'ifs-legacy' ),
         'type'          => 'select',
-        'choices'       => array(
-            ''              => __( 'None', 'ifs-legacy' ),
-            'text'          => __( 'Text', 'ifs-legacy' ),
-			'menu'          => __( 'Menu', 'ifs-legacy' ),
-            'widget'        => __( 'Widget', 'ifs-legacy' )
-        )
+        'choices'       => ifs_legacy_top_bar_choices()
 	));
 
     $wp_customize->add_setting( 'ifs_legacy_top_bar_1_text', array(
@@ -169,12 +164,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'label'			=> __( 'Top Bar 2 Content', 'ifs-legacy' ),
 		'description'	=> __( 'Select the type of the content.', 'ifs-legacy' ),
         'type'          => 'select',
-        'choices'       => array(
-            ''              => __( 'None', 'ifs-legacy' ),
-            'text'          => __( 'Text', 'ifs-legacy' ),
-			'menu'          => __( 'Menu', 'ifs-legacy' ),
-            'widget'        => __( 'Widget', 'ifs-legacy' )
-        )
+        'choices'       => ifs_legacy_top_bar_choices()
 	));
 
     $wp_customize->add_setting( 'ifs_legacy_top_bar_2_text', array(
@@ -305,6 +295,22 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'priority'	=> 30,
 		'panel' => 'ifs_legacy_panel_header_setting'
 	));
+
+    $wp_customize->add_setting( 'ifs_legacy_show_page_title', array(
+        'default' 	=> 'true',
+        'transport'	=> 'refresh'
+    ));
+
+    $wp_customize->add_control( 'ifs_legacy_show_page_title', array(
+        'label'		=> esc_html__('Show Page Title', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_page_title_options',
+        'setting'	=> 'ifs_legacy_show_page_title',
+        'type'      => 'select',
+        'choices'   => array(
+            'true'      => esc_html__('Yes', 'ifs-legacy'),
+            'false'     => esc_html__('No', 'ifs-legacy')
+        )
+    ));
 
     $wp_customize->add_setting( 'ifs_legacy_page_title_background_image', array(
 		'default'		=> '',
@@ -440,12 +446,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'label'			=> __( 'Footer Bar 1 Content', 'ifs-legacy' ),
 		'description'	=> __( 'Select the type of the content.', 'ifs-legacy' ),
         'type'          => 'select',
-        'choices'       => array(
-            ''              => __( 'None', 'ifs-legacy' ),
-            'text'          => __( 'Text', 'ifs-legacy' ),
-			'menu'          => __( 'Menu', 'ifs-legacy' ),
-            'widget'        => __( 'Widget', 'ifs-legacy' )
-        )
+        'choices'       => ifs_legacy_footer_bar_choices()
 	));
 
     $wp_customize->add_setting( 'ifs_legacy_footer_bar_1_text', array(
@@ -472,12 +473,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		'label'			=> __( 'Footer Bar 2 Content', 'ifs-legacy' ),
 		'description'	=> __( 'Select the type of the content.', 'ifs-legacy' ),
         'type'          => 'select',
-        'choices'       => array(
-            ''              => __( 'None', 'ifs-legacy' ),
-            'text'          => __( 'Text', 'ifs-legacy' ),
-			'menu'          => __( 'Menu', 'ifs-legacy' ),
-            'widget'        => __( 'Widget', 'ifs-legacy' )
-        )
+        'choices'       => ifs_legacy_footer_bar_choices()
 	));
 
     $wp_customize->add_setting( 'ifs_legacy_footer_bar_2_text', array(

@@ -22,6 +22,20 @@ function ifs_legacy_hook_after_tophead(){
 }
 
 /**
+* Generate available option for the footer bar content
+*
+* @uses ifs_legacy_top_bar_choices()
+*/
+function ifs_legacy_top_bar_choices(){
+    return apply_filters('ifs_legacy_top_bar_choices', array(
+        ''              => esc_html__( 'None', 'ifs-legacy' ),
+        'text'          => esc_html__( 'Text', 'ifs-legacy' ),
+        'menu'          => esc_html__( 'Menu', 'ifs-legacy' ),
+        'widget'        => esc_html__( 'Widget', 'ifs-legacy' )
+    ));
+}
+
+/**
 * Get theme top file
 *
 * @uses ifs_legacy_show_top_bar()
@@ -291,7 +305,15 @@ function ifs_legacy_get_theme_headers(){
  */
 function ifs_legacy_get_theme_header_mod(){
 	$ifs_legacy_header_mod = get_theme_mod( 'ifs_legacy_header_layout_style' );
+
+	$post_id 		= ifs_legacy_get_postid();
+	$header_type 	= get_post_meta( $post_id, 'ifs_header_type', true);
 	$ifs_legacy_headers = ifs_legacy_get_theme_headers();
+
+	if( $header_type != '' && $header_type != 'default' && array_key_exists( $header_type, $ifs_legacy_headers)){
+		$ifs_legacy_header_mod = $header_type;
+	}
+
 	if(array_key_exists($ifs_legacy_header_mod, $ifs_legacy_headers)){
 		$css_header_mod = $ifs_legacy_headers[$ifs_legacy_header_mod]['css'];
 		$ifs_legacy_header = $ifs_legacy_headers[$ifs_legacy_header_mod];
@@ -347,7 +369,54 @@ add_action('ifs_legacy_theme_header', 'ifs_legacy_get_theme_header', 20);
  * @uses ifs_legacy_show_header_title()
  */
 function ifs_legacy_show_header_title(){
-	return apply_filters('ifs_legacy_show_header_title', true);
+	$ifs_show_title_mod = get_theme_mod( 'ifs_legacy_show_page_title', 'true' );
+
+	$post_id 		= ifs_legacy_get_postid();
+	$show_title 	= get_post_meta( $post_id, 'ifs_show_title', true);
+
+	if( $show_title != '' && $show_title != 'default'){
+		$ifs_show_title_mod = $show_title;
+	}
+
+	$return = $ifs_show_title_mod=='true'? true : false;
+
+	return apply_filters('ifs_legacy_show_header_title', $return);
+}
+
+/**
+ * display the background image for the title section
+ *
+ * @uses ifs_legacy_display_bg_title()
+ */
+function ifs_legacy_display_bg_title(){
+	$title_bg_image		= get_theme_mod('ifs_legacy_page_title_background_image');
+
+	$post_id 		= ifs_legacy_get_postid();
+	$bg_title 	= get_post_meta( $post_id, 'ifs_bg_header', true);
+
+	if($bg_title != ''){
+		$title_bg_image = $bg_title;
+	}
+
+	return apply_filters('ifs_legacy_display_bg_title', $title_bg_image);
+}
+
+/**
+ * aligning the text for the title section
+ *
+ * @uses ifs_legacy_position_title()
+ */
+function ifs_legacy_position_title(){
+	$ifs_pos_title		= get_theme_mod('ifs_legacy_page_title_position');
+
+	$post_id 		= ifs_legacy_get_postid();
+	$pos_title 	= get_post_meta( $post_id, 'ifs_position_title', true);
+
+	if($pos_title != ''){
+		$ifs_pos_title = $pos_title;
+	}
+
+	return apply_filters('ifs_legacy_position_title', $ifs_pos_title);
 }
 
 /**
@@ -385,7 +454,7 @@ function ifs_legacy_get_the_header_title(){
 	//custom meta field
 	$ifs_pid = ifs_legacy_get_postid();
 	$ifs_custom = ifs_legacy_get_customdata($ifs_pid);
-	$ifs_cf_pagetitle = (isset($ifs_custom["nvr_page-title"][0]))? $ifs_custom["nvr_page-title"][0] : "";
+	$ifs_cf_pagetitle = (isset($ifs_custom["ifs_page_title"][0]))? $ifs_custom["ifs_page_title"][0] : "";
 
 	if(is_attachment()){
 
@@ -437,6 +506,35 @@ function ifs_legacy_the_header_title(){
 }
 add_action('ifs_legacy_the_title','ifs_legacy_the_header_title',15);
 
+/**
+ * Get page description
+ *
+ * @uses ifs_legacy_get_the_header_desc()
+ */
+function ifs_legacy_get_the_header_desc(){
+
+	//custom meta field
+	$ifs_pid = ifs_legacy_get_postid();
+	$ifs_custom = ifs_legacy_get_customdata($ifs_pid);
+	$ifs_cf_pagedesc = get_post_meta( $ifs_pid, 'ifs_pagedesc', true);
+
+	return apply_filters('ifs_legacy_get_the_header_desc', $ifs_cf_pagedesc);
+
+}
+
+/**
+ * Get page description
+ *
+ * @uses ifs_legacy_get_the_header_desc()
+ */
+function ifs_legacy_the_header_desc(){
+	if( empty(ifs_legacy_get_the_header_desc()) ){
+		return;
+	}
+	echo '<div class="page-desc"><span>' . ifs_legacy_get_the_header_desc() . '</span></div>';
+}
+add_action('ifs_legacy_the_title','ifs_legacy_the_header_desc',25);
+
 if( !function_exists('ifs_legacy_header_css_output') ){
 	function ifs_legacy_header_css_output(){
 
@@ -445,7 +543,8 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 		$header_border_color= get_theme_mod('ifs_legacy_header_border_color');
 		$header_bg_image	= get_theme_mod('header_image');
 
-		$title_bg_image		= get_theme_mod('ifs_legacy_page_title_background_image');
+		$title_bg_image		= ifs_legacy_display_bg_title();
+		$title_pos			= ifs_legacy_position_title();
 		/*
 		 * If no custom options for text are set, let's bail.
 		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
@@ -486,15 +585,20 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 			}';
 		}
 
-		if($header_bg_image!='' && $header_bg_mage!='remove-image'){
+		if($header_bg_image!='' && $header_bg_image!='remove-image'){
 			$output_css .= '#header-container{
 				background-image: url('. esc_attr( $header_bg_image ).');
 			}';
 		}
 
-		if($title_bg_image!='' && $title_bg_mage!='remove-image'){
+		if($title_bg_image!='' && $title_bg_image!='remove-image'){
 			$output_css .= '#outerafterheader{
 				background-image: url('. esc_attr( $title_bg_image ).');
+			}';
+		}
+		if($title_pos!=''){
+			$output_css .= '#pagetitlecontainer{
+				text-align: '.esc_attr( $title_pos ).';
 			}';
 		}
 

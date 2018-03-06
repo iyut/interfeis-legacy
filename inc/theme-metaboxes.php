@@ -78,6 +78,15 @@ function ifs_legacy_set_metaboxes(){
 		'default' => esc_html__('Default',"ifs-legacy")
 	);
 	$ifs_optlayout = array_merge( $ifs_optlayout, ifs_legacy_content_layout_choices() );
+
+	$footers = ifs_legacy_get_theme_footers();
+    $footer_layout_opt = array(
+		'default'	=> esc_html__('Default', "ifs-legacy")
+	);
+    foreach( $footers as $footer_idx => $footer_val ){
+        $footer_layout_opt[$footer_idx] = $footer_idx;
+    }
+
 	// Create meta box slider
 	$ifs_legacy_meta_boxes = array();
 
@@ -140,7 +149,7 @@ function ifs_legacy_set_metaboxes(){
 			),
             array(
 				'name' => esc_html__('Header Type',"ifs-legacy"),
-				'desc' => '<em>'.esc_html__('Select the theme layout that you want on this specific post/page. Overrides default theme layout.',"ifs-legacy").'</em>',
+				'desc' => '<em>'.esc_html__('Select the header layout that you want on this specific post/page. Overrides default header layout.',"ifs-legacy").'</em>',
 				'id' => 'ifs_header_type',
 				'type' => 'select',
 				'options' => $header_layout_opt,
@@ -155,9 +164,9 @@ function ifs_legacy_set_metaboxes(){
 				'std' => 'true'
 			),
 			array(
-				'name' => esc_html__('Disable Page Title',"ifs-legacy"),
-				'desc' => '<em>'.esc_html__('Choose \'Yes\' if you want to remove the page title.',"ifs-legacy").'</em>',
-				'id' => 'ifs_disable_title',
+				'name' => esc_html__('Show Page Title',"ifs-legacy"),
+				'desc' => '<em>'.esc_html__('Choose \'No\' if you want to remove the page title.',"ifs-legacy").'</em>',
+				'id' => 'ifs_show_title',
 				'type' => 'select',
 				'options' => $ifs_optdefyesno,
 				'std' => ''
@@ -198,17 +207,17 @@ function ifs_legacy_set_metaboxes(){
 				'std' => ''
 			),
             array(
-				'name' => esc_html__('Disable Footer Sidebar',"ifs-legacy"),
-				'desc' => '<em>'.esc_html__('Choose \'Yes\' if you want to remove the footer sidebar in this page.',"ifs-legacy").'</em>',
-				'id' => 'ifs_disable_footer_sidebar',
+				'name' => esc_html__('Footer Sidebar Type',"ifs-legacy"),
+				'desc' => '<em>'.esc_html__('Select the footer layout that you want on this specific post/page. Overrides default footer layout.',"ifs-legacy").'</em>',
+				'id' => 'ifs_footer_sidebar_type',
 				'type' => 'select',
-				'options' => $ifs_optdefyesno,
+				'options' => $footer_layout_opt,
 				'std' => ''
 			),
             array(
-				'name' => esc_html__('Disable Footer',"ifs-legacy"),
-				'desc' => '<em>'.esc_html__('Choose \'Yes\' if you want to remove the footer.',"ifs-legacy").'</em>',
-				'id' => 'ifs_disable_footer',
+				'name' => esc_html__('Show Footer Bar',"ifs-legacy"),
+				'desc' => '<em>'.esc_html__('Choose \'No\' if you want to remove the footer bar.',"ifs-legacy").'</em>',
+				'id' => 'ifs_show_footer_bar',
 				'type' => 'select',
 				'options' => $ifs_optdefyesno,
 				'std' => ''

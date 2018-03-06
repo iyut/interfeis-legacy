@@ -113,7 +113,15 @@
   */
  function ifs_legacy_get_theme_footer_mod(){
  	$ifs_legacy_footer_mod = get_theme_mod( 'ifs_legacy_footer_layout_style', 'footer-1' );
+
+    $post_id 		= ifs_legacy_get_postid();
+	$footer_type 	= get_post_meta( $post_id, 'ifs_footer_sidebar_type', true);
  	$ifs_legacy_footers = ifs_legacy_get_theme_footers();
+
+    if( $footer_type != '' && $footer_type != 'default' && array_key_exists( $footer_type, $ifs_legacy_footers)){
+		$ifs_legacy_footer_mod = $footer_type;
+	}
+
  	if(array_key_exists($ifs_legacy_footer_mod, $ifs_legacy_footers)){
  		$css_footer_mod = $ifs_legacy_footers[$ifs_legacy_footer_mod]['css'];
  		$ifs_legacy_footer = $ifs_legacy_footers[$ifs_legacy_footer_mod];
@@ -161,6 +169,20 @@
  }
  add_action('ifs_legacy_theme_footer', 'ifs_legacy_get_theme_footer', 20);
 
+/**
+* Generate available option for the footer bar content
+*
+* @uses ifs_legacy_footer_bar_choices()
+*/
+function ifs_legacy_footer_bar_choices(){
+    return apply_filters('ifs_legacy_footer_bar_choices', array(
+        ''              => esc_html__( 'None', 'ifs-legacy' ),
+        'text'          => esc_html__( 'Text', 'ifs-legacy' ),
+        'menu'          => esc_html__( 'Menu', 'ifs-legacy' ),
+        'widget'        => esc_html__( 'Widget', 'ifs-legacy' )
+    ));
+}
+
  /**
   * Print footer bar
   *
@@ -201,11 +223,20 @@ function ifs_legacy_show_footer_bar(){
     $content_1 = get_theme_mod('ifs_legacy_footer_bar_1_content', 'text');
     $content_2 = get_theme_mod('ifs_legacy_footer_bar_2_content', '');
 
-    if(empty($content_1) && empty($content_2)){
-        return false;
+    $post_id 		= ifs_legacy_get_postid();
+	$footer_bar 	= get_post_meta( $post_id, 'ifs_show_footer_bar', true);
+
+    $return = true;
+
+    if($footer_bar=='false'){
+        $return = false;
     }
 
-    return true;
+    if(empty($content_1) && empty($content_2)){
+        $return = false;
+    }
+
+    return apply_filters('ifs_legacy_show_footer_bar', $return);
 }
 
 /**

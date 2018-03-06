@@ -288,3 +288,64 @@ if(!function_exists('ifs_legacy_content_layout_chosen')){
         return apply_filters('ifs_legacy_content_layout_chosen', $ifs_legacy_content_mod);
     }
 }
+
+/**
+ * return the padding top value of the content.
+ *
+ * @uses ifs_legacy_content_padding_top()
+ */
+if(!function_exists('ifs_legacy_content_padding_top')){
+    function ifs_legacy_content_padding_top(){
+
+        $post_id = ifs_legacy_get_postid();
+
+        $padding_val = get_post_meta( $post_id, 'ifs_main_paddingtop', true);
+
+        return apply_filters('ifs_legacy_content_padding_top', $padding_val);
+    }
+}
+
+/**
+ * return the padding top value of the content.
+ *
+ * @uses ifs_legacy_content_padding_bottom()
+ */
+if(!function_exists('ifs_legacy_content_padding_bottom')){
+    function ifs_legacy_content_padding_bottom(){
+
+        $post_id = ifs_legacy_get_postid();
+
+        $padding_val = get_post_meta( $post_id, 'ifs_main_paddingbottom', true);
+
+        return apply_filters('ifs_legacy_content_padding_bottom', $padding_val);
+    }
+}
+
+if( !function_exists('ifs_legacy_content_css_output') ){
+	function ifs_legacy_content_css_output(){
+
+		$padding_top      = ifs_legacy_content_padding_top();
+        $padding_bottom   = ifs_legacy_content_padding_bottom();
+		/*
+		 * If no custom options for text are set, let's bail.
+		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
+		 */
+
+		// If we get this far, we have custom styles. Let's do this.
+		$output_css = '';
+
+		if($padding_top!=''){
+			$output_css .= '.outercontainer .site-content, .outercontainer .site-sidebar{
+				padding-top: '. esc_attr( $padding_top ).';
+			}';
+		}
+        if($padding_bottom!=''){
+			$output_css .= '.outercontainer .site-content, .outercontainer .site-sidebar{
+				padding-bottom: '. esc_attr( $padding_bottom ).';
+			}';
+		}
+
+		return apply_filters('ifs_legacy_content_css_output', $output_css );
+
+	}
+}

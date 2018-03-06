@@ -697,7 +697,9 @@ a:hover, a:active {
 	background-size:cover;
 	background-position:center;
 }
-
+.page-desc{
+	margin-bottom:2.1em;
+}
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
