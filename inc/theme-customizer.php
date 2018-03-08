@@ -65,7 +65,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'background_color', array(
         'default' 	=> '#ffffff',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'background_color', array(
@@ -92,7 +93,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_content_layout', array(
         'default' 	=> 'two-col-left',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( 'ifs_legacy_content_layout', array(
@@ -128,7 +130,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_top_bar_1_content', array(
 		'default'		=> 'text',
-		'transport'	=> 'refresh'
+		'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_html'
 	));
 
     $wp_customize->add_control( 'ifs_legacy_top_bar_1_content', array(
@@ -142,7 +145,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_top_bar_1_text', array(
 		'default'		=> '',
-		'transport'	=> 'postMessage'
+		'transport'	=> 'postMessage',
+        'sanitize_callback'	=> 'esc_textarea'
 	));
 
     $wp_customize->add_control( 'ifs_legacy_top_bar_1_text', array(
@@ -155,7 +159,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_top_bar_2_content', array(
 		'default'		=> '',
-		'transport'	=> 'refresh'
+		'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
 	));
 
     $wp_customize->add_control( 'ifs_legacy_top_bar_2_content', array(
@@ -169,7 +174,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_top_bar_2_text', array(
 		'default'		=> '',
-		'transport'	=> 'postMessage'
+		'transport'	=> 'postMessage',
+        'sanitize_callback'	=> 'esc_textarea'
 	));
 
     $wp_customize->add_control( 'ifs_legacy_top_bar_2_text', array(
@@ -182,7 +188,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_top_bar_text_color', array(
         'default' 	=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_top_bar_text_color', array(
@@ -193,7 +200,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_top_bar_link_color', array(
         'default' 	=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_top_bar_link_color', array(
@@ -204,7 +212,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_top_bar_background_color', array(
         'default' 	=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_top_bar_background_color', array(
@@ -259,7 +268,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_header_background_color', array(
         'default' 	=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_header_background_color', array(
@@ -270,7 +280,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_header_border_color', array(
         'default' 	=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_header_border_color', array(
@@ -281,7 +292,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'header_textcolor', array(
 		'default' 	=> '',
-		'transport'	=> 'refresh'
+		'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'header_textcolor', array(
@@ -298,7 +310,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_show_page_title', array(
         'default' 	=> 'true',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( 'ifs_legacy_show_page_title', array(
@@ -327,7 +340,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_page_title_position', array(
 		'default'		=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
 	));
 
     $wp_customize->add_control( 'ifs_legacy_page_title_position', array(
@@ -385,7 +399,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_footer_text_color', array(
         'default' 	=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_text_color', array(
@@ -396,7 +411,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_footer_link_color', array(
         'default' 	=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_link_color', array(
@@ -407,7 +423,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_footer_background_color', array(
         'default' 	=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_background_color', array(
@@ -437,7 +454,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_footer_bar_1_content', array(
 		'default'		=> 'text',
-		'transport'	=> 'refresh'
+		'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
 	));
 
     $wp_customize->add_control( 'ifs_legacy_footer_bar_1_content', array(
@@ -451,7 +469,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_footer_bar_1_text', array(
 		'default'		=> '',
-		'transport'	=> 'postMessage'
+		'transport'	=> 'postMessage',
+        'sanitize_callback'	=> 'esc_textarea'
 	));
 
     $wp_customize->add_control( 'ifs_legacy_footer_bar_1_text', array(
@@ -464,7 +483,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_footer_bar_2_content', array(
 		'default'		=> '',
-		'transport'	=> 'refresh'
+		'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
 	));
 
     $wp_customize->add_control( 'ifs_legacy_footer_bar_2_content', array(
@@ -478,7 +498,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_footer_bar_2_text', array(
 		'default'		=> '',
-		'transport'	=> 'postMessage'
+		'transport'	=> 'postMessage',
+        'sanitize_callback'	=> 'esc_textarea'
 	));
 
     $wp_customize->add_control( 'ifs_legacy_footer_bar_2_text', array(
@@ -491,7 +512,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_footer_bar_text_color', array(
         'default' 	=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_bar_text_color', array(
@@ -502,7 +524,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_footer_bar_link_color', array(
         'default' 	=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_bar_link_color', array(
@@ -513,7 +536,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting( 'ifs_legacy_footer_bar_background_color', array(
         'default' 	=> '',
-        'transport'	=> 'refresh'
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
     ));
 
     $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_bar_background_color', array(
