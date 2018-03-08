@@ -1,17 +1,17 @@
-# Copyright (C) 2017 Automattic
-# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: _s 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2016-12-23 16:00+0100\n"
+"Project-Id-Version: Legacy\n"
+"POT-Creation-Date: 2018-03-08 23:44+0700\n"
+"PO-Revision-Date: 2018-03-08 23:44+0700\n"
+"Last-Translator: \n"
+"Language-Team: Interfeis\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
-"Last-Translator:\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.4\n"
+"X-Generator: Poedit 2.0.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;esc_html__;esc_html_e\n"
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
@@ -19,8 +19,8 @@ msgstr ""
 
 #: 404.php:21
 msgid ""
-"It looks like nothing was found at this location. Maybe try one of the "
-"links below or a search?"
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
 msgstr ""
 
 #: 404.php:30
@@ -28,159 +28,689 @@ msgid "Most Used Categories"
 msgstr ""
 
 #: 404.php:47
-#. translators: %1$s: smiley
+#, php-format
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
 #: comments.php:34
-#. translators: 1: title.
+#, php-format
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: comments.php:67
+#: comments.php:63
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:18
-msgid "https://wordpress.org/"
+#: compatibility/woocommerce.php:227
+msgid "View your shopping cart"
 msgstr ""
 
-#: footer.php:20
-#. translators: %s: CMS name, i.e. WordPress.
-msgid "Proudly powered by %s"
-msgstr ""
-
-#: footer.php:25
-#. translators: 1: Theme name, 2: Theme author.
-msgid "Theme: %1$s by %2$s."
-msgstr ""
-
-#: functions.php:47
-msgid "Primary"
-msgstr ""
-
-#: functions.php:105
-msgid "Sidebar"
-msgstr ""
-
-#: functions.php:107
-msgid "Add widgets here."
-msgstr ""
-
-#: header.php:24
+#: header.php:25
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:45
-msgid "Primary Menu"
+#: inc/metabox-generator/metaboxes.php:105
+#: inc/metabox-generator/metaboxes.php:117
+msgid "Delete image"
 msgstr ""
 
-#: inc/template-tags.php:52
-#. translators: used between list items, there is a space after the comma
+#: inc/metabox-generator/metaboxes.php:105
+#: inc/metabox-generator/metaboxes.php:117
+msgid "Delete"
+msgstr ""
+
+#: inc/metabox-generator/metaboxes.php:117
+msgid "Add Images to Post Gallery"
+msgstr ""
+
+#: inc/metabox-generator/metaboxes.php:117
+msgid "Add to gallery"
+msgstr ""
+
+#: inc/metabox-generator/metaboxes.php:117
+msgid "Add post gallery images"
+msgstr ""
+
+#: inc/metabox-generator/metaboxes.php:140
+msgid "Select Post Category"
+msgstr ""
+
+#: inc/theme-customizer.php:53
+msgid "General Settings"
+msgstr ""
+
+#: inc/theme-customizer.php:54
+msgid "General settings."
+msgstr ""
+
+#: inc/theme-customizer.php:59 inc/theme-customizer.php:72
+msgid "Body Background Color"
+msgstr ""
+
+#: inc/theme-customizer.php:60
+msgid "This is a section for the body options."
+msgstr ""
+
+#: inc/theme-customizer.php:78
+msgid "Body Background Image"
+msgstr ""
+
+#: inc/theme-customizer.php:79
+msgid "This is a section for the body background image."
+msgstr ""
+
+#: inc/theme-customizer.php:86
+msgid "Content Options"
+msgstr ""
+
+#: inc/theme-customizer.php:87
+msgid "This is a section for the content option."
+msgstr ""
+
+#: inc/theme-customizer.php:99 inc/theme-metaboxes.php:102
+#: inc/theme-metaboxes.php:143
+msgid "Content Layout"
+msgstr ""
+
+#: inc/theme-customizer.php:110
+msgid "Header Settings"
+msgstr ""
+
+#: inc/theme-customizer.php:111
+msgid "Header settings."
+msgstr ""
+
+#: inc/theme-customizer.php:116
+msgid "Header Background Image"
+msgstr ""
+
+#: inc/theme-customizer.php:117
+msgid "This is a section for the header background image."
+msgstr ""
+
+#: inc/theme-customizer.php:124
+msgid "Top Bar Options"
+msgstr ""
+
+#: inc/theme-customizer.php:137
+msgid "Top Bar 1 Content"
+msgstr ""
+
+#: inc/theme-customizer.php:138 inc/theme-customizer.php:165
+#: inc/theme-customizer.php:447 inc/theme-customizer.php:474
+msgid "Select the type of the content."
+msgstr ""
+
+#: inc/theme-customizer.php:151
+msgid "Top Bar 1 Text"
+msgstr ""
+
+#: inc/theme-customizer.php:152 inc/theme-customizer.php:179
+#: inc/theme-customizer.php:461 inc/theme-customizer.php:488
+msgid "Input the content if you select \"Text\" as the content."
+msgstr ""
+
+#: inc/theme-customizer.php:164
+msgid "Top Bar 2 Content"
+msgstr ""
+
+#: inc/theme-customizer.php:178
+msgid "Top Bar 2 Text"
+msgstr ""
+
+#: inc/theme-customizer.php:189
+msgid "Top Bar Text Color"
+msgstr ""
+
+#: inc/theme-customizer.php:200
+msgid "Top Bar Link Color"
+msgstr ""
+
+#: inc/theme-customizer.php:211
+msgid "Top Bar Background Color"
+msgstr ""
+
+#: inc/theme-customizer.php:225
+msgid "Top Bar Background Image"
+msgstr ""
+
+#: inc/theme-customizer.php:226
+msgid ""
+"Select the image to be used for Top Background. The background will cover "
+"the whole section."
+msgstr ""
+
+#: inc/theme-customizer.php:230
+msgid "Header Options"
+msgstr ""
+
+#: inc/theme-customizer.php:252
+msgid "Header Layout"
+msgstr ""
+
+#: inc/theme-customizer.php:253
+msgid "Choose a layout for the header."
+msgstr ""
+
+#: inc/theme-customizer.php:266
+msgid "Header Background Color"
+msgstr ""
+
+#: inc/theme-customizer.php:277
+msgid "Header Border Color"
+msgstr ""
+
+#: inc/theme-customizer.php:288
+msgid "Header Text Color"
+msgstr ""
+
+#: inc/theme-customizer.php:294
+msgid "Page Title Options"
+msgstr ""
+
+#: inc/theme-customizer.php:305 inc/theme-metaboxes.php:167
+msgid "Show Page Title"
+msgstr ""
+
+#: inc/theme-customizer.php:310 inc/theme-metaboxes.php:14
+#: inc/theme-metaboxes.php:20
+msgid "Yes"
+msgstr ""
+
+#: inc/theme-customizer.php:311 inc/theme-metaboxes.php:15
+#: inc/theme-metaboxes.php:21
+msgid "No"
+msgstr ""
+
+#: inc/theme-customizer.php:324
+msgid "Page Title Background Image"
+msgstr ""
+
+#: inc/theme-customizer.php:325
+msgid ""
+"Select the image to be used for Page Title Background. The background will "
+"cover the whole page title section."
+msgstr ""
+
+#: inc/theme-customizer.php:336
+msgid "Position"
+msgstr ""
+
+#: inc/theme-customizer.php:337
+msgid "Select the position of the title."
+msgstr ""
+
+#: inc/theme-customizer.php:340 inc/theme-metaboxes.php:19
+#: inc/theme-metaboxes.php:30 inc/theme-metaboxes.php:41
+#: inc/theme-metaboxes.php:78 inc/theme-metaboxes.php:84
+msgid "Default"
+msgstr ""
+
+#: inc/theme-customizer.php:341 inc/theme-metaboxes.php:42
+msgid "Left"
+msgstr ""
+
+#: inc/theme-customizer.php:342
+msgid "Center"
+msgstr ""
+
+#: inc/theme-customizer.php:343 inc/theme-metaboxes.php:43
+msgid "Right"
+msgstr ""
+
+#: inc/theme-customizer.php:351
+msgid "Footer Settings"
+msgstr ""
+
+#: inc/theme-customizer.php:352
+msgid "Description of what this panel does."
+msgstr ""
+
+#: inc/theme-customizer.php:357
+msgid "Footer Widgets Options"
+msgstr ""
+
+#: inc/theme-customizer.php:378
+msgid "Footer Layout"
+msgstr ""
+
+#: inc/theme-customizer.php:379
+msgid "Choose a layout for the footer."
+msgstr ""
+
+#: inc/theme-customizer.php:392
+msgid "Footer Text Color"
+msgstr ""
+
+#: inc/theme-customizer.php:403
+msgid "Footer Link Color"
+msgstr ""
+
+#: inc/theme-customizer.php:414
+msgid "Footer Background Color"
+msgstr ""
+
+#: inc/theme-customizer.php:428
+msgid "Footer Background Image"
+msgstr ""
+
+#: inc/theme-customizer.php:429 inc/theme-customizer.php:535
+msgid ""
+"Select the image to be used for Footer Background. The background will cover "
+"the whole section."
+msgstr ""
+
+#: inc/theme-customizer.php:433
+msgid "Footer Bar Options"
+msgstr ""
+
+#: inc/theme-customizer.php:446
+msgid "Footer Bar 1 Content"
+msgstr ""
+
+#: inc/theme-customizer.php:460
+msgid "Footer Bar 1 Text"
+msgstr ""
+
+#: inc/theme-customizer.php:473
+msgid "Footer Bar 2 Content"
+msgstr ""
+
+#: inc/theme-customizer.php:487
+msgid "Footer Bar 2 Text"
+msgstr ""
+
+#: inc/theme-customizer.php:498
+msgid "Footer Bar Text Color"
+msgstr ""
+
+#: inc/theme-customizer.php:509
+msgid "Footer Bar Link Color"
+msgstr ""
+
+#: inc/theme-customizer.php:520
+msgid "Footer Bar Background Color"
+msgstr ""
+
+#: inc/theme-customizer.php:534
+msgid "Footer Bar Background Image"
+msgstr ""
+
+#: inc/theme-footer.php:179 inc/theme-header.php:31
+msgid "None"
+msgstr ""
+
+#: inc/theme-footer.php:180 inc/theme-header.php:32
+msgid "Text"
+msgstr ""
+
+#: inc/theme-footer.php:181 inc/theme-header.php:33
+msgid "Menu"
+msgstr ""
+
+#: inc/theme-footer.php:182 inc/theme-header.php:34
+msgid "Widget"
+msgstr ""
+
+#: inc/theme-footer.php:325
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: inc/theme-footer.php:327
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: inc/theme-footer.php:332
+#, php-format
+msgid "Theme: %1$s by %2$s."
+msgstr ""
+
+#: inc/theme-functions.php:258
+msgid "One column"
+msgstr ""
+
+#: inc/theme-functions.php:259
+msgid "Two columns - left content"
+msgstr ""
+
+#: inc/theme-functions.php:260
+msgid "Two columns - right content"
+msgstr ""
+
+#: inc/theme-functions.php:261
+msgid "Three columns - left content"
+msgstr ""
+
+#: inc/theme-functions.php:262
+msgid "Three columns - middle content"
+msgstr ""
+
+#: inc/theme-functions.php:263
+msgid "Three columns - right content"
+msgstr ""
+
+#: inc/theme-header.php:477
+msgid "Search Results for"
+msgstr ""
+
+#: inc/theme-header.php:481
+msgid "404 Page"
+msgstr ""
+
+#: inc/theme-header.php:487
+msgid "Blog"
+msgstr ""
+
+#: inc/theme-init.php:45
+msgid "Primary"
+msgstr ""
+
+#: inc/theme-init.php:46
+msgid "Secondary"
+msgstr ""
+
+#: inc/theme-init.php:47
+msgid "Top Menu"
+msgstr ""
+
+#: inc/theme-init.php:48
+msgid "Footer Menu"
+msgstr ""
+
+#: inc/theme-metaboxes.php:9
+msgid "On"
+msgstr ""
+
+#: inc/theme-metaboxes.php:10
+msgid "Off"
+msgstr ""
+
+#: inc/theme-metaboxes.php:25
+msgid "Default Theme Layout"
+msgstr ""
+
+#: inc/theme-metaboxes.php:48
+msgid "100% Full-Width"
+msgstr ""
+
+#: inc/theme-metaboxes.php:52
+msgid "Ascending"
+msgstr ""
+
+#: inc/theme-metaboxes.php:53
+msgid "Descending"
+msgstr ""
+
+#: inc/theme-metaboxes.php:95
+msgid "Post Options"
+msgstr ""
+
+#: inc/theme-metaboxes.php:103 inc/theme-metaboxes.php:256
+msgid ""
+"Select the layout you want on this specific post/page. Overrides default "
+"site layout."
+msgstr ""
+
+#: inc/theme-metaboxes.php:110
+msgid "External URL"
+msgstr ""
+
+#: inc/theme-metaboxes.php:111
+msgid "Input your external link in here. if you use \"Link\" format."
+msgstr ""
+
+#: inc/theme-metaboxes.php:117
+msgid "Audio File URL"
+msgstr ""
+
+#: inc/theme-metaboxes.php:118
+msgid "Input your audio file URL in here. "
+msgstr ""
+
+#: inc/theme-metaboxes.php:124
+msgid "Video File URL / Video Link"
+msgstr ""
+
+#: inc/theme-metaboxes.php:125
+msgid "Input your video file URL or video link like youtube or vimeo in here. "
+msgstr ""
+
+#: inc/theme-metaboxes.php:136
+msgid "Page Options"
+msgstr ""
+
+#: inc/theme-metaboxes.php:144
+msgid ""
+"Select the layout you want on this specific post/page. Overrides default "
+"content layout."
+msgstr ""
+
+#: inc/theme-metaboxes.php:151
+msgid "Header Type"
+msgstr ""
+
+#: inc/theme-metaboxes.php:152
+msgid ""
+"Select the header layout that you want on this specific post/page. Overrides "
+"default header layout."
+msgstr ""
+
+#: inc/theme-metaboxes.php:159
+msgid "Enable Breadcrumb"
+msgstr ""
+
+#: inc/theme-metaboxes.php:160
+msgid "Choose 'Yes' if you want to show breadcrumb."
+msgstr ""
+
+#: inc/theme-metaboxes.php:168
+msgid "Choose 'No' if you want to remove the page title."
+msgstr ""
+
+#: inc/theme-metaboxes.php:175
+msgid "Main Content Padding Top"
+msgstr ""
+
+#: inc/theme-metaboxes.php:176
+msgid "Input the padding top value in pixel. example : 12px"
+msgstr ""
+
+#: inc/theme-metaboxes.php:182
+msgid "Main Content Padding Bottom"
+msgstr ""
+
+#: inc/theme-metaboxes.php:183
+msgid "Input the padding bottom value in pixel. example : 12px"
+msgstr ""
+
+#: inc/theme-metaboxes.php:189
+msgid "Background Header"
+msgstr ""
+
+#: inc/theme-metaboxes.php:190
+msgid ""
+"Input the image URL in this textbox if you want to change the background "
+"image on the header."
+msgstr ""
+
+#: inc/theme-metaboxes.php:196
+msgid "Background Color Maincontent"
+msgstr ""
+
+#: inc/theme-metaboxes.php:197
+msgid ""
+"Input the hexcolor in this textbox if you want to change the background "
+"color of your content."
+msgstr ""
+
+#: inc/theme-metaboxes.php:203
+msgid "Page Description"
+msgstr ""
+
+#: inc/theme-metaboxes.php:204
+msgid "Input your own page description here."
+msgstr ""
+
+#: inc/theme-metaboxes.php:210
+msgid "Footer Sidebar Type"
+msgstr ""
+
+#: inc/theme-metaboxes.php:211
+msgid ""
+"Select the footer layout that you want on this specific post/page. Overrides "
+"default footer layout."
+msgstr ""
+
+#: inc/theme-metaboxes.php:218
+msgid "Show Footer Bar"
+msgstr ""
+
+#: inc/theme-metaboxes.php:219
+msgid "Choose 'No' if you want to remove the footer bar."
+msgstr ""
+
+#: inc/theme-metaboxes.php:230
+msgid "Page Blog Options"
+msgstr ""
+
+#: inc/theme-metaboxes.php:237
+msgid "Blog Categories"
+msgstr ""
+
+#: inc/theme-metaboxes.php:238
+msgid "You need to tick the blog categories to make the template blog works."
+msgstr ""
+
+#: inc/theme-metaboxes.php:248
+msgid "Product Options"
+msgstr ""
+
+#: inc/theme-metaboxes.php:255
+msgid "Layout"
+msgstr ""
+
+#: inc/theme-metaboxes.php:263
+msgid "Disable Page Title"
+msgstr ""
+
+#: inc/theme-metaboxes.php:264
+msgid "Choose 'Yes' if you want to remove the page title."
+msgstr ""
+
+#: inc/theme-tags.php:52
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:55
-#. translators: 1: list of categories.
+#: inc/theme-tags.php:55
+#, php-format
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:62
-#. translators: 1: list of tags.
+#: inc/theme-tags.php:62
+#, php-format
 msgid "Tagged %1$s"
 msgstr ""
 
-#: inc/template-tags.php:72
-#. translators: %s: post title
+#: inc/theme-tags.php:72
+#, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:89 template-parts/content-page.php:35
-#. translators: %s: Name of current post. Only visible to screen readers
+#: inc/theme-tags.php:89 template-parts/content-page.php:32
+#, php-format
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
+#: inc/theme-widgets.php:16
+msgid "Top Bar 1"
+msgstr ""
+
+#: inc/theme-widgets.php:18 inc/theme-widgets.php:27 inc/theme-widgets.php:36
+#: inc/theme-widgets.php:45 inc/theme-widgets.php:54 inc/theme-widgets.php:63
+#: inc/theme-widgets.php:72 inc/theme-widgets.php:81 inc/theme-widgets.php:90
+#: inc/theme-widgets.php:99 inc/theme-widgets.php:108 inc/theme-widgets.php:117
+msgid "Add widgets here."
+msgstr ""
+
+#: inc/theme-widgets.php:25
+msgid "Top Bar 2"
+msgstr ""
+
+#: inc/theme-widgets.php:34
+msgid "Sidebar"
+msgstr ""
+
+#: inc/theme-widgets.php:43
+msgid "Sidebar 2"
+msgstr ""
+
+#: inc/theme-widgets.php:52
+msgid "Before Footer"
+msgstr ""
+
+#: inc/theme-widgets.php:61
+msgid "Footer 1"
+msgstr ""
+
+#: inc/theme-widgets.php:70
+msgid "Footer 2"
+msgstr ""
+
+#: inc/theme-widgets.php:79
+msgid "Footer 3"
+msgstr ""
+
+#: inc/theme-widgets.php:88
+msgid "Footer 4"
+msgstr ""
+
+#: inc/theme-widgets.php:97
+msgid "Footer 5"
+msgstr ""
+
+#: inc/theme-widgets.php:106
+msgid "Footer Bar 1"
+msgstr ""
+
+#: inc/theme-widgets.php:115
+msgid "Footer Bar 2"
+msgstr ""
+
 #: search.php:21
-#. translators: %s: search query.
+#, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
-#: template-parts/content-none.php:14
-msgid "Nothing Found"
+#: template-parts/content-none.php:22
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:25
-#. translators: 1: link to WP admin new post page.
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-
-#: template-parts/content-none.php:38
+#: template-parts/content-none.php:35
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:44
+#: template-parts/content-none.php:41
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:22 template-parts/content.php:45
+#: template-parts/content-page.php:19 template-parts/content.php:45
 msgid "Pages:"
 msgstr ""
 
 #: template-parts/content.php:34
-#. translators: %s: Name of current post. Only visible to screen readers
+#, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#. Theme Name of the plugin/theme
-msgid "_s"
-msgstr ""
-
-#. Theme URI of the plugin/theme
-msgid "https://underscores.me/"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid ""
-"Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if "
-"you like. I'm a theme meant for hacking so don't use me as a <em>Parent "
-"Theme</em>. Instead try turning me into the next, most awesome, WordPress "
-"theme out there. That's what I'm here for."
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "Automattic"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "https://automattic.com/"
-msgstr ""
-
-#: comments.php:40
-#. translators: 1: comment count number, 2: title.
-msgctxt "comments title"
-msgid "%1$s thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/template-tags.php:29
-#. translators: %s: post date.
-msgctxt "post date"
-msgid "Posted on %s"
-msgstr ""
-
-#: inc/template-tags.php:35
-#. translators: %s: post author.
-msgctxt "post author"
-msgid "by %s"
-msgstr ""
-
-#: inc/template-tags.php:59
-#. translators: used between list items, there is a space after the comma
-msgctxt "list item separator"
-msgid ", "
+#: template-parts/headers/header-1/header.php:48
+#: template-parts/headers/header-2/header.php:48
+#: template-parts/headers/header-3/header.php:48
+msgid "Primary Menu"
 msgstr ""
