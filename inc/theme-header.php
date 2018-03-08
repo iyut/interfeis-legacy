@@ -170,6 +170,7 @@ function ifs_legacy_top_menu(){
         wp_nav_menu( array(
             'theme_location' => 'top-menu',
             'menu_id'        => 'top-menu',
+			'container'		 => 'ul',
             'depth'          => 1
         ) );
     ?>
