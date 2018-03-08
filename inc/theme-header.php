@@ -380,6 +380,10 @@ function ifs_legacy_show_header_title(){
 
 	$return = $ifs_show_title_mod=='true'? true : false;
 
+	if(is_home() && is_front_page()){
+		$return = false;
+	}
+
 	return apply_filters('ifs_legacy_show_header_title', $return);
 }
 
