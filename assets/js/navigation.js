@@ -104,3 +104,23 @@
 		}
 	}( container ) );
 } )();
+
+( function( $ ){
+	var parentli = jQuery('.page_item_has_children, .menu-item-has-children');
+	var win_width = jQuery( window ).width();
+	if(parentli.length){
+		parentli.each( function(){
+			var parent_pos = jQuery(this).offset();
+			var offset_diff = parseInt(win_width) - parseInt(parent_pos.left);
+			var change_orientation = false;
+			if(offset_diff < 500){
+				change_orientation = true;
+			}
+
+			if(change_orientation){
+				jQuery(this).addClass('ifs-right-orientation');
+			}
+		});
+
+	}
+})( jQuery )

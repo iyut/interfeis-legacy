@@ -23,6 +23,11 @@ require get_template_directory() . '/inc/theme-widgets.php';
 require get_template_directory() . '/inc/theme-header.php';
 
 /**
+ * Implement the Custom Footer feature.
+ */
+require get_template_directory() . '/inc/theme-footer.php';
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/theme-tags.php';
@@ -46,6 +51,11 @@ require get_template_directory() . '/inc/theme-scripts.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/theme-customizer.php';
+
+/**
+ * Metabox additions.
+ */
+require get_template_directory() . '/inc/theme-metaboxes.php';
 
 /**
  * Load Jetpack compatibility file.

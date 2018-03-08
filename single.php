@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+		<main id="main" class="site-main single-main single-main-<?php echo esc_attr( get_post_type() ); ?>">
 
 		<?php
 		while ( have_posts() ) : the_post();
@@ -31,5 +31,4 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
