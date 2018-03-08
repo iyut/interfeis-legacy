@@ -40,6 +40,8 @@
  		 */
  		add_theme_support( 'post-thumbnails' );
 
+        add_theme_support( 'post-formats', array( 'image' ) );
+
  		// This theme uses wp_nav_menu() in one location.
  		register_nav_menus( apply_filters('ifs_legacy_register_nav_menus', array(
  			'menu-1'        => esc_html__( 'Primary', 'ifs-legacy' ),
@@ -95,6 +97,14 @@
  	}
  endif;
  add_action( 'after_setup_theme', 'ifs_legacy_setup' );
+
+ /**
+ * Registers an editor stylesheet for the theme.
+ */
+function ifs_legacy_add_editor_styles() {
+    add_editor_style( 'assets/css/custom-editor-style.css' );
+}
+add_action( 'admin_init', 'ifs_legacy_add_editor_styles' );
 
  /**
   * Set the custom body class
