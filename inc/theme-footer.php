@@ -156,6 +156,8 @@
 	});
 
 }
+add_action( 'wp_enqueue_scripts', 'ifs_legacy_get_theme_footer_css', 30);
+
  /**
   * Get theme footer file
   *
@@ -459,7 +461,7 @@ if( !function_exists('ifs_legacy_footer_bar_css_output') ){
 			}';
 		}
 
-		if($footer_bg_image!='' && $footer_bg_mage!='remove-image'){
+		if($footer_bg_image!='' && $footer_bg_image!='remove-image'){
 			$output_css .= '#colophon .outer-footer-bottom{
 				background-image: url('. esc_attr( $footer_bg_image ).');
 			}';
