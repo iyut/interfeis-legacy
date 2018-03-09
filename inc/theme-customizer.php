@@ -91,6 +91,21 @@ function ifs_legacy_customize_register( $wp_customize ) {
 	    )
 	);
 
+    $wp_customize->add_setting( 'ifs_legacy_layout_width', array(
+        'default' 	=> '',
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
+    ));
+
+    $wp_customize->add_control( 'ifs_legacy_layout_width', array(
+        'label'		=> esc_html__('Layout Width', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_content_options',
+        'setting'	=> 'ifs_legacy_layout_width',
+        'description'	=> __( 'Input the default width of your layout. Default value : 1140', 'ifs-legacy' ),
+        'type'      => 'number',
+        'input_attrs' => array( 'min' => 1024, 'max' => 1400)
+    ));
+
     $wp_customize->add_setting( 'ifs_legacy_content_layout', array(
         'default' 	=> 'two-col-left',
         'transport'	=> 'refresh',

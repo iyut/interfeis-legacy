@@ -23,6 +23,11 @@ require get_template_directory() . '/inc/theme-widgets.php';
 require get_template_directory() . '/inc/theme-header.php';
 
 /**
+ * Implement the Custom Content feature.
+ */
+require get_template_directory() . '/inc/theme-content.php';
+
+/**
  * Implement the Custom Footer feature.
  */
 require get_template_directory() . '/inc/theme-footer.php';
