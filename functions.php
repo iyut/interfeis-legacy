@@ -7,6 +7,11 @@
  * @package Legacy
  */
 
+ /**
+  * Get Interfeis Font Class
+  */
+ require get_template_directory() . '/inc/classes/class-ifs-fonts.php';
+
 /**
  * Initiate the theme.
  */

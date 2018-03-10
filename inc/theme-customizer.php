@@ -120,6 +120,38 @@ function ifs_legacy_customize_register( $wp_customize ) {
         'choices'   => ifs_legacy_content_layout_choices()
     ));
 
+    $wp_customize->add_setting( 'ifs_legacy_custom_font_1', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_attr',
+        'transport'         => 'refresh'
+	) );
+
+	$wp_customize->add_control( 'ifs_legacy_custom_font_1', array(
+		'type'			=> 'select',
+		'label'			=> esc_html__( 'Custom Font 1', 'ifs-legacy' ),
+		'description'	=> __( 'Choose the custom font.', 'ifs-legacy' ),
+		'section'		=> 'ifs_legacy_section_content_options',
+		'setting'		=> 'ifs_legacy_custom_font_1',
+		'choices'		=> ifs_legacy_custom_font_values('primary'),
+		'priority'		=> 10
+	) );
+
+	$wp_customize->add_setting( 'ifs_legacy_custom_font_2', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_attr',
+        'transport'         => 'refresh'
+	) );
+
+	$wp_customize->add_control( 'ifs_legacy_custom_font_2', array(
+		'type'			=> 'select',
+		'label'			=> esc_html__( 'Custom Font 2', 'ifs-legacy' ),
+		'description'	=> __( 'Choose the secondary custom font.', 'ifs-legacy' ),
+		'section'		=> 'ifs_legacy_section_content_options',
+		'setting'		=> 'ifs_legacy_custom_font_2',
+		'choices'		=> ifs_legacy_custom_font_values('secondary'),
+		'priority'		=> 10
+	) );
+
 	$wp_customize->add_panel( 'ifs_legacy_panel_header_setting', array(
 		    'priority' => 10,
 		    'capability' => 'edit_theme_options',
@@ -577,6 +609,25 @@ function ifs_legacy_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'ifs_legacy_customize_register' );
 
+
+/**
+ * get the custom font 1 options data
+ *
+ * @return array
+ */
+function ifs_legacy_custom_font_values( $custom_filters = '') {
+	$all_fonts	= IFS_Fonts::get_all_fonts();
+	$font_choices = array('' => esc_html__('Default'));
+	foreach($all_fonts as $id => $font){
+		$font_choices[$id] = $font['name'];
+	}
+
+	$filter = '';
+	if($custom_filters!=''){
+		$filter = '-'.$custom_filters;
+	}
+	return apply_filters( 'ifs_legacy_custom_font_1_values'.sanitize_key($filter), $font_choices);
+}
 
 /**
  * Render the site title for the selective refresh partial.
