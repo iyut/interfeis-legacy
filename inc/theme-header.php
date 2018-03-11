@@ -300,12 +300,21 @@ function ifs_legacy_get_theme_headers(){
 }
 
 /**
+ * Get theme header default value
+ *
+ * @uses ifs_legacy_get_theme_header_default()
+ */
+function ifs_legacy_get_theme_header_default(){
+	return apply_filters('ifs_legacy_get_theme_header_default', 'header-1');
+}
+
+/**
  * Get theme header value from theme option
  *
  * @uses ifs_legacy_get_theme_header_mod()
  */
 function ifs_legacy_get_theme_header_mod(){
-	$ifs_legacy_header_mod = get_theme_mod( 'ifs_legacy_header_layout_style' );
+	$ifs_legacy_header_mod = get_theme_mod( 'ifs_legacy_header_layout_style', ifs_legacy_get_theme_header_default() );
 
 	$post_id 		= ifs_legacy_get_postid();
 	$header_type 	= get_post_meta( $post_id, 'ifs_header_type', true);
@@ -533,10 +542,11 @@ function ifs_legacy_get_the_header_desc(){
  * @uses ifs_legacy_get_the_header_desc()
  */
 function ifs_legacy_the_header_desc(){
-	if( empty(ifs_legacy_get_the_header_desc()) ){
-		return;
+	if( ifs_legacy_get_the_header_desc() ){
+		echo '';
+	}else{
+		echo '<div class="page-desc"><span>' . ifs_legacy_get_the_header_desc() . '</span></div>';
 	}
-	echo '<div class="page-desc"><span>' . ifs_legacy_get_the_header_desc() . '</span></div>';
 }
 add_action('ifs_legacy_the_title','ifs_legacy_the_header_desc',25);
 

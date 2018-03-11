@@ -674,7 +674,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
 
 	$wp_customize->add_setting( 'ifs_legacy_header_layout_style', array(
-		'default'           => 'header-1',
+		'default'           => ifs_legacy_get_theme_header_default(),
 		'sanitize_callback' => 'sanitize_key',
         'transport'         => 'refresh'
 	) );

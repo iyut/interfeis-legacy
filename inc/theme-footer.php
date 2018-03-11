@@ -107,6 +107,15 @@
  }
 
  /**
+  * Get theme footer default value
+  *
+  * @uses ifs_legacy_get_theme_footer_default()
+  */
+ function ifs_legacy_get_theme_footer_default(){
+ 	return apply_filters('ifs_legacy_get_theme_footer_default', 'footer-1');
+ }
+
+ /**
   * Get theme footer value from theme option
   *
   * @uses ifs_legacy_get_theme_footer_mod()
