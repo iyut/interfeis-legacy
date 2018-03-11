@@ -47,7 +47,7 @@ if( !function_exists('ifs_legacy_print_custom_font_1') ){
 		if($chosen_font!=false){
 
 			wp_enqueue_style( 'ifs-legacy-'.esc_attr($chosen_font['id']), $chosen_font['url'] );
-			
+
 		}
 	}
 	add_action('ifs_legacy_styles_after_stylesheet', 'ifs_legacy_print_custom_font_1', 15);
@@ -84,6 +84,8 @@ if( !function_exists('ifs_legacy_print_custom_font_2') ){
 if( !function_exists('ifs_legacy_generate_stylesheet') ){
     function ifs_legacy_generate_stylesheet(){
         $output_css = '';
+
+		$output_css .= ifs_legacy_print_all_font_css();
 
         $output_css .= ifs_legacy_header_css_output();
 

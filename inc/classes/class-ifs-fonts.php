@@ -26,20 +26,20 @@ class IFS_Fonts{
 
 			// Declare default font list
 			$font_list = array(
-					'Arial'               => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'Century Gothic'      => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'Courier New'         => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'Georgia'             => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'Helvetica'           => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'Impact'              => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'Lucida Console'      => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'Lucida Sans Unicode' => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'Palatino Linotype'   => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'sans-serif'          => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'serif'               => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'Tahoma'              => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'Trebuchet MS'        => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
-					'Verdana'             => array( 'weights' => array( '400', '400italic', '700', '700italic' ) ),
+					'Arial'               => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'sans-serif' ),
+					'Century Gothic'      => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'serif' ),
+					'Courier New'         => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'sans-serif' ),
+					'Georgia'             => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'serif' ),
+					'Helvetica'           => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'sans-serif' ),
+					'Impact'              => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'sans-serif' ),
+					'Palatino Linotype'   => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'sans-serif' ),
+					'sans-serif'          => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'sans-serif' ),
+					'serif'               => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'serif' ),
+					'Tahoma'              => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'sans-serif' ),
+					'Times'     		  => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'serif' ),
+					'Times New Roman'     => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'serif' ),
+					'Trebuchet MS'        => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'sans-serif' ),
+					'Verdana'             => array( 'weights' => array( '400', '400italic', '700', '700italic' ), 'category' => 'sans-serif' ),
 			);
 
 			// Build font list to return
@@ -57,6 +57,7 @@ class IFS_Fonts{
 				$atts = array(
 						'name'         => $font,
 						'font_type'    => 'default',
+						'category'	   => $attributes['category'],
 						'font_weights' => $attributes['weights'],
 						'subsets'      => array(),
 						'files'        => array(),

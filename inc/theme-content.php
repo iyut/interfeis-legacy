@@ -1,6 +1,107 @@
 <?php
 
 /**
+ * add a class to outer content container element
+ *
+ * @uses ifs_legacy_content_container_class()
+ */
+function ifs_legacy_content_container_class(){
+
+	echo esc_attr( apply_filters('ifs_legacy_content_container_class', ifs_legacy_content_layout_chosen()) );
+
+}
+
+/**
+ * add a class to content element
+ *
+ * @uses ifs_legacy_content_class()
+ */
+function ifs_legacy_content_class( $echo=true ){
+
+    $layout_chosen = ifs_legacy_content_layout_chosen();
+
+    if($layout_chosen=='one-col'){
+        $class = 'col-12';
+    }elseif($layout_chosen=='two-col-left'){
+        $class = "col-8";
+    }elseif($layout_chosen=='two-col-right'){
+        $class = "col-8";
+    }elseif($layout_chosen=='three-col-left'){
+        $class = "col-6";
+    }elseif($layout_chosen=='three-col-mid'){
+        $class = "col-6";
+    }elseif($layout_chosen=='three-col-right'){
+        $class = "col-6";
+    }
+
+    if($echo==true){
+	    echo esc_attr( apply_filters('ifs_legacy_content_class_val', $class) );
+    }else{
+        return apply_filters('ifs_legacy_content_class_val', $class);
+    }
+}
+
+/**
+ * add a class to sidebar 1 container
+ *
+ * @uses ifs_legacy_sidebar_class()
+ */
+function ifs_legacy_sidebar_class( $echo=true ){
+
+    $layout_chosen = ifs_legacy_content_layout_chosen();
+
+    if($layout_chosen=='one-col'){
+        $class = 'd-none';
+    }elseif($layout_chosen=='two-col-left'){
+        $class = "col-4";
+    }elseif($layout_chosen=='two-col-right'){
+        $class = "col-4";
+    }elseif($layout_chosen=='three-col-left'){
+        $class = "col-3";
+    }elseif($layout_chosen=='three-col-mid'){
+        $class = "col-3";
+    }elseif($layout_chosen=='three-col-right'){
+        $class = "col-3";
+    }
+
+    if($echo==true){
+        echo esc_attr( apply_filters('ifs_legacy_sidebar_class_val', $class) );
+    }else{
+        return apply_filters('ifs_legacy_sidebar_class_val', $class);
+    }
+}
+
+/**
+ * add a class to sidebar 2 container
+ *
+ * @uses ifs_legacy_sidebar_2_class()
+ */
+function ifs_legacy_sidebar_2_class( $echo=true ){
+
+    $layout_chosen = ifs_legacy_content_layout_chosen();
+
+    if($layout_chosen=='one-col'){
+        $class = 'd-none';
+    }elseif($layout_chosen=='two-col-left'){
+        $class = 'd-none';
+    }elseif($layout_chosen=='two-col-right'){
+        $class = 'd-none';
+    }elseif($layout_chosen=='three-col-left'){
+        $class = "col-3";
+    }elseif($layout_chosen=='three-col-mid'){
+        $class = "col-3";
+    }elseif($layout_chosen=='three-col-right'){
+        $class = "col-3";
+    }
+
+    if($echo==true){
+        echo esc_attr( apply_filters('ifs_legacy_sidebar_2_class_val', $class) );
+    }else{
+        return apply_filters('ifs_legacy_sidebar_2_class_val', $class);
+    }
+}
+
+/**
  * return the layout width value
  *
  * @uses ifs_legacy_layout_width_value()

@@ -99,107 +99,6 @@ function ifs_legacy_body_classes( $classes ) {
 add_filter( 'body_class', 'ifs_legacy_body_classes' );
 
 /**
- * add a class to outer content container element
- *
- * @uses ifs_legacy_content_container_class()
- */
-function ifs_legacy_content_container_class(){
-
-	echo esc_attr( apply_filters('ifs_legacy_content_container_class', ifs_legacy_content_layout_chosen()) );
-
-}
-
-/**
- * add a class to content element
- *
- * @uses ifs_legacy_content_class()
- */
-function ifs_legacy_content_class( $echo=true ){
-
-    $layout_chosen = ifs_legacy_content_layout_chosen();
-
-    if($layout_chosen=='one-col'){
-        $class = 'col-12';
-    }elseif($layout_chosen=='two-col-left'){
-        $class = "col-8";
-    }elseif($layout_chosen=='two-col-right'){
-        $class = "col-8";
-    }elseif($layout_chosen=='three-col-left'){
-        $class = "col-6";
-    }elseif($layout_chosen=='three-col-mid'){
-        $class = "col-6";
-    }elseif($layout_chosen=='three-col-right'){
-        $class = "col-6";
-    }
-
-    if($echo==true){
-	    echo esc_attr( apply_filters('ifs_legacy_content_class_val', $class) );
-    }else{
-        return apply_filters('ifs_legacy_content_class_val', $class);
-    }
-}
-
-/**
- * add a class to sidebar 1 container
- *
- * @uses ifs_legacy_sidebar_class()
- */
-function ifs_legacy_sidebar_class( $echo=true ){
-
-    $layout_chosen = ifs_legacy_content_layout_chosen();
-
-    if($layout_chosen=='one-col'){
-        $class = 'd-none';
-    }elseif($layout_chosen=='two-col-left'){
-        $class = "col-4";
-    }elseif($layout_chosen=='two-col-right'){
-        $class = "col-4";
-    }elseif($layout_chosen=='three-col-left'){
-        $class = "col-3";
-    }elseif($layout_chosen=='three-col-mid'){
-        $class = "col-3";
-    }elseif($layout_chosen=='three-col-right'){
-        $class = "col-3";
-    }
-
-    if($echo==true){
-        echo esc_attr( apply_filters('ifs_legacy_sidebar_class_val', $class) );
-    }else{
-        return apply_filters('ifs_legacy_sidebar_class_val', $class);
-    }
-}
-
-/**
- * add a class to sidebar 2 container
- *
- * @uses ifs_legacy_sidebar_2_class()
- */
-function ifs_legacy_sidebar_2_class( $echo=true ){
-
-    $layout_chosen = ifs_legacy_content_layout_chosen();
-
-    if($layout_chosen=='one-col'){
-        $class = 'd-none';
-    }elseif($layout_chosen=='two-col-left'){
-        $class = 'd-none';
-    }elseif($layout_chosen=='two-col-right'){
-        $class = 'd-none';
-    }elseif($layout_chosen=='three-col-left'){
-        $class = "col-3";
-    }elseif($layout_chosen=='three-col-mid'){
-        $class = "col-3";
-    }elseif($layout_chosen=='three-col-right'){
-        $class = "col-3";
-    }
-
-    if($echo==true){
-        echo esc_attr( apply_filters('ifs_legacy_sidebar_2_class_val', $class) );
-    }else{
-        return apply_filters('ifs_legacy_sidebar_2_class_val', $class);
-    }
-}
-
-/**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
 function ifs_legacy_pingback_header() {
@@ -244,5 +143,283 @@ if(!function_exists("ifs_legacy_is_product")){
 			}
 		}
 		return apply_filters('ifs_legacy_is_product', $return);
+	}
+}
+
+/**
+ * generate css for the base font
+ *
+ * @uses ifs_legacy_print_base_font_css()
+ */
+if(!function_exists("ifs_legacy_print_base_font_css")){
+	function ifs_legacy_print_base_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_base_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_base_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_base_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'body{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_base_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the menu font
+ *
+ * @uses ifs_legacy_print_menu_font_css()
+ */
+if(!function_exists("ifs_legacy_print_menu_font_css")){
+	function ifs_legacy_print_menu_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_menu_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_menu_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_menu_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'body.ifs .site-header .main-navigation li a{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_menu_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 1 font
+ *
+ * @uses ifs_legacy_print_h1_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h1_font_css")){
+	function ifs_legacy_print_h1_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h1_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h1_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h1_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h1{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h1_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 2 font
+ *
+ * @uses ifs_legacy_print_h2_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h2_font_css")){
+	function ifs_legacy_print_h2_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h2_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h2_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h2_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h2{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h2_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 3 font
+ *
+ * @uses ifs_legacy_print_h3_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h3_font_css")){
+	function ifs_legacy_print_h3_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h3_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h3_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h3_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h3{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h3_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 4 font
+ *
+ * @uses ifs_legacy_print_h4_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h4_font_css")){
+	function ifs_legacy_print_h4_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h4_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h4_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h4_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h4{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h4_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 5 font
+ *
+ * @uses ifs_legacy_print_h5_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h5_font_css")){
+	function ifs_legacy_print_h5_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h5_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h5_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h5_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h5{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h5_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 6 font
+ *
+ * @uses ifs_legacy_print_h6_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h6_font_css")){
+	function ifs_legacy_print_h6_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h6_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h6_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h6_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h6{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h6_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for all font
+ *
+ * @uses ifs_legacy_print_all_font_css()
+ */
+if(!function_exists("ifs_legacy_print_all_font_css")){
+	function ifs_legacy_print_all_font_css(){
+
+		$output_css = '';
+
+		$output_css .= ifs_legacy_print_base_font_css();
+
+		$output_css .= ifs_legacy_print_menu_font_css();
+
+		$output_css .= ifs_legacy_print_h1_font_css();
+
+		$output_css .= ifs_legacy_print_h2_font_css();
+
+		$output_css .= ifs_legacy_print_h3_font_css();
+
+		$output_css .= ifs_legacy_print_h4_font_css();
+
+		$output_css .= ifs_legacy_print_h5_font_css();
+
+		$output_css .= ifs_legacy_print_h6_font_css();
+
+		return apply_filters('ifs_legacy_print_all_font_css', esc_attr($output_css));
 	}
 }
