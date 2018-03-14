@@ -23,15 +23,15 @@ function ifs_legacy_content_class( $echo=true ){
     if($layout_chosen=='one-col'){
         $class = 'col-12';
     }elseif($layout_chosen=='two-col-left'){
-        $class = "col-8";
+        $class = "col-md-8";
     }elseif($layout_chosen=='two-col-right'){
-        $class = "col-8";
+        $class = "col-md-8";
     }elseif($layout_chosen=='three-col-left'){
-        $class = "col-6";
+        $class = "col-md-6";
     }elseif($layout_chosen=='three-col-mid'){
-        $class = "col-6";
+        $class = "col-md-6";
     }elseif($layout_chosen=='three-col-right'){
-        $class = "col-6";
+        $class = "col-md-6";
     }
 
     if($echo==true){
@@ -53,15 +53,15 @@ function ifs_legacy_sidebar_class( $echo=true ){
     if($layout_chosen=='one-col'){
         $class = 'd-none';
     }elseif($layout_chosen=='two-col-left'){
-        $class = "col-4";
+        $class = "col-md-4";
     }elseif($layout_chosen=='two-col-right'){
-        $class = "col-4";
+        $class = "col-md-4";
     }elseif($layout_chosen=='three-col-left'){
-        $class = "col-3";
+        $class = "col-md-3";
     }elseif($layout_chosen=='three-col-mid'){
-        $class = "col-3";
+        $class = "col-md-3";
     }elseif($layout_chosen=='three-col-right'){
-        $class = "col-3";
+        $class = "col-md-3";
     }
 
     if($echo==true){
@@ -87,11 +87,11 @@ function ifs_legacy_sidebar_2_class( $echo=true ){
     }elseif($layout_chosen=='two-col-right'){
         $class = 'd-none';
     }elseif($layout_chosen=='three-col-left'){
-        $class = "col-3";
+        $class = "col-md-3";
     }elseif($layout_chosen=='three-col-mid'){
-        $class = "col-3";
+        $class = "col-md-3";
     }elseif($layout_chosen=='three-col-right'){
-        $class = "col-3";
+        $class = "col-md-3";
     }
 
     if($echo==true){

@@ -72,7 +72,7 @@ function ifs_legacy_show_top_bar(){
  * @uses ifs_legacy_top_bar_col_1()
  */
 function ifs_legacy_top_bar_col_1(){
-    echo '<div class="top_col_1 top_col col-6">';
+    echo '<div class="top_col_1 top_col col-lg-6">';
         do_action('ifs_legacy_top_bar_col_1');
     echo '</div>';
 }
@@ -84,7 +84,7 @@ function ifs_legacy_top_bar_col_1(){
   * @uses ifs_legacy_top_bar_col_1()
   */
  function ifs_legacy_top_bar_col_2(){
-     echo '<div class="top_col_2 top_col col-6">';
+     echo '<div class="top_col_2 top_col col-lg-6">';
          do_action('ifs_legacy_top_bar_col_2');
      echo '</div>';
  }

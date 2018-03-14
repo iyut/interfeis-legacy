@@ -46,12 +46,17 @@
 
             <nav id="site-navigation" class="main-navigation">
                 <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'ifs-legacy' ); ?></button>
-                <?php
-                    wp_nav_menu( array(
-                        'theme_location' => 'menu-1',
-                        'menu_id'        => 'primary-menu',
-                    ) );
-                ?>
+                <div class="primary-menu-container">
+                    <button id="primary-menu-close" class="menu-close-button"><i class="fa fa-close"></i></button>
+                    <?php
+                        wp_nav_menu( array(
+                            'container'         => 'div',
+                            'container_id'      => 'menu-1-container',
+                            'theme_location'    => 'menu-1',
+                            'menu_id'           => 'primary-menu',
+                        ) );
+                    ?>
+                </div>
             </nav><!-- #site-navigation -->
         </div>
 

@@ -256,7 +256,7 @@ function ifs_legacy_show_footer_bar(){
  * @uses ifs_legacy_bottom_foot_col_1()
  */
 function ifs_legacy_bottom_foot_col_1(){
-    echo '<div class="foot_col_1 foot_col col-6">';
+    echo '<div class="foot_col_1 foot_col col-lg-6">';
         do_action('ifs_legacy_bottom_foot_col_1');
     echo '</div>';
 }
@@ -268,7 +268,7 @@ function ifs_legacy_bottom_foot_col_1(){
   * @uses ifs_legacy_bottom_foot_col_1()
   */
  function ifs_legacy_bottom_foot_col_2(){
-     echo '<div class="foot_col_2 foot_col col-6">';
+     echo '<div class="foot_col_2 foot_col col-lg-6">';
          do_action('ifs_legacy_bottom_foot_col_2');
      echo '</div>';
  }

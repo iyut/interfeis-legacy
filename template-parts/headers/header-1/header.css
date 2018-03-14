@@ -25,9 +25,7 @@ Header Name: Header 1
 	display:block;
 	font-size:0.8em;
 }
-.top_col_2 .top-menu #top-menu{
-	text-align:right;
-}
+
 .top-menu #top-menu li{
 	list-style-type:none;
 	display:inline-block;
@@ -144,4 +142,64 @@ Header Name: Header 1
 .header-1 .site-header .main-navigation ul li.page_item_has_children li:hover > a,
 .header-1 .site-header .main-navigation ul li.page_item_has_children li a.current_page_item{
 	background-color:#fafafa;
+}
+
+@media only screen and (min-width:769px){
+	.top_col_2 .top-menu #top-menu{
+		text-align:right;
+	}
+
+	#primary-menu-close{
+		display:none;
+	}
+}
+
+@media only screen and (max-width:768px){
+	.top-menu .menu{
+		text-align:center;
+	}
+	.top-info{
+		text-align:center;
+	}
+
+	.top_col .widget{
+		margin-bottom:1.5em;
+		font-size:0.8em;
+	}
+	.top_col .widget-title{
+		font-size:1rem;
+	}
+
+	.menu-toggle{
+		display:inline-block;
+		padding:0px;
+		border:0px;
+		background:transparent;
+		font-size:1.3em;
+	}
+
+	.primary-menu-container{
+		position:fixed;
+		bottom:0px;
+		top:0px;
+		width:300px;
+		right:-310px;
+		z-index:999;
+		background-color:#fff;
+		box-shadow:-1px -1px 7px #aaa;
+		transition:right 0.5s cubic-bezier(.23,.46,.39,1);
+		-moz-transition:right 0.5s cubic-bezier(.23,.46,.39,1);
+		-webkit-transition:right 0.5s cubic-bezier(.23,.46,.39,1);
+	}
+	.admin-bar .primary-menu-container{
+		top:46px;
+	}
+
+	#site-navigation.toggled .primary-menu-container{
+		right:0px;
+	}
+
+	.main-navigation ul{
+		display:block;
+	}
 }
