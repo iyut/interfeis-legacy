@@ -347,6 +347,9 @@ function ifs_legacy_get_theme_header_css(){
 	$ifs_legacy_header_mod = ifs_legacy_get_theme_header_mod();
 	wp_enqueue_style('ifs_legacy_header_mod', $ifs_legacy_header_mod['css'] );
 
+	if(isset($ifs_legacy_header_mod['js'])){
+		wp_enqueue_script('ifs_legacy_header_mod', $ifs_legacy_header_mod['js'], array('jquery'), '20180316', true );
+	}
 	add_filter('body_class', function (array $classes) {
 		$ifs_legacy_header_mod = ifs_legacy_get_theme_header_mod();
 
