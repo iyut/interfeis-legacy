@@ -253,7 +253,7 @@ Header Name: Header 2
 		display:block;
 	}
 
-	#primary-menu{
+	ul.nav-menu{
 		border-top:1px solid #ddd;
 		padding-top:20px;
 		margin-top:20px;
@@ -265,10 +265,10 @@ Header Name: Header 2
 		text-align:left;
 	}
 
-	.site-header .main-navigation ul#primary-menu > li:hover:before,
-	.site-header .main-navigation ul#primary-menu > li.child_opened:before,
-	.site-header .main-navigation ul#primary-menu > li.current-menu-item:before,
-	.site-header .main-navigation ul#primary-menu > li.current_page_item:before{
+	.site-header .main-navigation ul.nav-menu > li:hover:before,
+	.site-header .main-navigation ul.nav-menu > li.child_opened:before,
+	.site-header .main-navigation ul.nav-menu > li.current-menu-item:before,
+	.site-header .main-navigation ul.nav-menu > li.current_page_item:before{
 		content:"";
 		position:absolute;
 		background-color:#3a3a3a;

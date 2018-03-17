@@ -180,12 +180,12 @@ Header Name: Header 4
 		display:none;
 	}
 
-	.site-header .main-navigation ul#primary-menu > li{
+	.site-header .main-navigation ul.nav-menu > li{
 		color:#fff;
 		text-shadow: 0px 1px 3px #333;
 	    text-shadow: 0px 1px 3px rgba(0,0,0,0.4);
 	}
-	.site-header .main-navigation ul#primary-menu > li > a {
+	.site-header .main-navigation ul.nav-menu > li > a {
 	    color: #fff;
 	    font-weight: 300;
 	    text-transform: uppercase;
@@ -262,7 +262,7 @@ Header Name: Header 4
 		display:block;
 	}
 
-	#primary-menu{
+	ul.nav-menu{
 		border-top:1px solid #ddd;
 		padding-top:20px;
 		margin-top:20px;
@@ -274,10 +274,10 @@ Header Name: Header 4
 		text-align:left;
 	}
 
-	.site-header .main-navigation ul#primary-menu > li:hover:before,
-	.site-header .main-navigation ul#primary-menu > li.child_opened:before,
-	.site-header .main-navigation ul#primary-menu > li.current-menu-item:before,
-	.site-header .main-navigation ul#primary-menu > li.current_page_item:before{
+	.site-header .main-navigation ul.nav-menu > li:hover:before,
+	.site-header .main-navigation ul.nav-menu > li.child_opened:before,
+	.site-header .main-navigation ul.nav-menu > li.current-menu-item:before,
+	.site-header .main-navigation ul.nav-menu > li.current_page_item:before{
 		content:"";
 		position:absolute;
 		background-color:#3a3a3a;
