@@ -212,12 +212,12 @@ if( !function_exists('ifs_legacy_content_css_output') ){
         }
 		if($padding_top!=''){
 			$output_css .= '.outercontainer .site-content, .outercontainer .site-sidebar{
-				padding-top: '. esc_attr( $padding_top ).';
+				margin-top: '. esc_attr( $padding_top ).';
 			}';
 		}
         if($padding_bottom!=''){
 			$output_css .= '.outercontainer .site-content, .outercontainer .site-sidebar{
-				padding-bottom: '. esc_attr( $padding_bottom ).';
+				margin-bottom: '. esc_attr( $padding_bottom ).';
 			}';
 		}
 
