@@ -193,6 +193,13 @@ function ifs_legacy_set_metaboxes(){
 				'std' => ''
 			),
 			array(
+				'name' => esc_html__('Background Title',"ifs-legacy"),
+				'desc' => '<em>'.esc_html__('Input the image URL in this textbox if you want to change the background image on the title section.',"ifs-legacy").'</em>',
+				'id' => 'ifs_bg_title',
+				'type' => 'text',
+				'std' => ''
+			),
+			array(
 				'name' => esc_html__('Background Color Maincontent',"ifs-legacy"),
 				'desc' => '<em>'.esc_html__('Input the hexcolor in this textbox if you want to change the background color of your content.',"ifs-legacy").'</em>',
 				'id' => 'ifs_bg_color_maincontent',

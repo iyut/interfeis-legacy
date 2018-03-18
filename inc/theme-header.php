@@ -375,6 +375,24 @@ function ifs_legacy_get_theme_header(){
 }
 add_action('ifs_legacy_theme_header', 'ifs_legacy_get_theme_header', 20);
 
+/**
+ * display the background image for the header section
+ *
+ * @uses ifs_legacy_display_bg_header()
+ */
+function ifs_legacy_display_bg_header(){
+	$header_bg_image	= get_theme_mod('header_image');
+
+	$post_id 		= ifs_legacy_get_postid();
+	$bg_header 	= get_post_meta( $post_id, 'ifs_bg_header', true);
+
+	if($bg_title != ''){
+		$header_bg_image = $bg_header;
+	}
+
+	return apply_filters('ifs_legacy_display_bg_header', $header_bg_image);
+}
+
 
 /**
  * check the condition whether show the title or not
@@ -409,7 +427,7 @@ function ifs_legacy_display_bg_title(){
 	$title_bg_image		= get_theme_mod('ifs_legacy_page_title_background_image');
 
 	$post_id 		= ifs_legacy_get_postid();
-	$bg_title 	= get_post_meta( $post_id, 'ifs_bg_header', true);
+	$bg_title 	= get_post_meta( $post_id, 'ifs_bg_title', true);
 
 	if($bg_title != ''){
 		$title_bg_image = $bg_title;
@@ -559,7 +577,7 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 		$header_text_color	= get_header_textcolor();
 		$header_bg_color	= get_theme_mod('ifs_legacy_header_background_color');
 		$header_border_color= get_theme_mod('ifs_legacy_header_border_color');
-		$header_bg_image	= get_theme_mod('header_image');
+		$header_bg_image	= ifs_legacy_display_bg_header();
 
 		$title_bg_image		= ifs_legacy_display_bg_title();
 		$title_pos			= ifs_legacy_position_title();
