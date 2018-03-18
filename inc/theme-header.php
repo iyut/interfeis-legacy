@@ -386,7 +386,7 @@ function ifs_legacy_display_bg_header(){
 	$post_id 		= ifs_legacy_get_postid();
 	$bg_header 	= get_post_meta( $post_id, 'ifs_bg_header', true);
 
-	if($bg_title != ''){
+	if($bg_header != ''){
 		$header_bg_image = $bg_header;
 	}
 
@@ -578,7 +578,7 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 		$header_bg_color	= get_theme_mod('ifs_legacy_header_background_color');
 		$header_border_color= get_theme_mod('ifs_legacy_header_border_color');
 		$header_bg_image	= ifs_legacy_display_bg_header();
-
+		
 		$title_bg_image		= ifs_legacy_display_bg_title();
 		$title_pos			= ifs_legacy_position_title();
 		/*
