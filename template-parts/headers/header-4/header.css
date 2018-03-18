@@ -2,17 +2,10 @@
 Header Name: Header 4
 */
 
-.outerheader{
-	position:relative;
-}
-
 .site-header{
 	background-color:transparent;
 	border-bottom:1px solid transparent;
-	position:absolute;
-	top:0px;
-	left:0px;
-	right:0px;
+	position:relative;
 	z-index:999;
 }
 
@@ -145,7 +138,7 @@ Header Name: Header 4
 }
 
 #outerafterheader{
-	padding-top:120px;
+	padding-top:70px;
 }
 
 @media only screen and (min-width:769px){
