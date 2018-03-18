@@ -40,7 +40,7 @@
  		 */
  		add_theme_support( 'post-thumbnails' );
 
-        add_theme_support( 'post-formats', array( 'image' ) );
+        add_theme_support( 'post-formats', array( 'image','aside','gallery','link','video','quote','status','audio','chat' ) );
 
  		// This theme uses wp_nav_menu() in one location.
  		register_nav_menus( apply_filters('ifs_legacy_register_nav_menus', array(
