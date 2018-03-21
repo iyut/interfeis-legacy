@@ -262,3 +262,5 @@ if ( ! function_exists( 'ifs_legacy_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
+
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
