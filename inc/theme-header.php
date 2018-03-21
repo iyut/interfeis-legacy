@@ -393,6 +393,42 @@ function ifs_legacy_display_bg_header(){
 	return apply_filters('ifs_legacy_display_bg_header', $header_bg_image);
 }
 
+if(!function_exists("ifs_legacy_minicart")){
+	function ifs_legacy_minicart($id="",$class=""){
+
+		global $woocommerce;
+		$cart_subtotal = $woocommerce->cart->get_cart_subtotal();
+		$link = ( function_exists('wc_get_cart_url'))? wc_get_cart_url() : $woocommerce->cart->get_cart_url();
+		$cart_items = $woocommerce->cart->get_cart_item_quantities();
+
+		$totalqty = 0;
+		if(is_array($cart_items)){
+			foreach($cart_items as $cart_item){
+				$totalqty += (is_numeric($cart_item))? $cart_item : 0;
+			}
+		}
+
+		ob_start();
+		the_widget('WC_Widget_Cart', '', array('widget_id'=>'cart-dropdown',
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<span class="hidden">',
+			'after_title' => '</span>'
+		));
+		$widget = ob_get_clean();
+
+		$output = '<div id="'.esc_attr( $id ).'" class="'.esc_attr( $class ).'">';
+			$output .= '<a class="topcartbutton btnpanel" href="'.esc_url( $link ).'"><i class="shopicon fa fa-shopping-bag"></i> <span class="topbtn_text">'.esc_html__( "My Cart", "affinity-novaro" ).'</span><span class="cart_subqty"><i class="cart_totalqty">'.$totalqty.'</i><i class="cart_subtotal">'.$cart_subtotal.'</i></span><div class="clearfix"></div></a>';
+			$output .= '<span class="arrowpanel"></span>';
+			$output .= '<div class="cartlistwrapper">';
+				$output .= $widget;
+			$output .= '</div>';
+		$output .= '</div>';
+
+		return apply_filters('ifs_legacy_minicart', $output );
+	}
+}
+
 
 /**
  * check the condition whether show the title or not
@@ -578,7 +614,7 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 		$header_bg_color	= get_theme_mod('ifs_legacy_header_background_color');
 		$header_border_color= get_theme_mod('ifs_legacy_header_border_color');
 		$header_bg_image	= ifs_legacy_display_bg_header();
-		
+
 		$title_bg_image		= ifs_legacy_display_bg_title();
 		$title_pos			= ifs_legacy_position_title();
 		/*
