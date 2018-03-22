@@ -983,7 +983,7 @@ add_action( 'customize_register', 'ifs_legacy_customize_register' );
  */
 function ifs_legacy_custom_font_values( $custom_filters = '') {
 	$all_fonts	= IFS_Fonts::get_all_fonts();
-	$font_choices = array('' => esc_html__('Default'));
+	$font_choices = array('' => esc_html__('Default', 'ifs-legacy'));
 	foreach($all_fonts as $id => $font){
 		$font_choices[$id] = $font['name'];
 	}

@@ -32,7 +32,7 @@
 
  	$footer_files = array();
 
- 	$dirs = @ scandir( $directory );
+ 	$dirs = scandir( $directory );
  	if ( ! $dirs ) {
  		return $footer_files;
  	}else{
@@ -154,18 +154,19 @@
  	$ifs_legacy_footer_mod = ifs_legacy_get_theme_footer_mod();
  	wp_enqueue_style('ifs_legacy_footer_mod', $ifs_legacy_footer_mod['css'] );
 
-    add_filter('body_class', function (array $classes) {
-
-        $ifs_legacy_footer_mod = ifs_legacy_get_theme_footer_mod();
-
-	    $classes[]  = $ifs_legacy_footer_mod['name'];
-	    $classes[]  = $ifs_legacy_footer_mod['name'].'-css';
-
-		return apply_filters('ifs_legacy_get_theme_footer_css_filter', $classes);
-	});
+    add_filter('body_class', 'ifs_legacy_footer_add_body_class');
 
 }
 add_action( 'wp_enqueue_scripts', 'ifs_legacy_get_theme_footer_css', 30);
+
+function ifs_legacy_footer_add_body_class(){
+	$ifs_legacy_footer_mod = ifs_legacy_get_theme_footer_mod();
+
+	$classes[]  = $ifs_legacy_footer_mod['name'];
+	$classes[]  = $ifs_legacy_footer_mod['name'].'-css';
+
+	return apply_filters('ifs_legacy_get_theme_footer_css_filter', $classes);
+}
 
  /**
   * Get theme footer file

@@ -217,7 +217,7 @@ function ifs_legacy_check_theme_header( $header_directory, $header_url ){
 
 	$header_files = array();
 
-	$dirs = @ scandir( $header_directory );
+	$dirs = scandir( $header_directory );
 	if ( ! $dirs ) {
 		return $header_files;
 	}else{
@@ -350,17 +350,19 @@ function ifs_legacy_get_theme_header_css(){
 	if(isset($ifs_legacy_header_mod['js'])){
 		wp_enqueue_script('ifs_legacy_header_mod', $ifs_legacy_header_mod['js'], array('jquery'), '20180316', true );
 	}
-	add_filter('body_class', function (array $classes) {
-		$ifs_legacy_header_mod = ifs_legacy_get_theme_header_mod();
-
-	    $classes[]  = $ifs_legacy_header_mod['name'];
-	    $classes[]  = $ifs_legacy_header_mod['name'].'-css';
-
-		return $classes;
-	});
+	add_filter('body_class', 'ifs_legacy_header_add_body_class');
 
 }
 add_action( 'wp_enqueue_scripts', 'ifs_legacy_get_theme_header_css', 20);
+
+function ifs_legacy_header_add_body_class(){
+	$ifs_legacy_header_mod = ifs_legacy_get_theme_header_mod();
+
+	$classes[]  = $ifs_legacy_header_mod['name'];
+	$classes[]  = $ifs_legacy_header_mod['name'].'-css';
+
+	return apply_filters('ifs_legacy_get_theme_header_css_filter', $classes);
+}
 
 /**
  * Get theme header file
