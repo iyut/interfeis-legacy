@@ -288,12 +288,14 @@ function ifs_legacy_get_theme_headers(){
 		$child_header_root 	= get_stylesheet_directory(). '/' . $header_location;
 		$child_header_url	= get_stylesheet_directory_uri(). '/' . $header_location;
 
-		$child_header_files = ifs_legacy_check_theme_header( $child_header_root, $child_header_url );
+		if( file_exists( $child_header_root )){
+			$child_header_files = ifs_legacy_check_theme_header( $child_header_root, $child_header_url );
 
-		foreach($child_header_files as $child_header_name => $child_header_val ){
+			foreach($child_header_files as $child_header_name => $child_header_val ){
 
-			$header_files[$child_header_name] = $child_header_val;
+				$header_files[$child_header_name] = $child_header_val;
 
+			}
 		}
 	}
 	return apply_filters('ifs_legacy_get_theme_header_files', $header_files);

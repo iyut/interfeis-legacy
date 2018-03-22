@@ -95,13 +95,15 @@
  		$child_root      = get_stylesheet_directory().'/'.$footer_location;
  		$child_url       = get_stylesheet_directory_uri().'/'.$footer_location;
 
- 		$child_files = ifs_legacy_check_theme_footer( $child_root, $child_url );
+		if( file_exists( $child_root )){
+	 		$child_files = ifs_legacy_check_theme_footer( $child_root, $child_url );
 
- 		foreach($child_files as $child_name => $child_val ){
+	 		foreach($child_files as $child_name => $child_val ){
 
- 			$footer_files[$child_name] = $child_val;
+	 			$footer_files[$child_name] = $child_val;
 
- 		}
+	 		}
+		}
  	}
  	return apply_filters('ifs_legacy_get_theme_footer_files', $footer_files);
  }
