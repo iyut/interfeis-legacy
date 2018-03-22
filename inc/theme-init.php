@@ -117,19 +117,6 @@ function ifs_legacy_body_class( $classes ){
 }
 add_filter('body_class', 'ifs_legacy_body_class');
 
-/**
- * Set the custom query vars
- *
- */
-if(!function_exists('ifs_legacy_adding_query_vars')){
-    add_filter('query_vars', 'ifs_legacy_adding_query_vars' );
-    function ifs_legacy_adding_query_vars( $qvars ){
-        //Add query variable to $qvars array
-        $qvars[] = 'ifssuccessregtext';
-        return $qvars;
-    }
-}
-
  /**
   * Set the content width in pixels, based on the theme's design and stylesheet.
   *
