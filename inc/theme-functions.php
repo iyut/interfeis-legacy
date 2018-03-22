@@ -146,6 +146,240 @@ if(!function_exists("ifs_legacy_is_product")){
 	}
 }
 
+if(!function_exists("ifs_legacy_searchform")){
+	function ifs_legacy_searchform($id="", $class=""){
+
+		if(function_exists('is_woocommerce') ){
+			$outputposttype = '<input type="hidden" name="post_type" value="product" />';
+			$searchtext = esc_html__('Search product...', "ifs-legacy" );
+		}else{
+			$outputposttype = '';
+			$searchtext = esc_html__('Search...', "ifs-legacy" );
+		}
+		if($id==''){
+			$id = 'topsearchform';
+		}
+
+		do_action('ifs_legacy_searchform_before_wrapper');
+?>
+		<div class="<?php echo esc_attr( $class ); ?>">
+
+			<?php do_action('ifs_legacy_searchform_before_form'); ?>
+
+			<form method="get" id="<?php echo esc_attr( $id ); ?>" name="<?php echo esc_attr( $id ); ?>" class="btntoppanel" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+
+				<?php do_action('ifs_legacy_searchform_before_inputs'); ?>
+
+				<input type="submit" class="submit" name="submit" value="" />
+				<button type="submit" class="submittext" name="submit">
+					<i class="fa fa-search"></i>
+					<span><?php esc_html_e('Search', 'ifs-legacy'); ?></span>
+				</button>
+
+				<?php do_action('ifs_legacy_searchform_before_searcharea'); ?>
+
+				<div class="searcharea">
+
+					<?php do_action('ifs_legacy_searchform_before_text_container'); ?>
+
+					<div class="text_container">
+						<input type="text" name="s" autocomplete="off" class="txtsearch" placeholder="<?php echo esc_attr( $searchtext ); ?>" value="" />
+					</div>
+
+					<?php do_action('ifs_legacy_searchform_before_select_container'); ?>
+
+					<?php if( taxonomy_exists('product_cat') ){ ?>
+					<div class="select_container">
+					<?php
+
+						wp_dropdown_categories(array(
+			                'show_option_all'   => esc_html__('All Categories','ifs-legacy'),
+			                'show_option_none'  => esc_html__('No Category', 'ifs-legacy'),
+			                'taxonomy'          => 'product_cat',
+			                'echo'              => 1,
+			                'class'             => 'ifs_selector',
+			                'value_field'       => 'slug',
+			                'hierarchical'      => true,
+			                'name'              => 'product_cat'
+
+			            ));
+
+					?>
+					</div>
+					<?php } // if( taxonomy_exists('product_cat') ) ?>
+
+					<?php do_action('ifs_legacy_searchform_after_select_container'); ?>
+
+					<?php if(function_exists('is_woocommerce') ){ ?>
+
+						<input type="hidden" name="post_type" value="product" />
+
+					<?php } // if(function_exists('is_woocommerce') ) ?>
+
+					<?php do_action('ifs_legacy_searchform_before_close_button'); ?>
+
+					<a href="#" class="searchclose"></a>
+
+					<?php do_action('ifs_legacy_searchform_after_close_button'); ?>
+
+				</div>
+
+				<?php do_action('ifs_legacy_searchform_after_inputs'); ?>
+			</form>
+
+			<?php do_action('ifs_legacy_searchform_after_form'); ?>
+
+		</div>
+<?php
+		do_action('ifs_legacy_searchform_after_wrapper');
+	}
+}
+
+/**
+ * return minicart form
+ *
+ * @uses the_widget()
+ */
+if(!function_exists("ifs_legacy_minicart")){
+	function ifs_legacy_minicart($id="",$class=""){
+
+		do_action('ifs_legacy_minicart_before_wrapper');
+?>
+		<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
+
+			<?php do_action('ifs_legacy_minicart_before_cart'); ?>
+
+			<div class="cartlistwrapper">
+				<?php
+				the_widget('WC_Widget_Cart', '', array('widget_id'=>'cart-dropdown',
+					'before_widget' => '',
+					'after_widget' => '',
+					'before_title' => '<span class="hidden">',
+					'after_title' => '</span>'
+				));
+				?>
+			</div>
+
+			<?php do_action('ifs_legacy_minicart_after_cart'); ?>
+
+		</div>
+<?php
+		do_action('ifs_legacy_minicart_after_wrapper');
+	}
+}
+
+/**
+ * return minicart form
+ *
+ * @uses wc->cart->get_cart_subtotal()
+ * @uses wc_get_cart_url()
+ * @uses wc->cart->get_cart_item_quantities()
+ */
+if(!function_exists("ifs_legacy_minicart_value")){
+	function ifs_legacy_minicart_value(){
+
+		if( !function_exists('is_woocommerce') ){
+			return false;
+		}
+		global $woocommerce;
+		$cart_subtotal = $woocommerce->cart->get_cart_subtotal();
+		$link = ( function_exists('wc_get_cart_url'))? wc_get_cart_url() : $woocommerce->cart->get_cart_url();
+		$cart_items = $woocommerce->cart->get_cart_item_quantities();
+
+		$totalqty = 0;
+		if(is_array($cart_items)){
+			foreach($cart_items as $cart_item){
+				$totalqty += (is_numeric($cart_item))? $cart_item : 0;
+			}
+		}
+
+		$output = array(
+			'qty'	=> $totalqty,
+			'link'	=> $link,
+			'subttl'=> $cart_subtotal
+		);
+
+		return apply_filters('ifs_legacy_minicart_value', $output );
+	}
+}
+
+/**
+ * display register form string
+ *
+ * @uses ifs_legacy_register_form()
+ */
+if(!function_exists('ifs_legacy_register_form')){
+	function ifs_legacy_register_form() {
+        $nonce = wp_create_nonce("ifs_legacy_register_nonce");
+		$redirectregister = '';
+        if( function_exists( 'is_woocommerce' ) ){
+			$pid = (function_exists('wc_get_page_id'))? wc_get_page_id('myaccount') : wc_get_page_id( 'myaccount' );
+            $redirectregister = get_permalink($pid);
+		}
+
+        $successtext = esc_html__('Congratulations, the registration is successful. Please kindly check your email.', 'ifs-legacy');
+
+        $redirectregister = add_query_arg("ifs_successregtext", $successtext, $redirectregister);
+
+		do_action('ifs_legacy_register_form_before_container');
+?>
+            <div class="login_form">
+            <form id="registerform" name="registerform" action="<?php echo esc_url( wp_registration_url() ); ?>" method="post">
+				<div class="loginalert" id="register_message_area" ></div>
+
+				<p>
+					<label for="user_login_register"><?php esc_html_e('Username', "ifs-legacy" ); ?></label>
+					<input type="text" name="user_login" id="user_login_register" class="textbox" value="" size="20" />
+				</p>
+				<p>
+					<label for="user_email_register"><?php esc_html_e('Email', "ifs-legacy" ); ?></label>
+					<input type="text" name="user_email" id="user_email_register" class="textbox" value="" size="20" />
+				</p>
+				<p id="reg_passmail">
+					<?php esc_html_e('A password will be e-mailed to you', "ifs-legacy" ); ?>
+				</p>
+
+				<?php do_action('register_form'); ?>
+
+				<input type="hidden" name="redirect_to" value="<?php echo esc_url( $redirectregister ); ?>" />
+				<p class="submit">
+					<input type="submit" name="wp-submit" id="wp-submit" class="button" value="<?php esc_attr_e('Register', "ifs-legacy" ); ?>" />
+				</p>
+            </form>
+			</div>
+<?php
+
+		do_action('ifs_legacy_register_form_after_container');
+	}
+}
+
+/**
+ * display login form string
+ *
+ * @uses wp_login_form()
+ */
+if(!function_exists('ifs_legacy_login_form')){
+	function ifs_legacy_login_form() {
+		 // get user dashboard link
+		$login_args = array(
+			'echo' => true,
+		);
+
+		do_action('ifs_legacy_login_form_before_container');
+?>
+		<div class="login_form" id="ifs-login-div">
+			<?php wp_login_form( $login_args ); ?>
+		  	<div class="login-links">
+				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" id="forgot_pass">
+					<?php esc_html_e('forgot password?', "ifs-legacy" ); ?>
+				</a>
+			</div>
+		</div>
+<?php
+		do_action('ifs_legacy_login_form_after_container');
+	}
+}
+
 /**
  * generate css for the base font
  *
