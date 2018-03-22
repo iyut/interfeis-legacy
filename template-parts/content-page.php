@@ -9,9 +9,9 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('ifs-page-hentry'); ?>>
 
-	<div class="entry-content">
+	<div class="entry-content ifs-page-content">
 		<?php
 			the_content();
 

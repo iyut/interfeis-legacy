@@ -853,6 +853,10 @@ a:hover, a:active {
 	margin: 0 0 1.5em;
 }
 
+.hentry.ifs-page-hentry{
+	margin-bottom:0;
+}
+
 .updated:not(.published) {
 	display: none;
 }
@@ -861,6 +865,10 @@ a:hover, a:active {
 .entry-content,
 .entry-summary {
 	margin: 1.5em 0 0;
+}
+
+.entry-content.ifs-page-content{
+	margin-top:0;
 }
 
 .page-links {
