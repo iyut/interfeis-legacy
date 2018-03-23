@@ -151,10 +151,10 @@ if(!function_exists("ifs_legacy_searchform")){
 
 		if(function_exists('is_woocommerce') ){
 			$outputposttype = '<input type="hidden" name="post_type" value="product" />';
-			$searchtext = esc_html__('Search product...', "ifs-legacy" );
+			$searchtext = esc_html__('Search', "ifs-legacy" );
 		}else{
 			$outputposttype = '';
-			$searchtext = esc_html__('Search...', "ifs-legacy" );
+			$searchtext = esc_html__('Search', "ifs-legacy" );
 		}
 		if($id==''){
 			$id = 'topsearchform';
@@ -246,6 +246,13 @@ if(!function_exists("ifs_legacy_minicart")){
 		do_action('ifs_legacy_minicart_before_wrapper');
 ?>
 		<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
+
+			<?php do_action('ifs_legacy_minicart_before_header'); ?>
+
+			<div class="cartheader_wrapper">
+				<h5 class="cartheader"><?php esc_html_e('Shopping Cart', 'ifs-legacy'); ?></h5>
+				<a class="cartclose" href="#"></a>
+			</div>
 
 			<?php do_action('ifs_legacy_minicart_before_cart'); ?>
 
