@@ -250,7 +250,7 @@ if(!function_exists("ifs_legacy_minicart")){
 			<?php do_action('ifs_legacy_minicart_before_header'); ?>
 
 			<div class="cartheader_wrapper">
-				<h5 class="cartheader"><?php esc_html_e('Shopping Cart', 'ifs-legacy'); ?></h5>
+				<h5 class="cartheader"><?php echo apply_filters('ifs_legacy_minicart_header_text', esc_html__('Shopping Cart', 'ifs-legacy')); ?></h5>
 				<a class="cartclose" href="#"></a>
 			</div>
 
