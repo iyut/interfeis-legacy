@@ -168,17 +168,17 @@ if(!function_exists("ifs_legacy_searchform")){
 
 			<form method="get" id="<?php echo esc_attr( $id ); ?>" name="<?php echo esc_attr( $id ); ?>" class="btntoppanel" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 
-				<?php do_action('ifs_legacy_searchform_before_inputs'); ?>
-
-				<input type="submit" class="submit" name="submit" value="" />
-				<button type="submit" class="submittext" name="submit">
-					<i class="fa fa-search"></i>
-					<span><?php esc_html_e('Search', 'ifs-legacy'); ?></span>
-				</button>
-
 				<?php do_action('ifs_legacy_searchform_before_searcharea'); ?>
 
 				<div class="searcharea">
+
+					<?php do_action('ifs_legacy_searchform_before_submit_button'); ?>
+
+					<input type="submit" class="submit" name="submit" value="" />
+					<button type="submit" class="submittext" name="submit">
+						<i class="fa fa-search"></i>
+						<span><?php esc_html_e('Search', 'ifs-legacy'); ?></span>
+					</button>
 
 					<?php do_action('ifs_legacy_searchform_before_text_container'); ?>
 
