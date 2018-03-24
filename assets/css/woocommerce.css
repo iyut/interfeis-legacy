@@ -77,6 +77,7 @@ table.shop_table_responsive tr td.download-actions .button {
  */
 ul.products {
 	content: "";
+	width:100%;
 	display: table;
 	table-layout: fixed;
 	margin: 0;

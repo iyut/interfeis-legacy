@@ -161,13 +161,13 @@
 }
 add_action( 'wp_enqueue_scripts', 'ifs_legacy_get_theme_footer_css', 30);
 
-function ifs_legacy_footer_add_body_class(){
+function ifs_legacy_footer_add_body_class( $classes ){
 	$ifs_legacy_footer_mod = ifs_legacy_get_theme_footer_mod();
 
 	$classes[]  = $ifs_legacy_footer_mod['name'];
 	$classes[]  = $ifs_legacy_footer_mod['name'].'-css';
 
-	return apply_filters('ifs_legacy_get_theme_footer_css_filter', $classes);
+	return apply_filters('ifs_legacy_footer_add_body_class', $classes);
 }
 
  /**

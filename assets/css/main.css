@@ -795,6 +795,13 @@ a:hover, a:active {
 .outercontainer{
 	background-color:transparent;
 }
+body.ifs-content-full-width #content-container{
+	max-width:none;
+}
+body.ifs-content-full-width-no-padding #content-container{
+	max-width:none;
+	padding:0px;
+}
 .site-content{
 	margin:4em 0;
 }

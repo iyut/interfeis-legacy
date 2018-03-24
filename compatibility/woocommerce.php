@@ -96,7 +96,17 @@ add_filter( 'woocommerce_product_thumbnails_columns', 'ifs_legacy_woocommerce_th
  * @return integer products per row.
  */
 function ifs_legacy_woocommerce_loop_columns() {
-	return 3;
+	$content_chosen 	= ifs_legacy_content_layout_chosen();
+	$container_chosen	= ifs_legacy_container_layout_chosen();
+
+	$return = 3;
+	if($content_chosen=='one-col'){
+		$return = 4;
+	}
+	if($container_chosen!='ifs-content-default-width'){
+		$return += 1;
+	}
+	return $return;
 }
 add_filter( 'loop_shop_columns', 'ifs_legacy_woocommerce_loop_columns' );
 

@@ -74,6 +74,12 @@ function ifs_legacy_set_metaboxes(){
 		'two-col-left' => $ifs_imagepath.'mb-2cl.png',
 		'two-col-right' => $ifs_imagepath.'mb-2cr.png'
 	);
+
+	$ifs_optcontlayout = array(
+		'default' => esc_html__('Default',"ifs-legacy")
+	);
+	$ifs_optcontlayout = array_merge( $ifs_optcontlayout, ifs_legacy_container_layout_choices() );
+
 	$ifs_optlayout = array(
 		'default' => esc_html__('Default',"ifs-legacy")
 	);
@@ -99,8 +105,16 @@ function ifs_legacy_set_metaboxes(){
 		'priority' => 'high',
 		'fields' => array(
 			array(
+				'name' => esc_html__('Container Layout',"ifs-legacy"),
+				'desc' => '<em>'.esc_html__('Select the container layout you want on this specific post/page. Overrides container layout value on theme options.',"ifs-legacy").'</em>',
+				'options' => $ifs_optcontlayout,
+				'id' => 'ifs_container_layout',
+				'type' => 'select',
+				'std' => 'default'
+			),
+			array(
 				'name' => esc_html__('Content Layout',"ifs-legacy"),
-				'desc' => '<em>'.esc_html__('Select the layout you want on this specific post/page. Overrides default site layout.',"ifs-legacy").'</em>',
+				'desc' => '<em>'.esc_html__('Select the content layout you want on this specific post/page. Overrides content layout value on theme options.',"ifs-legacy").'</em>',
 				'options' => $ifs_optlayout,
 				'id' => 'ifs_content_layout',
 				'type' => 'select',
@@ -139,6 +153,14 @@ function ifs_legacy_set_metaboxes(){
 		'context' => 'normal',
 		'priority' => 'high',
 		'fields' => array(
+			array(
+				'name' => esc_html__('Container Layout',"ifs-legacy"),
+				'desc' => '<em>'.esc_html__('Select the container layout you want on this specific post/page. Overrides container layout value on theme options.',"ifs-legacy").'</em>',
+				'options' => $ifs_optcontlayout,
+				'id' => 'ifs_container_layout',
+				'type' => 'select',
+				'std' => 'default'
+			),
 			array(
 				'name' => esc_html__('Content Layout',"ifs-legacy"),
 				'desc' => '<em>'.esc_html__('Select the layout you want on this specific post/page. Overrides default content layout.',"ifs-legacy").'</em>',
@@ -259,20 +281,28 @@ function ifs_legacy_set_metaboxes(){
 		'priority' => 'high',
 		'fields' => array(
 			array(
-				'name' => esc_html__('Layout',"ifs-legacy"),
-				'desc' => '<em>'.esc_html__('Select the layout you want on this specific post/page. Overrides default site layout.',"ifs-legacy").'</em>',
-				'options' => $ifs_optlayoutimg,
-				'id' => 'ifs_content_layout',
-				'type' => 'selectimage',
-				'std' => ''
+				'name' => esc_html__('Container Layout',"ifs-legacy"),
+				'desc' => '<em>'.esc_html__('Select the container layout you want on this specific post/page. Overrides container layout value on theme options.',"ifs-legacy").'</em>',
+				'options' => $ifs_optcontlayout,
+				'id' => 'ifs_container_layout',
+				'type' => 'select',
+				'std' => 'default'
 			),
 			array(
-				'name' => esc_html__('Disable Page Title',"ifs-legacy"),
-				'desc' => '<em>'.esc_html__('Choose \'Yes\' if you want to remove the page title.',"ifs-legacy").'</em>',
-				'id' => 'ifs_disable_title',
+				'name' => esc_html__('Content Layout',"ifs-legacy"),
+				'desc' => '<em>'.esc_html__('Select the layout you want on this specific post/page. Overrides default content layout.',"ifs-legacy").'</em>',
+				'options' => $ifs_optlayout,
+				'id' => 'ifs_content_layout',
 				'type' => 'select',
-				'options' => $ifs_optyesno,
-				'std' => 'false'
+				'std' => 'default'
+			),
+			array(
+				'name' => esc_html__('Show Page Title',"ifs-legacy"),
+				'desc' => '<em>'.esc_html__('Choose \'No\' if you want to remove the page title.',"ifs-legacy").'</em>',
+				'id' => 'ifs_show_title',
+				'type' => 'select',
+				'options' => $ifs_optdefyesno,
+				'std' => ''
 			)
 		)
 	);

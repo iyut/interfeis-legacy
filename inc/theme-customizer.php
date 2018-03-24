@@ -107,7 +107,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
     ));
 
     $wp_customize->add_setting( 'ifs_legacy_content_layout', array(
-        'default' 	=> 'two-col-left',
+        'default' 	=> ifs_legacy_content_layout_default(),
         'transport'	=> 'refresh',
         'sanitize_callback'	=> 'esc_attr'
     ));
@@ -118,6 +118,20 @@ function ifs_legacy_customize_register( $wp_customize ) {
         'setting'	=> 'ifs_legacy_content_layout',
         'type'      => 'select',
         'choices'   => ifs_legacy_content_layout_choices()
+    ));
+
+	$wp_customize->add_setting( 'ifs_legacy_container_layout', array(
+        'default' 	=> ifs_legacy_container_layout_default(),
+        'transport'	=> 'refresh',
+        'sanitize_callback'	=> 'esc_attr'
+    ));
+
+    $wp_customize->add_control( 'ifs_legacy_container_layout', array(
+        'label'		=> esc_html__('Container Layout', 'ifs-legacy'),
+        'section'	=> 'ifs_legacy_section_content_options',
+        'setting'	=> 'ifs_legacy_container_layout',
+        'type'      => 'select',
+        'choices'   => ifs_legacy_container_layout_choices()
     ));
 
 	$wp_customize->add_section( 'ifs_legacy_section_font_options', array(

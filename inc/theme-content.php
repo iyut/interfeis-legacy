@@ -1,13 +1,36 @@
 <?php
 
 /**
+ * add a class to body element
+ *
+ * @uses ifs_legacy_content_layout_chosen()
+ * @uses ifs_legacy_container_layout_chosen()
+ */
+function ifs_legacy_content_add_body_class( $classes ){
+
+	$classes[]  = 'ifs-content-'.ifs_legacy_content_layout_chosen();
+	$classes[]  = ifs_legacy_container_layout_chosen();
+
+	return apply_filters('ifs_legacy_content_add_body_class', $classes);
+}
+add_filter('body_class', 'ifs_legacy_content_add_body_class');
+
+/**
  * add a class to outer content container element
  *
- * @uses ifs_legacy_content_container_class()
+ * @uses ifs_legacy_content_layout_chosen()
+ * @uses ifs_legacy_container_layout_chosen()
  */
 function ifs_legacy_content_container_class(){
 
-	echo esc_attr( apply_filters('ifs_legacy_content_container_class', ifs_legacy_content_layout_chosen()) );
+	$class = array(
+		ifs_legacy_content_layout_chosen(),
+		ifs_legacy_container_layout_chosen()
+	);
+
+	$str_class = implode(' ', $class);
+
+	echo esc_attr( apply_filters('ifs_legacy_content_container_class', $str_class) );
 
 }
 
@@ -142,7 +165,7 @@ if(!function_exists('ifs_legacy_content_layout_choices')){
 if(!function_exists('ifs_legacy_content_layout_chosen')){
     function ifs_legacy_content_layout_chosen(){
 
-        $ifs_legacy_content_mod = get_theme_mod( 'ifs_legacy_content_layout', 'two-col-left' );
+        $ifs_legacy_content_mod = get_theme_mod( 'ifs_legacy_content_layout', ifs_legacy_content_layout_default() );
 
         $post_id = ifs_legacy_get_postid();
 
@@ -155,6 +178,62 @@ if(!function_exists('ifs_legacy_content_layout_chosen')){
 
         return apply_filters('ifs_legacy_content_layout_chosen', $ifs_legacy_content_mod);
     }
+}
+
+/**
+ * get default content layout
+ * @return string
+ */
+function ifs_legacy_content_layout_default(){
+	return apply_filters( 'ifs_legacy_content_layout_default', 'two-col-left');
+}
+
+/**
+ * return all choices of container layouts.
+ *
+ * @return array
+ */
+if(!function_exists('ifs_legacy_container_layout_choices')){
+    function ifs_legacy_container_layout_choices(){
+        $ifs_optlayout = array(
+    		'ifs-content-default-width' 		=> esc_html__('Default width',"ifs-legacy"),
+    		'ifs-content-full-width' 			=> esc_html__('Full-width',"ifs-legacy"),
+    		'ifs-content-full-width-no-padding'	=> esc_html__('Full-width without padding',"ifs-legacy")
+    	);
+        return apply_filters('ifs_legacy_container_layout_choices', $ifs_optlayout);
+    }
+}
+
+/**
+ * return the chosen container layout.
+ *
+ * @uses ifs_legacy_container_layout_choices()
+ * @return string
+ */
+if(!function_exists('ifs_legacy_container_layout_chosen')){
+    function ifs_legacy_container_layout_chosen(){
+
+        $ifs_legacy_cont_mod = get_theme_mod( 'ifs_legacy_container_layout', ifs_legacy_container_layout_default() );
+
+        $post_id = ifs_legacy_get_postid();
+
+        $post_layout = get_post_meta( $post_id, 'ifs_container_layout', true);
+        $post_layout_choices = ifs_legacy_container_layout_choices();
+
+        if( $post_layout != '' && $post_layout != 'default' && array_key_exists( $post_layout, $post_layout_choices)){
+            $ifs_legacy_cont_mod = $post_layout;
+        }
+
+        return apply_filters('ifs_legacy_container_layout_chosen', $ifs_legacy_cont_mod);
+    }
+}
+
+/**
+ * get default container layout
+ * @return string
+ */
+function ifs_legacy_container_layout_default(){
+	return apply_filters( 'ifs_legacy_container_layout_default', 'ifs-content-default-width');
 }
 
 /**
