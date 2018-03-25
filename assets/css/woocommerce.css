@@ -12,9 +12,6 @@ WooCommerce styles override
 /**
  * Shop tables
  */
-/**
- * Shop tables
- */
 table.shop_table_responsive thead {
 	display: none;
 }
@@ -190,9 +187,6 @@ ul.products li.product .added_to_cart{
 /**
  * Single product
  */
-/**
- * Single Product
- */
 .single-product div.product {
 	content: "";
 	display: table;
@@ -202,6 +196,8 @@ ul.products li.product .added_to_cart{
 
 .single-product div.product .woocommerce-product-gallery {
 	position: relative;
+	float:left;
+	max-width:60%;
 }
 
 .single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger {
@@ -290,6 +286,34 @@ ul.products li.product .added_to_cart{
 	clear: both;
 }
 
+.single-product div.product .summary{
+	overflow:hidden;
+	padding:0px 15px;
+}
+
+.single-product .summary .quantity{
+	display:inline-block;
+	width:90px;
+	margin-right:1em;
+	-webkit-box-shadow: inset 0px -2px 0px 0px rgba(0,0,0,1);
+	-moz-box-shadow: inset 0px -2px 0px 0px rgba(0,0,0,1);
+	box-shadow: inset 0px -2px 0px 0px rgba(0,0,0,1);
+}
+
+.single-product .summary .quantity input{
+	max-width:100%;
+	background:none;
+	border:0px;
+	font-size:1rem;
+	line-height:1;
+	padding:1em 0.5em 1.1em;
+	outline:0;
+}
+
+.single-product .summary .product_meta{
+	margin-top:1.5em;
+}
+
 .stock:empty:before {
 	display: none;
 }
@@ -302,9 +326,6 @@ ul.products li.product .added_to_cart{
 	color: #e2401c;
 }
 
-/**
- * Checkout
- */
 /**
  * Checkout
  */
@@ -450,6 +471,11 @@ p.stars.selected a:not(.active):before {
 /**
  * Tabs
  */
+ .single-product div.product .woocommerce-tabs{
+ 	clear:both;
+	padding-top:3rem;
+ }
+
 .woocommerce-tabs ul.tabs {
 	list-style: none;
 	margin: 0;
@@ -458,18 +484,44 @@ p.stars.selected a:not(.active):before {
 }
 
 .woocommerce-tabs ul.tabs li {
-	display: block;
-	margin: 0;
+	display: inline-block;
+	margin: 0 15px 0 0;
 	position: relative;
+	border-bottom:2px solid transparent;
+	transition: border 0.8s ease-out;
+	-moz-transition: border 0.8s ease-out;
+	-webkit-transition: border 0.8s ease-out;
+	transition: border 0.8s cubic-bezier(.22,.52,.25,.93);
+	-moz-transition: border 0.8s cubic-bezier(.22,.52,.25,.93);
+	-webkit-transition: border 0.8s cubic-bezier(.22,.52,.25,.93);
+}
+
+.woocommerce-tabs ul.tabs li:last-child{
+	margin-right:0px;
+}
+
+.woocommerce-tabs ul.tabs li.active,
+.woocommerce-tabs ul.tabs li:hover{
+	border-color:#3a3a3a;
 }
 
 .woocommerce-tabs ul.tabs li a {
+	color:#3a3a3a;
 	padding: 1em 0;
 	display: block;
+	text-decoration:none;
+	outline:none;
 }
 
 .woocommerce-tabs .panel h2:first-of-type {
 	margin-bottom: 1em;
+}
+
+/**
+ * Up sells and Related product
+ */
+.single-product div.product .products{
+	margin-top:3rem;
 }
 
 /**

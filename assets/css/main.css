@@ -388,11 +388,11 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	background: #e6e6e6;
-	color: rgba(0, 0, 0, 0.8);
+	border-color: #3f3f3f #3f3f3f #3d3d3d;
+	background: #3a3a3a;
+	color: rgba(255, 255, 255, 0.8);
 	font-size: 14px;
-	font-size: 0.75rem;
+	font-size: 1rem;
 	line-height: 1;
 	padding: 1em 1.5em 1.1em;
 }
@@ -401,7 +401,8 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
+	border-color: #df5751 #df5751 #df5751;
+	background-color:#df5751;
 }
 
 button:active, button:focus,
