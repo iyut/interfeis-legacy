@@ -13,6 +13,7 @@
 # Clearings
 # Display
 # Site title
+	## Breadcrumb
 # Widgets
 	## General
 	## Search
@@ -699,6 +700,12 @@ a:hover, a:active {
 }
 .page-desc{
 	margin-bottom:2.1em;
+}
+/*--------------------------------------------------------------
+## Breadcrumb
+--------------------------------------------------------------*/
+#outerafterheader .woocommerce-breadcrumb{
+	margin:30px 0px 0px;
 }
 /*--------------------------------------------------------------
 # Widgets
