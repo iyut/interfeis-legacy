@@ -158,6 +158,23 @@ if(!function_exists('ifs_legacy_content_layout_choices')){
 }
 
 /**
+ * return all choices of content layouts.
+ *
+ * @uses ifs_legacy_content_layout_choices()
+ */
+if(!function_exists('ifs_legacy_content_layout_choices_with_default')){
+    function ifs_legacy_content_layout_choices_with_default(){
+        $ifs_optlayout = array(
+    		'' => esc_html__('Default - Base Content Layout',"ifs-legacy")
+    	);
+
+		$ifs_optlayout = array_merge( $ifs_optlayout, ifs_legacy_content_layout_choices());
+
+        return apply_filters('ifs_legacy_content_layout_choices_with_default', $ifs_optlayout);
+    }
+}
+
+/**
  * return the chosen content layout.
  *
  * @uses ifs_legacy_content_layout_choices()
@@ -172,9 +189,60 @@ if(!function_exists('ifs_legacy_content_layout_chosen')){
         $post_layout = get_post_meta( $post_id, 'ifs_content_layout', true);
         $post_layout_choices = ifs_legacy_content_layout_choices();
 
+		if(is_archive()){
+			$ifs_legacy_temp_content_mod = get_theme_mod( 'ifs_legacy_archive_content_layout', '' );
+			if($ifs_legacy_temp_content_mod!=''){
+				$ifs_legacy_content_mod = $ifs_legacy_temp_content_mod;
+			}
+		}
+
+		if(is_single()){
+			$ifs_legacy_temp_content_mod = get_theme_mod( 'ifs_legacy_single_content_layout', '' );
+			if($ifs_legacy_temp_content_mod!=''){
+				$ifs_legacy_content_mod = $ifs_legacy_temp_content_mod;
+			}
+		}
+
+		if(is_404()){
+			$ifs_legacy_temp_content_mod = get_theme_mod( 'ifs_legacy_404_content_layout', '' );
+			if($ifs_legacy_temp_content_mod!=''){
+				$ifs_legacy_content_mod = $ifs_legacy_temp_content_mod;
+			}
+		}
+
+		if(is_attachment()){
+			$ifs_legacy_temp_content_mod = get_theme_mod( 'ifs_legacy_attachment_content_layout', '' );
+			if($ifs_legacy_temp_content_mod!=''){
+				$ifs_legacy_content_mod = $ifs_legacy_temp_content_mod;
+			}
+		}
+
+		if(is_search()){
+			$ifs_legacy_temp_content_mod = get_theme_mod( 'ifs_legacy_search_content_layout', '' );
+			if($ifs_legacy_temp_content_mod!=''){
+				$ifs_legacy_content_mod = $ifs_legacy_temp_content_mod;
+			}
+		}
+
+		if(is_post_type_archive( 'product' )){
+			$ifs_legacy_temp_content_mod = get_theme_mod( 'ifs_legacy_shop_content_layout', '' );
+			if($ifs_legacy_temp_content_mod!=''){
+				$ifs_legacy_content_mod = $ifs_legacy_temp_content_mod;
+			}
+		}
+
+		if(is_singular( 'product' )){
+			$ifs_legacy_temp_content_mod = get_theme_mod( 'ifs_legacy_product_content_layout', '' );
+			if($ifs_legacy_temp_content_mod!=''){
+				$ifs_legacy_content_mod = $ifs_legacy_temp_content_mod;
+			}
+		}
+
         if( $post_layout != '' && $post_layout != 'default' && array_key_exists( $post_layout, $post_layout_choices)){
             $ifs_legacy_content_mod = $post_layout;
         }
+
+
 
         return apply_filters('ifs_legacy_content_layout_chosen', $ifs_legacy_content_mod);
     }

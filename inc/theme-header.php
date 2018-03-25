@@ -353,7 +353,7 @@ function ifs_legacy_get_theme_header_css(){
 	if(isset($ifs_legacy_header_mod['js'])){
 		wp_enqueue_script('ifs_legacy_header_mod', $ifs_legacy_header_mod['js'], array('jquery'), '20180316', true );
 	}
-	
+
 	add_filter('body_class', 'ifs_legacy_header_add_body_class');
 
 }
@@ -484,6 +484,9 @@ function ifs_legacy_get_template_header_title(){
 }
 add_action('ifs_legacy_header_title', 'ifs_legacy_get_template_header_title', 15);
 
+
+add_action( 'ifs_legacy_the_title', 'woocommerce_breadcrumb', 5 );
+
 /**
  * Get page title
  *
@@ -555,7 +558,6 @@ function ifs_legacy_get_the_header_desc(){
 
 	//custom meta field
 	$ifs_pid = ifs_legacy_get_postid();
-	$ifs_custom = ifs_legacy_get_customdata($ifs_pid);
 	$ifs_cf_pagedesc = get_post_meta( $ifs_pid, 'ifs_pagedesc', true);
 
 	return apply_filters('ifs_legacy_get_the_header_desc', $ifs_cf_pagedesc);
