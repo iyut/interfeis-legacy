@@ -458,6 +458,21 @@ textarea:focus {
 
 select {
 	border: 1px solid #ccc;
+	padding:10px 35px 10px 15px;
+	outline:none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	background-image:url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAPFBMVEUAAAA6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6OjomZi40AAAAE3RSTlMABAYPExQmTHR/gIKDys7o6+/xjg4DFQAAAE9JREFUOE/tyscRwDAMA0E6yjmh/15NDt4cFCDd6x5r1qqm4b56XsGSoROgKgDmBE0fVZgjMa7eUGH21FA9wlApYza62oQJtSridQq06uwHevIDX9jgZMoAAAAASUVORK5CYII= );
+	background-repeat:no-repeat;
+	background-position:right center;
+}
+select:after{
+	content:"\f107";
+	display:block;
+	font-family:FontAwesome;
 }
 
 textarea {
