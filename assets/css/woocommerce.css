@@ -72,9 +72,12 @@ table.shop_table_responsive tr td.download-actions .button {
 /**
  * Products
  */
-/**
- * Products
- */
+.woocommerce-result-count{
+	display:inline-block;
+}
+.woocommerce-ordering{
+	display:inline-block;
+}
 ul.products {
 	content: "";
 	width:100%;
@@ -88,18 +91,67 @@ ul.products li.product {
 	list-style: none;
 	position: relative;
 	margin-bottom: 2em;
+	text-align:center;
+}
+
+li.product .onsale{
+	position:absolute;
+	top:10px;
+	left:0px;
+	font-size:0.7em;
+	padding:5px 10px;
+	background-color:#333;
+	color:#fff;
+	text-decoration:none;
+}
+
+ul.products li.product a:hover{
+	text-decoration:none;
 }
 
 ul.products li.product .woocommerce-loop-product__title {
 	font-size: 1rem;
+	font-weight:300;
+	text-align:center;
+	color:#333;
+	margin-top:8px;
+}
+
+ul.products li.product .woocommerce-loop-product__title:hover{
+	color:#df5751;
 }
 
 ul.products li.product img {
 	display: block;
+	margin: 0 auto 8px;
+}
+
+li.product .star-rating{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+li.product .star-rating span:before{
+	color:#df5751;
+}
+
+li.product .price{
+	color:#333;
+	font-weight:700;
+	display:inline-block;
+	margin:4px 0px;
 }
 
 ul.products li.product .button {
 	display: block;
+}
+
+ul.products li.product .button.added{
+	display:none;
+}
+
+ul.products li.product .added_to_cart{
+	display:block;
 }
 
 @media screen and (min-width: 48em) {
