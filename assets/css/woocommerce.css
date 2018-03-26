@@ -1,17 +1,36 @@
 /*
 Theme Name: Legacy
 
-WooCommerce styles override
-*/
-/**
- * WooCommerce color variables
- */
-/**
- * Imports
- */
-/**
- * Shop tables
- */
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS: WOOCOMMERCE STYLES OVERRIDE
+----------------------------------------------------------------
+# WooCommerce color variables
+# Imports
+# Shop tables
+# Products
+# Single product
+# My account
+# Checkout
+# General Woocommerce components
+	## Header cart
+	## Star rating
+	## Tabs
+	## Up sells and Related product
+	## Password strength meter
+	## Forms
+	## Notices
+# Woocommerce widgets
+	## WooCommerce Price Filter
+--------------------------------------------------------------*/
+ /*--------------------------------------------------------------
+ # WooCommerce color variables
+ --------------------------------------------------------------*/
+ /*--------------------------------------------------------------
+ # Imports
+ --------------------------------------------------------------*/
+ /*--------------------------------------------------------------
+ # Shop tables
+ --------------------------------------------------------------*/
 table.shop_table_responsive thead {
 	display: none;
 }
@@ -66,9 +85,9 @@ table.shop_table_responsive tr td.download-actions .button {
 	}
 }
 
-/**
- * Products
- */
+/*--------------------------------------------------------------
+# Products
+--------------------------------------------------------------*/
 .woocommerce-result-count{
 	display:inline-block;
 }
@@ -184,9 +203,9 @@ ul.products li.product .added_to_cart{
 	}
 }
 
-/**
- * Single product
- */
+/*--------------------------------------------------------------
+# Single product
+--------------------------------------------------------------*/
 .single-product div.product {
 	content: "";
 	display: table;
@@ -359,9 +378,27 @@ ul.products li.product .added_to_cart{
 	color: #e2401c;
 }
 
-/**
- * Checkout
- */
+/*--------------------------------------------------------------
+# My account
+--------------------------------------------------------------*/
+.ifs-page-content .woocommerce{
+	display:block;
+}
+.woocommerce-MyAccount-navigation{
+	width:30%;
+	float:left;
+}
+.woocommerce-MyAccount-content{
+	width:59.8%;
+	float:right;
+}
+.ifs-page-content .woocommerce:after{
+	content:"";
+	clear:both;
+}
+ /*--------------------------------------------------------------
+ # Checkout
+ --------------------------------------------------------------*/
 @media screen and (min-width: 768px) {
 	.col2-set .form-row-first {
 		float: left;
@@ -377,12 +414,12 @@ ul.products li.product .added_to_cart{
 	}
 }
 
-/**
- * General WooCommerce components
- */
-/**
- * Header cart
- */
+/*--------------------------------------------------------------
+# General Woocommerce components
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Header cart
+--------------------------------------------------------------*/
 .site-header-cart {
 	position: relative;
 	margin: 0;
@@ -405,9 +442,9 @@ ul.products li.product .added_to_cart{
 	padding: 0;
 }
 
-/**
- * Star rating
- */
+/*--------------------------------------------------------------
+## Star rating
+--------------------------------------------------------------*/
 .star-rating {
 	overflow: hidden;
 	position: relative;
@@ -501,9 +538,9 @@ p.stars.selected a:not(.active):before {
 	opacity: 1;
 }
 
-/**
- * Tabs
- */
+/*--------------------------------------------------------------
+## Tabs
+--------------------------------------------------------------*/
  .single-product div.product .woocommerce-tabs{
  	clear:both;
 	padding-top:3rem;
@@ -584,16 +621,16 @@ p.stars.selected a:not(.active):before {
 	margin-right:15px;
 }
 
-/**
- * Up sells and Related product
- */
+/*--------------------------------------------------------------
+## Up sells and Related product
+--------------------------------------------------------------*/
 .single-product div.product .products{
 	margin-top:3rem;
 }
 
-/**
- * Password strength meter
- */
+/*--------------------------------------------------------------
+## Password strength meter
+--------------------------------------------------------------*/
 .woocommerce-password-strength {
 	text-align: right;
 }
@@ -614,9 +651,9 @@ p.stars.selected a:not(.active):before {
 	color: #3D9CD2;
 }
 
-/**
- * Forms
- */
+/*--------------------------------------------------------------
+## Forms
+--------------------------------------------------------------*/
 .form-row.woocommerce-validated input.input-text {
 	box-shadow: inset 2px 0 0 #0f834d;
 }
@@ -629,9 +666,9 @@ p.stars.selected a:not(.active):before {
 	color: red;
 }
 
-/**
- * Notices
- */
+/*--------------------------------------------------------------
+## Notices
+--------------------------------------------------------------*/
 .woocommerce-message,
 .woocommerce-info,
 .woocommerce-error,
@@ -684,12 +721,12 @@ p.no-comments {
 	}
 }
 
-/**
- * WooCommerce widgets
- */
-/**
- * WooCommerce Price Filter
- */
+/*--------------------------------------------------------------
+# Woocommerce widgets
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## WooCommerce Price Filter
+--------------------------------------------------------------*/
 .widget_price_filter .price_slider {
 	margin-bottom: 1.5em;
 }
