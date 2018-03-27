@@ -431,10 +431,13 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
+	transition: border .5s;
 	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 3px;
+	border: 0;
+	background-color:transparent;
+	border-bottom: 2px solid #d0d0d0;
+	border-radius: 0;
+	padding: 5px 0;
 }
 
 input[type="text"]:focus,
@@ -453,7 +456,7 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-	color: #111;
+	border-color: #3a3a3a;
 }
 
 select {
