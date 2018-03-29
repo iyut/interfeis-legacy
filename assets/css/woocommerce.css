@@ -115,6 +115,48 @@ table.shop_table_responsive tr td.download-actions .button {
 	text-align: center;
 }
 
+table.shop_table td.actions{
+	padding:70px 40px;
+}
+
+table.shop_table .actions .coupon label{
+	font-size: 20px;
+	font-size: 2rem;
+	color: #23232c;
+	font-weight: 400;
+	margin: 0;
+	width: 25%;
+	float: left;
+}
+
+table.shop_table .actions .coupon .input-text {
+	width: 60%;
+	padding:10px 0;
+	outline:none;
+}
+
+table.shop_table .actions .coupon .button {
+	width: auto;
+	float:right;
+	padding:10px 0;
+	background:none;
+	border:0;
+	line-height:1.5;
+	color:#333;
+	border-bottom:2px solid #333;
+	text-transform:uppercase;
+	outline:none;
+}
+
+table.shop_table .actions > .button{
+	float:right;
+	width:75%;
+	margin-top:20px;
+	text-transform:uppercase;
+	font-weight:700;
+	padding:28px 40px;
+}
+
 @media screen and (min-width: 48em) {
 	table.shop_table_responsive thead {
 		display: table-header-group;
@@ -131,47 +173,32 @@ table.shop_table_responsive tr td.download-actions .button {
 	table.shop_table_responsive tr td:before {
 		display: none;
 	}
+}
 
+@media only screen and (max-width:768px){
 	table.shop_table td.actions{
-		padding:70px 40px;
+
+		padding:30px 0;
 	}
 
 	table.shop_table .actions .coupon label{
-		font-size: 20px;
-		font-size: 2rem;
-		color: #23232c;
-		font-weight: 400;
-		margin: 0;
-		width: 25%;
-		float: left;
+		width:100%;
+		font-size:1rem;
+		text-align:left;
 	}
 
-	table.shop_table .actions .coupon .input-text {
-	    width: 60%;
-		padding:10px 0;
-		outline:none;
+	table.shop_table .actions .coupon .input-text{
+		float:left;
+		padding-top:0;
+		width:60%;
 	}
-
-	table.shop_table .actions .coupon .button {
-	    width: auto;
-		float:right;
-		padding:10px 0;
-		background:none;
-		border:0;
-		line-height:1.5;
-		color:#333;
-		border-bottom:2px solid #333;
-		text-transform:uppercase;
-		outline:none;
+	table.shop_table .actions .coupon .button{
+		padding-top:0;
+		font-size:1rem;
 	}
 
 	table.shop_table .actions > .button{
-		float:right;
-		width:75%;
-		margin-top:20px;
-		text-transform:uppercase;
-		font-weight:700;
-		padding:28px 40px;
+		width:100%;
 	}
 }
 
@@ -800,6 +827,22 @@ ul.products li.product .added_to_cart{
 
 .wc-proceed-to-checkout .button:hover{
 	background-color:#df5751;
+}
+
+@media only screen and (max-width:768px){
+	.cart-collaterals .cross-sells{
+		float:none;
+		width:100%;
+		padding:15px 0;
+	}
+
+	.cart-collaterals .cross-sells .products.columns-2 li{
+		width:49%;
+	}
+
+	.cart-collaterals .cart_totals{
+		padding:15px 0;
+	}
 }
 
 /*--------------------------------------------------------------
