@@ -473,7 +473,7 @@ function ifs_legacy_header_title(){
 /**
  * call the header title file
  *
- * @uses ifs_legacy_get_template_header_title()
+ * @uses ifs_legacy_show_header_title()
  */
 function ifs_legacy_get_template_header_title(){
 
@@ -486,6 +486,24 @@ add_action('ifs_legacy_header_title', 'ifs_legacy_get_template_header_title', 15
 
 
 add_action( 'ifs_legacy_the_title', 'woocommerce_breadcrumb', 5 );
+
+/**
+ * display external slider
+ *
+ * @uses ifs_legacy_display_ext_slider()
+ */
+function ifs_legacy_display_ext_slider(){
+
+	$post_id 		= ifs_legacy_get_postid();
+	$pos_slider 	= get_post_meta( $post_id, 'ifs_ext_slider', true);
+	if( $pos_slider!='' ){
+		echo '<div class="ext_slider_container">';
+			echo do_shortcode( $pos_slider );
+		echo '</div>';
+	}
+
+}
+add_action('ifs_legacy_header_title', 'ifs_legacy_display_ext_slider', 25);
 
 /**
  * Get page title

@@ -194,6 +194,13 @@ function ifs_legacy_set_metaboxes(){
 				'std' => ''
 			),
 			array(
+				'name' => esc_html__('External Slider',"ifs-legacy"),
+				'desc' => '<em>'.esc_html__('Input the external slider shortcode.',"ifs-legacy").'</em>',
+				'id' => 'ifs_ext_slider',
+				'type' => 'text',
+				'std' => ''
+			),
+			array(
 				'name' => esc_html__('Main Content Padding Top',"ifs-legacy"),
 				'desc' => '<em>'.esc_html__('Input the padding top value in pixel. example : 12px',"ifs-legacy").'</em>',
 				'id' => 'ifs_main_paddingtop',
