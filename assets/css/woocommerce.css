@@ -176,6 +176,10 @@ table.shop_table .actions > .button{
 }
 
 @media only screen and (max-width:768px){
+
+	table.shop_table_responsive tr td{
+		padding:20px 15px 30px;
+	}
 	table.shop_table td.actions{
 
 		padding:30px 0;
