@@ -200,6 +200,7 @@ Header Name: Header 1
 		display:inline-block;
 		padding:0px;
 		border:0px;
+		color:#333;
 		background:transparent;
 		font-size:1.3em;
 	}
@@ -230,6 +231,7 @@ Header Name: Header 1
 		padding:0px;
 		margin:0px;
 		border:0px;
+		color:#333;
 		background-color:transparent;
 		font-size:2em;
 		outline:none;

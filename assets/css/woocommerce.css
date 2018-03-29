@@ -11,6 +11,8 @@ Theme Name: Legacy
 # Single product
 # My account
 # Checkout
+# Cart
+# Order Received
 # General Woocommerce components
 	## Header cart
 	## Star rating
@@ -19,6 +21,7 @@ Theme Name: Legacy
 	## Password strength meter
 	## Forms
 	## Notices
+	## Pagination
 # Woocommerce widgets
 	## WooCommerce Price Filter
 --------------------------------------------------------------*/
@@ -287,6 +290,19 @@ ul.products li.product .added_to_cart{
 	}
 	.columns-6 ul.products li.product {
 		width: 13.4933333333%;
+	}
+}
+
+@media only screen and (max-width:768px){
+	.woocommerce-result-count {
+		display: block;
+		text-align: center;
+	}
+
+	.woocommerce-ordering{
+		display: block;
+		text-align:center;
+		margin-bottom:2em;
 	}
 }
 
@@ -637,6 +653,41 @@ ul.products li.product .added_to_cart{
 	padding:0 10px;
 }
 
+@media only screen and (max-width:991px){
+	.woocommerce-account .woocommerce-MyAccount-navigation {
+	    width: 100%;
+	    float: none;
+	    padding-right: 0;
+	    margin-top: -30px;
+	    padding-bottom: 20px;
+	    border-bottom: 1px solid #d0d0d0;
+	    border-right-width: 0;
+		overflow-y: scroll;
+	}
+
+	.woocommerce-account .woocommerce-MyAccount-navigation ul {
+		white-space: nowrap;
+		max-height: 30px;
+	    list-style: none;
+	    padding: 0;
+	    margin: 0;
+	}
+
+	.woocommerce-account .woocommerce-MyAccount-navigation ul li {
+	    display: inline-block;
+	    margin: 0 15px;
+	}
+
+	.woocommerce-account .woocommerce-MyAccount-navigation ul li:first-child {
+	    margin-left: 0;
+	}
+
+	.woocommerce-MyAccount-content{
+		width:100%;
+		margin:2em 0 0;
+		padding:0;
+	}
+}
  /*--------------------------------------------------------------
  # Checkout
  --------------------------------------------------------------*/
@@ -686,7 +737,6 @@ ul.products li.product .added_to_cart{
 	width:100%;
 }
 
-@media screen and (min-width: 768px) {
 	.col2-set:after{
 		content:"";
 		display:block;
@@ -718,7 +768,6 @@ ul.products li.product .added_to_cart{
 		border:2px solid #d0d0d0;
 		margin:0 0 30px 0;
 	}
-}
 
 /*--------------------------------------------------------------
 # Cart
@@ -751,6 +800,45 @@ ul.products li.product .added_to_cart{
 
 .wc-proceed-to-checkout .button:hover{
 	background-color:#df5751;
+}
+
+/*--------------------------------------------------------------
+# Order Received
+--------------------------------------------------------------*/
+.woocommerce ul.order_details {
+	padding:0;
+    margin: 0 0 3em;
+    list-style: none;
+}
+
+.woocommerce ul.order_details li {
+    float: left;
+    margin-right: 2em;
+    text-transform: uppercase;
+    font-size: .715em;
+    line-height: 1;
+    border-right: 1px dashed #d3ced2;
+    padding-right: 2em;
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.woocommerce ul.order_details li strong {
+    display: block;
+    font-size: 1.4em;
+    text-transform: none;
+    line-height: 1.5;
+}
+
+.woocommerce ul.order_details li:last-child{
+	border-right:0;
+}
+
+.woocommerce ul.order_details::after {
+	content:"";
+	display:block;
+	clear: both;
 }
 /*--------------------------------------------------------------
 # General Woocommerce components
@@ -1080,6 +1168,51 @@ p.no-comments {
 		left: 0;
 		display: block;
 	}
+}
+
+/*--------------------------------------------------------------
+## Pagination
+--------------------------------------------------------------*/
+.woocommerce nav.woocommerce-pagination {
+    text-align: center;
+}
+
+.woocommerce nav.woocommerce-pagination ul {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0;
+    clear: both;
+    border: 1px solid #d3ced2;
+    border-right: 0;
+    margin: 1px;
+}
+
+.woocommerce nav.woocommerce-pagination ul li {
+    border-right: 1px solid #d3ced2;
+    padding: 0;
+    margin: 0;
+    float: left;
+    display: inline;
+    overflow: hidden;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+    margin: 0;
+    text-decoration: none;
+    padding: 0;
+    line-height: 1;
+    font-size: 1em;
+    font-weight: 400;
+    padding: .5em;
+    min-width: 1em;
+    display: block;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a:hover,
+.woocommerce nav.woocommerce-pagination ul li span.current {
+    background: #ebe9eb;
+    color: #8a7e88;
 }
 
 /*--------------------------------------------------------------
