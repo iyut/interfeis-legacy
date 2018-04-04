@@ -222,9 +222,16 @@ function ifs_legacy_set_metaboxes(){
 				'std' => ''
 			),
 			array(
+				'name' => esc_html__('Background Color Title',"ifs-legacy"),
+				'desc' => '<em>'.esc_html__('Input the hexcolor in this textbox if you want to change the background color of your title section.',"ifs-legacy").'</em>',
+				'id' => 'ifs_bg_color_title',
+				'type' => 'text',
+				'std' => ''
+			),
+			array(
 				'name' => esc_html__('Background Title',"ifs-legacy"),
 				'desc' => '<em>'.esc_html__('Input the image URL in this textbox if you want to change the background image on the title section.',"ifs-legacy").'</em>',
-				'id' => 'ifs_bg_title',
+				'id' => 'ifs_bg_image_title',
 				'type' => 'text',
 				'std' => ''
 			),

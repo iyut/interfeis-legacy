@@ -872,6 +872,18 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'description'	=> __( 'Select the image to be used for Page Title Background. The background will cover the whole page title section.', 'ifs-legacy' )
 		)));
 
+		$wp_customize->add_setting( 'ifs_legacy_page_title_background_color', array(
+	        'default' 	=> '',
+	        'transport'	=> 'refresh',
+	        'sanitize_callback'	=> 'esc_attr'
+	    ));
+
+	    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_page_title_background_color', array(
+	        'label'		=> esc_html__('Title Section Background Color', 'ifs-legacy'),
+	        'section'	=> 'ifs_legacy_section_page_title_options',
+	        'setting'	=> 'ifs_legacy_page_title_background_color'
+	    )));
+
 	    $wp_customize->add_setting( 'ifs_legacy_page_title_position', array(
 			'default'		=> '',
 	        'transport'	=> 'refresh',

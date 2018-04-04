@@ -432,13 +432,31 @@ function ifs_legacy_display_bg_title(){
 	$title_bg_image		= get_theme_mod('ifs_legacy_page_title_background_image');
 
 	$post_id 		= ifs_legacy_get_postid();
-	$bg_title 	= get_post_meta( $post_id, 'ifs_bg_title', true);
+	$bg_title 	= get_post_meta( $post_id, 'ifs_bg_image_title', true);
 
 	if($bg_title != ''){
 		$title_bg_image = $bg_title;
 	}
 
 	return apply_filters('ifs_legacy_display_bg_title', $title_bg_image);
+}
+
+/**
+ * display the background color for the title section
+ *
+ * @uses ifs_legacy_bg_color_title()
+ */
+function ifs_legacy_bg_color_title(){
+	$title_bg		= get_theme_mod('ifs_legacy_page_title_background_color');
+
+	$post_id 		= ifs_legacy_get_postid();
+	$bg_title 		= get_post_meta( $post_id, 'ifs_bg_color_title', true);
+
+	if($bg_title != ''){
+		$title_bg = $bg_title;
+	}
+
+	return apply_filters('ifs_legacy_bg_color_title', $title_bg);
 }
 
 /**
@@ -604,6 +622,7 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 		$header_border_color= get_theme_mod('ifs_legacy_header_border_color');
 		$header_bg_image	= ifs_legacy_display_bg_header();
 
+		$title_bg_color		= ifs_legacy_bg_color_title();
 		$title_bg_image		= ifs_legacy_display_bg_title();
 		$title_pos			= ifs_legacy_position_title();
 		/*
@@ -652,6 +671,12 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 			}';
 		}
 
+		if($title_bg_color!='' && $title_bg_color!='remove-image'){
+			$output_css .= '#outerafterheader{
+				background-color: '. esc_attr( $title_bg_color ).';
+			}';
+		}
+		
 		if($title_bg_image!='' && $title_bg_image!='remove-image'){
 			$output_css .= '#outerafterheader{
 				background-image: url('. esc_attr( $title_bg_image ).');
