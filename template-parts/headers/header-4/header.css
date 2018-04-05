@@ -1,46 +1,12 @@
 /*
-Header Name: Header 3
+Header Name: Header 4
 */
 
-.site-before-header{
-	background-color:#fff;
-	background-position:center;
-	background-repeat:no-repeat;
-	background-size:cover;
-}
-
-.top_col{
-	padding-top:4px;
-	padding-bottom:4px;
-}
-
-.top-info{
-	font-size:0.8em;
-}
-
-.top-menu #top-menu{
-	list-style-type:none;
-	margin:0px;
-	padding:0px;
-	display:block;
-	font-size:0.8em;
-}
-
-.top-menu #top-menu li{
-	list-style-type:none;
-	display:inline-block;
-	padding:0px 10px;
-}
-.top-menu #top-menu li:first-child{
-	padding-left:0;
-}
-.top-menu #top-menu li:last-child{
-	padding-right:0;
-}
-
 .site-header{
-	background-color:#fff;
-	border-bottom:1px solid #f0f0f0;
+	background-color:transparent;
+	border-bottom:1px solid transparent;
+	position:relative;
+	z-index:999;
 }
 
 .site-header .container .row{
@@ -58,10 +24,9 @@ Header Name: Header 3
 }
 
 .site-header .site-branding{
-	order:2;
+	order:1;
 	padding-left:15px;
 	padding-right:15px;
-	text-align:right;
 }
 
 .site-header .site-title{
@@ -77,13 +42,13 @@ Header Name: Header 3
 }
 
 .site-header .main-navigation{
-	order:1;
+	order:2;
 	padding-left:15px;
 	padding-right:15px;
 	clear:none;
 	width:auto;
 	margin:0.67em 0;
-	text-align:left;
+	text-align:right;
 
 	-webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -142,6 +107,7 @@ Header Name: Header 3
 	padding:10px;
 	display:block;
 	font-size:0.8em;
+	text-shadow:none;
 }
 .site-header .main-navigation ul li button.child_toggle{
 	display:none;
@@ -171,6 +137,10 @@ Header Name: Header 3
 	background-color:#fafafa;
 }
 
+#outerafterheader{
+	padding-top:70px;
+}
+
 @media only screen and (min-width:769px){
 	.top_col_2 .top-menu #top-menu{
 		text-align:right;
@@ -179,9 +149,23 @@ Header Name: Header 3
 	#primary-menu-close{
 		display:none;
 	}
+
+	.site-header .main-navigation ul.nav-menu > li{
+		color:#fff;
+		text-shadow: 0px 1px 3px #333;
+	    text-shadow: 0px 1px 3px rgba(0,0,0,0.4);
+	}
+	.site-header .main-navigation ul.nav-menu > li > a {
+	    color: #fff;
+	    font-weight: 300;
+	    text-transform: uppercase;
+	    text-shadow: 0px 1px 3px #333;
+	    text-shadow: 0px 1px 3px rgba(0,0,0,0.4);
+	}
 }
 
 @media only screen and (max-width:768px){
+
 	.top-menu .menu{
 		text-align:center;
 	}
@@ -195,6 +179,11 @@ Header Name: Header 3
 	}
 	.top_col .widget-title{
 		font-size:1rem;
+	}
+
+	.site-header{
+		background-color:#fff;
+		border-bottom:1px solid #f0f0f0;
 	}
 
 	.menu-toggle{

@@ -9,16 +9,6 @@
 
 ?>
 
-<div id="before-masthead" class="site-before-header clear">
-    <?php ifs_legacy_hook_before_tophead(); ?>
-    <div class="container">
-        <div class="row">
-            <?php ifs_legacy_hook_tophead(); ?>
-        </div>
-    </div>
-    <?php ifs_legacy_hook_after_tophead(); ?>
-</div>
-
 <div id="masthead" class="site-header clear">
     <div class="container">
         <div class="row">

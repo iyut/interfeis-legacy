@@ -32,7 +32,7 @@
 
  	$footer_files = array();
 
- 	$dirs = @ scandir( $directory );
+ 	$dirs = scandir( $directory );
  	if ( ! $dirs ) {
  		return $footer_files;
  	}else{
@@ -95,15 +95,26 @@
  		$child_root      = get_stylesheet_directory().'/'.$footer_location;
  		$child_url       = get_stylesheet_directory_uri().'/'.$footer_location;
 
- 		$child_files = ifs_legacy_check_theme_footer( $child_root, $child_url );
+		if( file_exists( $child_root )){
+	 		$child_files = ifs_legacy_check_theme_footer( $child_root, $child_url );
 
- 		foreach($child_files as $child_name => $child_val ){
+	 		foreach($child_files as $child_name => $child_val ){
 
- 			$footer_files[$child_name] = $child_val;
+	 			$footer_files[$child_name] = $child_val;
 
- 		}
+	 		}
+		}
  	}
  	return apply_filters('ifs_legacy_get_theme_footer_files', $footer_files);
+ }
+
+ /**
+  * Get theme footer default value
+  *
+  * @uses ifs_legacy_get_theme_footer_default()
+  */
+ function ifs_legacy_get_theme_footer_default(){
+ 	return apply_filters('ifs_legacy_get_theme_footer_default', 'footer-1');
  }
 
  /**
@@ -145,17 +156,20 @@
  	$ifs_legacy_footer_mod = ifs_legacy_get_theme_footer_mod();
  	wp_enqueue_style('ifs_legacy_footer_mod', $ifs_legacy_footer_mod['css'] );
 
-    add_filter('body_class', function (array $classes) {
-
-        $ifs_legacy_footer_mod = ifs_legacy_get_theme_footer_mod();
-
-	    $classes[]  = $ifs_legacy_footer_mod['name'];
-	    $classes[]  = $ifs_legacy_footer_mod['name'].'-css';
-
-		return apply_filters('ifs_legacy_get_theme_footer_css_filter', $classes);
-	});
+    add_filter('body_class', 'ifs_legacy_footer_add_body_class');
 
 }
+add_action( 'wp_enqueue_scripts', 'ifs_legacy_get_theme_footer_css', 30);
+
+function ifs_legacy_footer_add_body_class( $classes ){
+	$ifs_legacy_footer_mod = ifs_legacy_get_theme_footer_mod();
+
+	$classes[]  = $ifs_legacy_footer_mod['name'];
+	$classes[]  = $ifs_legacy_footer_mod['name'].'-css';
+
+	return apply_filters('ifs_legacy_footer_add_body_class', $classes);
+}
+
  /**
   * Get theme footer file
   *
@@ -245,7 +259,7 @@ function ifs_legacy_show_footer_bar(){
  * @uses ifs_legacy_bottom_foot_col_1()
  */
 function ifs_legacy_bottom_foot_col_1(){
-    echo '<div class="foot_col_1 foot_col col-6">';
+    echo '<div class="foot_col_1 foot_col col-lg-6">';
         do_action('ifs_legacy_bottom_foot_col_1');
     echo '</div>';
 }
@@ -257,7 +271,7 @@ function ifs_legacy_bottom_foot_col_1(){
   * @uses ifs_legacy_bottom_foot_col_1()
   */
  function ifs_legacy_bottom_foot_col_2(){
-     echo '<div class="foot_col_2 foot_col col-6">';
+     echo '<div class="foot_col_2 foot_col col-lg-6">';
          do_action('ifs_legacy_bottom_foot_col_2');
      echo '</div>';
  }
@@ -459,7 +473,7 @@ if( !function_exists('ifs_legacy_footer_bar_css_output') ){
 			}';
 		}
 
-		if($footer_bg_image!='' && $footer_bg_mage!='remove-image'){
+		if($footer_bg_image!='' && $footer_bg_image!='remove-image'){
 			$output_css .= '#colophon .outer-footer-bottom{
 				background-image: url('. esc_attr( $footer_bg_image ).');
 			}';

@@ -99,107 +99,6 @@ function ifs_legacy_body_classes( $classes ) {
 add_filter( 'body_class', 'ifs_legacy_body_classes' );
 
 /**
- * add a class to outer content container element
- *
- * @uses ifs_legacy_content_container_class()
- */
-function ifs_legacy_content_container_class(){
-
-	echo esc_attr( apply_filters('ifs_legacy_content_container_class', ifs_legacy_content_layout_chosen()) );
-
-}
-
-/**
- * add a class to content element
- *
- * @uses ifs_legacy_content_class()
- */
-function ifs_legacy_content_class( $echo=true ){
-
-    $layout_chosen = ifs_legacy_content_layout_chosen();
-
-    if($layout_chosen=='one-col'){
-        $class = 'col-12';
-    }elseif($layout_chosen=='two-col-left'){
-        $class = "col-8";
-    }elseif($layout_chosen=='two-col-right'){
-        $class = "col-8";
-    }elseif($layout_chosen=='three-col-left'){
-        $class = "col-6";
-    }elseif($layout_chosen=='three-col-mid'){
-        $class = "col-6";
-    }elseif($layout_chosen=='three-col-right'){
-        $class = "col-6";
-    }
-
-    if($echo==true){
-	    echo esc_attr( apply_filters('ifs_legacy_content_class_val', $class) );
-    }else{
-        return apply_filters('ifs_legacy_content_class_val', $class);
-    }
-}
-
-/**
- * add a class to sidebar 1 container
- *
- * @uses ifs_legacy_sidebar_class()
- */
-function ifs_legacy_sidebar_class( $echo=true ){
-
-    $layout_chosen = ifs_legacy_content_layout_chosen();
-
-    if($layout_chosen=='one-col'){
-        $class = 'd-none';
-    }elseif($layout_chosen=='two-col-left'){
-        $class = "col-4";
-    }elseif($layout_chosen=='two-col-right'){
-        $class = "col-4";
-    }elseif($layout_chosen=='three-col-left'){
-        $class = "col-3";
-    }elseif($layout_chosen=='three-col-mid'){
-        $class = "col-3";
-    }elseif($layout_chosen=='three-col-right'){
-        $class = "col-3";
-    }
-
-    if($echo==true){
-        echo esc_attr( apply_filters('ifs_legacy_sidebar_class_val', $class) );
-    }else{
-        return apply_filters('ifs_legacy_sidebar_class_val', $class);
-    }
-}
-
-/**
- * add a class to sidebar 2 container
- *
- * @uses ifs_legacy_sidebar_2_class()
- */
-function ifs_legacy_sidebar_2_class( $echo=true ){
-
-    $layout_chosen = ifs_legacy_content_layout_chosen();
-
-    if($layout_chosen=='one-col'){
-        $class = 'd-none';
-    }elseif($layout_chosen=='two-col-left'){
-        $class = 'd-none';
-    }elseif($layout_chosen=='two-col-right'){
-        $class = 'd-none';
-    }elseif($layout_chosen=='three-col-left'){
-        $class = "col-3";
-    }elseif($layout_chosen=='three-col-mid'){
-        $class = "col-3";
-    }elseif($layout_chosen=='three-col-right'){
-        $class = "col-3";
-    }
-
-    if($echo==true){
-        echo esc_attr( apply_filters('ifs_legacy_sidebar_2_class_val', $class) );
-    }else{
-        return apply_filters('ifs_legacy_sidebar_2_class_val', $class);
-    }
-}
-
-/**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
 function ifs_legacy_pingback_header() {
@@ -247,105 +146,521 @@ if(!function_exists("ifs_legacy_is_product")){
 	}
 }
 
-/**
- * return all choices of content layouts.
- *
- * @uses ifs_legacy_content_layout_choices()
- */
-if(!function_exists('ifs_legacy_content_layout_choices')){
-    function ifs_legacy_content_layout_choices(){
-        $ifs_optlayout = array(
-    		'one-col' => esc_html__('One column',"ifs-legacy"),
-    		'two-col-left' => esc_html__('Two columns - left content',"ifs-legacy"),
-    		'two-col-right' => esc_html__('Two columns - right content',"ifs-legacy"),
-            'three-col-left' => esc_html__('Three columns - left content',"ifs-legacy"),
-            'three-col-mid' => esc_html__('Three columns - middle content',"ifs-legacy"),
-            'three-col-right' => esc_html__('Three columns - right content',"ifs-legacy")
-    	);
-        return apply_filters('ifs_legacy_content_layout_choices', $ifs_optlayout);
-    }
+if(!function_exists("ifs_legacy_searchform")){
+	function ifs_legacy_searchform($id="", $class=""){
+
+		if(function_exists('is_woocommerce') ){
+			$outputposttype = '<input type="hidden" name="post_type" value="product" />';
+			$searchtext = esc_html__('Search', "ifs-legacy" );
+		}else{
+			$outputposttype = '';
+			$searchtext = esc_html__('Search', "ifs-legacy" );
+		}
+		if($id==''){
+			$id = 'topsearchform';
+		}
+
+		do_action('ifs_legacy_searchform_before_wrapper');
+?>
+		<div class="<?php echo esc_attr( $class ); ?>">
+
+			<?php do_action('ifs_legacy_searchform_before_form'); ?>
+
+			<form method="get" id="<?php echo esc_attr( $id ); ?>" name="<?php echo esc_attr( $id ); ?>" class="btntoppanel" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+
+				<?php do_action('ifs_legacy_searchform_before_searcharea'); ?>
+
+				<div class="searcharea">
+
+					<?php do_action('ifs_legacy_searchform_before_submit_button'); ?>
+
+					<input type="submit" class="submit" name="submit" value="" />
+					<button type="submit" class="submittext" name="submit">
+						<i class="fa fa-search"></i>
+						<span><?php esc_html_e('Search', 'ifs-legacy'); ?></span>
+					</button>
+
+					<?php do_action('ifs_legacy_searchform_before_text_container'); ?>
+
+					<div class="text_container">
+						<input type="text" name="s" autocomplete="off" class="txtsearch" placeholder="<?php echo esc_attr( $searchtext ); ?>" value="" />
+					</div>
+
+					<?php do_action('ifs_legacy_searchform_before_select_container'); ?>
+
+					<?php if( taxonomy_exists('product_cat') ){ ?>
+					<div class="select_container">
+					<?php
+
+						wp_dropdown_categories(array(
+			                'show_option_all'   => esc_html__('All Categories','ifs-legacy'),
+			                'show_option_none'  => esc_html__('No Category', 'ifs-legacy'),
+			                'taxonomy'          => 'product_cat',
+			                'echo'              => 1,
+			                'class'             => 'ifs_selector',
+			                'value_field'       => 'slug',
+			                'hierarchical'      => true,
+			                'name'              => 'product_cat'
+
+			            ));
+
+					?>
+					</div>
+					<?php } // if( taxonomy_exists('product_cat') ) ?>
+
+					<?php do_action('ifs_legacy_searchform_after_select_container'); ?>
+
+					<?php if(function_exists('is_woocommerce') ){ ?>
+
+						<input type="hidden" name="post_type" value="product" />
+
+					<?php } // if(function_exists('is_woocommerce') ) ?>
+
+					<?php do_action('ifs_legacy_searchform_before_close_button'); ?>
+
+					<a href="#" class="searchclose"></a>
+
+					<?php do_action('ifs_legacy_searchform_after_close_button'); ?>
+
+				</div>
+
+				<?php do_action('ifs_legacy_searchform_after_inputs'); ?>
+			</form>
+
+			<?php do_action('ifs_legacy_searchform_after_form'); ?>
+
+		</div>
+<?php
+		do_action('ifs_legacy_searchform_after_wrapper');
+	}
 }
 
 /**
- * return the chosen content layout.
+ * return minicart form
  *
- * @uses ifs_legacy_content_layout_choices()
+ * @uses the_widget()
  */
-if(!function_exists('ifs_legacy_content_layout_chosen')){
-    function ifs_legacy_content_layout_chosen(){
+if(!function_exists("ifs_legacy_minicart")){
+	function ifs_legacy_minicart($id="",$class=""){
 
-        $ifs_legacy_content_mod = get_theme_mod( 'ifs_legacy_content_layout', 'two-col-left' );
+		do_action('ifs_legacy_minicart_before_wrapper');
+?>
+		<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
 
-        $post_id = ifs_legacy_get_postid();
+			<?php do_action('ifs_legacy_minicart_before_header'); ?>
 
-        $post_layout = get_post_meta( $post_id, 'ifs_content_layout', true);
-        $post_layout_choices = ifs_legacy_content_layout_choices();
+			<div class="cartheader_wrapper">
+				<h5 class="cartheader"><?php echo apply_filters('ifs_legacy_minicart_header_text', esc_html__('Shopping Cart', 'ifs-legacy')); ?></h5>
+				<a class="cartclose" href="#"></a>
+			</div>
 
-        if( $post_layout != '' && $post_layout != 'default' && array_key_exists( $post_layout, $post_layout_choices)){
-            $ifs_legacy_content_mod = $post_layout;
-        }
+			<?php do_action('ifs_legacy_minicart_before_cart'); ?>
 
-        return apply_filters('ifs_legacy_content_layout_chosen', $ifs_legacy_content_mod);
-    }
+			<div class="cartlistwrapper">
+				<?php
+				the_widget('WC_Widget_Cart', '', array('widget_id'=>'cart-dropdown',
+					'before_widget' => '',
+					'after_widget' => '',
+					'before_title' => '<span class="hidden">',
+					'after_title' => '</span>'
+				));
+				?>
+			</div>
+
+			<?php do_action('ifs_legacy_minicart_after_cart'); ?>
+
+		</div>
+<?php
+		do_action('ifs_legacy_minicart_after_wrapper');
+	}
 }
 
 /**
- * return the padding top value of the content.
+ * return minicart form
  *
- * @uses ifs_legacy_content_padding_top()
+ * @uses wc->cart->get_cart_subtotal()
+ * @uses wc_get_cart_url()
+ * @uses wc->cart->get_cart_item_quantities()
  */
-if(!function_exists('ifs_legacy_content_padding_top')){
-    function ifs_legacy_content_padding_top(){
+if(!function_exists("ifs_legacy_minicart_value")){
+	function ifs_legacy_minicart_value(){
 
-        $post_id = ifs_legacy_get_postid();
+		if( !function_exists('is_woocommerce') ){
+			return false;
+		}
+		global $woocommerce;
+		$cart_subtotal = $woocommerce->cart->get_cart_subtotal();
+		$link = ( function_exists('wc_get_cart_url'))? wc_get_cart_url() : $woocommerce->cart->get_cart_url();
+		$cart_items = $woocommerce->cart->get_cart_item_quantities();
 
-        $padding_val = get_post_meta( $post_id, 'ifs_main_paddingtop', true);
+		$totalqty = 0;
+		if(is_array($cart_items)){
+			foreach($cart_items as $cart_item){
+				$totalqty += (is_numeric($cart_item))? $cart_item : 0;
+			}
+		}
 
-        return apply_filters('ifs_legacy_content_padding_top', $padding_val);
-    }
+		$output = array(
+			'qty'	=> $totalqty,
+			'link'	=> $link,
+			'subttl'=> $cart_subtotal
+		);
+
+		return apply_filters('ifs_legacy_minicart_value', $output );
+	}
 }
 
 /**
- * return the padding top value of the content.
+ * display register form string
  *
- * @uses ifs_legacy_content_padding_bottom()
+ * @uses ifs_legacy_register_form()
  */
-if(!function_exists('ifs_legacy_content_padding_bottom')){
-    function ifs_legacy_content_padding_bottom(){
+if(!function_exists('ifs_legacy_register_form')){
+	function ifs_legacy_register_form() {
+        $nonce = wp_create_nonce("ifs_legacy_register_nonce");
+		$redirectregister = '';
+        if( function_exists( 'is_woocommerce' ) ){
+			$pid = (function_exists('wc_get_page_id'))? wc_get_page_id('myaccount') : wc_get_page_id( 'myaccount' );
+            $redirectregister = get_permalink($pid);
+		}
 
-        $post_id = ifs_legacy_get_postid();
+        $successtext = esc_html__('Congratulations, the registration is successful. Please kindly check your email.', 'ifs-legacy');
 
-        $padding_val = get_post_meta( $post_id, 'ifs_main_paddingbottom', true);
+        $redirectregister = add_query_arg("ifs_successregtext", $successtext, $redirectregister);
 
-        return apply_filters('ifs_legacy_content_padding_bottom', $padding_val);
-    }
+		do_action('ifs_legacy_register_form_before_container');
+?>
+            <div class="login_form">
+            <form id="registerform" name="registerform" action="<?php echo esc_url( wp_registration_url() ); ?>" method="post">
+				<div class="loginalert" id="register_message_area" ></div>
+
+				<p>
+					<label for="user_login_register"><?php esc_html_e('Username', "ifs-legacy" ); ?></label>
+					<input type="text" name="user_login" id="user_login_register" class="textbox" value="" size="20" />
+				</p>
+				<p>
+					<label for="user_email_register"><?php esc_html_e('Email', "ifs-legacy" ); ?></label>
+					<input type="text" name="user_email" id="user_email_register" class="textbox" value="" size="20" />
+				</p>
+				<p id="reg_passmail">
+					<?php esc_html_e('A password will be e-mailed to you', "ifs-legacy" ); ?>
+				</p>
+
+				<?php do_action('register_form'); ?>
+
+				<input type="hidden" name="redirect_to" value="<?php echo esc_url( $redirectregister ); ?>" />
+				<p class="submit">
+					<input type="submit" name="wp-submit" id="wp-submit" class="button" value="<?php esc_attr_e('Register', "ifs-legacy" ); ?>" />
+				</p>
+            </form>
+			</div>
+<?php
+
+		do_action('ifs_legacy_register_form_after_container');
+	}
 }
 
-if( !function_exists('ifs_legacy_content_css_output') ){
-	function ifs_legacy_content_css_output(){
+/**
+ * display login form string
+ *
+ * @uses wp_login_form()
+ */
+if(!function_exists('ifs_legacy_login_form')){
+	function ifs_legacy_login_form() {
+		 // get user dashboard link
+		$login_args = array(
+			'echo' => true,
+		);
 
-		$padding_top      = ifs_legacy_content_padding_top();
-        $padding_bottom   = ifs_legacy_content_padding_bottom();
-		/*
-		 * If no custom options for text are set, let's bail.
-		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
-		 */
+		do_action('ifs_legacy_login_form_before_container');
+?>
+		<div class="login_form" id="ifs-login-div">
+			<?php wp_login_form( $login_args ); ?>
+		  	<div class="login-links">
+				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" id="forgot_pass">
+					<?php esc_html_e('forgot password?', "ifs-legacy" ); ?>
+				</a>
+			</div>
+		</div>
+<?php
+		do_action('ifs_legacy_login_form_after_container');
+	}
+}
 
-		// If we get this far, we have custom styles. Let's do this.
+/**
+ * generate css for the base font
+ *
+ * @uses ifs_legacy_print_base_font_css()
+ */
+if(!function_exists("ifs_legacy_print_base_font_css")){
+	function ifs_legacy_print_base_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_base_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_base_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_base_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'body{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_base_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the menu font
+ *
+ * @uses ifs_legacy_print_menu_font_css()
+ */
+if(!function_exists("ifs_legacy_print_menu_font_css")){
+	function ifs_legacy_print_menu_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_menu_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_menu_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_menu_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'body.ifs .site-header .main-navigation li a{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_menu_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 1 font
+ *
+ * @uses ifs_legacy_print_h1_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h1_font_css")){
+	function ifs_legacy_print_h1_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h1_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h1_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h1_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h1{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h1_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 2 font
+ *
+ * @uses ifs_legacy_print_h2_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h2_font_css")){
+	function ifs_legacy_print_h2_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h2_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h2_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h2_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h2{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h2_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 3 font
+ *
+ * @uses ifs_legacy_print_h3_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h3_font_css")){
+	function ifs_legacy_print_h3_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h3_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h3_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h3_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h3{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h3_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 4 font
+ *
+ * @uses ifs_legacy_print_h4_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h4_font_css")){
+	function ifs_legacy_print_h4_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h4_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h4_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h4_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h4{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h4_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 5 font
+ *
+ * @uses ifs_legacy_print_h5_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h5_font_css")){
+	function ifs_legacy_print_h5_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h5_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h5_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h5_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h5{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h5_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the heading 6 font
+ *
+ * @uses ifs_legacy_print_h6_font_css()
+ */
+if(!function_exists("ifs_legacy_print_h6_font_css")){
+	function ifs_legacy_print_h6_font_css(){
+
+        $the_font_mod 		= get_theme_mod( 'ifs_legacy_h6_font', ifs_legacy_theme_font_default() );
+		$the_font_size 		= get_theme_mod( 'ifs_legacy_h6_font_size' );
+		$the_font_weight	= get_theme_mod( 'ifs_legacy_h6_font_weight' );
+
+		$return = '';
+		$the_font = call_user_func($the_font_mod);
+
+		if($the_font!=false){
+			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+			if($the_font_size!='')
+				$return .= 'font-size:'.$the_font_size.'px;';
+
+			if($the_font_weight!='')
+				$return .= 'font-weight:'.$the_font_weight.';';
+
+
+			$return = 'h6{'.$return.'}';
+		}
+
+		return apply_filters('ifs_legacy_print_h6_font_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for all font
+ *
+ * @uses ifs_legacy_print_all_font_css()
+ */
+if(!function_exists("ifs_legacy_print_all_font_css")){
+	function ifs_legacy_print_all_font_css(){
+
 		$output_css = '';
 
-		if($padding_top!=''){
-			$output_css .= '.outercontainer .site-content, .outercontainer .site-sidebar{
-				padding-top: '. esc_attr( $padding_top ).';
-			}';
-		}
-        if($padding_bottom!=''){
-			$output_css .= '.outercontainer .site-content, .outercontainer .site-sidebar{
-				padding-bottom: '. esc_attr( $padding_bottom ).';
-			}';
-		}
+		$output_css .= ifs_legacy_print_base_font_css();
 
-		return apply_filters('ifs_legacy_content_css_output', $output_css );
+		$output_css .= ifs_legacy_print_menu_font_css();
 
+		$output_css .= ifs_legacy_print_h1_font_css();
+
+		$output_css .= ifs_legacy_print_h2_font_css();
+
+		$output_css .= ifs_legacy_print_h3_font_css();
+
+		$output_css .= ifs_legacy_print_h4_font_css();
+
+		$output_css .= ifs_legacy_print_h5_font_css();
+
+		$output_css .= ifs_legacy_print_h6_font_css();
+
+		return apply_filters('ifs_legacy_print_all_font_css', esc_attr($output_css));
 	}
 }

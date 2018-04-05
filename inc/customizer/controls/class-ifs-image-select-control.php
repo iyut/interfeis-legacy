@@ -1,5 +1,5 @@
 <?php
-class IFS_Image_Select_Control extends WP_Customize_Control {
+class IFS_Image_Select_Control extends WP_Customize_Control{
 
 	/**
 	 * The type of customize control being rendered.

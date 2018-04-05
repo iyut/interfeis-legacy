@@ -13,6 +13,7 @@
 # Clearings
 # Display
 # Site title
+	## Breadcrumb
 # Widgets
 	## General
 	## Search
@@ -382,27 +383,34 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
+.button, .button:visited,
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	background: #e6e6e6;
-	color: rgba(0, 0, 0, 0.8);
+	border-color: #3f3f3f #3f3f3f #3d3d3d;
+	background: #3a3a3a;
+	color: rgba(255, 255, 255, 0.8);
 	font-size: 14px;
-	font-size: 0.75rem;
+	font-size: 1rem;
 	line-height: 1;
+	text-decoration: none;
 	padding: 1em 1.5em 1.1em;
 }
 
+.button:hover,
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.8);
+	border-color: #df5751 #df5751 #df5751;
+	background-color:#df5751;
 }
 
+.button:active, .button:focus,
 button:active, button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
@@ -429,10 +437,13 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
+	transition: border .5s;
 	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 3px;
+	border: 0;
+	background-color:transparent;
+	border-bottom: 2px solid #d0d0d0;
+	border-radius: 0;
+	padding: 5px 0;
 }
 
 input[type="text"]:focus,
@@ -451,11 +462,26 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-	color: #111;
+	border-color: #3a3a3a;
 }
 
 select {
 	border: 1px solid #ccc;
+	padding:10px 35px 10px 15px;
+	outline:none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	background-image:url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAPFBMVEUAAAA6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6OjomZi40AAAAE3RSTlMABAYPExQmTHR/gIKDys7o6+/xjg4DFQAAAE9JREFUOE/tyscRwDAMA0E6yjmh/15NDt4cFCDd6x5r1qqm4b56XsGSoROgKgDmBE0fVZgjMa7eUGH21FA9wlApYza62oQJtSridQq06uwHevIDX9jgZMoAAAAASUVORK5CYII= );
+	background-repeat:no-repeat;
+	background-position:right center;
+}
+select:after{
+	content:"\f107";
+	display:block;
+	font-family:FontAwesome;
 }
 
 textarea {
@@ -556,7 +582,7 @@ a:hover, a:active {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 769px) {
 	.menu-toggle {
 		display: none;
 	}
@@ -701,6 +727,12 @@ a:hover, a:active {
 	margin-bottom:2.1em;
 }
 /*--------------------------------------------------------------
+## Breadcrumb
+--------------------------------------------------------------*/
+#outerafterheader .woocommerce-breadcrumb{
+	margin:30px 0px 0px;
+}
+/*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -795,6 +827,13 @@ a:hover, a:active {
 .outercontainer{
 	background-color:transparent;
 }
+body.ifs-content-full-width #content-container{
+	max-width:none;
+}
+body.ifs-content-full-width-no-padding #content-container{
+	max-width:none;
+	padding:0px;
+}
 .site-content{
 	margin:4em 0;
 }
@@ -853,6 +892,10 @@ a:hover, a:active {
 	margin: 0 0 1.5em;
 }
 
+.hentry.ifs-page-hentry{
+	margin-bottom:0;
+}
+
 .updated:not(.published) {
 	display: none;
 }
@@ -861,6 +904,10 @@ a:hover, a:active {
 .entry-content,
 .entry-summary {
 	margin: 1.5em 0 0;
+}
+
+.entry-content.ifs-page-content{
+	margin-top:0;
 }
 
 .page-links {

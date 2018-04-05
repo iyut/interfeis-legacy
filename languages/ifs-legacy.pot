@@ -1,17 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Legacy\n"
-"POT-Creation-Date: 2018-03-08 23:44+0700\n"
-"PO-Revision-Date: 2018-03-08 23:44+0700\n"
+"Project-Id-Version: IFS Legacy\n"
+"POT-Creation-Date: 2018-04-05 22:33+0700\n"
+"PO-Revision-Date: 2018-04-05 22:33+0700\n"
 "Last-Translator: \n"
 "Language-Team: Interfeis\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.5\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;esc_html__;esc_html_e\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."
@@ -41,7 +40,7 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: compatibility/woocommerce.php:227
+#: compatibility/woocommerce.php:252
 msgid "View your shopping cart"
 msgstr ""
 
@@ -75,6 +74,46 @@ msgstr ""
 msgid "Select Post Category"
 msgstr ""
 
+#: inc/theme-content.php:149
+msgid "One column"
+msgstr ""
+
+#: inc/theme-content.php:150
+msgid "Two columns - left content"
+msgstr ""
+
+#: inc/theme-content.php:151
+msgid "Two columns - right content"
+msgstr ""
+
+#: inc/theme-content.php:152
+msgid "Three columns - left content"
+msgstr ""
+
+#: inc/theme-content.php:153
+msgid "Three columns - middle content"
+msgstr ""
+
+#: inc/theme-content.php:154
+msgid "Three columns - right content"
+msgstr ""
+
+#: inc/theme-content.php:168
+msgid "Default - Base Content Layout"
+msgstr ""
+
+#: inc/theme-content.php:267
+msgid "Default width"
+msgstr ""
+
+#: inc/theme-content.php:268
+msgid "Full-width"
+msgstr ""
+
+#: inc/theme-content.php:269
+msgid "Full-width without padding"
+msgstr ""
+
 #: inc/theme-customizer.php:53
 msgid "General Settings"
 msgstr ""
@@ -83,7 +122,7 @@ msgstr ""
 msgid "General settings."
 msgstr ""
 
-#: inc/theme-customizer.php:59 inc/theme-customizer.php:72
+#: inc/theme-customizer.php:59 inc/theme-customizer.php:73
 msgid "Body Background Color"
 msgstr ""
 
@@ -91,330 +130,647 @@ msgstr ""
 msgid "This is a section for the body options."
 msgstr ""
 
-#: inc/theme-customizer.php:78
+#: inc/theme-customizer.php:79
 msgid "Body Background Image"
 msgstr ""
 
-#: inc/theme-customizer.php:79
+#: inc/theme-customizer.php:80
 msgid "This is a section for the body background image."
 msgstr ""
 
-#: inc/theme-customizer.php:86
-msgid "Content Options"
+#: inc/theme-customizer.php:87
+msgid "Layout Options"
 msgstr ""
 
-#: inc/theme-customizer.php:87
+#: inc/theme-customizer.php:88
 msgid "This is a section for the content option."
 msgstr ""
 
-#: inc/theme-customizer.php:99 inc/theme-metaboxes.php:102
-#: inc/theme-metaboxes.php:143
-msgid "Content Layout"
+#: inc/theme-customizer.php:101
+msgid "Layout Width"
 msgstr ""
 
-#: inc/theme-customizer.php:110
-msgid "Header Settings"
-msgstr ""
-
-#: inc/theme-customizer.php:111
-msgid "Header settings."
+#: inc/theme-customizer.php:104
+msgid "Input the default width of your layout. Default value : 1140"
 msgstr ""
 
 #: inc/theme-customizer.php:116
-msgid "Header Background Image"
+msgid "Base Container Layout"
 msgstr ""
 
-#: inc/theme-customizer.php:117
-msgid "This is a section for the header background image."
+#: inc/theme-customizer.php:130
+msgid "Base Content Layout"
 msgstr ""
 
-#: inc/theme-customizer.php:124
-msgid "Top Bar Options"
+#: inc/theme-customizer.php:144
+msgid "Post Archive Content Layout"
 msgstr ""
 
-#: inc/theme-customizer.php:137
-msgid "Top Bar 1 Content"
+#: inc/theme-customizer.php:158
+msgid "Post Single Content Layout"
 msgstr ""
 
-#: inc/theme-customizer.php:138 inc/theme-customizer.php:165
-#: inc/theme-customizer.php:447 inc/theme-customizer.php:474
-msgid "Select the type of the content."
+#: inc/theme-customizer.php:172
+msgid "404 Content Layout"
 msgstr ""
 
-#: inc/theme-customizer.php:151
-msgid "Top Bar 1 Text"
-msgstr ""
-
-#: inc/theme-customizer.php:152 inc/theme-customizer.php:179
-#: inc/theme-customizer.php:461 inc/theme-customizer.php:488
-msgid "Input the content if you select \"Text\" as the content."
-msgstr ""
-
-#: inc/theme-customizer.php:164
-msgid "Top Bar 2 Content"
-msgstr ""
-
-#: inc/theme-customizer.php:178
-msgid "Top Bar 2 Text"
-msgstr ""
-
-#: inc/theme-customizer.php:189
-msgid "Top Bar Text Color"
+#: inc/theme-customizer.php:186
+msgid "Attachment Content Layout"
 msgstr ""
 
 #: inc/theme-customizer.php:200
+msgid "Search Content Layout"
+msgstr ""
+
+#: inc/theme-customizer.php:214
+msgid "Shop Content Layout"
+msgstr ""
+
+#: inc/theme-customizer.php:228
+msgid "Single Product Content Layout"
+msgstr ""
+
+#: inc/theme-customizer.php:236
+msgid "Fonts"
+msgstr ""
+
+#: inc/theme-customizer.php:237
+msgid "This is a section for the font options."
+msgstr ""
+
+#: inc/theme-customizer.php:251 inc/theme-customizer.php:1173
+msgid "Primary Chosen Font"
+msgstr ""
+
+#: inc/theme-customizer.php:252
+msgid "Choose the custom font."
+msgstr ""
+
+#: inc/theme-customizer.php:267 inc/theme-customizer.php:1174
+msgid "Secondary Chosen Font"
+msgstr ""
+
+#: inc/theme-customizer.php:268
+msgid "Choose the secondary custom font."
+msgstr ""
+
+#: inc/theme-customizer.php:283
+msgid "Base Font"
+msgstr ""
+
+#: inc/theme-customizer.php:284
+msgid "Choose the primary or secondary chosen font for base font."
+msgstr ""
+
+#: inc/theme-customizer.php:299
+msgid "Base Font Size"
+msgstr ""
+
+#: inc/theme-customizer.php:300
+msgid "Input the font size for your base font."
+msgstr ""
+
+#: inc/theme-customizer.php:314
+msgid "Base Font Weight"
+msgstr ""
+
+#: inc/theme-customizer.php:315
+msgid "Choose the font weight for base font."
+msgstr ""
+
+#: inc/theme-customizer.php:330
+msgid "Menu Font"
+msgstr ""
+
+#: inc/theme-customizer.php:331
+msgid "Choose the primary or secondary chosen font for menu font."
+msgstr ""
+
+#: inc/theme-customizer.php:346
+msgid "Menu Font Size"
+msgstr ""
+
+#: inc/theme-customizer.php:347
+msgid "Input the font size for your menu font."
+msgstr ""
+
+#: inc/theme-customizer.php:361
+msgid "Menu Font Weight"
+msgstr ""
+
+#: inc/theme-customizer.php:362
+msgid "Choose the font weight for menu."
+msgstr ""
+
+#: inc/theme-customizer.php:377
+msgid "Heading 1 Font"
+msgstr ""
+
+#: inc/theme-customizer.php:378
+msgid "Choose the primary or secondary chosen font for heading 1 font."
+msgstr ""
+
+#: inc/theme-customizer.php:393
+msgid "Heading 1 Font Size"
+msgstr ""
+
+#: inc/theme-customizer.php:394
+msgid "Input the font size for your heading 1 font."
+msgstr ""
+
+#: inc/theme-customizer.php:408
+msgid "Heading 1 Font Weight"
+msgstr ""
+
+#: inc/theme-customizer.php:409
+msgid "Choose the font weight for heading 1 font."
+msgstr ""
+
+#: inc/theme-customizer.php:424
+msgid "Heading 2 Font"
+msgstr ""
+
+#: inc/theme-customizer.php:425
+msgid "Choose the primary or secondary chosen font for heading 2 font."
+msgstr ""
+
+#: inc/theme-customizer.php:440
+msgid "Heading 2 Font Size"
+msgstr ""
+
+#: inc/theme-customizer.php:441
+msgid "Input the font size for your heading 2 font."
+msgstr ""
+
+#: inc/theme-customizer.php:455
+msgid "Heading 2 Font Weight"
+msgstr ""
+
+#: inc/theme-customizer.php:456
+msgid "Choose the font weight for heading 2 font."
+msgstr ""
+
+#: inc/theme-customizer.php:471
+msgid "Heading 3 Font"
+msgstr ""
+
+#: inc/theme-customizer.php:472
+msgid "Choose the primary or secondary chosen font for heading 3 font."
+msgstr ""
+
+#: inc/theme-customizer.php:487
+msgid "Heading 3 Font Size"
+msgstr ""
+
+#: inc/theme-customizer.php:488
+msgid "Input the font size for your heading 3 font."
+msgstr ""
+
+#: inc/theme-customizer.php:502
+msgid "Heading 3 Font Weight"
+msgstr ""
+
+#: inc/theme-customizer.php:503
+msgid "Choose the font weight for heading 3 font."
+msgstr ""
+
+#: inc/theme-customizer.php:518
+msgid "Heading 4 Font"
+msgstr ""
+
+#: inc/theme-customizer.php:519
+msgid "Choose the primary or secondary chosen font for heading 4 font."
+msgstr ""
+
+#: inc/theme-customizer.php:534
+msgid "Heading 4 Font Size"
+msgstr ""
+
+#: inc/theme-customizer.php:535
+msgid "Input the font size for your heading 4 font."
+msgstr ""
+
+#: inc/theme-customizer.php:549
+msgid "Heading 4 Font Weight"
+msgstr ""
+
+#: inc/theme-customizer.php:550
+msgid "Choose the font weight for heading 4 font."
+msgstr ""
+
+#: inc/theme-customizer.php:565
+msgid "Heading 5 Font"
+msgstr ""
+
+#: inc/theme-customizer.php:566
+msgid "Choose the primary or secondary chosen font for heading 5 font."
+msgstr ""
+
+#: inc/theme-customizer.php:581
+msgid "Heading 5 Font Size"
+msgstr ""
+
+#: inc/theme-customizer.php:582
+msgid "Input the font size for your heading 5 font."
+msgstr ""
+
+#: inc/theme-customizer.php:596
+msgid "Heading 5 Font Weight"
+msgstr ""
+
+#: inc/theme-customizer.php:597
+msgid "Choose the font weight for heading 5 font."
+msgstr ""
+
+#: inc/theme-customizer.php:612
+msgid "Heading 6 Font"
+msgstr ""
+
+#: inc/theme-customizer.php:613
+msgid "Choose the primary or secondary chosen font for heading 6 font."
+msgstr ""
+
+#: inc/theme-customizer.php:628
+msgid "Heading 6 Font Size"
+msgstr ""
+
+#: inc/theme-customizer.php:629
+msgid "Input the font size for your heading 6 font."
+msgstr ""
+
+#: inc/theme-customizer.php:643
+msgid "Heading 6 Font Weight"
+msgstr ""
+
+#: inc/theme-customizer.php:644
+msgid "Choose the font weight for heading 6 font."
+msgstr ""
+
+#: inc/theme-customizer.php:655
+msgid "Header Settings"
+msgstr ""
+
+#: inc/theme-customizer.php:656
+msgid "Header settings."
+msgstr ""
+
+#: inc/theme-customizer.php:661
+msgid "Header Background Image"
+msgstr ""
+
+#: inc/theme-customizer.php:662
+msgid "This is a section for the header background image."
+msgstr ""
+
+#: inc/theme-customizer.php:669
+msgid "Top Bar Options"
+msgstr ""
+
+#: inc/theme-customizer.php:683
+msgid "Top Bar 1 Content"
+msgstr ""
+
+#: inc/theme-customizer.php:684 inc/theme-customizer.php:713
+#: inc/theme-customizer.php:1002 inc/theme-customizer.php:1031
+msgid "Select the type of the content."
+msgstr ""
+
+#: inc/theme-customizer.php:698
+msgid "Top Bar 1 Text"
+msgstr ""
+
+#: inc/theme-customizer.php:699 inc/theme-customizer.php:728
+#: inc/theme-customizer.php:1017 inc/theme-customizer.php:1046
+msgid "Input the content if you select \"Text\" as the content."
+msgstr ""
+
+#: inc/theme-customizer.php:712
+msgid "Top Bar 2 Content"
+msgstr ""
+
+#: inc/theme-customizer.php:727
+msgid "Top Bar 2 Text"
+msgstr ""
+
+#: inc/theme-customizer.php:739
+msgid "Top Bar Text Color"
+msgstr ""
+
+#: inc/theme-customizer.php:751
 msgid "Top Bar Link Color"
 msgstr ""
 
-#: inc/theme-customizer.php:211
+#: inc/theme-customizer.php:763
 msgid "Top Bar Background Color"
 msgstr ""
 
-#: inc/theme-customizer.php:225
+#: inc/theme-customizer.php:777
 msgid "Top Bar Background Image"
 msgstr ""
 
-#: inc/theme-customizer.php:226
+#: inc/theme-customizer.php:778
 msgid ""
 "Select the image to be used for Top Background. The background will cover "
 "the whole section."
 msgstr ""
 
-#: inc/theme-customizer.php:230
+#: inc/theme-customizer.php:782
 msgid "Header Options"
 msgstr ""
 
-#: inc/theme-customizer.php:252
+#: inc/theme-customizer.php:795
 msgid "Header Layout"
 msgstr ""
 
-#: inc/theme-customizer.php:253
+#: inc/theme-customizer.php:796
 msgid "Choose a layout for the header."
 msgstr ""
 
-#: inc/theme-customizer.php:266
+#: inc/theme-customizer.php:810
 msgid "Header Background Color"
 msgstr ""
 
-#: inc/theme-customizer.php:277
+#: inc/theme-customizer.php:822
 msgid "Header Border Color"
 msgstr ""
 
-#: inc/theme-customizer.php:288
+#: inc/theme-customizer.php:834
 msgid "Header Text Color"
 msgstr ""
 
-#: inc/theme-customizer.php:294
+#: inc/theme-customizer.php:840
 msgid "Page Title Options"
 msgstr ""
 
-#: inc/theme-customizer.php:305 inc/theme-metaboxes.php:167
+#: inc/theme-customizer.php:852 inc/theme-metaboxes.php:189
+#: inc/theme-metaboxes.php:314
 msgid "Show Page Title"
 msgstr ""
 
-#: inc/theme-customizer.php:310 inc/theme-metaboxes.php:14
+#: inc/theme-customizer.php:857 inc/theme-metaboxes.php:14
 #: inc/theme-metaboxes.php:20
 msgid "Yes"
 msgstr ""
 
-#: inc/theme-customizer.php:311 inc/theme-metaboxes.php:15
+#: inc/theme-customizer.php:858 inc/theme-metaboxes.php:15
 #: inc/theme-metaboxes.php:21
 msgid "No"
 msgstr ""
 
-#: inc/theme-customizer.php:324
+#: inc/theme-customizer.php:871
 msgid "Page Title Background Image"
 msgstr ""
 
-#: inc/theme-customizer.php:325
+#: inc/theme-customizer.php:872
 msgid ""
 "Select the image to be used for Page Title Background. The background will "
 "cover the whole page title section."
 msgstr ""
 
-#: inc/theme-customizer.php:336
+#: inc/theme-customizer.php:882
+msgid "Title Section Background Color"
+msgstr ""
+
+#: inc/theme-customizer.php:896
 msgid "Position"
 msgstr ""
 
-#: inc/theme-customizer.php:337
+#: inc/theme-customizer.php:897
 msgid "Select the position of the title."
 msgstr ""
 
-#: inc/theme-customizer.php:340 inc/theme-metaboxes.php:19
+#: inc/theme-customizer.php:900 inc/theme-customizer.php:1110
+#: inc/theme-customizer.php:1185 inc/theme-metaboxes.php:19
 #: inc/theme-metaboxes.php:30 inc/theme-metaboxes.php:41
-#: inc/theme-metaboxes.php:78 inc/theme-metaboxes.php:84
+#: inc/theme-metaboxes.php:79 inc/theme-metaboxes.php:84
+#: inc/theme-metaboxes.php:90
 msgid "Default"
 msgstr ""
 
-#: inc/theme-customizer.php:341 inc/theme-metaboxes.php:42
+#: inc/theme-customizer.php:901 inc/theme-metaboxes.php:42
 msgid "Left"
 msgstr ""
 
-#: inc/theme-customizer.php:342
+#: inc/theme-customizer.php:902
 msgid "Center"
 msgstr ""
 
-#: inc/theme-customizer.php:343 inc/theme-metaboxes.php:43
+#: inc/theme-customizer.php:903 inc/theme-metaboxes.php:43
 msgid "Right"
 msgstr ""
 
-#: inc/theme-customizer.php:351
+#: inc/theme-customizer.php:911
 msgid "Footer Settings"
 msgstr ""
 
-#: inc/theme-customizer.php:352
+#: inc/theme-customizer.php:912
 msgid "Description of what this panel does."
 msgstr ""
 
-#: inc/theme-customizer.php:357
+#: inc/theme-customizer.php:917
 msgid "Footer Widgets Options"
 msgstr ""
 
-#: inc/theme-customizer.php:378
+#: inc/theme-customizer.php:929
 msgid "Footer Layout"
 msgstr ""
 
-#: inc/theme-customizer.php:379
+#: inc/theme-customizer.php:930
 msgid "Choose a layout for the footer."
 msgstr ""
 
-#: inc/theme-customizer.php:392
+#: inc/theme-customizer.php:944
 msgid "Footer Text Color"
 msgstr ""
 
-#: inc/theme-customizer.php:403
+#: inc/theme-customizer.php:956
 msgid "Footer Link Color"
 msgstr ""
 
-#: inc/theme-customizer.php:414
+#: inc/theme-customizer.php:968
 msgid "Footer Background Color"
 msgstr ""
 
-#: inc/theme-customizer.php:428
+#: inc/theme-customizer.php:982
 msgid "Footer Background Image"
 msgstr ""
 
-#: inc/theme-customizer.php:429 inc/theme-customizer.php:535
+#: inc/theme-customizer.php:983 inc/theme-customizer.php:1096
 msgid ""
 "Select the image to be used for Footer Background. The background will cover "
 "the whole section."
 msgstr ""
 
-#: inc/theme-customizer.php:433
+#: inc/theme-customizer.php:987
 msgid "Footer Bar Options"
 msgstr ""
 
-#: inc/theme-customizer.php:446
+#: inc/theme-customizer.php:1001
 msgid "Footer Bar 1 Content"
 msgstr ""
 
-#: inc/theme-customizer.php:460
+#: inc/theme-customizer.php:1016
 msgid "Footer Bar 1 Text"
 msgstr ""
 
-#: inc/theme-customizer.php:473
+#: inc/theme-customizer.php:1030
 msgid "Footer Bar 2 Content"
 msgstr ""
 
-#: inc/theme-customizer.php:487
+#: inc/theme-customizer.php:1045
 msgid "Footer Bar 2 Text"
 msgstr ""
 
-#: inc/theme-customizer.php:498
+#: inc/theme-customizer.php:1057
 msgid "Footer Bar Text Color"
 msgstr ""
 
-#: inc/theme-customizer.php:509
+#: inc/theme-customizer.php:1069
 msgid "Footer Bar Link Color"
 msgstr ""
 
-#: inc/theme-customizer.php:520
+#: inc/theme-customizer.php:1081
 msgid "Footer Bar Background Color"
 msgstr ""
 
-#: inc/theme-customizer.php:534
+#: inc/theme-customizer.php:1095
 msgid "Footer Bar Background Image"
 msgstr ""
 
-#: inc/theme-footer.php:179 inc/theme-header.php:31
+#: inc/theme-customizer.php:1186
+msgid "100"
+msgstr ""
+
+#: inc/theme-customizer.php:1187
+msgid "200"
+msgstr ""
+
+#: inc/theme-customizer.php:1188
+msgid "300"
+msgstr ""
+
+#: inc/theme-customizer.php:1189
+msgid "400"
+msgstr ""
+
+#: inc/theme-customizer.php:1190
+msgid "500"
+msgstr ""
+
+#: inc/theme-customizer.php:1191
+msgid "600"
+msgstr ""
+
+#: inc/theme-customizer.php:1192
+msgid "700"
+msgstr ""
+
+#: inc/theme-customizer.php:1193
+msgid "800"
+msgstr ""
+
+#: inc/theme-customizer.php:1194
+msgid "900"
+msgstr ""
+
+#: inc/theme-footer.php:193 inc/theme-header.php:31
 msgid "None"
 msgstr ""
 
-#: inc/theme-footer.php:180 inc/theme-header.php:32
+#: inc/theme-footer.php:194 inc/theme-header.php:32
 msgid "Text"
 msgstr ""
 
-#: inc/theme-footer.php:181 inc/theme-header.php:33
+#: inc/theme-footer.php:195 inc/theme-header.php:33
 msgid "Menu"
 msgstr ""
 
-#: inc/theme-footer.php:182 inc/theme-header.php:34
+#: inc/theme-footer.php:196 inc/theme-header.php:34
 msgid "Widget"
 msgstr ""
 
-#: inc/theme-footer.php:325
+#: inc/theme-footer.php:339
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: inc/theme-footer.php:327
+#: inc/theme-footer.php:341
 #, php-format
 msgid "Proudly powered by %s"
 msgstr ""
 
-#: inc/theme-footer.php:332
+#: inc/theme-footer.php:346
 #, php-format
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: inc/theme-functions.php:258
-msgid "One column"
+#: inc/theme-functions.php:154 inc/theme-functions.php:157
+#: inc/theme-functions.php:180
+msgid "Search"
 msgstr ""
 
-#: inc/theme-functions.php:259
-msgid "Two columns - left content"
+#: inc/theme-functions.php:196
+msgid "All Categories"
 msgstr ""
 
-#: inc/theme-functions.php:260
-msgid "Two columns - right content"
+#: inc/theme-functions.php:197
+msgid "No Category"
 msgstr ""
 
-#: inc/theme-functions.php:261
-msgid "Three columns - left content"
+#: inc/theme-functions.php:253
+msgid "Shopping Cart"
 msgstr ""
 
-#: inc/theme-functions.php:262
-msgid "Three columns - middle content"
+#: inc/theme-functions.php:327
+msgid ""
+"Congratulations, the registration is successful. Please kindly check your "
+"email."
 msgstr ""
 
-#: inc/theme-functions.php:263
-msgid "Three columns - right content"
+#: inc/theme-functions.php:338
+msgid "Username"
 msgstr ""
 
-#: inc/theme-header.php:477
+#: inc/theme-functions.php:342
+msgid "Email"
+msgstr ""
+
+#: inc/theme-functions.php:346
+msgid "A password will be e-mailed to you"
+msgstr ""
+
+#: inc/theme-functions.php:353
+msgid "Register"
+msgstr ""
+
+#: inc/theme-functions.php:381
+msgid "forgot password?"
+msgstr ""
+
+#: inc/theme-header.php:552
 msgid "Search Results for"
 msgstr ""
 
-#: inc/theme-header.php:481
+#: inc/theme-header.php:556
 msgid "404 Page"
 msgstr ""
 
-#: inc/theme-header.php:487
+#: inc/theme-header.php:562
 msgid "Blog"
 msgstr ""
 
-#: inc/theme-init.php:45
+#: inc/theme-init.php:47
 msgid "Primary"
 msgstr ""
 
-#: inc/theme-init.php:46
+#: inc/theme-init.php:48
 msgid "Secondary"
 msgstr ""
 
-#: inc/theme-init.php:47
+#: inc/theme-init.php:49
 msgid "Top Menu"
 msgstr ""
 
-#: inc/theme-init.php:48
+#: inc/theme-init.php:50
 msgid "Footer Menu"
 msgstr ""
 
@@ -442,160 +798,193 @@ msgstr ""
 msgid "Descending"
 msgstr ""
 
-#: inc/theme-metaboxes.php:95
+#: inc/theme-metaboxes.php:101
 msgid "Post Options"
 msgstr ""
 
-#: inc/theme-metaboxes.php:103 inc/theme-metaboxes.php:256
+#: inc/theme-metaboxes.php:108 inc/theme-metaboxes.php:157
+#: inc/theme-metaboxes.php:298
+msgid "Container Layout"
+msgstr ""
+
+#: inc/theme-metaboxes.php:109 inc/theme-metaboxes.php:158
+#: inc/theme-metaboxes.php:299
 msgid ""
-"Select the layout you want on this specific post/page. Overrides default "
-"site layout."
+"Select the container layout you want on this specific post/page. Overrides "
+"container layout value on theme options."
 msgstr ""
 
-#: inc/theme-metaboxes.php:110
-msgid "External URL"
-msgstr ""
-
-#: inc/theme-metaboxes.php:111
-msgid "Input your external link in here. if you use \"Link\" format."
+#: inc/theme-metaboxes.php:116 inc/theme-metaboxes.php:165
+#: inc/theme-metaboxes.php:306
+msgid "Content Layout"
 msgstr ""
 
 #: inc/theme-metaboxes.php:117
-msgid "Audio File URL"
-msgstr ""
-
-#: inc/theme-metaboxes.php:118
-msgid "Input your audio file URL in here. "
+msgid ""
+"Select the content layout you want on this specific post/page. Overrides "
+"content layout value on theme options."
 msgstr ""
 
 #: inc/theme-metaboxes.php:124
-msgid "Video File URL / Video Link"
+msgid "External URL"
 msgstr ""
 
 #: inc/theme-metaboxes.php:125
+msgid "Input your external link in here. if you use \"Link\" format."
+msgstr ""
+
+#: inc/theme-metaboxes.php:131
+msgid "Audio File URL"
+msgstr ""
+
+#: inc/theme-metaboxes.php:132
+msgid "Input your audio file URL in here. "
+msgstr ""
+
+#: inc/theme-metaboxes.php:138
+msgid "Video File URL / Video Link"
+msgstr ""
+
+#: inc/theme-metaboxes.php:139
 msgid "Input your video file URL or video link like youtube or vimeo in here. "
 msgstr ""
 
-#: inc/theme-metaboxes.php:136
+#: inc/theme-metaboxes.php:150
 msgid "Page Options"
 msgstr ""
 
-#: inc/theme-metaboxes.php:144
+#: inc/theme-metaboxes.php:166 inc/theme-metaboxes.php:307
 msgid ""
 "Select the layout you want on this specific post/page. Overrides default "
 "content layout."
 msgstr ""
 
-#: inc/theme-metaboxes.php:151
+#: inc/theme-metaboxes.php:173
 msgid "Header Type"
 msgstr ""
 
-#: inc/theme-metaboxes.php:152
+#: inc/theme-metaboxes.php:174
 msgid ""
 "Select the header layout that you want on this specific post/page. Overrides "
 "default header layout."
 msgstr ""
 
-#: inc/theme-metaboxes.php:159
+#: inc/theme-metaboxes.php:181
 msgid "Enable Breadcrumb"
 msgstr ""
 
-#: inc/theme-metaboxes.php:160
+#: inc/theme-metaboxes.php:182
 msgid "Choose 'Yes' if you want to show breadcrumb."
 msgstr ""
 
-#: inc/theme-metaboxes.php:168
+#: inc/theme-metaboxes.php:190 inc/theme-metaboxes.php:315
 msgid "Choose 'No' if you want to remove the page title."
 msgstr ""
 
-#: inc/theme-metaboxes.php:175
+#: inc/theme-metaboxes.php:197
+msgid "External Slider"
+msgstr ""
+
+#: inc/theme-metaboxes.php:198
+msgid "Input the external slider shortcode."
+msgstr ""
+
+#: inc/theme-metaboxes.php:204
 msgid "Main Content Padding Top"
 msgstr ""
 
-#: inc/theme-metaboxes.php:176
+#: inc/theme-metaboxes.php:205
 msgid "Input the padding top value in pixel. example : 12px"
 msgstr ""
 
-#: inc/theme-metaboxes.php:182
+#: inc/theme-metaboxes.php:211
 msgid "Main Content Padding Bottom"
 msgstr ""
 
-#: inc/theme-metaboxes.php:183
+#: inc/theme-metaboxes.php:212
 msgid "Input the padding bottom value in pixel. example : 12px"
 msgstr ""
 
-#: inc/theme-metaboxes.php:189
+#: inc/theme-metaboxes.php:218
 msgid "Background Header"
 msgstr ""
 
-#: inc/theme-metaboxes.php:190
+#: inc/theme-metaboxes.php:219
 msgid ""
 "Input the image URL in this textbox if you want to change the background "
 "image on the header."
 msgstr ""
 
-#: inc/theme-metaboxes.php:196
+#: inc/theme-metaboxes.php:225
+msgid "Background Color Title"
+msgstr ""
+
+#: inc/theme-metaboxes.php:226
+msgid ""
+"Input the hexcolor in this textbox if you want to change the background "
+"color of your title section."
+msgstr ""
+
+#: inc/theme-metaboxes.php:232
+msgid "Background Title"
+msgstr ""
+
+#: inc/theme-metaboxes.php:233
+msgid ""
+"Input the image URL in this textbox if you want to change the background "
+"image on the title section."
+msgstr ""
+
+#: inc/theme-metaboxes.php:239
 msgid "Background Color Maincontent"
 msgstr ""
 
-#: inc/theme-metaboxes.php:197
+#: inc/theme-metaboxes.php:240
 msgid ""
 "Input the hexcolor in this textbox if you want to change the background "
 "color of your content."
 msgstr ""
 
-#: inc/theme-metaboxes.php:203
+#: inc/theme-metaboxes.php:246
 msgid "Page Description"
 msgstr ""
 
-#: inc/theme-metaboxes.php:204
+#: inc/theme-metaboxes.php:247
 msgid "Input your own page description here."
 msgstr ""
 
-#: inc/theme-metaboxes.php:210
+#: inc/theme-metaboxes.php:253
 msgid "Footer Sidebar Type"
 msgstr ""
 
-#: inc/theme-metaboxes.php:211
+#: inc/theme-metaboxes.php:254
 msgid ""
 "Select the footer layout that you want on this specific post/page. Overrides "
 "default footer layout."
 msgstr ""
 
-#: inc/theme-metaboxes.php:218
+#: inc/theme-metaboxes.php:261
 msgid "Show Footer Bar"
 msgstr ""
 
-#: inc/theme-metaboxes.php:219
+#: inc/theme-metaboxes.php:262
 msgid "Choose 'No' if you want to remove the footer bar."
 msgstr ""
 
-#: inc/theme-metaboxes.php:230
+#: inc/theme-metaboxes.php:273
 msgid "Page Blog Options"
 msgstr ""
 
-#: inc/theme-metaboxes.php:237
+#: inc/theme-metaboxes.php:280
 msgid "Blog Categories"
 msgstr ""
 
-#: inc/theme-metaboxes.php:238
+#: inc/theme-metaboxes.php:281
 msgid "You need to tick the blog categories to make the template blog works."
 msgstr ""
 
-#: inc/theme-metaboxes.php:248
+#: inc/theme-metaboxes.php:291
 msgid "Product Options"
-msgstr ""
-
-#: inc/theme-metaboxes.php:255
-msgid "Layout"
-msgstr ""
-
-#: inc/theme-metaboxes.php:263
-msgid "Disable Page Title"
-msgstr ""
-
-#: inc/theme-metaboxes.php:264
-msgid "Choose 'Yes' if you want to remove the page title."
 msgstr ""
 
 #: inc/theme-tags.php:52
@@ -682,6 +1071,16 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
+#: template-parts/content-image.php:36 template-parts/content.php:34
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: template-parts/content-image.php:47 template-parts/content-page.php:19
+#: template-parts/content.php:45
+msgid "Pages:"
+msgstr ""
+
 #: template-parts/content-none.php:22
 #, php-format
 msgid ""
@@ -698,19 +1097,4 @@ msgstr ""
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
-msgstr ""
-
-#: template-parts/content-page.php:19 template-parts/content.php:45
-msgid "Pages:"
-msgstr ""
-
-#: template-parts/content.php:34
-#, php-format
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr ""
-
-#: template-parts/headers/header-1/header.php:48
-#: template-parts/headers/header-2/header.php:48
-#: template-parts/headers/header-3/header.php:48
-msgid "Primary Menu"
 msgstr ""

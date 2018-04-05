@@ -7,6 +7,11 @@
  * @package Legacy
  */
 
+ /**
+  * Get Interfeis Font Class
+  */
+ require get_template_directory() . '/inc/classes/class-ifs-fonts.php';
+
 /**
  * Initiate the theme.
  */
@@ -21,6 +26,11 @@ require get_template_directory() . '/inc/theme-widgets.php';
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/theme-header.php';
+
+/**
+ * Implement the Custom Content feature.
+ */
+require get_template_directory() . '/inc/theme-content.php';
 
 /**
  * Implement the Custom Footer feature.
