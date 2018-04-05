@@ -106,7 +106,7 @@ function ifs_legacy_woocommerce_loop_columns() {
 	if($container_chosen!='ifs-content-default-width'){
 		$return += 1;
 	}
-	return $return;
+	return apply_filters('ifs_legacy_woocommerce_loop_columns', $return);
 }
 add_filter( 'loop_shop_columns', 'ifs_legacy_woocommerce_loop_columns' );
 
@@ -124,7 +124,7 @@ function ifs_legacy_woocommerce_related_products_args( $args ) {
 
 	$args = wp_parse_args( $defaults, $args );
 
-	return $args;
+	return apply_filters('ifs_legacy_woocommerce_related_products_args', $args);
 }
 add_filter( 'woocommerce_output_related_products_args', 'ifs_legacy_woocommerce_related_products_args' );
 
