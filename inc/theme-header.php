@@ -499,11 +499,12 @@ function ifs_legacy_get_template_header_title(){
 		get_template_part('template-parts/header-title');
 	}
 
+	if( function_exists('woocommerce_breadcrumb')){
+		add_action( 'ifs_legacy_the_title', 'woocommerce_breadcrumb', 5 );
+	}
+
 }
 add_action('ifs_legacy_header_title', 'ifs_legacy_get_template_header_title', 15);
-
-
-add_action( 'ifs_legacy_the_title', 'woocommerce_breadcrumb', 5 );
 
 /**
  * display external slider
@@ -676,7 +677,7 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 				background-color: '. esc_attr( $title_bg_color ).';
 			}';
 		}
-		
+
 		if($title_bg_image!='' && $title_bg_image!='remove-image'){
 			$output_css .= '#outerafterheader{
 				background-image: url('. esc_attr( $title_bg_image ).');
