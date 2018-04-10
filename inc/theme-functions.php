@@ -6,6 +6,18 @@
  */
 
  /**
+  * create a custom sanitizer
+  *
+  * @return string
+  * @uses wp_kses
+  * @uses wp_kses_allowed_html
+  */
+ function ifs_legacy_custom_wp_kses( $value ){
+ 	$allowed_tags 	= wp_kses_allowed_html( 'post' );
+ 	return wp_kses( $value, $allowed_tags );
+ }
+
+ /**
   * check if the page is of any post type ( including post or page )
   *
   * @param void

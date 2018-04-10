@@ -348,8 +348,7 @@ function ifs_legacy_print_copyright(){
 
     <?php
     }else{
-		$allowed_tags 	= wp_kses_allowed_html( 'post' );
-        echo wp_kses( $ifs_legacy_footer_text, $allowed_tags );
+		echo ifs_legacy_custom_wp_kses( $ifs_legacy_footer_text );
     }
     ?>
     </div>
@@ -393,7 +392,7 @@ function ifs_legacy_print_footer_text_2(){
     $ifs_legacy_footer_text = get_theme_mod( 'ifs_legacy_footer_bar_2_text', '' );
 	$allowed_tags 	= wp_kses_allowed_html( 'post' );
     ?>
-    <div class="site-info"><?php echo wp_kses( $ifs_legacy_footer_text, $allowed_tags ); ?></div>
+    <div class="site-info"><?php echo ifs_legacy_custom_wp_kses( $ifs_legacy_footer_text ); ?></div>
     <?php
 }
 

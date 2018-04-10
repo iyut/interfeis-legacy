@@ -145,7 +145,7 @@ add_action('ifs_legacy_top_bar_col_2', 'ifs_legacy_content_top_col_2', 10);
 function ifs_legacy_print_top_text_1(){
     $ifs_legacy_top_text = get_theme_mod( 'ifs_legacy_top_bar_1_text', '' );
     ?>
-    <div class="top-info"><?php echo esc_html( $ifs_legacy_top_text ); ?></div>
+    <div class="top-info"><?php echo ifs_legacy_custom_wp_kses( $ifs_legacy_top_text ); ?></div>
     <?php
 }
 
@@ -186,7 +186,7 @@ function ifs_legacy_top_menu(){
 function ifs_legacy_print_top_text_2(){
     $ifs_legacy_top_text = get_theme_mod( 'ifs_legacy_top_bar_2_text', '' );
     ?>
-    <div class="top-info"><?php echo esc_html( $ifs_legacy_top_text ); ?></div>
+    <div class="top-info"><?php echo ifs_legacy_custom_wp_kses( $ifs_legacy_top_text ); ?></div>
     <?php
 }
 

@@ -1115,10 +1115,6 @@ function ifs_legacy_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'ifs_legacy_customize_register' );
 
-function ifs_legacy_custom_wp_kses( $value ){
-	$allowed_tags 	= wp_kses_allowed_html( 'post' );
-	return wp_kses( $value, $allowed_tags );
-}
 /**
  * get the custom font options data
  *
