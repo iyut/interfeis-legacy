@@ -404,15 +404,16 @@ if(!function_exists("ifs_legacy_print_base_font_css")){
 
 		if($the_font!=false){
 			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
-			if($the_font_size!='')
-				$return .= 'font-size:'.$the_font_size.'px;';
-
-			if($the_font_weight!='')
-				$return .= 'font-weight:'.$the_font_weight.';';
-
-
-			$return = 'body{'.$return.'}';
 		}
+
+        if($the_font_size!='')
+            $return .= 'font-size:'.$the_font_size.'px;';
+
+        if($the_font_weight!='')
+            $return .= 'font-weight:'.$the_font_weight.';';
+
+
+        $return = 'body{'.$return.'}';
 
 		return apply_filters('ifs_legacy_print_base_font_css', esc_attr($return));
 	}
@@ -435,15 +436,16 @@ if(!function_exists("ifs_legacy_print_menu_font_css")){
 
 		if($the_font!=false){
 			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
-			if($the_font_size!='')
-				$return .= 'font-size:'.$the_font_size.'px;';
-
-			if($the_font_weight!='')
-				$return .= 'font-weight:'.$the_font_weight.';';
-
-
-			$return = 'body.ifs .site-header .main-navigation li a{'.$return.'}';
 		}
+
+        if($the_font_size!='')
+            $return .= 'font-size:'.$the_font_size.'px;';
+
+        if($the_font_weight!='')
+            $return .= 'font-weight:'.$the_font_weight.';';
+
+
+        $return = 'body.ifs .site-header .main-navigation li a{'.$return.'}';
 
 		return apply_filters('ifs_legacy_print_menu_font_css', esc_attr($return));
 	}
@@ -466,15 +468,16 @@ if(!function_exists("ifs_legacy_print_h1_font_css")){
 
 		if($the_font!=false){
 			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
-			if($the_font_size!='')
-				$return .= 'font-size:'.$the_font_size.'px;';
-
-			if($the_font_weight!='')
-				$return .= 'font-weight:'.$the_font_weight.';';
-
-
-			$return = 'h1{'.$return.'}';
 		}
+
+        if($the_font_size!='')
+            $return .= 'font-size:'.$the_font_size.'px;';
+
+        if($the_font_weight!='')
+            $return .= 'font-weight:'.$the_font_weight.';';
+
+
+        $return = 'h1{'.$return.'}';
 
 		return apply_filters('ifs_legacy_print_h1_font_css', esc_attr($return));
 	}
@@ -497,15 +500,16 @@ if(!function_exists("ifs_legacy_print_h2_font_css")){
 
 		if($the_font!=false){
 			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
-			if($the_font_size!='')
-				$return .= 'font-size:'.$the_font_size.'px;';
-
-			if($the_font_weight!='')
-				$return .= 'font-weight:'.$the_font_weight.';';
-
-
-			$return = 'h2{'.$return.'}';
 		}
+
+        if($the_font_size!='')
+            $return .= 'font-size:'.$the_font_size.'px;';
+
+        if($the_font_weight!='')
+            $return .= 'font-weight:'.$the_font_weight.';';
+
+
+        $return = 'h2{'.$return.'}';
 
 		return apply_filters('ifs_legacy_print_h2_font_css', esc_attr($return));
 	}
@@ -528,15 +532,16 @@ if(!function_exists("ifs_legacy_print_h3_font_css")){
 
 		if($the_font!=false){
 			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
-			if($the_font_size!='')
-				$return .= 'font-size:'.$the_font_size.'px;';
-
-			if($the_font_weight!='')
-				$return .= 'font-weight:'.$the_font_weight.';';
-
-
-			$return = 'h3{'.$return.'}';
 		}
+
+        if($the_font_size!='')
+            $return .= 'font-size:'.$the_font_size.'px;';
+
+        if($the_font_weight!='')
+            $return .= 'font-weight:'.$the_font_weight.';';
+
+
+        $return = 'h3{'.$return.'}';
 
 		return apply_filters('ifs_legacy_print_h3_font_css', esc_attr($return));
 	}
@@ -559,15 +564,16 @@ if(!function_exists("ifs_legacy_print_h4_font_css")){
 
 		if($the_font!=false){
 			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
-			if($the_font_size!='')
-				$return .= 'font-size:'.$the_font_size.'px;';
-
-			if($the_font_weight!='')
-				$return .= 'font-weight:'.$the_font_weight.';';
-
-
-			$return = 'h4{'.$return.'}';
 		}
+
+        if($the_font_size!='')
+            $return .= 'font-size:'.$the_font_size.'px;';
+
+        if($the_font_weight!='')
+            $return .= 'font-weight:'.$the_font_weight.';';
+
+
+        $return = 'h4{'.$return.'}';
 
 		return apply_filters('ifs_legacy_print_h4_font_css', esc_attr($return));
 	}
@@ -590,15 +596,16 @@ if(!function_exists("ifs_legacy_print_h5_font_css")){
 
 		if($the_font!=false){
 			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
-			if($the_font_size!='')
-				$return .= 'font-size:'.$the_font_size.'px;';
-
-			if($the_font_weight!='')
-				$return .= 'font-weight:'.$the_font_weight.';';
-
-
-			$return = 'h5{'.$return.'}';
 		}
+
+        if($the_font_size!='')
+            $return .= 'font-size:'.$the_font_size.'px;';
+
+        if($the_font_weight!='')
+            $return .= 'font-weight:'.$the_font_weight.';';
+
+
+        $return = 'h5{'.$return.'}';
 
 		return apply_filters('ifs_legacy_print_h5_font_css', esc_attr($return));
 	}
@@ -621,15 +628,16 @@ if(!function_exists("ifs_legacy_print_h6_font_css")){
 
 		if($the_font!=false){
 			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
-			if($the_font_size!='')
-				$return .= 'font-size:'.$the_font_size.'px;';
-
-			if($the_font_weight!='')
-				$return .= 'font-weight:'.$the_font_weight.';';
-
-
-			$return = 'h6{'.$return.'}';
 		}
+
+        if($the_font_size!='')
+            $return .= 'font-size:'.$the_font_size.'px;';
+
+        if($the_font_weight!='')
+            $return .= 'font-weight:'.$the_font_weight.';';
+
+
+        $return = 'h6{'.$return.'}';
 
 		return apply_filters('ifs_legacy_print_h6_font_css', esc_attr($return));
 	}
