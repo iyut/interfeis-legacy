@@ -81,6 +81,34 @@ if( !function_exists('ifs_legacy_print_custom_font_2') ){
 	add_action('ifs_legacy_styles_after_stylesheet', 'ifs_legacy_print_custom_font_2', 25);
 }
 
+if( !function_exists('ifs_legacy_chosen_custom_font_3') ){
+    function ifs_legacy_chosen_custom_font_3(){
+        $chosen_font_mod    = get_theme_mod('ifs_legacy_custom_font_3');
+        $chosen_font        = IFS_Fonts::get_the_font( $chosen_font_mod );
+
+		$return = false;
+        if($chosen_font!=false){
+			$chosen_font['id'] = $chosen_font_mod;
+			$return = $chosen_font;
+        }
+
+		return apply_filters('ifs_legacy_chosen_custom_font_3', $return);
+    }
+}
+
+if( !function_exists('ifs_legacy_print_custom_font_3') ){
+    function ifs_legacy_print_custom_font_3(){
+		$chosen_font = ifs_legacy_chosen_custom_font_3();
+
+		if($chosen_font!=false){
+
+			wp_enqueue_style( 'ifs-legacy-'.esc_attr($chosen_font['id']), $chosen_font['url'] );
+
+		}
+	}
+	add_action('ifs_legacy_styles_after_stylesheet', 'ifs_legacy_print_custom_font_3', 25);
+}
+
 if( !function_exists('ifs_legacy_generate_stylesheet') ){
     function ifs_legacy_generate_stylesheet(){
         $output_css = '';
