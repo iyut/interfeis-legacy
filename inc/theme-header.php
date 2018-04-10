@@ -666,7 +666,7 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 			}';
 		}
 
-		if($header_bg_image!='' && $header_bg_image!='remove-image'){
+		if($header_bg_image!='' && $header_bg_image!='remove-image' && $header_bg_image!='remove-header'){
 			$output_css .= '#header-container{
 				background-image: url('. esc_attr( $header_bg_image ).');
 			}';
