@@ -400,6 +400,44 @@ if(!function_exists('ifs_legacy_login_form')){
 }
 
 /**
+ * return the padding top value of the content.
+ *
+ * @uses ifs_legacy_get_postid()
+ */
+if(!function_exists('ifs_legacy_related_posts')){
+    function ifs_legacy_related_posts(){
+
+        $post_id 	= ifs_legacy_get_postid();
+		$post_cats	= get_the_category( $post_id );
+
+		$catslugs	= array();
+		if(count($post_cats)>0){
+			foreach( $post_cats as $post_cat ){
+				$catslugs[] = $post_cat->slug;
+			}
+		}
+		$argquery = array(
+			'post_type' 		=> 'post',
+			'posts_per_page'	=> apply_filters('ifs_legacy_related_num_posts', 3);
+			'orderby' 			=> 'date',
+			'order' 			=> 'DESC'
+		);
+
+		if(count($catslugs)>0){
+			$argquery['category_name'] = implode(',', $catslugs);
+		}
+
+		$results = new WP_Query( apply_filters('ifs_legacy_related_posts_query', $argquery) );
+
+		if( $results->have_posts() ){
+			while ( $results->have_posts() ) : $results->the_post();
+				
+			endwhile; // End the loop. Whew.
+		}
+    }
+}
+
+/**
  * generate css for the base font
  *
  * @uses ifs_legacy_print_base_font_css()
