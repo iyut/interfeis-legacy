@@ -95,9 +95,22 @@
     		'flex-height'            => true
     	) ) );
  	}
- endif;
- add_action( 'after_setup_theme', 'ifs_legacy_setup' );
 
+	add_action( 'after_setup_theme', 'ifs_legacy_setup' );
+
+ endif;
+
+if( !function_exists('ifs_legacy_add_image_sizes') ){
+/**
+* Registered image size
+*/
+	function ifs_legacy_add_image_sizes(){
+		add_image_size('ifs_legacy_blog_list_img'	, 360, 240, false);
+		add_image_size('ifs_legacy_related_img'		, 360, 240, false);
+	}
+
+	add_action( 'after_setup_theme', 'ifs_legacy_add_image_sizes' );
+}
  /**
  * Registers an editor stylesheet for the theme.
  */

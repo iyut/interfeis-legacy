@@ -336,6 +336,12 @@ if(!function_exists('ifs_legacy_content_padding_bottom')){
     }
 }
 
+if( !function_exists('ifs_legacy_after_post_navigation')){
+	function ifs_legacy_after_post_navigation(){
+		do_action('ifs_legacy_after_post_navigation');
+	}
+}
+
 if( !function_exists('ifs_legacy_content_css_output') ){
 	function ifs_legacy_content_css_output(){
 

@@ -399,10 +399,20 @@ if(!function_exists('ifs_legacy_login_form')){
 	}
 }
 
+if(!function_exists('ifs_legacy_open_related_container')){
+	function ifs_legacy_open_related_container(){
+		echo '<div class="related-posts-container">';
+	}
+	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_open_related_container', 10);
+}
+
 /**
  * return the padding top value of the content.
  *
  * @uses ifs_legacy_get_postid()
+ * @uses get_the_category()
+ * @uses WP_Query()
+ * @uses get_template_part()
  */
 if(!function_exists('ifs_legacy_related_posts')){
     function ifs_legacy_related_posts(){
@@ -418,7 +428,7 @@ if(!function_exists('ifs_legacy_related_posts')){
 		}
 		$argquery = array(
 			'post_type' 		=> 'post',
-			'posts_per_page'	=> apply_filters('ifs_legacy_related_num_posts', 3);
+			'posts_per_page'	=> apply_filters('ifs_legacy_related_num_posts', 3),
 			'orderby' 			=> 'date',
 			'order' 			=> 'DESC'
 		);
@@ -431,10 +441,18 @@ if(!function_exists('ifs_legacy_related_posts')){
 
 		if( $results->have_posts() ){
 			while ( $results->have_posts() ) : $results->the_post();
-				
+				get_template_part( 'template-parts/content-related' );
 			endwhile; // End the loop. Whew.
 		}
     }
+	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_related_posts', 15);
+}
+
+if(!function_exists('ifs_legacy_close_related_container')){
+	function ifs_legacy_close_related_container(){
+		echo '</div>';
+	}
+	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_close_related_container', 20);
 }
 
 /**
