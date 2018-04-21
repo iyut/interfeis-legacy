@@ -448,6 +448,7 @@ if(!function_exists('ifs_legacy_related_posts')){
 
 			<?php
 		}
+		wp_reset_postdata();
     }
 	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_related_posts', 15);
 }
