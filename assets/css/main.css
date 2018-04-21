@@ -950,6 +950,35 @@ article.post .entry-title a:visited{
 	margin-bottom:2em;
 }
 
+.related-posts-container{
+	padding:30px 0;
+	border-top:1px solid #f1f2f4;
+}
+
+.related-posts-container .related-posts-title{
+	margin-bottom:35px;
+	text-align:center;
+	font-size:1.2858rem;
+}
+
+.related-posts-container .content-related{
+	padding:0 15px;
+	background:none;
+}
+
+.related-posts-container .content-related .entry-image{
+	margin-bottom:50px;
+}
+
+.related-posts-container .content-related .entry-header{
+	padding:0 0 30px;
+}
+
+.related-posts-container .content-related .entry-title{
+	font-size:1em;
+	line-height:1.7em;
+}
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/

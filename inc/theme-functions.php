@@ -399,6 +399,10 @@ if(!function_exists('ifs_legacy_login_form')){
 	}
 }
 
+/**
+ * display open container for related posts
+ *
+ */
 if(!function_exists('ifs_legacy_open_related_container')){
 	function ifs_legacy_open_related_container(){
 		echo '<div class="related-posts-container">';
@@ -407,17 +411,57 @@ if(!function_exists('ifs_legacy_open_related_container')){
 }
 
 /**
- * return the padding top value of the content.
+ * display related posts container title
  *
- * @uses ifs_legacy_get_postid()
- * @uses get_the_category()
- * @uses WP_Query()
+ */
+if(!function_exists('ifs_legacy_related_title')){
+	function ifs_legacy_related_title(){
+		echo '<h2 class="related-posts-title">'.esc_html__('You might also like').'</h2>';
+	}
+	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_related_title', 13);
+}
+
+/**
+ * display related posts on single page
+ *
+ * @uses ifs_legacy_query_related_posts()
  * @uses get_template_part()
  */
 if(!function_exists('ifs_legacy_related_posts')){
     function ifs_legacy_related_posts(){
 
-        $post_id 	= ifs_legacy_get_postid();
+		$results = ifs_legacy_query_related_posts();
+
+		if( $results->have_posts() ){
+
+			?>
+
+			<div class="related-posts-row row">
+
+				<?php
+				while ( $results->have_posts() ) : $results->the_post();
+					get_template_part( 'template-parts/content-related' );
+				endwhile; // End the loop. Whew.
+				?>
+
+			</div>
+
+			<?php
+		}
+    }
+	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_related_posts', 15);
+}
+
+/**
+ * return the related posts on single page
+ *
+ * @uses ifs_legacy_get_postid()
+ * @uses get_the_category()
+ * @uses WP_Query()
+ */
+if( !function_exists('ifs_legacy_query_related_posts') ){
+	function ifs_legacy_query_related_posts(){
+		$post_id 	= ifs_legacy_get_postid();
 		$post_cats	= get_the_category( $post_id );
 
 		$catslugs	= array();
@@ -439,15 +483,14 @@ if(!function_exists('ifs_legacy_related_posts')){
 
 		$results = new WP_Query( apply_filters('ifs_legacy_related_posts_query', $argquery) );
 
-		if( $results->have_posts() ){
-			while ( $results->have_posts() ) : $results->the_post();
-				get_template_part( 'template-parts/content-related' );
-			endwhile; // End the loop. Whew.
-		}
-    }
-	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_related_posts', 15);
+		return apply_filters('ifs_legacy_query_related_posts', $results);
+	}
 }
 
+/**
+ * display closer container for related posts
+ *
+ */
 if(!function_exists('ifs_legacy_close_related_container')){
 	function ifs_legacy_close_related_container(){
 		echo '</div>';
