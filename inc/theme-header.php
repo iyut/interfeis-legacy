@@ -367,7 +367,22 @@ function ifs_legacy_header_add_body_class( $classes ){
 
 	if( ifs_legacy_show_header_title() ){
 		$classes[]	= 'ifs-show-title';
+	}else{
+		$classes[]	= 'ifs-no-show-title';
 	}
+
+	if( ifs_legacy_have_ext_slider() ){
+		$classes[]	= 'ifs-show-slider';
+	}else{
+		$classes[]	= 'ifs-no-show-slider';
+	}
+
+	if( trim( ifs_legacy_position_title() ) ){
+		$classes[] = 'ifs-title-'.ifs_legacy_position_title();
+	}else{
+		$classes[] = 'ifs-title-default';
+	}
+
 
 	return apply_filters('ifs_legacy_header_add_body_class', $classes);
 }
@@ -469,10 +484,10 @@ function ifs_legacy_bg_color_title(){
  * @uses ifs_legacy_position_title()
  */
 function ifs_legacy_position_title(){
-	$ifs_pos_title		= get_theme_mod('ifs_legacy_page_title_position');
+	$ifs_pos_title	= get_theme_mod('ifs_legacy_page_title_position');
 
 	$post_id 		= ifs_legacy_get_postid();
-	$pos_title 	= get_post_meta( $post_id, 'ifs_position_title', true);
+	$pos_title 		= get_post_meta( $post_id, 'ifs_position_title', true);
 
 	if($pos_title != ''){
 		$ifs_pos_title = $pos_title;
@@ -511,14 +526,28 @@ function ifs_legacy_get_template_header_title(){
 add_action('ifs_legacy_header_title', 'ifs_legacy_get_template_header_title', 15);
 
 /**
- * display external slider
+ * check if have external slider or not
  *
- * @uses ifs_legacy_display_ext_slider()
+ * @uses ifs_legacy_get_postid()
  */
-function ifs_legacy_display_ext_slider(){
+function ifs_legacy_have_ext_slider(){
 
 	$post_id 		= ifs_legacy_get_postid();
 	$pos_slider 	= get_post_meta( $post_id, 'ifs_ext_slider', true);
+
+	return trim($pos_slider)!='' ? $pos_slider : "";
+
+}
+
+/**
+ * display external slider
+ *
+ * @uses ifs_legacy_have_ext_slider()
+ * @uses do_shortcode()
+ */
+function ifs_legacy_display_ext_slider(){
+
+	$pos_slider 	= ifs_legacy_have_ext_slider();
 	if( $pos_slider!='' ){
 		echo '<div class="ext_slider_container">';
 			echo do_shortcode( $pos_slider );
