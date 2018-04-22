@@ -365,6 +365,10 @@ function ifs_legacy_header_add_body_class( $classes ){
 	$classes[]  = $ifs_legacy_header_mod['name'];
 	$classes[]  = $ifs_legacy_header_mod['name'].'-css';
 
+	if( ifs_legacy_show_header_title() ){
+		$classes[]	= 'ifs-show-title';
+	}
+
 	return apply_filters('ifs_legacy_header_add_body_class', $classes);
 }
 
