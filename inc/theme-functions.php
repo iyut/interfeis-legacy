@@ -416,7 +416,7 @@ if(!function_exists('ifs_legacy_open_related_container')){
  */
 if(!function_exists('ifs_legacy_related_title')){
 	function ifs_legacy_related_title(){
-		echo '<h2 class="related-posts-title">'.esc_html__('You might also like').'</h2>';
+		echo '<h2 class="related-posts-title">'.esc_html__('You might also like', 'ifs-legacy').'</h2>';
 	}
 	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_related_title', 13);
 }
@@ -440,7 +440,7 @@ if(!function_exists('ifs_legacy_related_posts')){
 
 				<?php
 				while ( $results->have_posts() ) : $results->the_post();
-					get_template_part( 'template-parts/content-related' );
+					get_template_part( 'template-parts/content', 'related' );
 				endwhile; // End the loop. Whew.
 				?>
 
