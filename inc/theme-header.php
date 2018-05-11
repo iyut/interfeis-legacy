@@ -200,12 +200,30 @@ function ifs_legacy_print_top_widget_2(){
 }
 
 /**
+ * hook for theme before header
+ *
+ * @uses do_action()
+ */
+function ifs_legacy_theme_before_header(){
+	do_action('ifs_legacy_theme_before_header');
+}
+
+/**
  * hook for theme header
  *
  * @uses ifs_legacyt_theme_header()
  */
 function ifs_legacy_theme_header(){
 	do_action('ifs_legacy_theme_header');
+}
+
+/**
+ * hook for theme after header
+ *
+ * @uses do_action()
+ */
+function ifs_legacy_theme_after_header(){
+	do_action('ifs_legacy_theme_after_header');
 }
 
 /**

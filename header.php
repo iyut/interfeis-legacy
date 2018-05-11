@@ -23,11 +23,17 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ifs-legacy' ); ?></a>
+
+	<?php ifs_legacy_theme_before_header(); ?>
+
 	<header id="header-container" class="outerheader">
 		<?php ifs_legacy_theme_header(); ?>
 
 		<?php ifs_legacy_header_title(); ?>
 	</header>
+
+	<?php ifs_legacy_theme_after_header(); ?>
+
 	<div class="outercontainer">
 		<div id="content-container" class="container <?php ifs_legacy_content_container_class(); ?>">
 			<div class="row">
