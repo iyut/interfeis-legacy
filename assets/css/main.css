@@ -830,6 +830,14 @@ body.ifs-content-full-width-no-padding #content-container{
 	max-width:none;
 	padding:0px;
 }
+body.ifs-content-full-width-no-padding #content-container > .row{
+	margin-left:0;
+	margin-right:0;
+}
+body.ifs-content-full-width-no-padding #content-container > .row > .site-content{
+	padding-left:0;
+	padding-right:0;
+}
 .site-content{
 	margin:4em 0;
 }
