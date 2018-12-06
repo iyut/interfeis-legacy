@@ -6,6 +6,18 @@
  */
 
  /**
+  * create a custom sanitizer
+  *
+  * @return string
+  * @uses wp_kses
+  * @uses wp_kses_allowed_html
+  */
+ function ifs_legacy_custom_wp_kses( $value ){
+ 	$allowed_tags 	= wp_kses_allowed_html( 'post' );
+ 	return wp_kses( $value, $allowed_tags );
+ }
+
+ /**
   * check if the page is of any post type ( including post or page )
   *
   * @param void
@@ -250,7 +262,7 @@ if(!function_exists("ifs_legacy_minicart")){
 			<?php do_action('ifs_legacy_minicart_before_header'); ?>
 
 			<div class="cartheader_wrapper">
-				<h5 class="cartheader"><?php echo apply_filters('ifs_legacy_minicart_header_text', esc_html__('Shopping Cart', 'ifs-legacy')); ?></h5>
+				<h5 class="cartheader"><?php echo esc_html( apply_filters('ifs_legacy_minicart_header_text', esc_html__('Shopping Cart', 'ifs-legacy')) ); ?></h5>
 				<a class="cartclose" href="#"></a>
 			</div>
 
@@ -388,6 +400,106 @@ if(!function_exists('ifs_legacy_login_form')){
 }
 
 /**
+ * display open container for related posts
+ *
+ */
+if(!function_exists('ifs_legacy_open_related_container')){
+	function ifs_legacy_open_related_container(){
+		echo '<div class="related-posts-container">';
+	}
+	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_open_related_container', 10);
+}
+
+/**
+ * display related posts container title
+ *
+ */
+if(!function_exists('ifs_legacy_related_title')){
+	function ifs_legacy_related_title(){
+		echo '<h2 class="related-posts-title">'.esc_html__('You might also like', 'ifs-legacy').'</h2>';
+	}
+	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_related_title', 13);
+}
+
+/**
+ * display related posts on single page
+ *
+ * @uses ifs_legacy_query_related_posts()
+ * @uses get_template_part()
+ */
+if(!function_exists('ifs_legacy_related_posts')){
+    function ifs_legacy_related_posts(){
+
+		$results = ifs_legacy_query_related_posts();
+
+		if( $results->have_posts() ){
+
+			?>
+
+			<div class="related-posts-row row">
+
+				<?php
+				while ( $results->have_posts() ) : $results->the_post();
+					get_template_part( 'template-parts/content', 'related' );
+				endwhile; // End the loop. Whew.
+				?>
+
+			</div>
+
+			<?php
+		}
+		wp_reset_postdata();
+    }
+	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_related_posts', 15);
+}
+
+/**
+ * return the related posts on single page
+ *
+ * @uses ifs_legacy_get_postid()
+ * @uses get_the_category()
+ * @uses WP_Query()
+ */
+if( !function_exists('ifs_legacy_query_related_posts') ){
+	function ifs_legacy_query_related_posts(){
+		$post_id 	= ifs_legacy_get_postid();
+		$post_cats	= get_the_category( $post_id );
+
+		$catslugs	= array();
+		if(count($post_cats)>0){
+			foreach( $post_cats as $post_cat ){
+				$catslugs[] = $post_cat->slug;
+			}
+		}
+		$argquery = array(
+			'post_type' 		=> 'post',
+			'posts_per_page'	=> apply_filters('ifs_legacy_related_num_posts', 3),
+			'orderby' 			=> 'date',
+			'order' 			=> 'DESC'
+		);
+
+		if(count($catslugs)>0){
+			$argquery['category_name'] = implode(',', $catslugs);
+		}
+
+		$results = new WP_Query( apply_filters('ifs_legacy_related_posts_query', $argquery) );
+
+		return apply_filters('ifs_legacy_query_related_posts', $results);
+	}
+}
+
+/**
+ * display closer container for related posts
+ *
+ */
+if(!function_exists('ifs_legacy_close_related_container')){
+	function ifs_legacy_close_related_container(){
+		echo '</div>';
+	}
+	add_action('ifs_legacy_after_post_navigation', 'ifs_legacy_close_related_container', 20);
+}
+
+/**
  * generate css for the base font
  *
  * @uses ifs_legacy_print_base_font_css()
@@ -427,15 +539,27 @@ if(!function_exists("ifs_legacy_print_base_font_css")){
 if(!function_exists("ifs_legacy_print_menu_font_css")){
 	function ifs_legacy_print_menu_font_css(){
 
-        $the_font_mod 		= get_theme_mod( 'ifs_legacy_menu_font', ifs_legacy_theme_font_default() );
+    $the_font_mod 		= get_theme_mod( 'ifs_legacy_menu_font', ifs_legacy_theme_font_default() );
 		$the_font_size 		= get_theme_mod( 'ifs_legacy_menu_font_size' );
 		$the_font_weight	= get_theme_mod( 'ifs_legacy_menu_font_weight' );
 
+    $sub_font_mod 		= get_theme_mod( 'ifs_legacy_submenu_font', ifs_legacy_theme_font_default() );
+		$sub_font_size 		= get_theme_mod( 'ifs_legacy_submenu_font_size' );
+		$sub_font_weight	= get_theme_mod( 'ifs_legacy_submenu_font_weight' );
+
 		$return = '';
+    $subreturn = '';
+
 		$the_font = call_user_func($the_font_mod);
+
+    $sub_font = call_user_func($sub_font_mod);
 
 		if($the_font!=false){
 			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
+		}
+
+    if($sub_font!=false){
+			$subreturn .= 'font-family:'.$sub_font['name'].','.$sub_font['category'].';';
 		}
 
         if($the_font_size!='')
@@ -444,10 +568,19 @@ if(!function_exists("ifs_legacy_print_menu_font_css")){
         if($the_font_weight!='')
             $return .= 'font-weight:'.$the_font_weight.';';
 
+        if($sub_font_size!='')
+            $subreturn .= 'font-size:'.$sub_font_size.'px;';
 
-        $return = 'body.ifs .site-header .main-navigation li a{'.$return.'}';
+        if($sub_font_weight!='')
+          $subreturn .= 'font-weight:'.$sub_font_weight.';';
 
-		return apply_filters('ifs_legacy_print_menu_font_css', esc_attr($return));
+
+        $return = 'body.ifs .site-header .main-navigation ul.nav-menu > li > a{'. esc_attr($return).'}';
+        $subreturn = 'body.ifs .site-header .main-navigation ul.nav-menu ul li a{'. esc_attr($subreturn).'}';
+
+        $return .= $subreturn;
+
+		return apply_filters('ifs_legacy_print_menu_font_css', $return);
 	}
 }
 
@@ -669,6 +802,68 @@ if(!function_exists("ifs_legacy_print_all_font_css")){
 
 		$output_css .= ifs_legacy_print_h6_font_css();
 
-		return apply_filters('ifs_legacy_print_all_font_css', esc_attr($output_css));
+		return apply_filters('ifs_legacy_print_all_font_css', $output_css);
+	}
+}
+
+/**
+ * generate css for the general text color
+ *
+ * @uses ifs_legacy_print_text_color_css()
+ */
+if(!function_exists("ifs_legacy_print_text_color_css")){
+	function ifs_legacy_print_text_color_css(){
+
+        $the_text_color 	= get_theme_mod( 'ifs_legacy_general_text_color' );
+
+		$return = '';
+
+        if($the_text_color!='')
+            $return .= 'color:'.$the_text_color.';';
+
+
+        $return = 'body.ifs{'.$return.'}';
+
+		return apply_filters('ifs_legacy_print_text_color_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for the general link color
+ *
+ * @uses ifs_legacy_print_link_color_css()
+ */
+if(!function_exists("ifs_legacy_print_link_color_css")){
+	function ifs_legacy_print_link_color_css(){
+
+        $the_text_color 	= get_theme_mod( 'ifs_legacy_general_link_color' );
+
+		$return = '';
+
+        if($the_text_color!='')
+            $return .= 'color:'.$the_text_color.';';
+
+
+        $return = 'body.ifs a{'.$return.'}';
+
+		return apply_filters('ifs_legacy_print_link_color_css', esc_attr($return));
+	}
+}
+
+/**
+ * generate css for all color
+ *
+ * @uses ifs_legacy_print_general_color_css()
+ */
+if(!function_exists("ifs_legacy_print_general_color_css")){
+	function ifs_legacy_print_general_color_css(){
+
+		$output_css = '';
+
+		$output_css .= ifs_legacy_print_text_color_css();
+
+        $output_css .= ifs_legacy_print_link_color_css();
+
+		return apply_filters('ifs_legacy_print_general_color_css', esc_attr($output_css));
 	}
 }

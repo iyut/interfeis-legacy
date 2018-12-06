@@ -272,6 +272,22 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'priority'		=> 10
 		) );
 
+		$wp_customize->add_setting( 'ifs_legacy_custom_font_3', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_custom_font_3', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Tertiary Chosen Font', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the tertiary custom font.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_font_options',
+			'setting'		=> 'ifs_legacy_custom_font_3',
+			'choices'		=> ifs_legacy_custom_font_values('tertiary'),
+			'priority'		=> 10
+		) );
+
 		$wp_customize->add_setting( 'ifs_legacy_base_font', array(
 			'default'           => ifs_legacy_theme_font_default(),
 			'sanitize_callback' => 'esc_attr',
@@ -297,7 +313,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'ifs_legacy_base_font_size', array(
 			'type'			=> 'number',
 			'label'			=> esc_html__( 'Base Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your base font.', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your base font. In pixel (px).', 'ifs-legacy' ),
 			'section'		=> 'ifs_legacy_section_font_options',
 			'setting'		=> 'ifs_legacy_base_font_size',
 			'priority'		=> 10
@@ -335,7 +351,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'priority'		=> 10
 		) );
 
-		$wp_customize->add_setting( 'ifs_legacy_base_menu_size', array(
+		$wp_customize->add_setting( 'ifs_legacy_menu_font_size', array(
 			'default'           => '',
 			'sanitize_callback' => 'esc_attr',
 	        'transport'         => 'refresh'
@@ -344,7 +360,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'ifs_legacy_menu_font_size', array(
 			'type'			=> 'number',
 			'label'			=> esc_html__( 'Menu Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your menu font.', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your menu font. In pixel (px).', 'ifs-legacy' ),
 			'section'		=> 'ifs_legacy_section_font_options',
 			'setting'		=> 'ifs_legacy_menu_font_size',
 			'priority'		=> 10
@@ -365,6 +381,54 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'choices'		=> ifs_legacy_theme_font_weight_options(),
 			'priority'		=> 10
 		) );
+
+    $wp_customize->add_setting( 'ifs_legacy_submenu_font', array(
+			'default'           => ifs_legacy_theme_font_default(),
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_submenu_font', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Sub Menu Font', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the primary or secondary chosen font for sub menu font.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_font_options',
+			'setting'		=> 'ifs_legacy_submenu_font',
+			'choices'		=> ifs_legacy_theme_font_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_submenu_font_size', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_submenu_font_size', array(
+			'type'			=> 'number',
+			'label'			=> esc_html__( 'Sub Menu Font Size', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your sub menu font. In pixel (px).', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_font_options',
+			'setting'		=> 'ifs_legacy_menu_subfont_size',
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_submenu_font_weight', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_submenu_font_weight', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Sub Menu Font Weight', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the font weight for sub menu.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_font_options',
+			'setting'		=> 'ifs_legacy_submenu_font_weight',
+			'choices'		=> ifs_legacy_theme_font_weight_options(),
+			'priority'		=> 10
+		) );
+
 
 		$wp_customize->add_setting( 'ifs_legacy_h1_font', array(
 			'default'           => ifs_legacy_theme_font_default(),
@@ -391,7 +455,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'ifs_legacy_h1_font_size', array(
 			'type'			=> 'number',
 			'label'			=> esc_html__( 'Heading 1 Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your heading 1 font.', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your heading 1 font. In pixel (px).', 'ifs-legacy' ),
 			'section'		=> 'ifs_legacy_section_font_options',
 			'setting'		=> 'ifs_legacy_h1_font_size',
 			'priority'		=> 10
@@ -438,7 +502,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'ifs_legacy_h2_font_size', array(
 			'type'			=> 'number',
 			'label'			=> esc_html__( 'Heading 2 Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your heading 2 font.', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your heading 2 font. In pixel (px).', 'ifs-legacy' ),
 			'section'		=> 'ifs_legacy_section_font_options',
 			'setting'		=> 'ifs_legacy_h2_font_size',
 			'priority'		=> 10
@@ -485,7 +549,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'ifs_legacy_h3_font_size', array(
 			'type'			=> 'number',
 			'label'			=> esc_html__( 'Heading 3 Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your heading 3 font.', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your heading 3 font. In pixel (px).', 'ifs-legacy' ),
 			'section'		=> 'ifs_legacy_section_font_options',
 			'setting'		=> 'ifs_legacy_h3_font_size',
 			'priority'		=> 10
@@ -532,7 +596,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'ifs_legacy_h4_font_size', array(
 			'type'			=> 'number',
 			'label'			=> esc_html__( 'Heading 4 Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your heading 4 font.', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your heading 4 font. In pixel (px).', 'ifs-legacy' ),
 			'section'		=> 'ifs_legacy_section_font_options',
 			'setting'		=> 'ifs_legacy_h4_font_size',
 			'priority'		=> 10
@@ -579,7 +643,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'ifs_legacy_h5_font_size', array(
 			'type'			=> 'number',
 			'label'			=> esc_html__( 'Heading 5 Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your heading 5 font.', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your heading 5 font. In pixel (px).', 'ifs-legacy' ),
 			'section'		=> 'ifs_legacy_section_font_options',
 			'setting'		=> 'ifs_legacy_h5_font_size',
 			'priority'		=> 10
@@ -626,7 +690,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'ifs_legacy_h6_font_size', array(
 			'type'			=> 'number',
 			'label'			=> esc_html__( 'Heading 6 Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your heading 6 font.', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your heading 6 font. In pixel (px).', 'ifs-legacy' ),
 			'section'		=> 'ifs_legacy_section_font_options',
 			'setting'		=> 'ifs_legacy_h6_font_size',
 			'priority'		=> 10
@@ -647,6 +711,40 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'choices'		=> ifs_legacy_theme_font_weight_options(),
 			'priority'		=> 10
 		) );
+
+
+    $wp_customize->add_section( 'ifs_legacy_section_text_color_options', array(
+	        'title' => esc_html__( 'Colors', 'ifs-legacy' ),
+	        'description' => esc_html__( 'This is a section for the text color options.', 'ifs-legacy' ),
+	        'priority' => 20,
+            'panel' => 'ifs_legacy_panel_general_setting'
+	    )
+	);
+
+        $wp_customize->add_setting( 'ifs_legacy_general_text_color', array(
+            'default' 	=> '',
+            'transport'	=> 'refresh',
+            'sanitize_callback'	=> 'esc_attr'
+        ));
+
+        $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_general_text_color', array(
+	        'label'		=> esc_html__('General Text Color', 'ifs-legacy'),
+	        'section'	=> 'ifs_legacy_section_text_color_options',
+	        'setting'	=> 'ifs_legacy_general_text_color'
+	    )));
+
+        $wp_customize->add_setting( 'ifs_legacy_general_link_color', array(
+            'default' 	=> '',
+            'transport'	=> 'refresh',
+            'sanitize_callback'	=> 'esc_attr'
+        ));
+
+        $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_general_link_color', array(
+	        'label'		=> esc_html__('General Link Color', 'ifs-legacy'),
+	        'section'	=> 'ifs_legacy_section_text_color_options',
+	        'setting'	=> 'ifs_legacy_general_link_color'
+	    )));
+
 
 	$wp_customize->add_panel( 'ifs_legacy_panel_header_setting', array(
 		    'priority' => 10,
@@ -689,7 +787,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 	    $wp_customize->add_setting( 'ifs_legacy_top_bar_1_text', array(
 			'default'		=> '',
 			'transport'	=> 'postMessage',
-	        'sanitize_callback'	=> 'esc_textarea'
+	        'sanitize_callback'	=> 'ifs_legacy_custom_wp_kses'
 		));
 
 	    $wp_customize->add_control( 'ifs_legacy_top_bar_1_text', array(
@@ -698,6 +796,26 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'label'			=> __( 'Top Bar 1 Text', 'ifs-legacy' ),
 			'description'	=> __( 'Input the content if you select "Text" as the content.', 'ifs-legacy' ),
 	        'type'          => 'textarea'
+		));
+
+        $wp_customize->add_setting( 'ifs_legacy_top_bar_1_position', array(
+			'default'		=> '',
+	        'transport'	=> 'refresh',
+	        'sanitize_callback'	=> 'esc_attr'
+		));
+
+	    $wp_customize->add_control( 'ifs_legacy_top_bar_1_position', array(
+			'settings'		=> 'ifs_legacy_top_bar_1_position',
+			'section'		=> 'ifs_legacy_section_top_bar_options',
+			'label'			=> __( 'Top Bar 1 Position', 'ifs-legacy' ),
+			'description'	=> __( 'Select the position of the top bar 1.', 'ifs-legacy' ),
+	        'type'          => 'select',
+	        'choices'       => array(
+	            ''              => __( 'Default', 'ifs-legacy' ),
+	            'left'          => __( 'Left', 'ifs-legacy' ),
+				'center'        => __( 'Center', 'ifs-legacy' ),
+	            'right'         => __( 'Right', 'ifs-legacy' )
+	        )
 		));
 
 	    $wp_customize->add_setting( 'ifs_legacy_top_bar_2_content', array(
@@ -718,7 +836,7 @@ function ifs_legacy_customize_register( $wp_customize ) {
 	    $wp_customize->add_setting( 'ifs_legacy_top_bar_2_text', array(
 			'default'		=> '',
 			'transport'	=> 'postMessage',
-	        'sanitize_callback'	=> 'esc_textarea'
+	        'sanitize_callback'	=> 'ifs_legacy_custom_wp_kses'
 		));
 
 	    $wp_customize->add_control( 'ifs_legacy_top_bar_2_text', array(
@@ -727,6 +845,26 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'label'			=> __( 'Top Bar 2 Text', 'ifs-legacy' ),
 			'description'	=> __( 'Input the content if you select "Text" as the content.', 'ifs-legacy' ),
 	        'type'          => 'textarea'
+		));
+
+        $wp_customize->add_setting( 'ifs_legacy_top_bar_2_position', array(
+			'default'		=> '',
+	        'transport'	=> 'refresh',
+	        'sanitize_callback'	=> 'esc_attr'
+		));
+
+	    $wp_customize->add_control( 'ifs_legacy_top_bar_2_position', array(
+			'settings'		=> 'ifs_legacy_top_bar_2_position',
+			'section'		=> 'ifs_legacy_section_top_bar_options',
+			'label'			=> __( 'Top Bar 2 Position', 'ifs-legacy' ),
+			'description'	=> __( 'Select the position of the top bar 1.', 'ifs-legacy' ),
+	        'type'          => 'select',
+	        'choices'       => array(
+	            ''              => __( 'Default', 'ifs-legacy' ),
+	            'left'          => __( 'Left', 'ifs-legacy' ),
+				'center'        => __( 'Center', 'ifs-legacy' ),
+	            'right'         => __( 'Right', 'ifs-legacy' )
+	        )
 		));
 
 	    $wp_customize->add_setting( 'ifs_legacy_top_bar_text_color', array(
@@ -1006,8 +1144,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
 	    $wp_customize->add_setting( 'ifs_legacy_footer_bar_1_text', array(
 			'default'		=> '',
-			'transport'	=> 'postMessage',
-	        'sanitize_callback'	=> 'esc_textarea'
+			'transport'	=> 'refresh',
+	    'sanitize_callback'	=> 'ifs_legacy_custom_wp_kses'
 		));
 
 	    $wp_customize->add_control( 'ifs_legacy_footer_bar_1_text', array(
@@ -1035,8 +1173,8 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
 	    $wp_customize->add_setting( 'ifs_legacy_footer_bar_2_text', array(
 			'default'		=> '',
-			'transport'	=> 'postMessage',
-	        'sanitize_callback'	=> 'esc_textarea'
+			'transport'	=> 'refresh',
+	        'sanitize_callback'	=> 'ifs_legacy_custom_wp_kses'
 		));
 
 	    $wp_customize->add_control( 'ifs_legacy_footer_bar_2_text', array(
@@ -1098,7 +1236,6 @@ function ifs_legacy_customize_register( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'ifs_legacy_customize_register' );
-
 
 /**
  * get the custom font options data
@@ -1171,7 +1308,8 @@ function ifs_legacy_theme_font_default(){
 function ifs_legacy_theme_font_options(){
 	return apply_filters( 'ifs_legacy_theme_font_options', array(
 		'ifs_legacy_chosen_custom_font_1' => esc_html__('Primary Chosen Font', 'ifs-legacy'),
-		'ifs_legacy_chosen_custom_font_2' => esc_html__('Secondary Chosen Font', 'ifs-legacy')
+		'ifs_legacy_chosen_custom_font_2' => esc_html__('Secondary Chosen Font', 'ifs-legacy'),
+		'ifs_legacy_chosen_custom_font_3' => esc_html__('Tertiary Chosen Font', 'ifs-legacy')
 	));
 }
 
@@ -1186,10 +1324,10 @@ function ifs_legacy_theme_font_weight_options(){
 		'100'	=> esc_html__('100', 'ifs-legacy'),
 		'200'	=> esc_html__('200', 'ifs-legacy'),
 		'300'	=> esc_html__('300', 'ifs-legacy'),
-		'400'	=> esc_html__('400', 'ifs-legacy'),
+		'400'	=> esc_html__('400 (Normal)', 'ifs-legacy'),
 		'500'	=> esc_html__('500', 'ifs-legacy'),
 		'600'	=> esc_html__('600', 'ifs-legacy'),
-		'700'	=> esc_html__('700', 'ifs-legacy'),
+		'700'	=> esc_html__('700 (Bold)', 'ifs-legacy'),
 		'800'	=> esc_html__('800', 'ifs-legacy'),
 		'900'	=> esc_html__('900', 'ifs-legacy')
 	));

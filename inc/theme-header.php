@@ -145,7 +145,7 @@ add_action('ifs_legacy_top_bar_col_2', 'ifs_legacy_content_top_col_2', 10);
 function ifs_legacy_print_top_text_1(){
     $ifs_legacy_top_text = get_theme_mod( 'ifs_legacy_top_bar_1_text', '' );
     ?>
-    <div class="top-info"><?php echo esc_html( $ifs_legacy_top_text ); ?></div>
+    <div class="top-info"><?php echo ifs_legacy_custom_wp_kses( $ifs_legacy_top_text ); ?></div>
     <?php
 }
 
@@ -186,7 +186,7 @@ function ifs_legacy_top_menu(){
 function ifs_legacy_print_top_text_2(){
     $ifs_legacy_top_text = get_theme_mod( 'ifs_legacy_top_bar_2_text', '' );
     ?>
-    <div class="top-info"><?php echo esc_html( $ifs_legacy_top_text ); ?></div>
+    <div class="top-info"><?php echo ifs_legacy_custom_wp_kses( $ifs_legacy_top_text ); ?></div>
     <?php
 }
 
@@ -200,12 +200,30 @@ function ifs_legacy_print_top_widget_2(){
 }
 
 /**
+ * hook for theme before header
+ *
+ * @uses do_action()
+ */
+function ifs_legacy_theme_before_header(){
+	do_action('ifs_legacy_theme_before_header');
+}
+
+/**
  * hook for theme header
  *
  * @uses ifs_legacyt_theme_header()
  */
 function ifs_legacy_theme_header(){
 	do_action('ifs_legacy_theme_header');
+}
+
+/**
+ * hook for theme after header
+ *
+ * @uses do_action()
+ */
+function ifs_legacy_theme_after_header(){
+	do_action('ifs_legacy_theme_after_header');
 }
 
 /**
@@ -365,6 +383,25 @@ function ifs_legacy_header_add_body_class( $classes ){
 	$classes[]  = $ifs_legacy_header_mod['name'];
 	$classes[]  = $ifs_legacy_header_mod['name'].'-css';
 
+	if( ifs_legacy_show_header_title() ){
+		$classes[]	= 'ifs-show-title';
+	}else{
+		$classes[]	= 'ifs-no-show-title';
+	}
+
+	if( ifs_legacy_have_ext_slider() ){
+		$classes[]	= 'ifs-show-slider';
+	}else{
+		$classes[]	= 'ifs-no-show-slider';
+	}
+
+	if( trim( ifs_legacy_position_title() ) ){
+		$classes[] = 'ifs-title-'.ifs_legacy_position_title();
+	}else{
+		$classes[] = 'ifs-title-default';
+	}
+
+
 	return apply_filters('ifs_legacy_header_add_body_class', $classes);
 }
 
@@ -465,10 +502,10 @@ function ifs_legacy_bg_color_title(){
  * @uses ifs_legacy_position_title()
  */
 function ifs_legacy_position_title(){
-	$ifs_pos_title		= get_theme_mod('ifs_legacy_page_title_position');
+	$ifs_pos_title	= get_theme_mod('ifs_legacy_page_title_position');
 
 	$post_id 		= ifs_legacy_get_postid();
-	$pos_title 	= get_post_meta( $post_id, 'ifs_position_title', true);
+	$pos_title 		= get_post_meta( $post_id, 'ifs_position_title', true);
 
 	if($pos_title != ''){
 		$ifs_pos_title = $pos_title;
@@ -507,14 +544,28 @@ function ifs_legacy_get_template_header_title(){
 add_action('ifs_legacy_header_title', 'ifs_legacy_get_template_header_title', 15);
 
 /**
- * display external slider
+ * check if have external slider or not
  *
- * @uses ifs_legacy_display_ext_slider()
+ * @uses ifs_legacy_get_postid()
  */
-function ifs_legacy_display_ext_slider(){
+function ifs_legacy_have_ext_slider(){
 
 	$post_id 		= ifs_legacy_get_postid();
 	$pos_slider 	= get_post_meta( $post_id, 'ifs_ext_slider', true);
+
+	return trim($pos_slider)!='' ? $pos_slider : "";
+
+}
+
+/**
+ * display external slider
+ *
+ * @uses ifs_legacy_have_ext_slider()
+ * @uses do_shortcode()
+ */
+function ifs_legacy_display_ext_slider(){
+
+	$pos_slider 	= ifs_legacy_have_ext_slider();
 	if( $pos_slider!='' ){
 		echo '<div class="ext_slider_container">';
 			echo do_shortcode( $pos_slider );
@@ -618,6 +669,14 @@ add_action('ifs_legacy_the_title','ifs_legacy_the_header_desc',25);
 if( !function_exists('ifs_legacy_header_css_output') ){
 	function ifs_legacy_header_css_output(){
 
+		$topbar_1_pos		= get_theme_mod('ifs_legacy_top_bar_1_position');
+		$topbar_2_pos		= get_theme_mod('ifs_legacy_top_bar_2_position');
+		$topbar_link_color	= get_theme_mod('ifs_legacy_top_bar_link_color');
+		$topbar_text_color	= get_theme_mod('ifs_legacy_top_bar_text_color');
+		$topbar_link_color	= get_theme_mod('ifs_legacy_top_bar_link_color');
+		$topbar_bg_color	= get_theme_mod('ifs_legacy_top_bar_background_color');
+		$topbar_bg_image	= get_theme_mod('ifs_legacy_top_bar_background_image');
+
 		$header_text_color	= get_header_textcolor();
 		$header_bg_color	= get_theme_mod('ifs_legacy_header_background_color');
 		$header_border_color= get_theme_mod('ifs_legacy_header_border_color');
@@ -633,6 +692,45 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 
 		// If we get this far, we have custom styles. Let's do this.
 		$output_css = '';
+
+		if( $topbar_1_pos!=''){
+			$output_css .= '.ifs .top_col_1 *{
+				text-align: '. esc_attr( $topbar_1_pos ).';
+			}';
+		}
+
+		if( $topbar_2_pos!=''){
+			$output_css .= '.ifs .top_col_2 *{
+				text-align: '. esc_attr( $topbar_2_pos ).';
+			}';
+		}
+
+		if( $topbar_text_color!=''){
+			$output_css .= '.ifs .site-before-header{
+				color: '. esc_attr( $topbar_text_color ).';
+			}';
+		}
+
+		if( $topbar_link_color!=''){
+			$output_css .= '.ifs .site-before-header a, .ifs .site-before-header a:visited{
+				color: '. esc_attr( $topbar_link_color ).';
+			}
+			.ifs site-before-header a:hover{
+				text-decoration:underline;
+			}';
+		}
+
+		if( $topbar_bg_color!=''){
+			$output_css .= '.ifs .site-before-header{
+				background-color: '. esc_attr( $topbar_bg_color ).';
+			}';
+		}
+
+		if($topbar_bg_image!='' && $topbar_bg_image!='remove-image' && $topbar_bg_image!='remove-header'){
+			$output_css .= '.ifs .site-before-header{
+				background-image: url('. esc_attr( $topbar_bg_image ).');
+			}';
+		}
 
 		// Has the text been hidden?
 		if ( ! display_header_text() ){
@@ -666,7 +764,7 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 			}';
 		}
 
-		if($header_bg_image!='' && $header_bg_image!='remove-image'){
+		if($header_bg_image!='' && $header_bg_image!='remove-image' && $header_bg_image!='remove-header'){
 			$output_css .= '#header-container{
 				background-image: url('. esc_attr( $header_bg_image ).');
 			}';

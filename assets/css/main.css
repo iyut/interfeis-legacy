@@ -259,10 +259,6 @@ textarea {
 	line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	clear: both;
-}
-
 p {
 	margin-bottom: 1.5em;
 }
@@ -326,7 +322,7 @@ html {
 }
 
 body {
-	background: #f5f5f5;
+	background: #ffffff;
 	/* Fallback for when there is no custom background color defined. */
 }
 
@@ -441,7 +437,7 @@ textarea {
 	color: #666;
 	border: 0;
 	background-color:transparent;
-	border-bottom: 2px solid #d0d0d0;
+	border: 1px solid rgba(0,0,0,0.17);
 	border-radius: 0;
 	padding: 5px 0;
 }
@@ -486,6 +482,7 @@ select:after{
 
 textarea {
 	width: 100%;
+	padding:10px;
 }
 
 /*--------------------------------------------------------------
@@ -834,6 +831,14 @@ body.ifs-content-full-width-no-padding #content-container{
 	max-width:none;
 	padding:0px;
 }
+body.ifs-content-full-width-no-padding #content-container > .row{
+	margin-left:0;
+	margin-right:0;
+}
+body.ifs-content-full-width-no-padding #content-container > .row > .site-content{
+	padding-left:0;
+	padding-right:0;
+}
 .site-content{
 	margin:4em 0;
 }
@@ -917,6 +922,7 @@ body.ifs-content-full-width-no-padding #content-container{
 
 article.post{
 	background-color:#fff;
+	border:1px solid rgba(0,0,0,0.1);
 	padding:5.34em 6.67em
 }
 
@@ -952,6 +958,35 @@ article.post .entry-title a:visited{
 	background-color:#fff;
 	padding:5.34em 6.67em;
 	margin-bottom:2em;
+}
+
+.related-posts-container{
+	padding:30px 0;
+	border-top:1px solid #f1f2f4;
+}
+
+.related-posts-container .related-posts-title{
+	margin-bottom:35px;
+	text-align:center;
+	font-size:1.2858rem;
+}
+
+.related-posts-container .content-related{
+	padding:0 15px;
+	background:none;
+}
+
+.related-posts-container .content-related .entry-image{
+	margin-bottom:50px;
+}
+
+.related-posts-container .content-related .entry-header{
+	padding:0 0 30px;
+}
+
+.related-posts-container .content-related .entry-title{
+	font-size:1em;
+	line-height:1.7em;
 }
 
 /*--------------------------------------------------------------
