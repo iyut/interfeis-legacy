@@ -76,17 +76,21 @@ Header Name: Header 2
 .site-header .site-title{
 	font-size:2em;
 	font-weight:700;
-	margin-top:0.67em;
+	margin-top:0em;
 	margin-bottom:0em;
 }
 
-.site-header .site-title.logo-img{
-	margin-top:0;
+.site-header .site-title.noh1{
+
 }
 
 .site-header .site-title a{
 	color:#3a3a3a;
 	text-decoration:none;
+}
+
+.site-header .site-description{
+	margin:0;
 }
 
 .site-header .main-navigation{

@@ -69,17 +69,19 @@ Header Name: Header 1
 	order:1;
 	padding-left:15px;
 	padding-right:15px;
+	padding-top:15px;
+	padding-bottom:15px;
 }
 
 .site-header .site-title{
 	font-size:2em;
 	font-weight:700;
-	margin-top:0.67em;
+	margin-top:0em;
 	margin-bottom:0em;
 }
 
-.site-header .site-title.logo-img{
-	margin-top:0;
+.site-header .site-title.noh1{
+
 }
 
 .site-header .site-title a{
@@ -87,6 +89,9 @@ Header Name: Header 1
 	text-decoration:none;
 }
 
+.site-header .site-description{
+	margin:0;
+}
 
 .site-header .main-navigation{
 	order:2;
