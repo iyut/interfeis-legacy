@@ -36,6 +36,10 @@ Header Name: Header 4
 	margin-bottom:0em;
 }
 
+.site-header .site-title.logo-img{
+	margin-top:0;
+}
+
 .site-header .site-title a{
 	color:#3a3a3a;
 	text-decoration:none;
