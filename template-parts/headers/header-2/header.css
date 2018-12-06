@@ -14,6 +14,14 @@ Header Name: Header 2
 	padding-bottom:4px;
 }
 
+.top_col_1 *{
+	text-align:left;
+}
+
+.top_col_2 *{
+	text-align:right;
+}
+
 .top-info{
 	font-size:0.8em;
 }

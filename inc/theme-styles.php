@@ -113,7 +113,9 @@ if( !function_exists('ifs_legacy_generate_stylesheet') ){
     function ifs_legacy_generate_stylesheet(){
         $output_css = '';
 
-		$output_css .= ifs_legacy_print_all_font_css();
+        $output_css .= ifs_legacy_print_all_font_css();
+
+		$output_css .= ifs_legacy_print_general_color_css();
 
         $output_css .= ifs_legacy_header_css_output();
 

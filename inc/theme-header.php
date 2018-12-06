@@ -669,6 +669,14 @@ add_action('ifs_legacy_the_title','ifs_legacy_the_header_desc',25);
 if( !function_exists('ifs_legacy_header_css_output') ){
 	function ifs_legacy_header_css_output(){
 
+		$topbar_1_pos		= get_theme_mod('ifs_legacy_top_bar_1_position');
+		$topbar_2_pos		= get_theme_mod('ifs_legacy_top_bar_2_position');
+		$topbar_link_color	= get_theme_mod('ifs_legacy_top_bar_link_color');
+		$topbar_text_color	= get_theme_mod('ifs_legacy_top_bar_text_color');
+		$topbar_link_color	= get_theme_mod('ifs_legacy_top_bar_link_color');
+		$topbar_bg_color	= get_theme_mod('ifs_legacy_top_bar_background_color');
+		$topbar_bg_image	= get_theme_mod('ifs_legacy_top_bar_background_image');
+
 		$header_text_color	= get_header_textcolor();
 		$header_bg_color	= get_theme_mod('ifs_legacy_header_background_color');
 		$header_border_color= get_theme_mod('ifs_legacy_header_border_color');
@@ -684,6 +692,45 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 
 		// If we get this far, we have custom styles. Let's do this.
 		$output_css = '';
+
+		if( $topbar_1_pos!=''){
+			$output_css .= '.ifs .top_col_1 *{
+				text-align: '. esc_attr( $topbar_1_pos ).';
+			}';
+		}
+
+		if( $topbar_2_pos!=''){
+			$output_css .= '.ifs .top_col_2 *{
+				text-align: '. esc_attr( $topbar_2_pos ).';
+			}';
+		}
+
+		if( $topbar_text_color!=''){
+			$output_css .= '.ifs .site-before-header{
+				color: '. esc_attr( $topbar_text_color ).';
+			}';
+		}
+
+		if( $topbar_link_color!=''){
+			$output_css .= '.ifs .site-before-header a, .ifs .site-before-header a:visited{
+				color: '. esc_attr( $topbar_link_color ).';
+			}
+			.ifs site-before-header a:hover{
+				text-decoration:underline;
+			}';
+		}
+
+		if( $topbar_bg_color!=''){
+			$output_css .= '.ifs .site-before-header{
+				background-color: '. esc_attr( $topbar_bg_color ).';
+			}';
+		}
+
+		if($topbar_bg_image!='' && $topbar_bg_image!='remove-image' && $topbar_bg_image!='remove-header'){
+			$output_css .= '.ifs .site-before-header{
+				background-image: url('. esc_attr( $topbar_bg_image ).');
+			}';
+		}
 
 		// Has the text been hidden?
 		if ( ! display_header_text() ){
