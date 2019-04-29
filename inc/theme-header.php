@@ -658,7 +658,7 @@ function ifs_legacy_get_the_header_desc(){
  * @uses ifs_legacy_get_the_header_desc()
  */
 function ifs_legacy_the_header_desc(){
-	if( ifs_legacy_get_the_header_desc() ){
+	if( ifs_legacy_get_the_header_desc() == '' ){
 		echo '';
 	}else{
 		echo '<div class="page-desc"><span>' . ifs_legacy_get_the_header_desc() . '</span></div>';

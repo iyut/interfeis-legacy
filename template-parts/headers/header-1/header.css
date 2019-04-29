@@ -75,7 +75,8 @@ Header Name: Header 1
 
 .site-header .site-title{
 	font-size:2em;
-	font-weight:700;
+	font-weight:400;
+	text-transform: uppercase;
 	margin-top:0em;
 	margin-bottom:0em;
 }
@@ -120,8 +121,8 @@ Header Name: Header 1
 }
 
 .site-header .main-navigation li a{
-	color:#3a3a3a;
-	font-weight:700;
+	color:#000;
+	font-weight:400;
 }
 
 .site-header .main-navigation ul.nav-menu > li.menu-item-has-children,
