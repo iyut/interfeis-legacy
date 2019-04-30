@@ -753,10 +753,11 @@ a:hover, a:active {
 }
 
 .widget-title {
-	font-size:1.3em;
-    font-weight: 400;
+	font-size:1.2em;
+    font-weight: 600;
     margin-bottom: 1em;
     line-height: 1.5;
+    letter-spacing: -1px;
 }
 
 .widget ul {
@@ -1036,8 +1037,20 @@ article.post .entry-title a:visited{
 	border-width:0px 0px 1px 0px;
 	border-style: solid;
 	border-color:#dedede;
-	padding:0 0 1.5em 0;
+	padding:0 0 1.5em 42px;
 	margin:0 0 1.5em 0;
+	position:relative;
+}
+
+.comment-list .comment-avatar{
+	display:inline-block;
+	border-radius:50%;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	overflow:hidden;
+	position:absolute;
+	left:0px;
+	top:0px;
 }
 
 .comment-list .comment-meta{
@@ -1050,6 +1063,11 @@ article.post .entry-title a:visited{
 
 .bypostauthor {
 	display: block;
+}
+
+.comment-list .children{
+	padding-left:0px;
+	margin-left:42px;
 }
 
 /*--------------------------------------------------------------

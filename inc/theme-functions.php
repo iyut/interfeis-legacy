@@ -424,11 +424,13 @@ if( !function_exists( 'ifs_legacy_list_comment' ) ){
 		<?php } ?>
 
 	        <div class="comment-author vcard">
-			<?php 
-	            	
-	            	if ( $args['avatar_size'] != 0 ) {
-	                	echo get_avatar( $comment, $args['avatar_size'] ); 
-	            	}
+			<?php if ( $args['avatar_size'] != 0 ) { ?>
+
+				<span class="comment-avatar">
+	                	<?php echo get_avatar( $comment, $args['avatar_size'] ); ?>
+	            </span> 
+
+			<?php }
 
 			printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); 
 
