@@ -930,8 +930,8 @@ body.ifs-content-full-width-no-padding #content-container > .row > .site-content
 
 article.post{
 	background-color:#fff;
-	border:1px solid rgba(0,0,0,0.1);
-	padding:5.34em 6.67em
+	border:0px;
+	padding:0px;
 }
 
 article.post a,
@@ -944,9 +944,18 @@ article.post .entry-title a:visited{
 	color:#333;
 }
 
+.hentry .entry-meta > *{
+	display:inline-block;
+	margin-right:1em;
+	font-family:serif;
+	font-style:italic;
+}
+
 .entry-footer span{
 	display:inline-block;
 	margin-right:1em;
+	font-family:serif;
+	font-style:italic;
 }
 
 /*--------------------------------------------------------------
@@ -954,7 +963,7 @@ article.post .entry-title a:visited{
 --------------------------------------------------------------*/
 .single-main > .hentry{
 	background-color:#fff;
-	padding:5.34em 6.67em;
+	padding:0px;
 	margin-bottom:2em;
 }
 
@@ -964,7 +973,7 @@ article.post .entry-title a:visited{
 
 .single-main > .comments-area{
 	background-color:#fff;
-	padding:5.34em 6.67em;
+	padding:0;
 	margin-bottom:2em;
 }
 
@@ -977,6 +986,8 @@ article.post .entry-title a:visited{
 	margin-bottom:35px;
 	text-align:center;
 	font-size:1.2858rem;
+	font-family:serif;
+	font-style:italic;
 }
 
 .related-posts-container .content-related{
@@ -995,6 +1006,17 @@ article.post .entry-title a:visited{
 .related-posts-container .content-related .entry-title{
 	font-size:1em;
 	line-height:1.7em;
+}
+
+.related-posts-container .content-related:after{
+	content:"";
+	display:block;
+	position:absolute;
+	bottom:0px;
+	left:15px;
+	right:15px;
+	height:1px;
+	background-color:#000;
 }
 
 /*--------------------------------------------------------------
