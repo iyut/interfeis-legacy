@@ -75,7 +75,8 @@ Header Name: Header 2
 
 .site-header .site-title{
 	font-size:2em;
-	font-weight:700;
+	font-weight:400;
+	text-transform: uppercase;
 	margin-top:0em;
 	margin-bottom:0em;
 }
