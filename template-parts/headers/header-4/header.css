@@ -33,7 +33,8 @@ Header Name: Header 4
 
 .site-header .site-title{
 	font-size:2em;
-	font-weight:700;
+	font-weight:400;
+	text-transform: uppercase;
 	margin-top:0em;
 	margin-bottom:0em;
 }
@@ -79,7 +80,7 @@ Header Name: Header 4
 
 .site-header .main-navigation li a{
 	color:#3a3a3a;
-	font-weight:700;
+	font-weight:400;
 }
 
 .site-header .main-navigation ul.nav-menu > li.menu-item-has-children,
@@ -200,6 +201,7 @@ Header Name: Header 4
 		display:inline-block;
 		padding:0px;
 		border:0px;
+		color:#333;
 		background:transparent;
 		font-size:1.3em;
 	}
@@ -230,6 +232,7 @@ Header Name: Header 4
 		padding:0px;
 		margin:0px;
 		border:0px;
+		color:#333;
 		background-color:transparent;
 		font-size:2em;
 		outline:none;

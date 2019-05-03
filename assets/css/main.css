@@ -1023,6 +1023,9 @@ article.post .entry-title a:visited{
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+.comments-area .comments-title{
+	margin-bottom:30px;
+}
 .comment-list{
 	margin:0px;
 	padding:0px;
