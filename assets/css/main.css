@@ -754,10 +754,12 @@ a:hover, a:active {
 
 .widget-title {
 	font-size:1.2em;
-    font-weight: 600;
+    font-weight: 300;
     margin-bottom: 1em;
     line-height: 1.5;
-    letter-spacing: -1px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color:#999;
 }
 
 .widget ul {
