@@ -69,18 +69,29 @@ Header Name: Header 1
 	order:1;
 	padding-left:15px;
 	padding-right:15px;
+	padding-top:15px;
+	padding-bottom:15px;
 }
 
 .site-header .site-title{
-	font-size:2em;
-	font-weight:700;
-	margin-top:0.67em;
+	font-size:3.8em;
+	font-weight:400;
+	text-transform: uppercase;
+	margin-top:0em;
 	margin-bottom:0em;
+}
+
+.site-header .site-title.noh1{
+
 }
 
 .site-header .site-title a{
 	color:#3a3a3a;
 	text-decoration:none;
+}
+
+.site-header .site-description{
+	margin:0;
 }
 
 .site-header .main-navigation{
@@ -110,8 +121,19 @@ Header Name: Header 1
 }
 
 .site-header .main-navigation li a{
-	color:#3a3a3a;
-	font-weight:700;
+	color:#999;
+	letter-spacing:1px;
+	font-weight:400;
+}
+
+.site-header .main-navigation li.current-menu-item a,
+.site-header .main-navigation li.current_page_item a,
+.site-header .main-navigation li.current-menu-parent a,
+.site-header .main-navigation li.current_page_parent a,
+.site-header .main-navigation li.current-menu-ancestor a,
+.site-header .main-navigation li.current_page_ancestor a,
+.site-header .main-navigation li a:hover{
+	color:#000;
 }
 
 .site-header .main-navigation ul.nav-menu > li.menu-item-has-children,
