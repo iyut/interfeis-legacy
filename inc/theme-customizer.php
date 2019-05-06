@@ -335,6 +335,100 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'priority'		=> 10
 		) );
 
+		$wp_customize->add_setting( 'ifs_legacy_sitetitle_font', array(
+			'default'           => ifs_legacy_theme_font_default(),
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitetitle_font', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Site Title Font', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the primary or secondary chosen font for site title font.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_font_options',
+			'setting'		=> 'ifs_legacy_sitetitle_font',
+			'choices'		=> ifs_legacy_theme_font_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_sitetitle_font_size', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitetitle_font_size', array(
+			'type'			=> 'number',
+			'label'			=> esc_html__( 'Site Title Font Size', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your site title font. In pixel (px).', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_font_options',
+			'setting'		=> 'ifs_legacy_sitetitle_font_size',
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_sitetitle_font_weight', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitetitle_font_weight', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Site Title Font Weight', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the font weight for site title.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_font_options',
+			'setting'		=> 'ifs_legacy_sitetitle_font_weight',
+			'choices'		=> ifs_legacy_theme_font_weight_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_sitedesc_font', array(
+			'default'           => ifs_legacy_theme_font_default(),
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitedesc_font', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Site Description Font', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the primary or secondary chosen font for site description font.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_font_options',
+			'setting'		=> 'ifs_legacy_sitedesc_font',
+			'choices'		=> ifs_legacy_theme_font_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_sitedesc_font_size', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitedesc_font_size', array(
+			'type'			=> 'number',
+			'label'			=> esc_html__( 'Site Description Font Size', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your site description font. In pixel (px).', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_font_options',
+			'setting'		=> 'ifs_legacy_sitedesc_font_size',
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_sitedesc_font_weight', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitedesc_font_weight', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Site Description Font Weight', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the font weight for site description.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_font_options',
+			'setting'		=> 'ifs_legacy_sitedesc_font_weight',
+			'choices'		=> ifs_legacy_theme_font_weight_options(),
+			'priority'		=> 10
+		) );
+
 		$wp_customize->add_setting( 'ifs_legacy_menu_font', array(
 			'default'           => ifs_legacy_theme_font_default(),
 			'sanitize_callback' => 'esc_attr',
