@@ -679,7 +679,11 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 
 		$header_text_color	= get_header_textcolor();
 		$header_bg_color	= get_theme_mod('ifs_legacy_header_background_color');
-		$header_border_color= get_theme_mod('ifs_legacy_header_border_color');
+		$header_border_color 	= get_theme_mod('ifs_legacy_header_border_color');
+		$menu_color		= get_theme_mod('ifs_legacy_header_menu_color');
+		$menuactive_color	= get_theme_mod('ifs_legacy_header_menuactive_color');
+		$submenu_color		= get_theme_mod('ifs_legacy_header_submenu_color');
+		$submenuactive_color	= get_theme_mod('ifs_legacy_header_submenuactive_color');
 		$header_bg_image	= ifs_legacy_display_bg_header();
 
 		$title_bg_color		= ifs_legacy_bg_color_title();
@@ -761,6 +765,45 @@ if( !function_exists('ifs_legacy_header_css_output') ){
 		if( $header_border_color!=''){
 			$output_css .= 'body.ifs .site-header{
 				border-color: '. esc_attr( $header_border_color ).';
+			}';
+		}
+
+		if( $menu_color!=''){
+
+			$output_css .= 'body.ifs .site-header .main-navigation ul.nav-menu > li > a{
+				color: '. esc_attr( $menu_color ).';
+			}';
+
+		}
+
+		if( $menuactive_color!=''){
+
+			$output_css .= 'body.ifs .site-header .main-navigation ul.nav-menu > li.current-menu-item a,
+			body.ifs .site-header .main-navigation ul.nav-menu > li.current_page_item a,
+			body.ifs .site-header .main-navigation ul.nav-menu > li.current-menu-parent a,
+			body.ifs .site-header .main-navigation ul.nav-menu > li.current_page_parent a,
+			body.ifs .site-header .main-navigation ul.nav-menu > li.current-menu-ancestor a,
+			body.ifs .site-header .main-navigation ul.nav-menu > li.current_page_ancestor a,
+			body.ifs .site-header .main-navigation ul.nav-menu > li a:hover{
+				color: '. esc_attr( $menuactive_color ).';
+			}';
+		}
+
+		if( $submenu_color!=''){
+
+			$output_css .= 'body.ifs .site-header .main-navigation ul.nav-menu li li a{
+				color: '. esc_attr( $submenu_color ).';
+			}';
+		}
+
+		if( $submenuactive_color!=''){
+
+			$output_css .= 'body.ifs .site-header .main-navigation ul.nav-menu li li.current-menu-item a,
+			body.ifs .site-header .main-navigation ul.nav-menu li li.current_page_item a,
+			body.ifs .site-header .main-navigation ul.nav-menu li li.current-menu-parent a,
+			body.ifs .site-header .main-navigation ul.nav-menu li li.current_page_parent a,
+			body.ifs .site-header .main-navigation ul.nav-menu li li a:hover{
+				color: '. esc_attr( $submenuactive_color ).';
 			}';
 		}
 

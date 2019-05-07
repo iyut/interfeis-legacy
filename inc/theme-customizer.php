@@ -335,194 +335,6 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'priority'		=> 10
 		) );
 
-		$wp_customize->add_setting( 'ifs_legacy_sitetitle_font', array(
-			'default'           => ifs_legacy_theme_font_default(),
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_sitetitle_font', array(
-			'type'			=> 'select',
-			'label'			=> esc_html__( 'Site Title Font', 'ifs-legacy' ),
-			'description'	=> __( 'Choose the primary or secondary chosen font for site title font.', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_sitetitle_font',
-			'choices'		=> ifs_legacy_theme_font_options(),
-			'priority'		=> 10
-		) );
-
-		$wp_customize->add_setting( 'ifs_legacy_sitetitle_font_size', array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_sitetitle_font_size', array(
-			'type'			=> 'number',
-			'label'			=> esc_html__( 'Site Title Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your site title font. In pixel (px).', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_sitetitle_font_size',
-			'priority'		=> 10
-		) );
-
-		$wp_customize->add_setting( 'ifs_legacy_sitetitle_font_weight', array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_sitetitle_font_weight', array(
-			'type'			=> 'select',
-			'label'			=> esc_html__( 'Site Title Font Weight', 'ifs-legacy' ),
-			'description'	=> __( 'Choose the font weight for site title.', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_sitetitle_font_weight',
-			'choices'		=> ifs_legacy_theme_font_weight_options(),
-			'priority'		=> 10
-		) );
-
-		$wp_customize->add_setting( 'ifs_legacy_sitedesc_font', array(
-			'default'           => ifs_legacy_theme_font_default(),
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_sitedesc_font', array(
-			'type'			=> 'select',
-			'label'			=> esc_html__( 'Site Description Font', 'ifs-legacy' ),
-			'description'	=> __( 'Choose the primary or secondary chosen font for site description font.', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_sitedesc_font',
-			'choices'		=> ifs_legacy_theme_font_options(),
-			'priority'		=> 10
-		) );
-
-		$wp_customize->add_setting( 'ifs_legacy_sitedesc_font_size', array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_sitedesc_font_size', array(
-			'type'			=> 'number',
-			'label'			=> esc_html__( 'Site Description Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your site description font. In pixel (px).', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_sitedesc_font_size',
-			'priority'		=> 10
-		) );
-
-		$wp_customize->add_setting( 'ifs_legacy_sitedesc_font_weight', array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_sitedesc_font_weight', array(
-			'type'			=> 'select',
-			'label'			=> esc_html__( 'Site Description Font Weight', 'ifs-legacy' ),
-			'description'	=> __( 'Choose the font weight for site description.', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_sitedesc_font_weight',
-			'choices'		=> ifs_legacy_theme_font_weight_options(),
-			'priority'		=> 10
-		) );
-
-		$wp_customize->add_setting( 'ifs_legacy_menu_font', array(
-			'default'           => ifs_legacy_theme_font_default(),
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_menu_font', array(
-			'type'			=> 'select',
-			'label'			=> esc_html__( 'Menu Font', 'ifs-legacy' ),
-			'description'	=> __( 'Choose the primary or secondary chosen font for menu font.', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_menu_font',
-			'choices'		=> ifs_legacy_theme_font_options(),
-			'priority'		=> 10
-		) );
-
-		$wp_customize->add_setting( 'ifs_legacy_menu_font_size', array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_menu_font_size', array(
-			'type'			=> 'number',
-			'label'			=> esc_html__( 'Menu Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your menu font. In pixel (px).', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_menu_font_size',
-			'priority'		=> 10
-		) );
-
-		$wp_customize->add_setting( 'ifs_legacy_menu_font_weight', array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_menu_font_weight', array(
-			'type'			=> 'select',
-			'label'			=> esc_html__( 'Menu Font Weight', 'ifs-legacy' ),
-			'description'	=> __( 'Choose the font weight for menu.', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_menu_font_weight',
-			'choices'		=> ifs_legacy_theme_font_weight_options(),
-			'priority'		=> 10
-		) );
-
-    $wp_customize->add_setting( 'ifs_legacy_submenu_font', array(
-			'default'           => ifs_legacy_theme_font_default(),
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_submenu_font', array(
-			'type'			=> 'select',
-			'label'			=> esc_html__( 'Sub Menu Font', 'ifs-legacy' ),
-			'description'	=> __( 'Choose the primary or secondary chosen font for sub menu font.', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_submenu_font',
-			'choices'		=> ifs_legacy_theme_font_options(),
-			'priority'		=> 10
-		) );
-
-		$wp_customize->add_setting( 'ifs_legacy_submenu_font_size', array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_submenu_font_size', array(
-			'type'			=> 'number',
-			'label'			=> esc_html__( 'Sub Menu Font Size', 'ifs-legacy' ),
-			'description'	=> __( 'Input the font size for your sub menu font. In pixel (px).', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_menu_subfont_size',
-			'priority'		=> 10
-		) );
-
-		$wp_customize->add_setting( 'ifs_legacy_submenu_font_weight', array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_attr',
-	        'transport'         => 'refresh'
-		) );
-
-		$wp_customize->add_control( 'ifs_legacy_submenu_font_weight', array(
-			'type'			=> 'select',
-			'label'			=> esc_html__( 'Sub Menu Font Weight', 'ifs-legacy' ),
-			'description'	=> __( 'Choose the font weight for sub menu.', 'ifs-legacy' ),
-			'section'		=> 'ifs_legacy_section_font_options',
-			'setting'		=> 'ifs_legacy_submenu_font_weight',
-			'choices'		=> ifs_legacy_theme_font_weight_options(),
-			'priority'		=> 10
-		) );
-
 
 		$wp_customize->add_setting( 'ifs_legacy_h1_font', array(
 			'default'           => ifs_legacy_theme_font_default(),
@@ -1068,6 +880,54 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'setting'	=> 'header_textcolor'
 		)));
 
+		$wp_customize->add_setting( 'ifs_legacy_header_menu_color', array(
+			'default' 	=> '',
+			'transport'	=> 'refresh',
+			'sanitize_callback'	=> 'esc_attr'
+		));
+
+		$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_header_menu_color', array(
+			'label'		=> esc_html__('Header Menu Color', 'ifs-legacy'),
+			'section'	=> 'ifs_legacy_section_header_options',
+			'setting'	=> 'ifs_legacy_header_menu_color'
+		)));
+
+		$wp_customize->add_setting( 'ifs_legacy_header_menuactive_color', array(
+			'default' 	=> '',
+			'transport'	=> 'refresh',
+			'sanitize_callback'	=> 'esc_attr'
+		));
+
+		$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_header_menuactive_color', array(
+			'label'		=> esc_html__('Header Menu Active Color', 'ifs-legacy'),
+			'section'	=> 'ifs_legacy_section_header_options',
+			'setting'	=> 'ifs_legacy_header_menuactive_color'
+		)));
+
+		$wp_customize->add_setting( 'ifs_legacy_header_submenu_color', array(
+			'default' 	=> '',
+			'transport'	=> 'refresh',
+			'sanitize_callback'	=> 'esc_attr'
+		));
+
+		$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_header_submenu_color', array(
+			'label'		=> esc_html__('Header Sub-menu Color', 'ifs-legacy'),
+			'section'	=> 'ifs_legacy_section_header_options',
+			'setting'	=> 'ifs_legacy_header_submenu_color'
+		)));
+
+		$wp_customize->add_setting( 'ifs_legacy_header_submenuactive_color', array(
+			'default' 	=> '',
+			'transport'	=> 'refresh',
+			'sanitize_callback'	=> 'esc_attr'
+		));
+
+		$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_header_submenuactive_color', array(
+			'label'		=> esc_html__('Header Sub-menu Active Color', 'ifs-legacy'),
+			'section'	=> 'ifs_legacy_section_header_options',
+			'setting'	=> 'ifs_legacy_header_submenuactive_color'
+		)));
+
 	    $wp_customize->add_section('ifs_legacy_section_page_title_options', array(
 			'title'		=> esc_html__('Page Title Options','ifs-legacy'),
 			'priority'	=> 30,
@@ -1135,6 +995,201 @@ function ifs_legacy_customize_register( $wp_customize ) {
 	            'right'         => __( 'Right', 'ifs-legacy' )
 	        )
 		));
+
+
+	    $wp_customize->add_section('ifs_legacy_section_header_font_options', array(
+			'title'		=> esc_html__('Header Font Options','ifs-legacy'),
+			'priority'	=> 30,
+			'panel' => 'ifs_legacy_panel_header_setting'
+		));
+
+	    $wp_customize->add_setting( 'ifs_legacy_sitetitle_font', array(
+			'default'           => ifs_legacy_theme_font_default(),
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitetitle_font', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Site Title Font', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the primary or secondary chosen font for site title font.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_sitetitle_font',
+			'choices'		=> ifs_legacy_theme_font_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_sitetitle_font_size', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitetitle_font_size', array(
+			'type'			=> 'number',
+			'label'			=> esc_html__( 'Site Title Font Size', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your site title font. In pixel (px).', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_sitetitle_font_size',
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_sitetitle_font_weight', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitetitle_font_weight', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Site Title Font Weight', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the font weight for site title.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_sitetitle_font_weight',
+			'choices'		=> ifs_legacy_theme_font_weight_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_sitedesc_font', array(
+			'default'           => ifs_legacy_theme_font_default(),
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitedesc_font', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Site Description Font', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the primary or secondary chosen font for site description font.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_sitedesc_font',
+			'choices'		=> ifs_legacy_theme_font_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_sitedesc_font_size', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitedesc_font_size', array(
+			'type'			=> 'number',
+			'label'			=> esc_html__( 'Site Description Font Size', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your site description font. In pixel (px).', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_sitedesc_font_size',
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_sitedesc_font_weight', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_sitedesc_font_weight', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Site Description Font Weight', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the font weight for site description.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_sitedesc_font_weight',
+			'choices'		=> ifs_legacy_theme_font_weight_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_menu_font', array(
+			'default'           => ifs_legacy_theme_font_default(),
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_menu_font', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Menu Font', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the primary or secondary chosen font for menu font.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_menu_font',
+			'choices'		=> ifs_legacy_theme_font_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_menu_font_size', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_menu_font_size', array(
+			'type'			=> 'number',
+			'label'			=> esc_html__( 'Menu Font Size', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your menu font. In pixel (px).', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_menu_font_size',
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_menu_font_weight', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_menu_font_weight', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Menu Font Weight', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the font weight for menu.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_menu_font_weight',
+			'choices'		=> ifs_legacy_theme_font_weight_options(),
+			'priority'		=> 10
+		) );
+
+    		$wp_customize->add_setting( 'ifs_legacy_submenu_font', array(
+			'default'           => ifs_legacy_theme_font_default(),
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_submenu_font', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Sub Menu Font', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the primary or secondary chosen font for sub menu font.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_submenu_font',
+			'choices'		=> ifs_legacy_theme_font_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_submenu_font_size', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_submenu_font_size', array(
+			'type'			=> 'number',
+			'label'			=> esc_html__( 'Sub Menu Font Size', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your sub menu font. In pixel (px).', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_menu_subfont_size',
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_submenu_font_weight', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_submenu_font_weight', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Sub Menu Font Weight', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the font weight for sub menu.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_header_font_options',
+			'setting'		=> 'ifs_legacy_submenu_font_weight',
+			'choices'		=> ifs_legacy_theme_font_weight_options(),
+			'priority'		=> 10
+		) );
 
     $wp_customize->add_panel( 'ifs_legacy_panel_footer_setting', array(
 		    'priority' => 10,
