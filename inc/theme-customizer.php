@@ -1383,6 +1383,153 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'description'	=> __( 'Select the image to be used for Footer Background. The background will cover the whole section.', 'ifs-legacy' )
 		)));
 
+	$wp_customize->add_section('ifs_legacy_section_footer_font_options', array(
+		'title'		=> esc_html__('Footer Font Options','ifs-legacy'),
+		'priority'	=> 30,
+		'panel' => 'ifs_legacy_panel_footer_setting'
+	));
+
+		$wp_customize->add_setting( 'ifs_legacy_footer_widget_title_font', array(
+			'default'           => ifs_legacy_theme_font_default(),
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_footer_widget_title_font', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Footer Widget Title Font', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the primary or secondary chosen font for footer widget title font.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_footer_font_options',
+			'setting'		=> 'ifs_legacy_footer_widget_title_font',
+			'choices'		=> ifs_legacy_theme_font_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_footer_widget_title_font_size', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_footer_widget_title_font_size', array(
+			'type'			=> 'number',
+			'label'			=> esc_html__( 'Footer Widget Title Font Size', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your footer widget title font. In pixel (px).', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_footer_font_options',
+			'setting'		=> 'ifs_legacy_footer_widget_title_font_size',
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_footer_widget_title_font_weight', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        	'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_footer_widget_title_font_weight', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Footer Widget Title Font Weight', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the font weight for footer widget title.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_footer_font_options',
+			'setting'		=> 'ifs_legacy_footer_widget_title_font_weight',
+			'choices'		=> ifs_legacy_theme_font_weight_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_footer_widget_font', array(
+			'default'           => ifs_legacy_theme_font_default(),
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_footer_widget_font', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Footer Widget Text Font', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the primary or secondary chosen font for footer widget text font.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_footer_font_options',
+			'setting'		=> 'ifs_legacy_footer_widget_font',
+			'choices'		=> ifs_legacy_theme_font_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_footer_widget_font_size', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        	'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_footer_widget_font_size', array(
+			'type'			=> 'number',
+			'label'			=> esc_html__( 'Footer Widget Text Font Size', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your footer widget text font. In pixel (px).', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_footer_font_options',
+			'setting'		=> 'ifs_legacy_footer_widget_font_size',
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_footer_widget_font_weight', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        	'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_footer_widget_font_weight', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Footer Widget Text Font Weight', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the font weight for footer widget text.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_footer_font_options',
+			'setting'		=> 'ifs_legacy_footer_widget_font_weight',
+			'choices'		=> ifs_legacy_theme_font_weight_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_footer_bar_font', array(
+			'default'           => ifs_legacy_theme_font_default(),
+			'sanitize_callback' => 'esc_attr',
+	        'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_footer_bar_font', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Footer Bar Text Font', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the primary or secondary chosen font for footer bar text font.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_footer_font_options',
+			'setting'		=> 'ifs_legacy_footer_bar_font',
+			'choices'		=> ifs_legacy_theme_font_options(),
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_footer_bar_font_size', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        	'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_footer_bar_font_size', array(
+			'type'			=> 'number',
+			'label'			=> esc_html__( 'Footer Bar Text Font Size', 'ifs-legacy' ),
+			'description'	=> __( 'Input the font size for your footer bar text font. In pixel (px).', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_footer_font_options',
+			'setting'		=> 'ifs_legacy_footer_bar_font_size',
+			'priority'		=> 10
+		) );
+
+		$wp_customize->add_setting( 'ifs_legacy_footer_bar_font_weight', array(
+			'default'           => '',
+			'sanitize_callback' => 'esc_attr',
+	        	'transport'         => 'refresh'
+		) );
+
+		$wp_customize->add_control( 'ifs_legacy_footer_bar_font_weight', array(
+			'type'			=> 'select',
+			'label'			=> esc_html__( 'Footer Bar Text Font Weight', 'ifs-legacy' ),
+			'description'	=> __( 'Choose the font weight for footer bar text.', 'ifs-legacy' ),
+			'section'		=> 'ifs_legacy_section_footer_font_options',
+			'setting'		=> 'ifs_legacy_footer_bar_font_weight',
+			'choices'		=> ifs_legacy_theme_font_weight_options(),
+			'priority'		=> 10
+		) );
+
 }
 add_action( 'customize_register', 'ifs_legacy_customize_register' );
 
