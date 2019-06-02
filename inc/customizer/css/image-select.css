@@ -18,3 +18,25 @@
 .customize-control-radio-image input:checked + img {
     border-color: #00a0d2;
 }
+
+.ifs-image-select-label{
+	position:relative;
+}
+
+.ifs-image-select-img{
+	max-width:70px;
+}
+
+.ifs-image-select-enlarge{
+	display:none;
+	position:absolute;
+	left:0px;
+	top:100%;
+	margin-top:0px;
+	max-width:400px;
+
+}
+
+.ifs-image-select-label:hover .ifs-image-select-enlarge{
+	display:block;
+}

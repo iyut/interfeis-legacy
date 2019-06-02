@@ -71,10 +71,13 @@ class IFS_Image_Select_Control extends WP_Customize_Control{
 
 		<# for ( key in data.choices ) { #>
 
-			<label for="{{ data.id }}-{{ key }}">
+			<label class="ifs-image-select-label" for="{{ data.id }}-{{ key }}">
 				<span class="screen-reader-text">{{ data.choices[ key ]['label'] }}</span>
 				<input type="radio" value="{{ key }}" name="_customize-{{ data.type }}-{{ data.id }}" id="{{ data.id }}-{{ key }}" {{{ data.link }}} <# if ( key === data.value ) { #> checked="checked" <# } #> />
-				<img src="{{ data.choices[ key ]['url'] }}" alt="{{ data.choices[ key ]['label'] }}" />
+				<img class="ifs-image-select-img" src="{{ data.choices[ key ]['url'] }}" alt="{{ data.choices[ key ]['label'] }}" />
+				<span class="ifs-image-select-enlarge">
+					<img class="ifs-image-select-enlarge-img" src="{{ data.choices[ key ]['url'] }}" alt="{{ data.choices[ key ]['label'] }}" />
+				</span>
 			</label>
 		<# } #>
 		<?php
