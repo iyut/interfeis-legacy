@@ -21,6 +21,8 @@
 
 .ifs-image-select-label{
 	position:relative;
+	display:inline-block;
+	margin-bottom:10px;
 }
 
 .ifs-image-select-img{
@@ -32,6 +34,7 @@
 	position:absolute;
 	left:0px;
 	top:100%;
+	z-index:100;
 	margin-top:0px;
 	max-width:400px;
 
