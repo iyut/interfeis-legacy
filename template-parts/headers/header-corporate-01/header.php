@@ -43,8 +43,7 @@
                 endif;
                 ?>
             </div><!-- .site-branding -->
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa fa-bars"></i></button>
-            <button id="primary-menu-close" class="menu-close-button"><i class="fa fa-close"></i></button>
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="menu-bar"></span></button>
             <nav id="site-navigation" class="main-navigation">
                 <div class="primary-menu-container">
                     
