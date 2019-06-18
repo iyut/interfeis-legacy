@@ -297,7 +297,7 @@ function ifs_legacy_theme_header_locations(){
 function ifs_legacy_get_theme_headers(){
 	$header_location = ifs_legacy_theme_header_locations();
 
-	$parent_header_root = get_template_directory() . '/' . $header_location;
+	$parent_header_root 	= get_template_directory() . '/' . $header_location;
 	$parent_header_url 	= get_template_directory_uri() . '/' . $header_location;
 
 	$header_files = ifs_legacy_check_theme_header( $parent_header_root, $parent_header_url );
@@ -337,8 +337,8 @@ function ifs_legacy_get_theme_header_mod(){
 	$ifs_legacy_header_mod = get_theme_mod( 'ifs_legacy_header_layout_style', ifs_legacy_get_theme_header_default() );
 
 	$post_id 		= ifs_legacy_get_postid();
-	$header_type 	= get_post_meta( $post_id, 'ifs_header_type', true);
-	$ifs_legacy_headers = ifs_legacy_get_theme_headers();
+	$header_type 		= get_post_meta( $post_id, 'ifs_header_type', true);
+	$ifs_legacy_headers 	= ifs_legacy_get_theme_headers();
 
 	if( $header_type != '' && $header_type != 'default' && array_key_exists( $header_type, $ifs_legacy_headers)){
 		$ifs_legacy_header_mod = $header_type;
