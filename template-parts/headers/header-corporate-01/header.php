@@ -62,7 +62,7 @@
                 </div>
             </nav><!-- #site-navigation -->
             <div class="balancer">
-                
+                &nbsp;
             </div>
         </div>
 
