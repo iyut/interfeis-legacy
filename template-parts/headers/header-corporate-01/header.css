@@ -133,6 +133,7 @@ body.ifs{
 	z-index: 299;
 	position:relative;
 	background:transparent;
+	overflow:visible;
 	font-size:1.3em;
 	outline:none;
 	-webkit-box-flex: 1;
@@ -175,6 +176,7 @@ body.nav_openned .menu-bar{
 }
 
 body.nav_openned .menu-bar:before{
+	background-color:#fff;
 	margin-top:0px;
 	transform:rotate( -45deg );
 	-moz-transform:rotate( -45deg );
@@ -182,10 +184,39 @@ body.nav_openned .menu-bar:before{
 }
 
 body.nav_openned .menu-bar:after{
+	background-color:#fff;
 	margin-top:0px;
 	transform:rotate( 45deg );
 	-moz-transform:rotate( 45deg );
 	-webkit-transform:rotate( 45deg );
+}
+
+.site-header .menu-toggle .menu-bar-open,
+.site-header .menu-toggle .menu-bar-close{
+	font-size: 0.5em;
+	font-weight: 400;
+	text-transform: uppercase;
+	display:block;
+	position:absolute;
+	top:50%;
+	left:0px;
+	margin-top:18px;
+	width:30px;
+	text-align: center;
+	color:#333;
+}
+
+.site-header .menu-toggle .menu-bar-close{
+	display:none;
+	color:#fff;
+}
+
+body.nav_openned .menu-toggle .menu-bar-open{
+	display:none;
+}
+
+body.nav_openned .menu-toggle .menu-bar-close{
+	display:block;
 }
 
 .site-header .balancer{
@@ -233,7 +264,8 @@ body.nav_openned .menu-bar:after{
 
 .site-header .main-navigation:after{
 	z-index: 289;
-	background-color:#ff0000;
+	background:#7e3396;
+	background:linear-gradient(to bottom, #7e3396 0%, #127dc7 100%);
 	transition-delay:0.3s;
 }
 
@@ -290,9 +322,13 @@ body.nav_openned .site-header .main-navigation ul#primary-menu{
 .site-header .main-navigation li.current-menu-parent a,
 .site-header .main-navigation li.current_page_parent a,
 .site-header .main-navigation li.current-menu-ancestor a,
-.site-header .main-navigation li.current_page_ancestor a,
+.site-header .main-navigation li.current_page_ancestor a{
+	color:#fff;
+}
+
 .site-header .main-navigation li a:hover{
-	color:#000;
+	color:#fff;
+	color:rgba(255,255,255,0.5);
 }
 
 .site-header .main-navigation ul.menu > li{
@@ -300,6 +336,11 @@ body.nav_openned .site-header .main-navigation ul#primary-menu{
 	width:49%;
 	margin:0px;
 	padding:0px;
+}
+
+.site-header .main-navigation ul.menu > li > a{
+	color:#fff;
+	color:rgba(255,255,255,0.5);
 }
 
 .site-header .main-navigation ul.menu > li:nth-child(2n+1){

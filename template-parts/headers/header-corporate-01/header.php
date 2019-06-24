@@ -46,6 +46,8 @@
             
             <button id="site-menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
                 <span class="menu-bar"></span>
+                <span class="menu-bar-open"><?php esc_html_e('Menu', 'ifs-legacy'); ?></span>
+                <span class="menu-bar-close"><?php esc_html_e('Close', 'ifs-legacy'); ?></span>
             </button>
             
             <nav id="site-navigation" class="main-navigation">
