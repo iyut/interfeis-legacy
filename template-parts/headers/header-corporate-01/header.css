@@ -470,6 +470,12 @@ body.nav_openned .site-header .main-navigation ul#primary-menu{
 		order:2;
 	}
 
+	.site-header .main-navigation:before,
+	.site-header .main-navigation:after{
+		transform:translateX( 0% ) translateY( -100% );
+		-webkit-transform:translateX( 0% ) translateY( -100% );
+		-moz-transform:translateX( 0% ) translateY( -100% );
+	}
 
 	.main-navigation ul{
 		display:block;
