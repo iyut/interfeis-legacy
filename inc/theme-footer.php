@@ -408,15 +408,22 @@ function ifs_legacy_print_footer_widget_2(){
 if( !function_exists('ifs_legacy_footer_css_output') ){
 	function ifs_legacy_footer_css_output(){
 
-		$footer_text_color	= get_theme_mod('ifs_legacy_footer_text_color');
-        $footer_link_color	= get_theme_mod('ifs_legacy_footer_link_color');
-		$footer_bg_color	= get_theme_mod('ifs_legacy_footer_background_color');
-		$footer_bg_image	= get_theme_mod('ifs_legacy_footer_background_image');
+		$footer_title_color   = get_theme_mod('ifs_legacy_footer_title_color');
+    $footer_text_color	  = get_theme_mod('ifs_legacy_footer_text_color');
+    $footer_link_color	  = get_theme_mod('ifs_legacy_footer_link_color');
+		$footer_bg_color	   = get_theme_mod('ifs_legacy_footer_background_color');
+		$footer_bg_image	   = get_theme_mod('ifs_legacy_footer_background_image');
 
 		// If we get this far, we have custom styles. Let's do this.
 		$output_css = '';
 
-        if( $footer_text_color!=''){
+    if( $footer_title_color!=''){
+      $output_css .= '#colophon footer-widgets-container .widget-title{
+        color: '. esc_attr( $footer_title_color ).';
+      }';
+    }
+
+    if( $footer_text_color!=''){
 			$output_css .= '#colophon{
 				color: '. esc_attr( $footer_text_color ).';
 			}';

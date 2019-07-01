@@ -1221,6 +1221,19 @@ function ifs_legacy_customize_register( $wp_customize ) {
 			'priority'    => 10
 		) ) );
 
+
+		$wp_customize->add_setting( 'ifs_legacy_footer_title_color', array(
+	        	'default' 	=> '',
+	        	'transport'	=> 'refresh',
+	        	'sanitize_callback'	=> 'esc_attr'
+	    	));
+
+	    	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'ifs_legacy_footer_title_color', array(
+	        	'label'		=> esc_html__('Footer Title Color', 'ifs-legacy'),
+	        	'section'	=> 'ifs_legacy_section_footer_options',
+	        	'setting'	=> 'ifs_legacy_footer_title_color'
+	    	)));
+
 	    $wp_customize->add_setting( 'ifs_legacy_footer_text_color', array(
 	        'default' 	=> '',
 	        'transport'	=> 'refresh',
