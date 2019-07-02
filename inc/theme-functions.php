@@ -725,44 +725,44 @@ if(!function_exists("ifs_legacy_print_menu_font_css")){
 if(!function_exists("ifs_legacy_print_footerwidget_font_css")){
 	function ifs_legacy_print_footerwidget_font_css(){
 
-    $the_font_mod 		= get_theme_mod( 'ifs_legacy_footer_widget_title_font', ifs_legacy_theme_font_default() );
+    		$the_font_mod 		= get_theme_mod( 'ifs_legacy_footer_widget_title_font', ifs_legacy_theme_font_default() );
 		$the_font_size 		= get_theme_mod( 'ifs_legacy_footer_widget_title_font_size' );
 		$the_font_weight	= get_theme_mod( 'ifs_legacy_footer_widget_title_font_weight' );
 
-    $sub_font_mod 		= get_theme_mod( 'ifs_legacy_footer_widget_font', ifs_legacy_theme_font_default() );
+    		$sub_font_mod 		= get_theme_mod( 'ifs_legacy_footer_widget_font', ifs_legacy_theme_font_default() );
 		$sub_font_size 		= get_theme_mod( 'ifs_legacy_footer_widget_font_size' );
 		$sub_font_weight	= get_theme_mod( 'ifs_legacy_footer_widget_font_weight' );
 
 		$return = '';
-    $subreturn = '';
+    		$subreturn = '';
 
 		$the_font = call_user_func($the_font_mod);
 
-    $sub_font = call_user_func($sub_font_mod);
+    		$sub_font = call_user_func($sub_font_mod);
 
 		if($the_font!=false){
 			$return .= 'font-family:'.$the_font['name'].','.$the_font['category'].';';
 		}
 
-    if($sub_font!=false){
+    		if($sub_font!=false){
 			$subreturn .= 'font-family:'.$sub_font['name'].','.$sub_font['category'].';';
 		}
 
-        if($the_font_size!='')
-            $return .= 'font-size:'.$the_font_size.'px;';
+	        if($the_font_size!='')
+			$return .= 'font-size:'.$the_font_size.'px;';
 
-        if($the_font_weight!='')
-            $return .= 'font-weight:'.$the_font_weight.';';
+	        if($the_font_weight!='')
+			$return .= 'font-weight:'.$the_font_weight.';';
 
-        if($sub_font_size!='')
-            $subreturn .= 'font-size:'.$sub_font_size.'px;';
+	        if($sub_font_size!='')
+			$subreturn .= 'font-size:'.$sub_font_size.'px;';
 
-        if($sub_font_weight!='')
-          $subreturn .= 'font-weight:'.$sub_font_weight.';';
+	        if($sub_font_weight!='')
+			$subreturn .= 'font-weight:'.$sub_font_weight.';';
 
 
-        $return = 'body.ifs .footer-widgets-container .widget-title{'. esc_attr($return).'}';
-        $subreturn = 'body.ifs .footer-widgets-container{'. esc_attr($subreturn).'}';
+        $return 	= 'body.ifs .footer-widgets-container .widget-title{'. esc_attr($return).'}';
+        $subreturn 	= 'body.ifs .footer-widgets-container{'. esc_attr($subreturn).'}';
 
         $return .= $subreturn;
 

@@ -418,7 +418,7 @@ if( !function_exists('ifs_legacy_footer_css_output') ){
 		$output_css = '';
 
     if( $footer_title_color!=''){
-      $output_css .= '#colophon footer-widgets-container .widget-title{
+      $output_css .= '#colophon .footer-widgets-container .widget-title{
         color: '. esc_attr( $footer_title_color ).';
       }';
     }

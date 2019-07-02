@@ -154,3 +154,40 @@ if(!function_exists('ifs_legacy_adding_query_vars')){
  	$GLOBALS['content_width'] = apply_filters( 'ifs_legacy_content_width', 640 );
  }
  add_action( 'after_setup_theme', 'ifs_legacy_content_width', 0 );
+
+ /**
+  * Set the default primary font for the theme
+  *
+  */
+function ifs_legacy_default_custom_font_1( $font_id ) {
+
+    if( $font_id == '' ){
+
+      $font_id = 'montserrat';
+
+    }
+  
+    return $font_id;
+    
+}
+add_filter( 'ifs_legacy_custom_font_1_value', 'ifs_legacy_default_custom_font_1' );
+
+
+
+
+  /**
+  * Set the default secondary font for the theme
+  *
+  */
+ function ifs_legacy_default_custom_font_2( $font_id ) {
+  
+    if( $font_id == '' ){
+
+      $font_id = 'montserrat';
+
+    }
+  
+    return $font_id;
+    
+ }
+ add_filter( 'ifs_legacy_custom_font_2_value', 'ifs_legacy_default_custom_font_2' );

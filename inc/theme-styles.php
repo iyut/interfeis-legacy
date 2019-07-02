@@ -27,7 +27,9 @@ if( !function_exists('ifs_legacy_styles') ){
 
 if( !function_exists('ifs_legacy_chosen_custom_font_1') ){
     function ifs_legacy_chosen_custom_font_1(){
-        $chosen_font_mod    = get_theme_mod('ifs_legacy_custom_font_1');
+        
+        $chosen_font_mod    = apply_filters( 'ifs_legacy_custom_font_1_value', get_theme_mod('ifs_legacy_custom_font_1') );
+
         $chosen_font        = IFS_Fonts::get_the_font( $chosen_font_mod );
 
 		$return = false;
@@ -55,7 +57,9 @@ if( !function_exists('ifs_legacy_print_custom_font_1') ){
 
 if( !function_exists('ifs_legacy_chosen_custom_font_2') ){
     function ifs_legacy_chosen_custom_font_2(){
-        $chosen_font_mod    = get_theme_mod('ifs_legacy_custom_font_2');
+
+        $chosen_font_mod    = apply_filters( 'ifs_legacy_custom_font_2_value', get_theme_mod('ifs_legacy_custom_font_2') );
+
         $chosen_font        = IFS_Fonts::get_the_font( $chosen_font_mod );
 
 		$return = false;
@@ -83,7 +87,9 @@ if( !function_exists('ifs_legacy_print_custom_font_2') ){
 
 if( !function_exists('ifs_legacy_chosen_custom_font_3') ){
     function ifs_legacy_chosen_custom_font_3(){
-        $chosen_font_mod    = get_theme_mod('ifs_legacy_custom_font_3');
+
+        $chosen_font_mod    = apply_filters( 'ifs_legacy_custom_font_3_value', get_theme_mod('ifs_legacy_custom_font_3') );
+        
         $chosen_font        = IFS_Fonts::get_the_font( $chosen_font_mod );
 
 		$return = false;
