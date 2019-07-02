@@ -288,7 +288,12 @@ body.nav_openned .menu-toggle .menu-bar-close{
 	bottom:0px;
 	overflow-x:hidden;
 	overflow-y:scroll;
+	scrollbar-width:none;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}
 
+.site-header .main-navigation::-webkit-scrollbar{
+	display:none;
 }
 
 .site-header .main-navigation:before,
