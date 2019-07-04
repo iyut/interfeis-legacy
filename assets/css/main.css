@@ -756,9 +756,7 @@ a:hover, a:active {
 	font-size:1.2em;
     font-weight: 300;
     margin-bottom: 1em;
-    line-height: 1.5;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    line-height: normal;
     color:#999;
 }
 

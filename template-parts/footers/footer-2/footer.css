@@ -1,3 +1,31 @@
 /*!
 Footer Name: Footer 2
 */
+
+#colophon{
+    background-position:center;
+    background-size: cover;
+}
+
+.footer-widgets-container{
+    padding-top:100px;
+    padding-bottom:100px;
+    line-height:2em;
+    opacity:0.9 !important;
+}
+
+.footer-widgets-container .widget-title{
+    font-size: 28px;
+    line-height:1.2em;
+}
+
+.outer-footer-bottom{
+    background-color:transparent;
+}
+
+.footer-bottom-cont{
+    padding-top:12px;
+    padding-bottom:12px;
+    border-top:1px solid #fff;
+    border-top:1px solid rgba(255,255,255,0.4);
+}
