@@ -1,14 +1,54 @@
 /*
-Header Name: Header 4
+Header Name: Header 1
 */
 
+.site-before-header{
+	background-color:#fff;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+.top_col{
+	padding-top:4px;
+	padding-bottom:4px;
+}
+
+.top_col_1 *{
+	text-align:left;
+}
+
+.top_col_2 *{
+	text-align:right;
+}
+
+.top-info{
+	font-size:0.8em;
+}
+
+.top-menu #top-menu{
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+	display:block;
+	font-size:0.8em;
+}
+
+.top-menu #top-menu li{
+	list-style-type:none;
+	display:inline-block;
+	padding:0px 10px;
+}
+.top-menu #top-menu li:first-child{
+	padding-left:0;
+}
+.top-menu #top-menu li:last-child{
+	padding-right:0;
+}
+
 .site-header{
-	background-color:transparent;
-	border-bottom:1px solid transparent;
-	position:absolute;
-	left:0px;
-	right:0px;
-	z-index:999;
+	background-color:#fff;
+	border-bottom:1px solid #f0f0f0;
 }
 
 .site-header .container .row{
@@ -34,7 +74,7 @@ Header Name: Header 4
 }
 
 .site-header .site-title{
-	font-size:2em;
+	font-size:3.8em;
 	font-weight:400;
 	text-transform: uppercase;
 	margin-top:0em;
@@ -81,8 +121,19 @@ Header Name: Header 4
 }
 
 .site-header .main-navigation li a{
-	color:#3a3a3a;
+	color:#999;
+	letter-spacing:1px;
 	font-weight:400;
+}
+
+.site-header .main-navigation li.current-menu-item a,
+.site-header .main-navigation li.current_page_item a,
+.site-header .main-navigation li.current-menu-parent a,
+.site-header .main-navigation li.current_page_parent a,
+.site-header .main-navigation li.current-menu-ancestor a,
+.site-header .main-navigation li.current_page_ancestor a,
+.site-header .main-navigation li a:hover{
+	color:#000;
 }
 
 .site-header .main-navigation ul.nav-menu > li.menu-item-has-children,
@@ -120,7 +171,6 @@ Header Name: Header 4
 	padding:10px;
 	display:block;
 	font-size:0.8em;
-	text-shadow:none;
 }
 .site-header .main-navigation ul li button.child_toggle{
 	display:none;
@@ -150,10 +200,6 @@ Header Name: Header 4
 	background-color:#fafafa;
 }
 
-#outerafterheader{
-	padding-top:70px;
-}
-
 @media only screen and (min-width:769px){
 	.top_col_2 .top-menu #top-menu{
 		text-align:right;
@@ -162,29 +208,22 @@ Header Name: Header 4
 	#primary-menu-close{
 		display:none;
 	}
-
-	.site-header .main-navigation ul.nav-menu > li{
-		color:#fff;
-		text-shadow: 0px 1px 3px #333;
-	    text-shadow: 0px 1px 3px rgba(0,0,0,0.4);
-	}
-	.site-header .main-navigation ul.nav-menu > li > a {
-	    color: #fff;
-	    font-weight: 300;
-	    text-transform: uppercase;
-	    text-shadow: 0px 1px 3px #333;
-	    text-shadow: 0px 1px 3px rgba(0,0,0,0.4);
-	}
 }
 
 @media only screen and (max-width:768px){
+	.top-menu .menu{
+		text-align:center;
+	}
+	.top-info{
+		text-align:center;
+	}
 
-	.site-header{
-		background-color:#fff;
-		border-bottom:1px solid #f0f0f0;
-		position:relative;
-		left:auto;
-		right:auto;
+	.top_col .widget{
+		margin-bottom:1.5em;
+		font-size:0.8em;
+	}
+	.top_col .widget-title{
+		font-size:1rem;
 	}
 
 	.menu-toggle{

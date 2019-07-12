@@ -27,6 +27,8 @@
 
 .ifs-image-select-img{
 	max-width:70px;
+	width:70px !important;
+	height:70px !important;
 }
 
 .ifs-image-select-enlarge{
@@ -36,10 +38,21 @@
 	top:100%;
 	z-index:100;
 	margin-top:0px;
-	max-width:400px;
+	max-width:250px;
+	width:250px;
+}
 
+.ifs-image-select-enlarge-img{
+	border:3px solid #b7b5b5;
 }
 
 .ifs-image-select-label:hover .ifs-image-select-enlarge{
 	display:block;
+}
+
+.ifs-image-select-label:nth-child(3n+2) .ifs-image-select-enlarge{
+	left:-74px;
+}
+.ifs-image-select-label:nth-child(3n) .ifs-image-select-enlarge{
+	left:-147px;
 }

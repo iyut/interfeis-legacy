@@ -251,12 +251,12 @@ function ifs_legacy_check_theme_header( $header_directory, $header_url ){
 				$header_tmpl= $root_to_dir . '/header';
 				$header_php = $root_to_dir . '/header.php';
 				$header_css = $root_to_dir . '/header.css';
-				$header_png = $root_to_dir . '/header.png';
+				$header_png = $root_to_dir . '/header.jpg';
 				$header_js	= $root_to_dir . '/header.js';
 
 				$header_tmpl_url	= $url_dir . '/header';
 				$header_css_url		= $url_dir . '/header.css';
-				$header_png_url		= $url_dir . '/header.png';
+				$header_png_url		= $url_dir . '/header.jpg';
 				$header_js_url		= $url_dir . '/header.js';
 
 				if( file_exists( $header_php ) && file_exists( $header_css ) && file_exists( $header_png ) ){
