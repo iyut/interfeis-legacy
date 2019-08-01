@@ -605,7 +605,7 @@ function ifs_legacy_get_the_header_title(){
 
 	}elseif(is_404()){
 
-		$ifs_the_title = esc_html__( '404 Page', "ifs-legacy" );
+		$ifs_the_title = esc_html__( '404', "ifs-legacy" );
 
 	}elseif( is_home() ){
 		$ifs_postspage = get_option('page_for_posts');

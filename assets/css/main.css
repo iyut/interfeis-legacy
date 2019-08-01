@@ -22,6 +22,7 @@
 	## Posts and pages
 	## Singles
 	## Comments
+	## 404
 # Infinite scroll
 # Media
 	## Captions
@@ -1071,6 +1072,19 @@ article.post .entry-title a:visited{
 .comment-list .children{
 	padding-left:0px;
 	margin-left:42px;
+}
+
+/*--------------------------------------------------------------
+## 404
+--------------------------------------------------------------*/
+.error404 #afterheader .page-title{
+	text-align:center;
+	font-size:8em;
+	line-height:1em;
+}
+
+.error-404{
+	text-align:center;
 }
 
 /*--------------------------------------------------------------

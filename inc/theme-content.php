@@ -253,7 +253,16 @@ if(!function_exists('ifs_legacy_content_layout_chosen')){
  * @return string
  */
 function ifs_legacy_content_layout_default(){
-	return apply_filters( 'ifs_legacy_content_layout_default', 'two-col-left');
+
+    $layout_default = 'two-col-left';
+
+    if( is_404() ){
+
+        $layout_default = 'one-col';
+    
+    }
+    
+    return apply_filters( 'ifs_legacy_content_layout_default', $layout_default );
 }
 
 /**
