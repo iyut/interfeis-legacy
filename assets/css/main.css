@@ -774,21 +774,25 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Search
 --------------------------------------------------------------*/
-.widget_search .search-form{
+.ifs .search-form{
 	position: relative;
 }
-.widget_search .search-form>label {
+.ifs .search-form .search-wrapper{
+	max-width:400px;
+	position:relative;
+}
+.ifs .search-form .search-wrapper label {
     position: relative;
 	display:block;
 }
 
-.widget_search .search-field,
-.widget_search .search-field:focus {
+.ifs .search-field,
+.ifs .search-field:focus {
     width: 100%;
     padding: 16px 45px 16px 15px;
 }
 
-.widget_search .search-form .search-field {
+.ifs .search-form .search-field {
     background: #fafafa;
     border-width: 1px;
     border-color: #eaeaea;
@@ -796,9 +800,9 @@ a:hover, a:active {
     border-radius: 2px;
 }
 
-.widget_search .search-form input[type=submit],
-.widget_search .search-form input[type=submit]:focus,
-.widget_search .search-form input[type=submit]:hover {
+.ifs .search-form input[type=submit],
+.ifs .search-form input[type=submit]:focus,
+.ifs .search-form input[type=submit]:hover {
     padding: 13px 20px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
@@ -812,7 +816,7 @@ a:hover, a:active {
     z-index: 2;
 }
 
-.widget_search .search-form:after {
+.ifs .search-form .search-wrapper:after {
     font-family: "FontAwesome";
     font-size: 1.2em;
     font-weight: 400;
@@ -1085,6 +1089,11 @@ article.post .entry-title a:visited{
 
 .error-404{
 	text-align:center;
+}
+
+.error-404 .search-wrapper{
+	margin-left:auto;
+	margin-right:auto;
 }
 
 /*--------------------------------------------------------------
