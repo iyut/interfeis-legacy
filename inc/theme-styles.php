@@ -137,8 +137,8 @@ if( !function_exists('ifs_legacy_generate_stylesheet') ){
 
 if( !function_exists('ifs_legacy_print_stylesheet') ){
     function ifs_legacy_print_stylesheet(){
-		$nvr_custom_css = ifs_legacy_generate_stylesheet();
-        wp_add_inline_style( 'ifs-legacy-main-style', $nvr_custom_css );
+		$ifs_custom_css = ifs_legacy_generate_stylesheet();
+        wp_add_inline_style( 'ifs-legacy-main-style', $ifs_custom_css );
 	}
 	add_action('ifs_legacy_styles_after_mainstyle', 'ifs_legacy_print_stylesheet', 10);
 }

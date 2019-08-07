@@ -975,15 +975,50 @@ article.post .entry-title a:visited{
 .hentry .entry-meta > *{
 	display:inline-block;
 	margin-right:1em;
-	font-family:serif;
-	font-style:italic;
+	font-size: 0.8em;
+	font-weight: 500;
+	line-height:2em;
+}
+
+.hentry .entry-meta *{
+	color:#bbb;
+}
+
+.posted-on .ifs-icon:before{
+	content: "\f469";
 }
 
 .entry-footer span{
 	display:inline-block;
 	margin-right:1em;
-	font-family:serif;
-	font-style:italic;
+	font-size:0.85em;
+	font-weight:700;
+}
+
+.entry-footer a{
+	line-height:2em;
+}
+
+.entry-footer .cat-links .ifs-icon:before{
+	content: "\f318";
+}
+
+.entry-footer .tags-links .ifs-icon{
+	transform: translateY(2px);
+	-moz-transform: translateY(2px);
+	-webkit-transform: translateY(2px);
+}
+.entry-footer .tags-links .ifs-icon:before{
+	content: "\f323";
+}
+
+.entry-footer .comments-link .ifs-icon{
+	transform: translateY(3px);
+	-moz-transform: translateY(3px);
+	-webkit-transform: translateY(3px);
+}
+.entry-footer .comments-link .ifs-icon:before{
+	content: "\f101";
 }
 
 /*--------------------------------------------------------------
