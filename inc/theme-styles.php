@@ -18,7 +18,8 @@ if( !function_exists('ifs_legacy_styles') ){
         wp_enqueue_style( 'ifs-legacy-bootstrap-reboot', get_template_directory_uri().'/assets/css/bootstrap-reboot.min.css');
         wp_enqueue_style( 'ifs-legacy-font-awesome', get_template_directory_uri().'/assets/css/font-awesome.min.css');
         wp_enqueue_style( 'ifs-legacy-main-style', get_template_directory_uri().'/assets/css/main.css');
-
+		wp_enqueue_style( 'dashicons' );
+		
 		do_action('ifs_legacy_styles_after_mainstyle');
 
     }

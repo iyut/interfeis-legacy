@@ -196,6 +196,10 @@ Header Name: Header 4
 		font-size:1.3em;
 	}
 
+	.menu-toggle .ifs-icon:before{
+		content: "\f228";
+	}
+
 	.primary-menu-container{
 		position:fixed;
 		bottom:0px;
@@ -229,6 +233,10 @@ Header Name: Header 4
 	}
 	#primary-menu-close:hover{
 		color:#df5751;
+	}
+
+	#primary-menu-close .ifs-icon:before{
+		content: "\f335";
 	}
 
 	.main-navigation ul{

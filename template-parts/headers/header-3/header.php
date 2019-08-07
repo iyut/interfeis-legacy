@@ -45,9 +45,9 @@
             </div><!-- .site-branding -->
 
             <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa fa-bars"></i></button>
+                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="ifs-icon"></i></button>
                 <div class="primary-menu-container">
-                    <button id="primary-menu-close" class="menu-close-button"><i class="fa fa-close"></i></button>
+                    <button id="primary-menu-close" class="menu-close-button"><i class="ifs-icon"></i></button>
                     <?php
                         wp_nav_menu( array(
                             'container'         => 'div',
