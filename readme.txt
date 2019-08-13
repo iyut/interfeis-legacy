@@ -1,6 +1,6 @@
 === Legacy ===
 
-Contributors: automattic
+Contributors: automattic, interfeis
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.0
@@ -13,7 +13,7 @@ A starter theme called Legacy.
 
 == Description ==
 
-The latest free theme from Novaro Studio
+The latest free theme from Interfeis Studio
 
 == Installation ==
 
@@ -29,13 +29,14 @@ Legacy includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 0.1 - May 12 2015 =
 * Initial release
 
 == Credits ==
 
 * Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
+* Bootstrap Grid v4.0.0-beta.2 (https://getbootstrap.com), Copyright 2011-2017 The Bootstrap Authors, Copyright 2011-2017 Twitter, Inc, Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 
 Legacy is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
