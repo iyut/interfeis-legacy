@@ -456,8 +456,9 @@ if( !function_exists( 'ifs_legacy_list_comment' ) ){
 	            <?php edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
 	        
 	        </div>
-
-	        <?php comment_text(); ?>
+			<div class="comment-text">
+				<?php comment_text(); ?>
+			</div>
 
 	        <div class="reply"><?php 
 	                comment_reply_link( 
