@@ -20,6 +20,7 @@
 # Content
 	## Container
 	## Posts and pages
+	## Post format
 	## Singles
 	## Comments
 	## 404
@@ -963,7 +964,6 @@ article.post{
     border: 1px solid #f5f5f5;
     padding: 30px;
     border-radius: 2px;
-    box-shadow: -8px 8px rgba(221,51,51,0.3);
 }
 
 article.post a,
@@ -1026,16 +1026,117 @@ article.post .entry-title a:visited{
 }
 
 /*--------------------------------------------------------------
+## Post format -- image
+--------------------------------------------------------------*/
+article.post .entry-image{
+	margin:-31px -31px 20px;
+}
+
+/*--------------------------------------------------------------
+## Post format -- aside
+--------------------------------------------------------------*/
+article.post.post_format-post-format-aside{
+	padding:25px 40px;
+	background-color:#588AEB;
+	border-color:#588AEB;
+	color:#fff;
+}
+article.post.post_format-post-format-aside .entry-header,
+article.post.post_format-post-format-aside .entry-footer{
+	display:none;
+}
+
+/*--------------------------------------------------------------
+## Post format -- link
+--------------------------------------------------------------*/
+article.post.post_format-post-format-link{
+	padding:25px 40px;
+	background-color:#588AEB;
+	border-color:#588AEB;
+	color:#fff;
+}
+article.post.post_format-post-format-link .entry-header,
+article.post.post_format-post-format-link .entry-footer{
+	display:none;
+}
+
+/*--------------------------------------------------------------
+## Post format -- quote
+--------------------------------------------------------------*/
+article.post.post_format-post-format-quote{
+	padding:25px 40px;
+	background-color:#588AEB;
+	border-color:#588AEB;
+	color:#fff;
+}
+article.post.post_format-post-format-quote .entry-header,
+article.post.post_format-post-format-quote .entry-footer{
+	display:none;
+}
+
+/*--------------------------------------------------------------
+## Post format -- audio
+--------------------------------------------------------------*/
+article.format-audio .entry-media{
+	margin:-31px -31px 20px;
+}
+
+article.format-audio .entry-media iframe, 
+article.format-audio .entry-media object, 
+article.format-audio .entry-media embed{
+    width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Post format -- video
+--------------------------------------------------------------*/
+article.format-video .entry-media{
+	margin:-31px -31px 20px;
+	position: relative;
+    padding-top: 1.5625em;
+    padding-bottom: 57.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+article.format-video .entry-media iframe, 
+article.format-video .entry-media object, 
+article.format-video .entry-media embed, 
+article.format-video .entry-media video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*--------------------------------------------------------------
 ## Singles
 --------------------------------------------------------------*/
 .single-main > .hentry{
 	background-color:#fff;
 	padding:0px;
 	margin-bottom:2em;
+	box-shadow:none;
+	border:0px;
 }
 
 .single-main > .hentry .entry-title{
 	margin-top:0px;
+}
+
+.single-main > .hentry.format-image .entry-image{
+	margin-left:0;
+	margin-top:0;
+	margin-right:0;
+}
+
+.single-main > .hentry .entry-header{
+	margin-bottom:50px;
+}
+
+.single-main > .hentry .entry-footer{
+	margin-top:30px;
 }
 
 .single-main > .comments-area{
@@ -1060,10 +1161,12 @@ article.post .entry-title a:visited{
 .related-posts-container .content-related{
 	padding:0 15px;
 	background:none;
+	border:0px;
+	box-shadow:none;
 }
 
 .related-posts-container .content-related .entry-image{
-	margin-bottom:50px;
+	margin:0 0 20px;
 }
 
 .related-posts-container .content-related .entry-header{
@@ -1305,6 +1408,11 @@ object {
 --------------------------------------------------------------*/
 .gallery {
 	margin-bottom: 1.5em;
+}
+
+.wp-block-gallery{
+	margin-left:0px;
+	margin-right:0px;
 }
 
 .gallery-item {

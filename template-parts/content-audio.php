@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying image posts
+ * Template part for displaying posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,19 +10,31 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	
-	<div class="entry-image"><?php the_post_thumbnail(); ?></div>
-	
+
+	<div class="entry-media">
+		<?php 
+		$aud_url 	= get_post_meta( get_the_ID(), 'ifs_audio_url', true );
+		if($aud_url != ''){
+			echo apply_filters('the_content', $aud_url);
+		}
+		?>
+	</div>
+
 	<header class="entry-header">
 		<?php
+		
 		if ( !is_singular() ) :
+
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+
 		endif;
 
 		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php ifs_legacy_posted_on(); ?>
-		</div><!-- .entry-meta -->
+
+			<div class="entry-meta">
+				<?php ifs_legacy_posted_on(); ?>
+			</div><!-- .entry-meta -->
+		
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
