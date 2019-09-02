@@ -13,6 +13,8 @@
 	<header class="entry-header">
 		<?php
 		
+		ifs_legacy_print_category_list();
+		
 		if ( !is_singular() ) :
 
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );

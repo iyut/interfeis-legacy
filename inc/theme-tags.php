@@ -64,12 +64,12 @@ if ( ! function_exists( 'ifs_legacy_entry_footer' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'ifs_legacy_print_entry_footer' ) ) :
+if( !function_exists( 'ifs_legacy_print_category_list' ) ){
 	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
+	 * Prints HTML with meta information for the categories.
 	 */
-	function ifs_legacy_print_entry_footer() {
-		// Hide category and tag text for pages.
+	function ifs_legacy_print_category_list(){
+
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'ifs-legacy' ) );
@@ -78,13 +78,34 @@ if ( ! function_exists( 'ifs_legacy_print_entry_footer' ) ) :
 				printf( '<span class="cat-links"><i class="ifs-icon"></i> %1$s</span>', $categories_list ); // WPCS: XSS OK.
 			}
 
+		}
+	}
+}
+
+if( !function_exists( 'ifs_legacy_print_tag_list' ) ){
+	/**
+	 * Prints HTML with meta information for the tags.
+	 */
+	function ifs_legacy_print_tag_list(){
+
+		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'ifs-legacy' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
 				printf( '<span class="tags-links"><i class="ifs-icon"></i> %1$s</span>', $tags_list ); // WPCS: XSS OK.
 			}
+			
 		}
+	}
+	add_action('ifs_legacy_entry_footer', 'ifs_legacy_print_tag_list', 20);
+}
+
+if ( ! function_exists( 'ifs_legacy_print_comment_link' ) ) :
+	/**
+	 * Prints HTML with meta information for the comments.
+	 */
+	function ifs_legacy_print_comment_link() {
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link"><i class="ifs-icon"></i> ';
@@ -105,6 +126,16 @@ if ( ! function_exists( 'ifs_legacy_print_entry_footer' ) ) :
 			echo '</span>';
 		}
 
+	}
+	add_action('ifs_legacy_entry_footer', 'ifs_legacy_print_comment_link', 30);
+endif;
+
+if ( ! function_exists( 'ifs_legacy_print_edit_post_link' ) ) :
+	/**
+	 * Prints HTML with meta information for the edit post link.
+	 */
+	function ifs_legacy_print_edit_post_link() {
+
 		edit_post_link(
 			sprintf(
 				wp_kses(
@@ -122,5 +153,5 @@ if ( ! function_exists( 'ifs_legacy_print_entry_footer' ) ) :
 			'</span>'
 		);
 	}
-	add_action('ifs_legacy_entry_footer', 'ifs_legacy_print_entry_footer', 10);
+	add_action('ifs_legacy_entry_footer', 'ifs_legacy_print_edit_post_link', 40);
 endif;

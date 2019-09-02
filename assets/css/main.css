@@ -961,8 +961,6 @@ body.ifs-content-full-width-no-padding #content-container > .row > .site-content
 
 article.post{
 	background-color: #fff;
-    border: 1px solid #f5f5f5;
-    padding: 30px;
     border-radius: 2px;
 }
 
@@ -971,16 +969,52 @@ article.post a:visited{
 	color:#717171;
 }
 
+article.post .entry-header{
+	text-align:center;
+}
+
+article.post .entry-header .cat-links{
+	display:inline-block;
+	margin-bottom:0.5rem;
+}
+article.post .entry-header .cat-links .ifs-icon{
+	display:none;
+}
+
+article.post .entry-header .cat-links a{
+	font-size: 0.758em;
+	font-weight: 400;
+	text-transform:uppercase;
+	letter-spacing: 2px;
+	text-decoration: none;
+	color:#ff5722;
+}
+
+article.post .entry-title{
+	font-weight:400;
+	font-size:1.741em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
 article.post .entry-title a,
 article.post .entry-title a:visited{
 	color:#333;
 }
 
+.hentry .entry-meta{
+	padding-bottom:23px;
+	margin-bottom:40px;
+	position:relative;
+}
 .hentry .entry-meta > *{
 	display:inline-block;
 	margin-right:1em;
-	font-size: 0.8em;
-	font-weight: 500;
+	margin-left:1em;
+	font-size: 0.758em;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 	line-height:2em;
 }
 
@@ -988,8 +1022,26 @@ article.post .entry-title a:visited{
 	color:#bbb;
 }
 
-.posted-on .ifs-icon:before{
-	content: "\f469";
+.hentry .entry-meta:after{
+	content:"";
+	display:block;
+	width:60px;
+	height:4px;
+	position:absolute;
+	left:50%;
+	bottom:0px;
+	transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+	-moz-transform: translate(-50%, 0);
+	background-color:#e8e8e8;
+}
+
+.posted-on .ifs-icon{
+	display:none;
+}
+
+.entry-footer{
+	display:none;
 }
 
 .entry-footer span{
@@ -1001,10 +1053,6 @@ article.post .entry-title a:visited{
 
 .entry-footer a{
 	line-height:2em;
-}
-
-.entry-footer .cat-links .ifs-icon:before{
-	content: "\f318";
 }
 
 .entry-footer .tags-links .ifs-icon{
@@ -1029,7 +1077,7 @@ article.post .entry-title a:visited{
 ## Post format -- image
 --------------------------------------------------------------*/
 article.post .entry-image{
-	margin:-31px -31px 20px;
+	margin:0px 0px 40px;
 }
 
 /*--------------------------------------------------------------
@@ -1078,7 +1126,7 @@ article.post.post_format-post-format-quote .entry-footer{
 ## Post format -- audio
 --------------------------------------------------------------*/
 article.format-audio .entry-media{
-	margin:-31px -31px 20px;
+	margin:0px 0px 40px;
 }
 
 article.format-audio .entry-media iframe, 
@@ -1091,7 +1139,7 @@ article.format-audio .entry-media embed{
 ## Post format -- video
 --------------------------------------------------------------*/
 article.format-video .entry-media{
-	margin:-31px -31px 20px;
+	margin:0px 0px 40px;
 	position: relative;
     padding-top: 1.5625em;
     padding-bottom: 57.25%;

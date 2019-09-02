@@ -22,6 +22,8 @@
 
 	<header class="entry-header">
 		<?php
+
+		ifs_legacy_print_category_list();
 		
 		if ( !is_singular() ) :
 
