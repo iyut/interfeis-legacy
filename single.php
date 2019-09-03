@@ -17,7 +17,7 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', get_post_format() );
 
-			the_post_navigation();
+			the_post_navigation( ifs_legacy_post_navigation_setting() );
 
 			ifs_legacy_after_post_navigation();
 

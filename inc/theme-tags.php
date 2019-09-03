@@ -98,7 +98,7 @@ if( !function_exists( 'ifs_legacy_print_tag_list' ) ){
 			
 		}
 	}
-	add_action('ifs_legacy_entry_footer', 'ifs_legacy_print_tag_list', 20);
+	add_action('ifs_legacy_entry_footer', 'ifs_legacy_print_tag_list', 30);
 }
 
 if ( ! function_exists( 'ifs_legacy_print_comment_link' ) ) :
@@ -107,7 +107,7 @@ if ( ! function_exists( 'ifs_legacy_print_comment_link' ) ) :
 	 */
 	function ifs_legacy_print_comment_link() {
 
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		if ( !post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link"><i class="ifs-icon"></i> ';
 			comments_popup_link(
 				sprintf(
@@ -127,7 +127,7 @@ if ( ! function_exists( 'ifs_legacy_print_comment_link' ) ) :
 		}
 
 	}
-	add_action('ifs_legacy_entry_footer', 'ifs_legacy_print_comment_link', 30);
+	add_action('ifs_legacy_entry_footer', 'ifs_legacy_print_comment_link', 20);
 endif;
 
 if ( ! function_exists( 'ifs_legacy_print_edit_post_link' ) ) :
@@ -154,4 +154,16 @@ if ( ! function_exists( 'ifs_legacy_print_edit_post_link' ) ) :
 		);
 	}
 	add_action('ifs_legacy_entry_footer', 'ifs_legacy_print_edit_post_link', 40);
+endif;
+
+if ( ! function_exists( 'ifs_legacy_print_last_span' ) ) :
+	/**
+	 * Prints HTML with meta information for the edit post link.
+	 */
+	function ifs_legacy_print_last_span() {
+
+		echo '<span class="last-span">&nbsp;</span>';
+
+	}
+	add_action('ifs_legacy_entry_footer', 'ifs_legacy_print_last_span', 90);
 endif;

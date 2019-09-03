@@ -345,6 +345,20 @@ if(!function_exists('ifs_legacy_content_padding_bottom')){
     }
 }
 
+if( !function_exists('ifs_legacy_post_navigation_setting') ){
+
+	function ifs_legacy_post_navigation_setting(){
+
+		$settings = array(
+			'prev_text' => '<span class="single-nav-text prev-text">'. __('Previous Article', 'ifs-legacy' ) . '</span>
+							<span class="single-nav-link prev-link">%title</span>',
+			'next_text' => '<span class="single-nav-text next-text">'. __('Next Article', 'ifs-legacy' ) . '</span>
+							<span class="single-nav-link next-link">%title</span>',
+		);
+		return apply_filters('ifs_legacy_post_navigation_setting', $settings);
+	}
+}
+
 if( !function_exists('ifs_legacy_after_post_navigation')){
 	function ifs_legacy_after_post_navigation(){
 		do_action('ifs_legacy_after_post_navigation');
