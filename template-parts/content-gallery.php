@@ -47,6 +47,12 @@
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ifs-legacy' ),
 				'after'  => '</div>',
 			) );
+
+			if ( !is_singular() ) :
+
+				echo '<a class="entry-more-button" href="'. get_permalink() .'" rel="bookmark">'. esc_html__('Read More', 'ifs-legacy') .'</a>';
+	
+			endif;
 		?>
 	</div><!-- .entry-content -->
 

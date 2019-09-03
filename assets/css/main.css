@@ -37,7 +37,7 @@ html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
-	font-size:14px;
+	font-size:13px;
 }
 
 body {
@@ -256,9 +256,9 @@ optgroup,
 textarea {
 	color: #404040;
 	font-family: sans-serif;
-	font-size: 14px;
+	font-size: 13px;
 	font-size: 1rem;
-	line-height: 1.5;
+	line-height: 1.7em;
 }
 
 p {
@@ -961,7 +961,7 @@ body.ifs-content-full-width-no-padding #content-container > .row > .site-content
 
 article.post{
 	background-color: #fff;
-    border-radius: 2px;
+    margin-bottom:90px;
 }
 
 article.post a,
@@ -975,7 +975,7 @@ article.post .entry-header{
 
 article.post .entry-header .cat-links{
 	display:inline-block;
-	margin-bottom:0.5rem;
+	margin-bottom:1rem;
 }
 article.post .entry-header .cat-links .ifs-icon{
 	display:none;
@@ -995,16 +995,18 @@ article.post .entry-title{
 	font-size:1.741em;
 	text-transform: uppercase;
 	letter-spacing: 2px;
+	margin-bottom:1rem;
 }
 
 article.post .entry-title a,
 article.post .entry-title a:visited{
 	color:#333;
+	text-decoration:none;
 }
 
 .hentry .entry-meta{
 	padding-bottom:23px;
-	margin-bottom:40px;
+	margin-bottom:30px;
 	position:relative;
 }
 .hentry .entry-meta > *{
@@ -1016,6 +1018,7 @@ article.post .entry-title a:visited{
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	line-height:2em;
+	text-decoration:none;
 }
 
 .hentry .entry-meta *{
@@ -1038,6 +1041,32 @@ article.post .entry-title a:visited{
 
 .posted-on .ifs-icon{
 	display:none;
+}
+
+.hentry .entry-content{
+	text-align: center;
+}
+
+.entry-more-button{
+	display:block;
+	white-space: nowrap;
+	font-size:0.758em;
+    width:165px;
+	margin: 30px auto 0 auto;
+	border: solid 3px #ddd;
+	letter-spacing: 3px;
+	padding:13px 16px;
+	text-align:center;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight:700;
+}
+
+.entry-more-button:hover{
+	text-decoration:none;
+	background-color:#ff5722;
+	border-color:#ff5722;
+	color:#fff;
 }
 
 .entry-footer{
@@ -1077,7 +1106,7 @@ article.post .entry-title a:visited{
 ## Post format -- image
 --------------------------------------------------------------*/
 article.post .entry-image{
-	margin:0px 0px 40px;
+	margin:0px 0px 27px;
 }
 
 /*--------------------------------------------------------------
@@ -1099,13 +1128,20 @@ article.post.post_format-post-format-aside .entry-footer{
 --------------------------------------------------------------*/
 article.post.post_format-post-format-link{
 	padding:25px 40px;
-	background-color:#588AEB;
-	border-color:#588AEB;
+	background-color:#ff5722;
+	border-color:#ff5722;
 	color:#fff;
 }
 article.post.post_format-post-format-link .entry-header,
 article.post.post_format-post-format-link .entry-footer{
 	display:none;
+}
+
+article.post.post_format-post-format-link a{
+	color:#fff;
+	text-decoration: none;
+	font-size:1.32em;
+	line-height:1.7em;
 }
 
 /*--------------------------------------------------------------
@@ -1122,11 +1158,36 @@ article.post.post_format-post-format-quote .entry-footer{
 	display:none;
 }
 
+article.post.post_format-post-format-quote blockquote{
+	margin:0 0 25px;
+	padding:20px 30px;
+	background-color:#6996ed;
+	background-color:rgba(255,255,255, 0.1);
+	position:relative;
+}
+
+article.post.post_format-post-format-quote blockquote:after{
+	content:"";
+	display:block;
+	width: 0; 
+  	height: 0; 
+  	border-left: 20px solid transparent;
+  	border-right: 20px solid transparent;
+	border-top: 20px solid #6996ed;
+	border-top: 20px solid rgba(255,255,255, 0.1);  
+	position:absolute;
+	left:50%;
+	bottom:-20px;
+	transform: translate(-50%, 0);
+	-moz-transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+}
+
 /*--------------------------------------------------------------
 ## Post format -- audio
 --------------------------------------------------------------*/
 article.format-audio .entry-media{
-	margin:0px 0px 40px;
+	margin:0px 0px 27px;
 }
 
 article.format-audio .entry-media iframe, 
@@ -1139,7 +1200,7 @@ article.format-audio .entry-media embed{
 ## Post format -- video
 --------------------------------------------------------------*/
 article.format-video .entry-media{
-	margin:0px 0px 40px;
+	margin:0px 0px 27px;
 	position: relative;
     padding-top: 1.5625em;
     padding-bottom: 57.25%;
