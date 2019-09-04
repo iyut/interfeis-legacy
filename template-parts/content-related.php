@@ -15,7 +15,14 @@
 
 	<header class="entry-header">
 		<?php
+
+			ifs_legacy_print_category_list();
+
 			the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 		?>
 	</header><!-- .entry-header -->
+
+	<footer class="entry-footer">
+		<?php ifs_legacy_entry_footer(); ?>
+	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

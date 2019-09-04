@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('ifs-post-format-image'); ?>>
 	
 	<div class="entry-image"><?php the_post_thumbnail(); ?></div>
 	

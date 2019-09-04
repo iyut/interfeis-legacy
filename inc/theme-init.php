@@ -40,7 +40,7 @@
  		 */
  		add_theme_support( 'post-thumbnails' );
 
-        add_theme_support( 'post-formats', array( 'image','aside','gallery','link','video','quote','status','audio','chat' ) );
+        add_theme_support( 'post-formats', array( 'image','aside','gallery','link','video','quote','audio' ) );
 
  		// This theme uses wp_nav_menu() in one location.
  		register_nav_menus( apply_filters('ifs_legacy_register_nav_menus', array(
@@ -105,8 +105,8 @@ if( !function_exists('ifs_legacy_add_image_sizes') ){
 * Registered image size
 */
 	function ifs_legacy_add_image_sizes(){
-		add_image_size('ifs_legacy_blog_list_img'	, 360, 240, false);
-		add_image_size('ifs_legacy_related_img'		, 360, 240, false);
+		add_image_size('ifs_legacy_blog_list_img'	, 360, 240, true);
+		add_image_size('ifs_legacy_related_img'		, 360, 240, true);
 	}
 
 	add_action( 'after_setup_theme', 'ifs_legacy_add_image_sizes' );
