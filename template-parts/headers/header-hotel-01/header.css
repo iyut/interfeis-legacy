@@ -1,5 +1,5 @@
 /*
-Header Name: Header 1
+Header Name: Header Hotel 01
 */
 
 .site-before-header{
@@ -46,9 +46,19 @@ Header Name: Header 1
 	padding-right:0;
 }
 
+.outerheader{
+	min-height: 123px;
+}
 .site-header{
-	background-color:#fff;
-	border-bottom:1px solid #f0f0f0;
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	z-index:99;
+}
+
+.admin-bar .site-header{
+	top: 32px;
 }
 
 .site-header .container .row{

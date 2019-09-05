@@ -35,9 +35,10 @@
             </div><!-- .site-branding -->
 
             <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="ifs-icon"></i></button>
+                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+					<span class="menu-bar"></span>
+				</button>
                 <div class="primary-menu-container">
-                    <button id="primary-menu-close" class="menu-close-button"><i class="ifs-icon"></i></button>
                     <?php
                         wp_nav_menu( array(
                             'container'         => 'div',
