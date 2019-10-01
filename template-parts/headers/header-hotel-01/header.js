@@ -1,3 +1,16 @@
+jQuery(document).ready( function(){
+
+	var menu_toggle 	= jQuery('#site-menu-toggle');
+	var body_ifs 		= jQuery('body');
+
+	menu_toggle.on('click', function(){
+
+		var open_nav 	= "nav_openned";
+		body_ifs.toggleClass( open_nav );
+
+	});
+});
+
 var primary_menu 	= document.getElementById('primary-menu');
 
 var menu_w_childs	= primary_menu.querySelectorAll('.menu-item-has-children, .page_item_has_children');

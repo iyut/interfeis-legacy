@@ -35,7 +35,7 @@
             </div><!-- .site-branding -->
 
             <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                <button id="site-menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 					<span class="menu-bar"></span>
 				</button>
                 <div class="primary-menu-container">
