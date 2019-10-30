@@ -44,7 +44,8 @@
                             'container'         => 'div',
                             'container_id'      => 'menu-1-container',
                             'theme_location'    => 'menu-1',
-                            'menu_id'           => 'primary-menu',
+							'menu_id'           => 'primary-menu',
+							'depth' 			=> 2
                         ) );
                     ?>
                 </div>

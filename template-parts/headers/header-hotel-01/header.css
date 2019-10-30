@@ -173,18 +173,147 @@ Header Name: Header Hotel 01
 	z-index:90;
 }
 
-.site-header .main-navigation .primary-menu-container .menu{
-	margin:0px 90px;
-	border-top:1px solid #f4f4f4;
-	padding-top:30px;
+.site-header .primary-menu-container .menu-back{
+	display:inline-block;
+	position:absolute;
+	cursor: pointer;
+	opacity:0;
+	top:0px;
+	left:90px;
+	z-index:80;
+	transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
+	-moz-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
+	-webkit-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
+}
+
+.site-header .primary-menu-container.inside-submenu .menu-back{
+	opacity:1;
+}
+
+.site-header .primary-menu-container a{
+	font-weight:500;
+	font-size:1.149em;
+	letter-spacing:2px;
+	color:#262633;
+	text-transform: uppercase;
+	outline: none;
+}
+
+.site-header .primary-menu-container #menu-1-container,
+.site-header .primary-menu-container #primary-menu{
+	padding:70px 0 0;
+	overflow-x:hidden;
+	overflow-y:auto;
+	position:relative;
+	height:100%;
+}
+
+.site-header .primary-menu-container #menu-1-container:before,
+.site-header .primary-menu-container #primary-menu:before{
+	content:"";
+	height:1px;
+	left:90px;
+	right:90px;
+	top:40px;
+	background-color:#f4f4f4;
+	position:absolute;
+}
+
+.site-header .primary-menu-container #menu-1-container ul.menu,
+.site-header .primary-menu-container #primary-menu > ul,
+.site-header .primary-menu-container #menu-1-container > ul.sub-menu,
+.site-header .primary-menu-container #primary-menu > ul.children{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	padding:70px 90px 30px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	transition:left 0.5s cubic-bezier(.3,.1,.3,1);
+	-moz-transition:left 0.5s cubic-bezier(.3,.1,.3,1);
+	-webkit-transition:left 0.5s cubic-bezier(.3,.1,.3,1);
+}
+
+.site-header .primary-menu-container.inside-submenu #menu-1-container ul.menu,
+.site-header .primary-menu-container.inside-submenu #primary-menu > ul{
+	left: -100%;
+}
+
+.site-header .primary-menu-container #menu-1-container > ul.sub-menu,
+.site-header .primary-menu-container #primary-menu > ul.children{
+	left:110%;
+}
+
+.site-header .primary-menu-container.inside-submenu #menu-1-container > ul.sub-menu,
+.site-header .primary-menu-container.inside-submenu #primary-menu > ul.children{
+	left:0%;
 }
 
 .site-header .main-navigation li{
-	
+	float:none;
+	text-align:left;
+	margin-bottom:30px;
 }
 
 .site-header .main-navigation li a{
-	
+	display:block;
+	padding-left:114px;
+	padding-top:0px;
+	padding-bottom:0px;
+	position:relative;
+	transition: padding-left 0.5s cubic-bezier(.3,.1,.3,1);
+	-moz-transition: padding-left 0.5s cubic-bezier(.3,.1,.3,1);
+	-webkit-transition: padding-left 0.5s cubic-bezier(.3,.1,.3,1);
+}
+
+.site-header .main-navigation li:hover a{
+	padding-left:130px;
+}
+
+.site-header .main-navigation li a:before{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:0px;
+	width:40px;
+	height:2px;
+	margin-top:-1px;
+	background-color:#262633;
+	transition: width 0.5s cubic-bezier(.3,.1,.3,1);
+	-moz-transition: width 0.5s cubic-bezier(.3,.1,.3,1);
+	-webkit-transition: width 0.5s cubic-bezier(.3,.1,.3,1);
+}
+
+.site-header .main-navigation li a:after{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:40px;
+	margin-top:-4px;
+	width:8px;
+	height:8px;
+	border-radius:50%;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border:1px solid #262633;
+	transition: left 0.5s cubic-bezier(.3,.1,.3,1);
+	-moz-transition: left 0.5s cubic-bezier(.3,.1,.3,1);
+	-webkit-transition: left 0.5s cubic-bezier(.3,.1,.3,1);
+}
+
+.site-header .main-navigation li:hover a:before{
+	width:100px;
+}
+
+.site-header .main-navigation li:hover a:after{
+	left:100px;
+}
+
+.site-header .main-navigation li ul.sub-menu,
+.site-header .main-navigation li ul.children{
+	display:none;
 }
 
 .site-header .main-navigation li.current-menu-item a,
