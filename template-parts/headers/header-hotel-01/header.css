@@ -180,7 +180,7 @@ Header Name: Header Hotel 01
 	opacity:0;
 	top:0px;
 	left:90px;
-	z-index:80;
+	z-index:110;
 	transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
 	-moz-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
 	-webkit-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
@@ -231,23 +231,54 @@ Header Name: Header Hotel 01
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
+	opacity:1;
+	z-index:100;
+	transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
+	-moz-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
+	-webkit-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
+}
+
+.site-header .primary-menu-container.inside-submenu #menu-1-container ul.menu,
+.site-header .primary-menu-container.inside-submenu #primary-menu > ul{
+	opacity:0;
+	z-index:10;
+}
+
+.site-header .primary-menu-container #menu-1-container > ul.sub-menu,
+.site-header .primary-menu-container #primary-menu > ul.children{
+	opacity:0;
+	z-index:10;
+}
+
+.site-header .primary-menu-container.inside-submenu #menu-1-container > ul.sub-menu,
+.site-header .primary-menu-container.inside-submenu #primary-menu > ul.children{
+	opacity:1;
+	z-index:100;
+}
+
+.site-header .primary-menu-container #menu-1-container ul.menu > li,
+.site-header .primary-menu-container #primary-menu > ul > li,
+.site-header .primary-menu-container #menu-1-container > ul.sub-menu > li,
+.site-header .primary-menu-container #primary-menu > ul.children > li{
+	position:relative;
+	left:0px;
 	transition:left 0.5s cubic-bezier(.3,.1,.3,1);
 	-moz-transition:left 0.5s cubic-bezier(.3,.1,.3,1);
 	-webkit-transition:left 0.5s cubic-bezier(.3,.1,.3,1);
 }
 
-.site-header .primary-menu-container.inside-submenu #menu-1-container ul.menu,
-.site-header .primary-menu-container.inside-submenu #primary-menu > ul{
+.site-header .primary-menu-container.inside-submenu #menu-1-container ul.menu > li,
+.site-header .primary-menu-container.inside-submenu #primary-menu > ul > li{
 	left: -100%;
 }
 
-.site-header .primary-menu-container #menu-1-container > ul.sub-menu,
-.site-header .primary-menu-container #primary-menu > ul.children{
+.site-header .primary-menu-container #menu-1-container > ul.sub-menu > li,
+.site-header .primary-menu-container #primary-menu > ul.children > li{
 	left:110%;
 }
 
-.site-header .primary-menu-container.inside-submenu #menu-1-container > ul.sub-menu,
-.site-header .primary-menu-container.inside-submenu #primary-menu > ul.children{
+.site-header .primary-menu-container.inside-submenu #menu-1-container > ul.sub-menu > li,
+.site-header .primary-menu-container.inside-submenu #primary-menu > ul.children > li{
 	left:0%;
 }
 

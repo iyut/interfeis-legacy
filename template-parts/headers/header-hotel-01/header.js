@@ -11,13 +11,11 @@ jQuery(document).ready( function(){
 		var parent 		= jQuery(this).parent();
 		var submenu 	= parent.children('ul.sub-menu, ul.children');
 		var subclone 	= submenu.clone();
+		var menuback 	= jQuery('<a href="#" class="menu-back">' + text + '</a>');
 		
-		
-		var menuback 	= menu_container.children('div').prepend('<a href="#" class="menu-back">' + text + '</a>');
-		menuback.on('click', function(){
-			menu_container.removeClass('inside-submenu');
-		});
 
+		subclone.addClass( 'sub-menu-generated' );
+		menu_container.children('div').prepend( menuback );
 		menu_list.after( subclone );
 
 		setTimeout( function(){
@@ -25,6 +23,17 @@ jQuery(document).ready( function(){
 			menu_container.addClass('inside-submenu');
 
 		}, 100);
+
+		menuback.on('click', function(){ 
+			menu_container.removeClass('inside-submenu');
+
+			setTimeout( function(){
+
+				menu_container.find('.sub-menu-generated, .menu-back').remove();
+
+			}, 500);
+			
+		});
 		
 	});
 
