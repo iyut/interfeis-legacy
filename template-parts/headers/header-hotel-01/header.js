@@ -1,8 +1,19 @@
 jQuery(document).ready( function(){
 
-	var menu_container 	= jQuery( '.primary-menu-container' );
+	var site_body 		= jQuery( 'body.ifs' );
+	var site_nav 		= jQuery( '#site-navigation' );
+	var menu_toggle 	= site_nav.find( '#site-menu-toggle' );
+
+	var menu_container 	= site_nav.find( '.primary-menu-container' );
 	var menu_list 		= menu_container.find( 'ul.menu, div.menu > ul');
 	var menu_link 		= menu_list.find('li a');
+
+	menu_toggle.on( 'click', function(evt){
+
+		evt.preventDefault();
+		site_body.toggleClass('ifs-menu-active');
+
+	});
 
 	menu_link.on('click', function(evt){
 		
