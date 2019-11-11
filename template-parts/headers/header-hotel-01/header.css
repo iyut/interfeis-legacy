@@ -149,6 +149,9 @@ Header Name: Header Hotel 01
 	top:50%;
 	margin-left:-13px;
 	z-index:99;
+	transition:all 0.5s cubic-bezier(.3,.1,.3,1);
+	-moz-transition:all 0.5s cubic-bezier(.3,.1,.3,1);
+	-webkit-transition:all 0.5s cubic-bezier(.3,.1,.3,1);
 }
 
 .site-header .main-navigation button.menu-toggle .menu-bar:before{
@@ -159,6 +162,24 @@ Header Name: Header Hotel 01
 .site-header .main-navigation button.menu-toggle .menu-bar:after{
 	content:"";
 	margin-top:10px;
+}
+
+.ifs-menu-active .site-header .main-navigation button.menu-toggle .menu-bar{
+	background-color:transparent;
+}
+
+.ifs-menu-active .site-header .main-navigation button.menu-toggle .menu-bar:before{
+	margin-top:0px;
+	transform: rotate( 45deg );
+	-moz-transform: rotate( 45deg );
+	-webkit-transform: rotate( 45deg );
+}
+
+.ifs-menu-active .site-header .main-navigation button.menu-toggle .menu-bar:after{
+	margin-top:0px;
+	transform: rotate( -45deg );
+	-moz-transform: rotate( -45deg );
+	-webkit-transform: rotate( -45deg );
 }
 
 .site-header .main-navigation .primary-menu-container{
@@ -175,14 +196,16 @@ Header Name: Header Hotel 01
 	height:calc( 100vh - 30px );
 	opacity:0;
 	visibility:hidden;
-	transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
-	-moz-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
-	-webkit-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1);
+	transition:opacity 0.5s cubic-bezier(.3,.1,.3,1), visibility 0s cubic-bezier(.3,.1,.3,1) .5s;
+	-moz-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1), visibility 0s cubic-bezier(.3,.1,.3,1) .5s;
+	-webkit-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1), visibility 0s cubic-bezier(.3,.1,.3,1) .5s;
 }
 
 .ifs-menu-active .site-header .main-navigation .primary-menu-container{
 	visibility: visible;
 	opacity:1;
+	-webkit-transition-delay:0s;
+	transition-delay:0s;
 }
 
 .site-header .primary-menu-container .menu-back{
