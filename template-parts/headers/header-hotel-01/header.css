@@ -222,7 +222,28 @@ Header Name: Header Hotel 01
 }
 
 .site-header .primary-menu-container.inside-submenu .menu-back{
+	opacity:0.5;
+}
+
+.site-header .primary-menu-container.inside-submenu .menu-back:hover{
 	opacity:1;
+}
+
+.site-header .menu-back:before{
+	content:"\f340";
+	font-family:"dashicons";
+	font-size:1.6em;
+	line-height:1em;
+	position:relative;
+	top:7px;
+	left:-6px;
+	transition:left 0.5s cubic-bezier(.3,.1,.3,1);
+	-moz-transition:left 0.5s cubic-bezier(.3,.1,.3,1);
+	-webkit-transition:left 0.5s cubic-bezier(.3,.1,.3,1);
+}
+
+.site-header .menu-back:hover:before{
+	left:-10px;
 }
 
 .site-header .primary-menu-container a{
