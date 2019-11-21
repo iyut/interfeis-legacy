@@ -248,6 +248,21 @@ if(!function_exists("ifs_legacy_searchform")){
 }
 
 /**
+ * display nothing on default menu
+ *
+ * @param void
+ * @return void
+ */
+if( !function_exists("ifs_legacy_blankmenu")){
+
+	function ifs_legacy_blankmenu(){
+
+		echo '';
+
+	}
+}
+
+/**
  * return minicart form
  *
  * @uses the_widget()

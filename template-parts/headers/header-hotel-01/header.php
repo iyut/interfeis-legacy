@@ -35,6 +35,16 @@
             </div><!-- .site-branding -->
 
             <nav id="site-navigation" class="main-navigation">
+				<?php
+					wp_nav_menu( array(
+						'container'         => 'div',
+						'container_id'      => 'menu-2-container',
+						'theme_location'    => 'menu-2',
+						'menu_id'           => 'secondary-menu',
+						'depth' 			=> 2,
+						'fallback_cb' 		=> 'ifs_legacy_blankmenu'
+					) );
+				?>
                 <button id="site-menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 					<span class="menu-bar"></span>
 				</button>

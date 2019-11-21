@@ -436,13 +436,13 @@ Header Name: Header Hotel 01
 	transition-delay:1.4s;
 }
 
-.site-header .main-navigation li{
+.site-header .primary-menu-container li{
 	float:none;
 	text-align:left;
 	margin-bottom:30px;
 }
 
-.site-header .main-navigation li a{
+.site-header .primary-menu-container li a{
 	display:block;
 	padding-left:114px;
 	padding-top:0px;
@@ -453,11 +453,11 @@ Header Name: Header Hotel 01
 	-webkit-transition: padding-left 0.5s cubic-bezier(.3,.1,.3,1);
 }
 
-.site-header .main-navigation li:hover a{
+.site-header .primary-menu-container li:hover a{
 	padding-left:130px;
 }
 
-.site-header .main-navigation li a:before{
+.site-header .primary-menu-container li a:before{
 	content:"";
 	position:absolute;
 	top:50%;
@@ -471,7 +471,7 @@ Header Name: Header Hotel 01
 	-webkit-transition: width 0.5s cubic-bezier(.3,.1,.3,1);
 }
 
-.site-header .main-navigation li a:after{
+.site-header .primary-menu-container li a:after{
 	content:"";
 	position:absolute;
 	top:50%;
@@ -488,70 +488,56 @@ Header Name: Header Hotel 01
 	-webkit-transition: left 0.5s cubic-bezier(.3,.1,.3,1);
 }
 
-.site-header .main-navigation li:hover a:before{
+.site-header .primary-menu-container li:hover a:before{
 	width:100px;
 }
 
-.site-header .main-navigation li:hover a:after{
+.site-header .primary-menu-container li:hover a:after{
 	left:100px;
 }
 
-.site-header .main-navigation li ul.sub-menu,
-.site-header .main-navigation li ul.children{
+.site-header .primary-menu-container li ul.sub-menu,
+.site-header .primary-menu-container li ul.children{
 	display:none;
 }
 
-.site-header .main-navigation li.current-menu-item a,
-.site-header .main-navigation li.current_page_item a,
-.site-header .main-navigation li.current-menu-parent a,
-.site-header .main-navigation li.current_page_parent a,
-.site-header .main-navigation li.current-menu-ancestor a,
-.site-header .main-navigation li.current_page_ancestor a,
-.site-header .main-navigation li a:hover{
-	
+.site-header #menu-2-container{
+	position:absolute;
+	top:0px;
+	right:105px;
+	z-index:80px;
 }
 
-.site-header .main-navigation ul.nav-menu > li.menu-item-has-children,
-.site-header .main-navigation ul.nav-menu > li.page_item_has_children{
-	
+.site-header #menu-2-container > ul.menu{
+	margin:0px;
+	padding:0px;
+	display:flex;
+	flex-flow: row nowrap;
+	align-items:stretch;
+	align-content:flex-end;
+	height:90px;
 }
 
-.site-header .main-navigation ul.nav-menu > li.menu-item-has-children:after,
-.site-header .main-navigation ul.nav-menu > li.page_item_has_children:after{
-	
+.site-header #menu-2-container ul.menu li{
+	display:block;
+	background-color:#fff;
 }
 
-.site-header .main-navigation ul li.menu-item-has-children ul,
-.site-header .main-navigation ul li.page_item_has_children ul{
-	
+.site-header #menu-2-container ul.menu li a{
+	display:block;
+	color:#262633;
+	transition: color 0.5s cubic-bezier(.3,.1,.3,1);
+	-moz-transition: color 0.5s cubic-bezier(.3,.1,.3,1);
+	-webkit-transition: color 0.5s cubic-bezier(.3,.1,.3,1);
 }
 
-.site-header .main-navigation ul li.menu-item-has-children li,
-.site-header .main-navigation ul li.page_item_has_children li{
-	
+.site-header #menu-2-container ul.menu > li > a{
+	line-height:90px;
+	padding:0px 40px;
 }
 
-.site-header .main-navigation ul li.menu-item-has-children li a,
-.site-header .main-navigation ul li.page_item_has_children li a{
-	
-}
-.site-header .main-navigation ul li button.child_toggle{
-	
-}
-.site-header .main-navigation ul li li button.child_toggle{
-	
-}
-.site-header .main-navigation ul li button.child_toggle i:before{
-	
-}
-.site-header .main-navigation ul li.child_opened > button.child_toggle i:before{
-	
-}
-.site-header .main-navigation ul li.menu-item-has-children li:hover > a,
-.site-header .main-navigation ul li.menu-item-has-children li a.current-menu-item,
-.site-header .main-navigation ul li.page_item_has_children li:hover > a,
-.site-header .main-navigation ul li.page_item_has_children li a.current_page_item{
-	
+.site-header #menu-2-container ul.menu > li:hover a{
+	color:#f9cb46;
 }
 
 @media only screen and (min-width:769px){
@@ -580,13 +566,6 @@ Header Name: Header Hotel 01
 		font-size:1rem;
 	}
 
-	.menu-toggle{
-		
-	}
-
-	.primary-menu-container{
-		
-	}
 	.admin-bar .primary-menu-container{
 		top:46px;
 	}
@@ -597,21 +576,6 @@ Header Name: Header Hotel 01
 
 	.main-navigation ul{
 		display:block;
-	}
-
-	ul.nav-menu{
-		
-	}
-
-	.site-header .main-navigation li{
-		
-	}
-
-	.site-header .main-navigation ul.nav-menu > li:hover:before,
-	.site-header .main-navigation ul.nav-menu > li.child_opened:before,
-	.site-header .main-navigation ul.nav-menu > li.current-menu-item:before,
-	.site-header .main-navigation ul.nav-menu > li.current_page_item:before{
-		
 	}
 
 	.site-header .main-navigation li a{
@@ -628,25 +592,7 @@ Header Name: Header Hotel 01
 		display:block;
 	}
 
-	.site-header .main-navigation ul li ul.sub-menu{
-		
-	}
-	.site-header .main-navigation ul.nav-menu > li > ul.sub-menu{
-		
-	}
-
 	.site-header .main-navigation ul li.child_opened > ul.sub-menu{
 		display:block;
-	}
-
-	.site-header .main-navigation ul li.menu-item-has-children li{
-		
-	}
-	.site-header .main-navigation ul.nav-menu li li:hover > a{
-		
-	}
-	.site-header .main-navigation ul li.menu-item-has-children li a,
-	.site-header .main-navigation ul li.page_item_has_children li a{
-		
 	}
 }
