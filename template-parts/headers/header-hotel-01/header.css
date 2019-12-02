@@ -134,9 +134,9 @@ Header Name: Header Hotel 01
 	border:0px;
 	position:relative;
 	z-index:101;
-	-webkit-box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.25);
-	box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.25);
+	-webkit-box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.12);
+    -moz-box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.12);
+	box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.12);
 }
 
 .ifs-menu-active .site-header .main-navigation button.menu-toggle{
@@ -204,6 +204,9 @@ Header Name: Header Hotel 01
 	height:calc( 100vh - 30px );
 	opacity:0;
 	visibility:hidden;
+	-webkit-box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.12);
+    -moz-box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.12);
+	box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.12);
 	transition:opacity 0.5s cubic-bezier(.3,.1,.3,1), visibility 0s cubic-bezier(.3,.1,.3,1) .5s;
 	-moz-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1), visibility 0s cubic-bezier(.3,.1,.3,1) .5s;
 	-webkit-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1), visibility 0s cubic-bezier(.3,.1,.3,1) .5s;
@@ -212,6 +215,30 @@ Header Name: Header Hotel 01
 .ifs-menu-active .site-header .main-navigation .primary-menu-container{
 	visibility: visible;
 	opacity:1;
+	-webkit-transition-delay:0s;
+	transition-delay:0s;
+}
+
+.site-header:before{
+	content:"";
+	display:block;
+	position:fixed;
+	left:0px;
+	right:0px;
+	top:0px;
+	bottom:0px;
+	z-index:85;
+	opacity:0;
+	visibility:hidden;
+	background-color:#000;
+	transition:opacity 0.5s cubic-bezier(.3,.1,.3,1), visibility 0s cubic-bezier(.3,.1,.3,1) .5s;
+	-moz-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1), visibility 0s cubic-bezier(.3,.1,.3,1) .5s;
+	-webkit-transition:opacity 0.5s cubic-bezier(.3,.1,.3,1), visibility 0s cubic-bezier(.3,.1,.3,1) .5s;
+}
+
+.ifs-menu-active .site-header:before{
+	visibility: visible;
+	opacity:0.2;
 	-webkit-transition-delay:0s;
 	transition-delay:0s;
 }
@@ -514,6 +541,9 @@ Header Name: Header Hotel 01
 	top:0px;
 	right:105px;
 	z-index:80px;
+	-webkit-box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.12);
+    -moz-box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.12);
+	box-shadow: 0px 0px 39px -14px rgba(0,0,0,0.12);
 }
 
 .site-header #menu-2-container > ul.menu{
