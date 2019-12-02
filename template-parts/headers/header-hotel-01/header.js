@@ -26,7 +26,7 @@ jQuery(document).ready( function(){
 		
 
 		subclone.addClass( 'sub-menu-generated' );
-		menu_container.children('div').prepend( menuback );
+		menu_container.prepend( menuback );
 		menu_list.after( subclone );
 
 		setTimeout( function(){
